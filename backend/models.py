@@ -8,7 +8,8 @@ from database import Base
 class TipoPaso(enum.Enum):
     CRUZGUIA = "CruzGuia"
     PALIO = "Palio"
-
+    DUELO = "Duelo"
+    PASO = "Paso"
 
 class Usuario(Base):
     __tablename__ = "usuarios"
@@ -65,8 +66,8 @@ class Hermandad(Base):
     nombre = Column(String(100), nullable=False)
     idDia = Column(Integer, ForeignKey("dias.id"), nullable=False)
     
-    infopaso = relationship("InfoPaso", back_populates="hermandad")
-    dia = relationship("Dia", back_populates="hermandad")
+    infopasos = relationship("InfoPaso", back_populates="hermandad")
+    dia = relationship("Dia", back_populates="hermandades")
 
 
 class InfoPaso(Base):
@@ -77,9 +78,9 @@ class InfoPaso(Base):
     tipoPaso = Column(Enum(TipoPaso), nullable=False)
     localizacion = Column(String(255), nullable=False)
     idHermandad = Column(Integer, ForeignKey("hermandades.id"), nullable=False)
-    difHora = Column(Time, nullable=False)
+    difHora = Column(Time, nullable=True)
     
-    hermandad = relationship("Hermandad", back_populates="infopaso")
-    itinerarios = relationship("Itinerario", back_populates="infopaso")
+    hermandad = relationship("Hermandad", back_populates="infopasos")
+    itinerario = relationship("Itinerario", back_populates="infopaso")
     
 
