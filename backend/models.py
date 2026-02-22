@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Time, Enum
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, time
 import enum
 from database import Base
 
@@ -64,10 +64,11 @@ class InfoPaso(Base):
     __tablename__ = "infopaso"
     
     id = Column(Integer, primary_key=True, index=True)
-    hora = Column(Integer, nullable=False)
+    hora = Column(Time, nullable=False)
     tipoPaso = Column(Enum(TipoPaso), nullable=False)
     localizacion = Column(String(255), nullable=False)
     idHermandad = Column(Integer, ForeignKey("hermandades.id"), nullable=False)
+    difHora = Column(Time, nullable=False)
     
     hermandad = relationship("Hermandad", back_populates="infopaso")
     itinerarios = relationship("Itinerario", back_populates="infopaso")
