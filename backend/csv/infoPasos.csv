@@ -1,0 +1,70 @@
+idHermandad;tipoPaso;hora;localizacion;difHora
+1;CruzGuia;17:30;Salida - Can.Colegio;
+1;CruzGuia;18:00;Rotonda Esqueleto;
+1;CruzGuia;18:30;Rotonda Ntra. Sra. Oliva;
+1;CruzGuia;19:00;Getsemaní;
+1;CruzGuia;19:30;Getsemaní;
+1;CruzGuia;20:00;Peña Bética N.S. Oliva;
+1;CruzGuia;20:30;Nenúfar;
+1;CruzGuia;21:00;Alfonso Lasso Vega;
+1;CruzGuia;21:30;Almirante Topete;
+1;CruzGuia;22:00;Avda. Teatinos;
+1;CruzGuia;22:30;Parroquia Sta. Genoveva;
+1;CruzGuia;23:00;Almirante Topete;
+1;CruzGuia;23:30;Almirante Topete;
+1;CruzGuia;00:00;Rotonda H.V. Rocío;
+1;CruzGuia;00:30;Bendición y Esperanza;
+1;CruzGuia;01:00;Cancel Colegio;
+1;CruzGuia;01:30;Entrada;01:40
+1;Palio;17:30;Salida;17:20
+1;Palio;18:00;Cancel Colegio;
+1;Palio;18:30;Rotonda Esqueleto;
+1;Palio;19:00;Ronda Ntra. Sra. Oliva;
+1;Palio;19:30;Getsemaní;
+1;Palio;20:00;Getsemaní;
+1;Palio;20:30;Peña Bética N. Sra. Oliva;
+1;Palio;21:00;Nenúfar;
+1;Palio;21:30;Alfonso Lasso Vega;
+1;Palio;22:00;Almirante Topete;
+1;Palio;22:30;Avda. Teatinos;
+1;Palio;23:00;Parr. Santa Genoveva;
+1;Palio;23:30;Almirante Topete;
+1;Palio;00:00;Almirante Topete;
+1;Palio;00:30;Rotonda H.V. Rocío;
+1;Palio;01:00;Bendición y Esperanza;
+1;Palio;01:30;Cancel Colegio;
+1;Palio;02:00;Entrada;
+2;CruzGuia;17:30;Salida;17:45
+2;CruzGuia;18:00;Pl. Ramón Rueda;
+2;CruzGuia;18:30;Sembradores;
+2;CruzGuia;19:00;Estrella Sirio;
+2;CruzGuia;19:30;Estrella Canopus;
+2;CruzGuia;20:00;Parque Sierra Norte;
+2;CruzGuia;20:30;Corral del Agua;
+2;CruzGuia;21:00;Corral de la Encarnación;
+2;CruzGuia;21:30;Corral de los Barquilleros;
+2;CruzGuia;22:00;Trav. Ntra. S. Consolación;
+2;CruzGuia;22:30;Viñadores;
+2;CruzGuia;23:00;Impresores;
+2;CruzGuia;23:30;Esparteros;
+2;CruzGuia;00:00;Alfareros;
+2;CruzGuia;00:30;Alfareros;
+2;CruzGuia;01:00;Entrada;1:15
+2;Palio;18:30;Salida;
+2;Palio;19:00;Tapiceros;
+2;Palio;19:30;Agricultores;
+2;Palio;20:00;Estrella Agena;
+2;Palio;20:30;Estrella Canopus;
+2;Palio;21:00;Parque Sierra Norte;
+2;Palio;21:30;Corral del Agua;
+2;Palio;22:00;Corral de la Encarnación;
+2;Palio;22:30;Corral del Acabose;
+2;Palio;23:00;Trav. Ntra. S. Consolación;
+2;Palio;23:30;Trav. Ntra. S. Consolación;
+2;Palio;00:00;Viñadores;
+2;Palio;00:30;Impresores;
+2;Palio;01:00;Esparteros;
+2;Palio;01:30;Alfareros;
+2;Palio;02:00;Entrada;02:15
+ 
+
