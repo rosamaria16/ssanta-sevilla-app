@@ -49,13 +49,19 @@ class Emisora(Base):
     urlStream = Column(String(500), nullable=False)
     urlImagen = Column(String(500), nullable=False)
 
+class Dia(Base):
+    __tablename__ = "dias"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String(50), nullable=False)
+    fecha = Column(DateTime, nullable=False)
 
 class Hermandad(Base):
     __tablename__ = "hermandades"
     
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), nullable=False)
-    dia = Column(String(50), nullable=False)
+    dia = Column(Integer, ForeignKey("dias.id"), nullable=False)
     
     infopaso = relationship("InfoPaso", back_populates="hermandad")
 
@@ -74,4 +80,3 @@ class InfoPaso(Base):
     itinerarios = relationship("Itinerario", back_populates="infopaso")
     
 
-    
