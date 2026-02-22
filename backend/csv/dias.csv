@@ -1,12 +1,12 @@
-id;nombre
-1;Viernes de Dolores
-2;Sábado de Pasión
-3;Domingo de Ramos
-4;Lunes Santo
-5;Martes Santo
-6;Miércoles Santo
-7;Jueves Santo
-8;Madrugá
-9;Viernes Santo
-10;Sábado Santo
-11;Domingo de Resurrección
+id;nombre;fecha
+1;Viernes de Dolores;2025-04-11
+2;Sábado de Pasión;2025-04-12
+3;Domingo de Ramos;2025-04-13
+4;Lunes Santo;2025-04-14
+5;Martes Santo;2025-04-15
+6;Miércoles Santo;2025-04-16
+7;Jueves Santo;2025-04-17
+8;Madrugá;2025-04-18
+9;Viernes Santo;2025-04-18
+10;Sábado Santo;2025-04-19
+11;Domingo de Resurrección;2025-04-20
