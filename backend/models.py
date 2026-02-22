@@ -29,7 +29,7 @@ class Itinerario(Base):
     idInfoPaso = Column(Integer, ForeignKey("infopaso.id"), nullable=False)
     
     usuario = relationship("Usuario", back_populates="itinerario")
-    infopaso = relationship("InfoPaso", back_populates="itinerarios")
+    infopaso = relationship("InfoPaso", back_populates="itinerario")
 
 
 class Noticia(Base):
@@ -55,15 +55,18 @@ class Dia(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50), nullable=False)
     fecha = Column(DateTime, nullable=False)
+    
+    hermandades = relationship("Hermandad", back_populates="dia")
 
 class Hermandad(Base):
     __tablename__ = "hermandades"
     
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), nullable=False)
-    dia = Column(Integer, ForeignKey("dias.id"), nullable=False)
+    idDia = Column(Integer, ForeignKey("dias.id"), nullable=False)
     
     infopaso = relationship("InfoPaso", back_populates="hermandad")
+    dia = relationship("Dia", back_populates="hermandad")
 
 
 class InfoPaso(Base):
