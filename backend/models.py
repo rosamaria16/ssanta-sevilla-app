@@ -6,10 +6,10 @@ from database import Base
 
 
 class TipoPaso(enum.Enum):
-    CRUZGUIA = "CruzGuia"
-    PALIO = "Palio"
-    DUELO = "Duelo"
-    PASO = "Paso"
+    CRUZGUIA = "CRUZGUIA"
+    PALIO = "PALIO"
+    DUELO = "DUELO"
+    PASO = "PASO"
 
 class Usuario(Base):
     __tablename__ = "usuarios"
