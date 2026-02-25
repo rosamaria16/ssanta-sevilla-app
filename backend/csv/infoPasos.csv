@@ -1,2158 +1,2158 @@
 idHermandad;tipoPaso;hora;localizacion;difHora
-1;CruzGuia;17:30;Salida Can. Colegio;17:00
-1;CruzGuia;18:00;Rotonda Esqueleto;
-1;CruzGuia;18:30;Rotonda Ntra. Sra. Oliva;
-1;CruzGuia;19:00;Getsemaní;
-1;CruzGuia;19:30;Getsemaní;
-1;CruzGuia;20:00;Peña Bética N.S. Oliva;
-1;CruzGuia;20:30;Nenúfar;
-1;CruzGuia;21:00;Alfonso Lasso Vega;
-1;CruzGuia;21:30;Almirante Topete;
-1;CruzGuia;22:00;Avda. Teatinos;
-1;CruzGuia;22:30;Parroquia Sta. Genoveva;
-1;CruzGuia;23:00;Almirante Topete;
-1;CruzGuia;23:30;Almirante Topete;
-1;CruzGuia;00:00;Rotonda H.V. Rocío;
-1;CruzGuia;00:30;Bendición y Esperanza;
-1;CruzGuia;01:00;Cancel Colegio;
-1;CruzGuia;01:30;Entrada;01:40
-1;Paso;17:30;Salida;17:20
-1;Paso;18:00;Cancel Colegio;
-1;Paso;18:30;Rotonda Esqueleto;
-1;Paso;19:00;Ronda Ntra. Sra. Oliva;
-1;Paso;19:30;Getsemaní;
-1;Paso;20:00;Getsemaní;
-1;Paso;20:30;Peña Bética N. Sra. Oliva;
-1;Paso;21:00;Nenúfar;
-1;Paso;21:30;Alfonso Lasso Vega;
-1;Paso;22:00;Almirante Topete;
-1;Paso;22:30;Avda. Teatinos;
-1;Paso;23:00;Parr. Santa Genoveva;
-1;Paso;23:30;Almirante Topete;
-1;Paso;00:00;Almirante Topete;
-1;Paso;00:30;Rotonda H.V. Rocío;
-1;Paso;01:00;Bendición y Esperanza;
-1;Paso;01:30;Cancel Colegio;
-1;Paso;02:00;Entrada;
-2;CruzGuia;17:30;Salida;17:45
-2;CruzGuia;18:00;Pl. Ramón Rueda;
-2;CruzGuia;18:30;Sembradores;
-2;CruzGuia;19:00;Estrella Sirio;
-2;CruzGuia;19:30;Estrella Canopus;
-2;CruzGuia;20:00;Parque Sierra Norte;
-2;CruzGuia;20:30;Corral del Agua;
-2;CruzGuia;21:00;Corral de la Encarnación;
-2;CruzGuia;21:30;Corral de los Barquilleros;
-2;CruzGuia;22:00;Trav. Ntra. S. Consolación;
-2;CruzGuia;22:30;Viñadores;
-2;CruzGuia;23:00;Impresores;
-2;CruzGuia;23:30;Esparteros;
-2;CruzGuia;00:00;Alfareros;
-2;CruzGuia;00:30;Alfareros;
-2;CruzGuia;01:00;Entrada;01:15
-2;Palio;18:30;Salida;
-2;Palio;19:00;Tapiceros;
-2;Palio;19:30;Agricultores;
-2;Palio;20:00;Estrella Agena;
-2;Palio;20:30;Estrella Canopus;
-2;Palio;21:00;Parque Sierra Norte;
-2;Palio;21:30;Corral del Agua;
-2;Palio;22:00;Corral de la Encarnación;
-2;Palio;22:30;Corral del Acabose;
-2;Palio;23:00;Trav. Ntra. S. Consolación;
-2;Palio;23:30;Trav. Ntra. S. Consolación;
-2;Palio;00:00;Viñadores;
-2;Palio;00:30;Impresores;
-2;Palio;01:00;Esparteros;
-2;Palio;01:30;Alfareros;
-2;Palio;02:00;Entrada;02:15
-3;CruzGuia;18:00;Salida;18:15
-3;CruzGuia;18:30;San Antonio María Claret;
-3;CruzGuia;19:00;Periodista Ramón Resa;
-3;CruzGuia;19:30;Periodista Ramón Resa;
-3;CruzGuia;20:00;Páez de Ribera;
-3;CruzGuia;20:30;Avda. Manuel Siurot;
-3;CruzGuia;21:00;Avda. Manuel Siurot;
-3;CruzGuia;21:30;Torc. Luca de Tena;
-3;CruzGuia;22:00;Fotógrafo A. del Junco;
-3;CruzGuia;22:30;Teba;
-3;CruzGuia;23:00;Tajo;
-3;CruzGuia;23:30;Ebro;
-3;CruzGuia;00:00;Avda. Padre García Tejero;
-3;CruzGuia;00:30;Entrada;
-3;Paso;18:30;Salida;
-3;Paso;19:00;San Antonio María Claret;
-3;Paso;19:30;Periodista Ramón Resa;
-3;Paso;20:00;Periodista Ramón Resa;
-3;Paso;20:30;Cardenal Ilundain;
-3;Paso;21:00;Avda. Manuel Siurot;
-3;Paso;21:30;Avda. Manuel Siurot;
-3;Paso;22:00;Monzón;
-3;Paso;22:30;Avda. Reina Mercedes;
-3;Paso;23:00;Ensanche;
-3;Paso;23:30;Panamá;
-3;Paso;00:00;Ebro;
-3;Paso;00:30;Padre García Tejero;
-3;Paso;01:00;Entrada;
-4;CruzGuia;18:30;Salida;
-4;CruzGuia;19:00;Pl. Fernando VI;
-4;CruzGuia;19:30;Ávila;
-4;CruzGuia;20:00;Almirante Argandoña;
-4;CruzGuia;20:30;Santa Margarita;
-4;CruzGuia;21:00;Pamplona;
-4;CruzGuia;21:30;Guadalajara;
-4;CruzGuia;22:00;Vigo;
-4;CruzGuia;22:30;Espejo;
-4;CruzGuia;23:00;Almenas;
-4;CruzGuia;23:30;Pl. Retiro;
-4;CruzGuia;00:00;Rosas;
-4;CruzGuia;00:30;Entrada;
-4;Palio;19:00;Salida;19:04
-4;Palio;19:30;Soria;
-4;Palio;20:00;Logroño;
-4;Palio;20:30;Asensio y Toledo;
-4;Palio;21:00;Almirante Argandoña;
-4;Palio;21:30;Santa Margarita;
-4;Palio;22:00;Pamplona;
-4;Palio;22:30;Guadalajara;
-4;Palio;23:00;Caldereros;
-4;Palio;23:30;Pl. Cadenas;
-4;Palio;00:00;Almenas;
-4;Palio;00:30;Alcuceros;
-4;Palio;01:00;Rosas;
-4;Palio;01:30;Entrada;
-5;CruzGuia;20:00;Salida - C. de Bustillo;
-5;CruzGuia;20:30;Prosperidad;
-5;CruzGuia;21:00;Febo;
-5;CruzGuia;21:30;Victoria;
-5;CruzGuia;22:00;Parroquia de Santa Ana;
-5;CruzGuia;22:30;Pureza;
-5;CruzGuia;23:00;Rodrigo de Triana;
-5;CruzGuia;23:30;San Jacinto;
-5;CruzGuia;00:00;Entrada;00:10
-5;Paso;20:00;Salida;20:15
-5;Paso;20:30;Evangelista;
-5;Paso;21:00;Trabajo;
-5;Paso;21:30;Pagés del Corro;
-5;Paso;22:00;Pl. Santa Ana;
-5;Paso;22:30;Pureza;
-5;Paso;23:00;Fabié;
-5;Paso;23:30;San Jacinto;
-5;Paso;00:00;San Jacinto;
-5;Paso;00:30;Entrada;
-6;CruzGuia;19:30;Salida;19:45
-6;CruzGuia;20:00;Cardenal Carlos Amigo;
-6;CruzGuia;20:30;Álvarez Quintero;
-6;CruzGuia;21:00;Fernández y González;
-6;CruzGuia;21:30;García de Vinuesa;
-6;CruzGuia;22:00;Real de la Carretería;
-6;CruzGuia;22:30;Postigo del Aceite;
-6;CruzGuia;23:00;Joaq. Romero Murube;
-6;CruzGuia;23:30;Pl. Virgen de los Reyes;
-6;CruzGuia;00:00;Entrada;23:45
-6;Paso;20:00;Salida;
-6;Paso;20:30;Chapineros;
-6;Paso;21:00;Plaza Nueva;
-6;Paso;21:30;Fernández y González;
-6;Paso;22:00;Puerta del Arenal;
-6;Paso;22:30;Dos de Mayo;
-6;Paso;23:00;Pl. Triunfo;
-6;Paso;23:30;Mateos Gago;
-6;Paso;00:00;Entrada;
-7;CruzGuia;15:00;Salida;15:10
-7;CruzGuia;15:30;Doctora;
-7;CruzGuia;16:00;Puebla del Río;
-7;CruzGuia;16:30;Doña Francisquita;
-7;CruzGuia;17:00;Doña Francisquita;
-7;CruzGuia;17:30;Puerto de la Mora;
-7;CruzGuia;18:00;Calatayud;
-7;CruzGuia;18:30;Ntra. Sra. Dolores;
-7;CruzGuia;19:00;Párroco A. Gómez Villa.;
-7;CruzGuia;19:30;Párroco A. Gómez Villa.;
-7;CruzGuia;20:00;Galicia;
-7;CruzGuia;20:30;Coimbra;
-7;CruzGuia;21:00;Avda. Gavilanes;
-7;CruzGuia;21:30;Doña Francisquita;
-7;CruzGuia;22:00;Doña Francisquita;
-7;CruzGuia;22:30;Ronda Padre Pío;
-7;CruzGuia;23:00;Carrión de los Céspedes;
-7;CruzGuia;23:30;Puebla de Cazalla;
-7;CruzGuia;00:00;Castillo de las Guardas;
-7;CruzGuia;00:30;Entrada;
-7;Palio;16:00;Salida;
-7;Palio;16:30;Avda. La Plata;
-7;Palio;17:00;Doña Francisquita;
-7;Palio;17:30;Doña Francisquita;
-7;Palio;18:00;Puerto de Piedrafita;
-7;Palio;18:30;Fco Carrera Iglesias;
-7;Palio;19:00;Afán de Ribera;
-7;Palio;19:30;Ntra. Sra. Dolores;
-7;Palio;20:00;Párroco A. Gómez Villa.;
-7;Palio;20:30;Galicia;
-7;Palio;21:00;Lisboa;
-7;Palio;21:30;Coimbra;
-7;Palio;22:00;Doña Francisquita;
-7;Palio;22:30;Avda. Plata;
-7;Palio;23:00;Ronda de Padre Pío;
-7;Palio;23:30;Carrión de los Céspedes;
-7;Palio;00:00;Puebla de Cazalla;
-7;Palio;00:30;Castillo de las Guardas;
-7;Palio;01:00;Ronda Padre Pío;
-7;Palio;01:30;Entrada;
-8;CruzGuia;16:30;Salida;16:45
-8;CruzGuia;17:00;Pl. Platanero;
-8;CruzGuia;17:30;Ébano;
-8;CruzGuia;18:00;Abedul;
-8;CruzGuia;18:30;Torremejías;
-8;CruzGuia;19:00;Torresquevedo;
-8;CruzGuia;19:30;Torrellana;
-8;CruzGuia;20:00;Pl. Inmacul. Corazón Mª.;
-8;CruzGuia;20:30;Pl. Inmacul. Corazón Mª.;
-8;CruzGuia;21:00;Torrevieja;
-8;CruzGuia;21:30;Torrelaguna;
-8;CruzGuia;22:00;Torrecuadrada;
-8;CruzGuia;22:30;Torrescarcela;
-8;CruzGuia;23:00;Torremocha;
-8;CruzGuia;23:30;Pl. Salvador Valverde;
-8;CruzGuia;00:00;Cedro;
-8;CruzGuia;00:30;Entrada;
-8;Palio;17:30;Salida;17:45
-8;Palio;18:00;Pl. Platanero;
-8;Palio;18:30;Ébano;
-8;Palio;19:00;Abedul;
-8;Palio;19:30;Torregorda;
-8;Palio;20:00;Torremejías;
-8;Palio;20:30;Torrellana;
-8;Palio;21:00;Toresbermejas;
-8;Palio;21:30;Pl. Inmacul. Corazón Mª.;
-8;Palio;22:00;Pl. Inmacul. Corazón Mª.;
-8;Palio;22:30;Torrelaguna;
-8;Palio;23:00;Torrecuadrada;
-8;Palio;23:30;Torrescarcelas;
-8;Palio;00:00;Torremocha;
-8;Palio;00:30;Pl. Salvador Valverde;
-8;Palio;01:00;Cedro - Pl. Acacias;
-8;Palio;01:30;Entrada;2:15
-9;CruzGuia;17:30;Salida;
-9;CruzGuia;18:00;Carmen Conde;
-9;CruzGuia;18:30;Ildefonso Mara. Lavín;
-9;CruzGuia;19:00;Turia;
-9;CruzGuia;19:30;Ciudad de Chiva;
-9;CruzGuia;20:00;Ciudad del Alfafar;
-9;CruzGuia;20:30;Parroquia;
-9;CruzGuia;21:00;Ntra. Sra. Desamparad.;
-9;CruzGuia;21:30;Jesús del Divino Perdón;
-9;CruzGuia;22:00;Ildefonso Mara. Lavín;
-9;CruzGuia;22:30;Pl. Obradoiro;
-9;CruzGuia;23:00;Ciudad de Chiva;
-9;CruzGuia;23:30;Emilia Barral;
-9;CruzGuia;00:00;Entrada;
-9;Palio;18:00;Salida;18:15
-9;Palio;18:30;Carmen Conde;
-9;Palio;19:00;Ildefonso Mara. Lavín;
-9;Palio;19:30;Ildefonso Mara. Lavín;
-9;Palio;20:00;Avda. Las ONG;
-9;Palio;20:30;Ciudad de Chiva;
-9;Palio;21:00;Ciudad del Alfafar;
-9;Palio;21:30;Parroquia Desampar.;
-9;Palio;22:00;Ntra. Sra. Desamparad.;
-9;Palio;22:30;Ontur;
-9;Palio;23:00;Ciudad de Chiva;
-9;Palio;23:30;Pl. Obradoiro;
-9;Palio;00:00;Ciudad de Chiva;
-9;Palio;00:30;Emilia Barral;
-9;Palio;01:00;Entrada;
-10;CruzGuia;17:00;Salida;
-10;CruzGuia;17:30;Antonio Filpo Rojas;
-10;CruzGuia;18:00;Urquiza;
-10;CruzGuia;18:30;Arroyo;
-10;CruzGuia;19:00;Mateos;
-10;CruzGuia;19:30;Cristo de las Cinco Llagas;
-10;CruzGuia;20:00;Sol;
-10;CruzGuia;20:30;Maria Auxiliadora;
-10;CruzGuia;21:00;San Juan Bosco;
-10;CruzGuia;21:30;Jabugo;
-10;CruzGuia;22:00;M. Gómez Zarzuela;
-10;CruzGuia;22:30;Vicente Alanís;
-10;CruzGuia;23:00;Guanahaní;
-10;CruzGuia;23:30;Nicasio Gallego;
-10;CruzGuia;00:00;Entrada;00:05
-10;Palio;17:30;Salida;
-10;Palio;18:00;Antonio Filpo Rojas;
-10;Palio;18:30;Venecia;
-10;Palio;19:00;Arroyo;
-10;Palio;19:30;Mateos;
-10;Palio;20:00;Cristo de las Cinco Llagas;
-10;Palio;20:30;Sol;
-10;Palio;21:00;Madre Isabel de la Trinidad;
-10;Palio;21:30;San Juan Bosco;
-10;Palio;22:00;Jabugo;
-10;Palio;22:30;M. Gómez Zarzuela;
-10;Palio;23:00;José María de Mena;
-10;Palio;23:30;Arroyo;
-10;Palio;00:00;Luis Álvarez Duarte;
-10;Palio;00:30;Entrada;00:40
-11;CruzGuia;16:30;Salida;
-11;CruzGuia;17:00;Avda. Ciudad Jardín;
-11;CruzGuia;17:30;Antonio de Nebrija;
-11;CruzGuia;18:00;Almotamid;
-11;CruzGuia;18:30;Arzobispo Salcedo;
-11;CruzGuia;19:00;Gran Plaza;
-11;CruzGuia;19:30;Eduardo Dato;
-11;CruzGuia;20:00;San Juan de Dios;
-11;CruzGuia;20:30;Espinosa y Cárcel;
-11;CruzGuia;21:00;Villegas Marmolejo;
-11;CruzGuia;21:30;Parque García Lorca;
-11;CruzGuia;22:00;Fernández de Ribera;
-11;CruzGuia;22:30;Avda. Ciudad Jardín;
-11;CruzGuia;23:00;Entrada;22:40
-11;Palio;17:00;Salida;17:10
-11;Palio;17:30;Avda. Ciudad Jardín;
-11;Palio;18:00;Card. Rodrigo de Castro;
-11;Palio;18:30;Antonio de Nebrija;
-11;Palio;19:00;Almotamid;
-11;Palio;19:30;Alfonso XI;
-11;Palio;20:00;Eduardo Dato;
-11;Palio;20:30;San Juan de Dios;
-11;Palio;21:00;San Juan de Dios;
-11;Palio;21:30;Santa María Mazzarello;
-11;Palio;22:00;Villegas y Marmolejo;
-11;Palio;22:30;Parque García Lorca;
-11;Palio;23:00;Marqués del Nervión;
-11;Palio;23:30;Fernández de Ribera;
-11;Palio;00:00;Entrada;
-12;CruzGuia;14:30;Salida;
-12;CruzGuia;15:00;Lasso de la V.;
-12;CruzGuia;15:30;J. Gran Poder;
-12;CruzGuia;16:00;Campana;16:05
-12;CruzGuia;16:30;Plaza;16:45
-12;CruzGuia;17:00;S. Miguel;17:11
-12;CruzGuia;17:30;P. Palos;
-12;CruzGuia;18:00;Álv. Quintero;
-12;CruzGuia;18:30;Entrada;
-12;Paso;15:00;Salida;
-12;Paso;15:30;Orfila;
-12;Paso;16:00;San Miguel;
-12;Paso;16:30;Campana;14:31
-12;Paso;17:00;Plaza;17:11
-12;Paso;17:30;S. Miguel;17:37
-12;Paso;18:00;P. Palos;17:56
-12;Paso;18:30;Chapineros;
-12;Paso;19:00;Entrada;
-13;CruzGuia;14:00;Salida;14:17
-13;CruzGuia;14:30;Zaragoza;
-13;CruzGuia;15:00;San Pablo;
-13;CruzGuia;15:30;Pl. Magdalena;
-13;CruzGuia;16:00;O'Donnell;
-13;CruzGuia;16:30;Campana;16:31
-13;CruzGuia;17:00;Plaza;17:11
-13;CruzGuia;17:30;S. Miguel;17:37
-13;CruzGuia;18:00;P. Palos;17:56
-13;CruzGuia;18:30;T. de Ibarra;
-13;CruzGuia;19:00;Dos de Mayo;
-13;CruzGuia;19:30;Real Carretería;
-13;CruzGuia;20:00;Gamazo;
-13;CruzGuia;20:30;Zaragoza;
-13;CruzGuia;21:00;Fray B. Casas;
-13;CruzGuia;21:30;Entrada;21:20
-13;Palio;15:00;Salida;15:10
-13;Palio;15:30;Zaragoza;
-13;Palio;16:00;San Pablo;
-13;Palio;16:30;Velázquez;
-13;Palio;17:00;Campana;17:00
-13;Palio;17:30;Plaza;17:40
-13;Palio;18:00;S. Miguel;18:06
-13;Palio;18:30;P. Palos;18:25
-13;Palio;19:00;A. R. Jurado;
-13;Palio;19:30;T. de Ibarra;
-13;Palio;20:00;Dos de Mayo;
-13;Palio;20:30;Real Carretería;
-13;Palio;21:00;Castelar;
-13;Palio;21:30;Zaragoza;
-13;Palio;22:00;Fray B. Casas;
-13;Palio;22:30;Entrada;22:40
-14;CruzGuia;13:00;Salida;
-14;CruzGuia;13:30;Aniceto Saenz;
-14;CruzGuia;14:00;Relator;
-14;CruzGuia;14:30;Feria;
-14;CruzGuia;15:00;Feria;
-14;CruzGuia;15:30;Europa;
-14;CruzGuia;16:00;Trajano;
-14;CruzGuia;16:30;Pl. Duque;
-14;CruzGuia;17:00;Campana;
-14;CruzGuia;17:30;Plaza;17:40
-14;CruzGuia;18:00;S. Miguel;18:06
-14;CruzGuia;18:30;P. Palos;18:25
-14;CruzGuia;19:00;Villegas;
-14;CruzGuia;19:30;Pl. Alfalfa;
-14;CruzGuia;20:00;Pl. Cristo Burg.;
-14;CruzGuia;20:30;D. Mª Coronel;
-14;CruzGuia;21:00;Bustos Tavera;
-14;CruzGuia;21:30;Hiniesta;
-14;CruzGuia;22:00;Hiniesta;
-14;CruzGuia;22:30;Pl. Moravia;
-14;CruzGuia;23:00;Entrada;22:45
-14;Palio;14:00;Salida;14:05
-14;Palio;14:30;Pta. Córdoba;
-14;Palio;15:00;Aniceto Saenz;
-14;Palio;15:30;Relator;
-14;Palio;16:00;Feria;
-14;Palio;16:30;Correduría;
-14;Palio;17:00;Trajano;
-14;Palio;17:30;Campana;17:45
-14;Palio;18:00;Plaza;18:25
-14;Palio;18:30;S. Miguel;18:51
-14;Palio;19:00;P. Palos;19:10
-14;Palio;19:30;Alemanes;
-14;Palio;20:00;Francos;
-14;Palio;20:30;Tres Caídas;
-14;Palio;21:00;Pl. Cristo Burg.;
-14;Palio;21:30;D. Mª Coronel;
-14;Palio;22:00;Bustos Tavera;
-14;Palio;22:30;San Marcos;
-14;Palio;23:00;Hiniesta;
-14;Palio;23:30;Hiniesta;
-14;Palio;00:00;Pl. Moravia;
-14;Palio;00:30;Entrada;
-15;CruzGuia;13:00;Salida;
-15;CruzGuia;13:30;Gta. Covadonga;
-15;CruzGuia;14:00;Pl. España;
-15;CruzGuia;14:30;Palos Frontera;
-15;CruzGuia;15:00;Av. Constitución;
-15;CruzGuia;15:30;P. del Aceite;
-15;CruzGuia;16:00;Castelar;
-15;CruzGuia;16:30;Barcelona;
-15;CruzGuia;17:00;Tetuán;
-15;CruzGuia;17:30;Campana;17:45
-15;CruzGuia;18:00;Plaza;18:25
-15;CruzGuia;18:30;S. Miguel;18:51
-15;CruzGuia;19:00;P. Palos;19:10
-15;CruzGuia;19:30;Pl. Contratación;
-15;CruzGuia;20:00;Avda. Roma;
-15;CruzGuia;20:30;Palos Frontera;
-15;CruzGuia;21:00;Pl. España;
-15;CruzGuia;21:30;Gta. Covadonga;
-15;CruzGuia;22:00;Brasil;
-15;CruzGuia;22:30;Río de la Plata;
-15;CruzGuia;23:00;Entrada;
-15;Palio;14:00;Salida;14:15
-15;Palio;14:30;Brasil;
-15;Palio;15:00;Avda. Borbolla;
-15;Palio;15:30;Pl. España;
-15;Palio;16:00;Palos Frontera;
-15;Palio;16:30;Av. Constitución;
-15;Palio;17:00;P. del Aceite;
-15;Palio;17:30;Castelar;
-15;Palio;18:00;Tetuán;
-15;Palio;18:30;Campana;18:46
-15;Palio;19:00;Plaza;19:26
-15;Palio;19:30;Avenida;
-15;Palio;20:00;S. Miguel;20:28
-15;Palio;20:30;P. Palos;20:47
-15;Palio;21:00;Pl. Contratación;
-15;Palio;21:30;Avda. Roma;
-15;Palio;22:00;Gta. del Cid;
-15;Palio;22:30;Pl. España Torre N.;
-15;Palio;23:00;Pl. España Torre S.;
-15;Palio;23:30;Gta. Covadonga;
-15;Palio;00:00;Río de la Plata;
-15;Palio;00:30;San Salvador;
-15;Palio;01:00;Entrada;
-16;CruzGuia;16:00;Salida;16:15
-16;CruzGuia;16:30;C. M. Santiago;
-16;CruzGuia;17:00;Laraña;
-16;CruzGuia;17:30;Orfila;
-16;CruzGuia;18:00;J. Gran Poder;
-16;CruzGuia;18:30;Campana;18:46
-16;CruzGuia;19:00;Plaza;19:26
-16;CruzGuia;19:30;Avenida;
-16;CruzGuia;20:00;S. Miguel;20:28
-16;CruzGuia;20:30;P. Palos;20:47
-16;CruzGuia;21:00;Alemanes;
-16;CruzGuia;21:30;Francos;
-16;CruzGuia;22:00;Alfalfa;
-16;CruzGuia;22:30;Gerona;
-16;CruzGuia;23:00;Entrada;
-16;Palio;16:30;Salida;16:50
-16;Palio;17:00;Alhóndiga;
-16;Palio;17:30;Imagen;
-16;Palio;18:00;Orfila;
-16;Palio;18:30;San Miguel;
-16;Palio;19:00;Campana;19:22
-16;Palio;19:30;Plaza;20:02
-16;Palio;20:00;S. Miguel;20:28
-16;Palio;20:30;P. Palos;20:44
-16;Palio;21:00;Card. C. Amigo;
-16;Palio;21:30;Francos;
-16;Palio;22:00;Alfalfa;
-16;Palio;22:30;Pl. C. Burgos;
-16;Palio;23:00;D. Mª Coronel;
-16;Palio;23:30;Entrada;23:40
-17;CruzGuia;16:30;Salida;16:35
-17;CruzGuia;17:00;Puñonrostro;
-17;CruzGuia;17:30;Ponce de León;
-17;CruzGuia;18:00;Imagen;
-17;CruzGuia;18:30;Laraña;
-17;CruzGuia;19:00;Campana;19:22
-17;CruzGuia;19:30;Plaza;20:02
-17;CruzGuia;20:00;S. Miguel;20:28
-17;CruzGuia;20:30;P. Palos;20:47
-17;CruzGuia;21:00;Arg. de Molina;
-17;CruzGuia;21:30;C. del Rosario;
-17;CruzGuia;22:00;C. Rey D. Pedro;
-17;CruzGuia;22:30;Caballerizas;
-17;CruzGuia;23:00;Medinaceli;
-17;CruzGuia;23:30;Guadalupe;
-17;CruzGuia;00:00;Entrada;
-17;Palio;17:30;Salida;
-17;Palio;18:00;Puerta Osario;
-17;Palio;18:30;Ponce de León;
-17;Palio;19:00;Encarnación;
-17;Palio;19:30;Campana;19:57
-17;Palio;20:00;Sierpes;
-17;Palio;20:30;Plaza;20:37
-17;Palio;21:00;S. Miguel;21:03
-17;Palio;21:30;P. Palos;21:22
-17;Palio;22:00;Francos;
-17;Palio;22:30;Alfalfa;
-17;Palio;23:00;Pl. S. Ildefonso;
-17;Palio;23:30;Águilas;
-17;Palio;00:00;Imperial;
-17;Palio;00:30;M. Navarros;
-17;Palio;01:00;Entrada;01:10
-18;CruzGuia;18:00;Salida;18:25
-18;CruzGuia;18:30;Feria;
-18;CruzGuia;19:00;Amor de Dios;
-18;CruzGuia;19:30;Campana;19:57
-18;CruzGuia;20:00;Sierpes;
-18;CruzGuia;20:30;Plaza;20:37
-18;CruzGuia;21:00;S. Miguel;21:03
-18;CruzGuia;21:30;P. Palos;21:22
-18;CruzGuia;22:00;Villegas;
-18;CruzGuia;22:30;Cuna;
-18;CruzGuia;23:00;Encarnación;
-18;CruzGuia;23:30;Espíritu Santo;
-18;CruzGuia;00:00;Entrada;
-18;Palio;19:00;Salida;
-18;Palio;19:30;Conde de Torrejón;
-18;Palio;20:00;Trajano;
-18;Palio;20:30;Campana;20:37
-18;Palio;21:00;Plaza;21:17
-18;Palio;21:30;S. Miguel;21:43
-18;Palio;22:00;P. Palos;22:02
-18;Palio;22:30;Francos;
-18;Palio;23:00;Cuna;
-18;Palio;23:30;Laraña;
-18;Palio;00:00;Alcázares;
-18;Palio;00:30;Espíritu Santo;
-18;Palio;01:00;Entrada;01:05
-19;CruzGuia;17:30;Salida;17:45
-19;CruzGuia;18:00;Pte de Triana;
-19;CruzGuia;18:30;Reyes Católicos;
-19;CruzGuia;19:00;San Pablo;
-19;CruzGuia;19:30;San Pablo;
-19;CruzGuia;20:00;Rioja;
-19;CruzGuia;20:30;Campana;20:37
-19;CruzGuia;21:00;Plaza;21:17
-19;CruzGuia;21:30;S. Miguel;21:43
-19;CruzGuia;22:00;P. Palos;22:02
-19;CruzGuia;22:30;Arfe;
-19;CruzGuia;23:00;Adriano;
-19;CruzGuia;23:30;Reyes Católicos;
-19;CruzGuia;00:00;Pte de Triana;
-19;CruzGuia;00:30;Pl. Altozano;
-19;CruzGuia;01:00;Entrada;01:05
-19;Palio;19:00;Salida;19:20
-19;Palio;19:30;San Jacinto;
-19;Palio;20:00;Pte de Triana;
-19;Palio;20:30;San Pablo;
-19;Palio;21:00;Rioja;
-19;Palio;21:30;Campana;21:47
-19;Palio;22:00;Plaza;22:27
-19;Palio;22:30;S. Miguel;22:53
-19;Palio;23:00;P. Palos;23:12
-19;Palio;23:30;Fray Cef. Glez;
-19;Palio;00:00;Postigo;
-19;Palio;00:30;Arfe;
-19;Palio;01:00;Adriano;
-19;Palio;01:30;Pastor y Land.;
-19;Palio;02:00;Reyes Católicos;
-19;Palio;02:30;Puerta-Entrada;03:30
-20;CruzGuia;20:30;Salida;20:50
-20;CruzGuia;21:00;Cuna;
-20;CruzGuia;21:30;Campana;21:47
-20;CruzGuia;22:00;Plaza;22:27
-20;CruzGuia;22:30;S. Miguel;22:53
-20;CruzGuia;23:00;P. Palos;23:12
-20;CruzGuia;23:30;Arg. de Molina;
-20;CruzGuia;00:00;Chapineros;
-20;CruzGuia;00:30;Entrada;01:10
-20;Palio;21:30;Salida;
-20;Palio;22:00;Cuna;
-20;Palio;22:30;Campana;22:41
-20;Palio;23:00;Plaza;23:21
-20;Palio;23:30;S. Miguel;23:47
-20;Palio;00:00;P. Palos;00:06
-20;Palio;00:30;Arg. de Molina;
-20;Palio;01:00;Chapineros;
-20;Palio;01:30;Entrada;01:25
-21;CruzGuia;11:30;Salida;
-21;CruzGuia;12:00;Dr Laffón Soto;
-21;CruzGuia;12:30;Avda. Soleá;
-21;CruzGuia;13:00;Sinaí;
-21;CruzGuia;13:30;Luis Montoto;
-21;CruzGuia;14:00;Luis Montoto;
-21;CruzGuia;14:30;San Esteban;
-21;CruzGuia;15:00;J. Tres Caídas;
-21;CruzGuia;15:30;Granada;
-21;CruzGuia;16:00;Tetuán;
-21;CruzGuia;16:30;Campana;16:25
-21;CruzGuia;17:00;Plaza;17:05
-21;CruzGuia;17:30;S. Miguel;17:31
-21;CruzGuia;18:00;Palos;17:50
-21;CruzGuia;18:30;Pl. Jesús Pasión;
-21;CruzGuia;19:00;Pl. Encarnación;
-21;CruzGuia;19:30;Alm. Apodaca;
-21;CruzGuia;20:00;Valle;
-21;CruzGuia;20:30;J. Morales Torres;
-21;CruzGuia;21:00;Urquiza;
-21;CruzGuia;21:30;Venecia;
-21;CruzGuia;22:00;A. Filpo Rojas;
-21;CruzGuia;22:30;Samaniego;
-21;CruzGuia;23:00;Av. Kansas City;
-21;CruzGuia;23:30;Avda. Soleá;
-21;CruzGuia;00:00;Av. Pedro Rom.;
-21;CruzGuia;00:30;Virg. del Rosario;
-21;CruzGuia;01:00;Entrada;
-21;Palio;12:00;Salida;12:11
-21;Palio;12:30;Av. Pedro Rom.;
-21;Palio;13:00;Avda. Soleá;
-21;Palio;13:30;Sinaí;
-21;Palio;14:00;Hern. del Pulgar;
-21;Palio;14:30;Luis Montoto;
-21;Palio;15:00;Luis Montoto;
-21;Palio;15:30;J. Tres Caídas;
-21;Palio;16:00;Cue. del Rosario;
-21;Palio;16:30;Tetuán;
-21;Palio;17:00;Campana;16:59
-21;Palio;17:30;Plaza;17:39
-21;Palio;18:00;S. Miguel;18:05
-21;Palio;18:30;Palos;18:24
-21;Palio;19:00;Arg. de Molina;
-21;Palio;19:30;Pl. Jesús Pasión;
-21;Palio;20:00;Pl. Encarnación;
-21;Palio;20:30;San Pedro;
-21;Palio;21:00;Pinto;
-21;Palio;21:30;Valle;
-21;Palio;22:00;Urquiza;
-21;Palio;22:30;Venecia;
-21;Palio;23:00;Venecia;
-21;Palio;23:30;Samaniego;
-21;Palio;00:00;Av. Kansas City;
-21;Palio;00:30;Avda. Soleá;
-21;Palio;01:00;Dr Laffón Soto;
-21;Palio;01:30;Av. Pedro Rom.;
-21;Palio;02:00;Entrada;01:50
-22;CruzGuia;14:30;Salida;14:45
-22;CruzGuia;15:00;Juan de Mesa;
-22;CruzGuia;15:30;Pl. San Pedro;
-22;CruzGuia;16:00;Orfila;
-22;CruzGuia;16:30;Trajano;
-22;CruzGuia;17:00;Campana;16:59
-22;CruzGuia;17:30;Plaza;17:39
-22;CruzGuia;18:00;S. Miguel;18:05
-22;CruzGuia;18:30;P. Palos;18:24
-22;CruzGuia;19:00;Francos;
-22;CruzGuia;19:30;Pl. Salvador;
-22;CruzGuia;20:00;Odreros;
-22;CruzGuia;20:30;Sales y Ferré;
-22;CruzGuia;21:00;Alhóndiga;
-22;CruzGuia;21:30;F. Carrión Mejías;
-22;CruzGuia;22:00;Santiago;
-22;CruzGuia;22:30;Entrada;
-22;Palio;15:30;Salida;
-22;Palio;16:00;Alm. Apodaca;
-22;Palio;16:30;Imagen;
-22;Palio;17:00;Orfila;
-22;Palio;17:30;Campana;17:46
-22;Palio;18:00;Plaza;18:26
-22;Palio;18:30;S. Miguel;18:52
-22;Palio;19:00;Palos;19:11
-22;Palio;19:30;Alemanes;
-22;Palio;20:00;Francos;
-22;Palio;20:30;Pl. Salvador;
-22;Palio;21:00;Odreros;
-22;Palio;21:30;Sales y Ferré;
-22;Palio;22:00;Alhóndiga;
-22;Palio;22:30;F. Carrión Mejías;
-22;Palio;23:00;Juan de Mesa;
-22;Palio;23:30;Santiago;
-22;Palio;00:00;Entrada;
-23;CruzGuia;12:30;Salida;12:25
-23;CruzGuia;13:00;Felipe II;
-23;CruzGuia;13:30;Porvenir;
-23;CruzGuia;14:00;Av. Isabel la Cat.;
-23;CruzGuia;14:30;Glorieta del Cid;
-23;CruzGuia;15:00;Avda. Roma;
-23;CruzGuia;15:30;Av. Constitución;
-23;CruzGuia;16:00;Pta del Arenal;
-23;CruzGuia;16:30;Gamazo;
-23;CruzGuia;17:00;Tetuán;
-23;CruzGuia;17:30;Campana;17:46
-23;CruzGuia;18:00;Plaza;18:26
-23;CruzGuia;18:30;S. Miguel;18:52
-23;CruzGuia;19:00;Palos;19:11
-23;CruzGuia;19:30;Pl. Triunfo;
-23;CruzGuia;20:00;San Gregorio;
-23;CruzGuia;20:30;Lonja Universid.;
-23;CruzGuia;21:00;Avda. Cid;
-23;CruzGuia;21:30;Av. Isabel la Cat.;
-23;CruzGuia;22:00;Av. Don Pelayo;
-23;CruzGuia;22:30;Felipe II;
-23;CruzGuia;23:00;Bogotá;
-23;CruzGuia;23:30;Pedro Salinas;
-23;CruzGuia;00:00;Avda. Teatinos;
-23;CruzGuia;00:30;Romero de Torr.;
-23;CruzGuia;01:00;Entrada;
-23;Palio;13:30;Salida;
-23;Palio;14:00;Almir. Topete;
-23;Palio;14:30;Die. de la Barrera;
-23;Palio;15:00;Río de la Plata;
-23;Palio;15:30;Av. Isabel la Cat.;
-23;Palio;16:00;Glorieta del Cid;
-23;Palio;16:30;Avda. Roma;
-23;Palio;17:00;Almirantazgo;
-23;Palio;17:30;Pta del Arenal;
-23;Palio;18:00;Barcelona;
-23;Palio;18:30;Campana;18:47
-23;Palio;19:00;Plaza;19:27
-23;Palio;19:30;S. Miguel;19:53
-23;Palio;20:00;Palos;20:12
-23;Palio;20:30;Pl. Triunfo;
-23;Palio;21:00;San Gregorio;
-23;Palio;21:30;Lonja de la Univ.;
-23;Palio;22:00;Avda. Cid;
-23;Palio;22:30;Av. Isabel la Cat.;
-23;Palio;23:00;Av. Don Pelayo;
-23;Palio;23:30;Felipe II;
-23;Palio;00:00;Bogotá;
-23;Palio;00:30;Pedro Salinas;
-23;Palio;01:00;Avda. Teatinos;
-23;Palio;01:30;Romero de Torr.;
-23;Palio;02:00;Entrada;02:10
-24;CruzGuia;18:00;Salida;18:10
-24;CruzGuia;18:30;Campana;18:47
-24;CruzGuia;19:00;Plaza;19:27
-24;CruzGuia;19:30;S. Miguel;19:53
-24;CruzGuia;20:00;P. Palos;20:12
-24;CruzGuia;20:30;Alemanes;
-24;CruzGuia;21:00;Álvarez Quintero;
-24;CruzGuia;21:30;Cuna;
-24;CruzGuia;22:00;Entrada;
-24;Paso;18:30;Salida;18:42
-24;Paso;19:00;Campana;19:19
-24;Paso;19:30;Plaza;19:59
-24;Paso;20:00;S. Miguel;20:25
-24;Paso;20:30;Palos;20:44
-24;Paso;21:00;Argote de Molina;
-24;Paso;21:30;Pl. Salvador;
-24;Paso;22:00;Cuna;
-24;Paso;22:30;Entrada;22:20
-25;CruzGuia;15:00;Salida;
-25;CruzGuia;15:30;San Jacinto;
-25;CruzGuia;16:00;San Jacinto;
-25;CruzGuia;16:30;San Jacinto;
-25;CruzGuia;17:00;Pte de Triana;
-25;CruzGuia;17:30;Reyes Católicos;
-25;CruzGuia;18:00;San Pablo;
-25;CruzGuia;18:30;Rioja;
-25;CruzGuia;19:00;Campana;19:19
-25;CruzGuia;19:30;Plaza;19:59
-25;CruzGuia;20:00;S. Miguel;20:25
-25;CruzGuia;20:30;Palos;20:44
-25;CruzGuia;21:00;Arfe;
-25;CruzGuia;21:30;Adriano;
-25;CruzGuia;22:00;Reyes Católicos;
-25;CruzGuia;22:30;Cristóbal Colón;
-25;CruzGuia;23:00;Pte de Triana;
-25;CruzGuia;23:30;San Jacinto;
-25;CruzGuia;00:00;San Jacinto;
-25;CruzGuia;00:30;N. S. de la Salud;
-25;CruzGuia;01:00;Entrada;00:50
-25;Palio;16:30;Salida;
-25;Palio;17:00;Avda. Coria;
-25;Palio;17:30;S. Martín Porres;
-25;Palio;18:00;San Jacinto;
-25;Palio;18:30;San Jacinto;
-25;Palio;19:00;Cristóbal Colón;
-25;Palio;19:30;San Pablo;
-25;Palio;20:00;Rioja;
-25;Palio;20:30;Campana;20:35
-25;Palio;21:00;Plaza;21:15
-25;Palio;21:30;S. Miguel;21:41
-25;Palio;22:00;Palos;22:00
-25;Palio;22:30;Fray C. González;
-25;Palio;23:00;Arfe;
-25;Palio;23:30;Adriano;
-25;Palio;00:00;Pastor y Landero;
-25;Palio;00:30;Pte de Triana;
-25;Palio;01:00;San Jacinto;
-25;Palio;01:30;San Jacinto;
-25;Palio;02:00;S. Martín Porres;
-25;Palio;02:30;N. S. de la Salud;
-25;Palio;03:00;Entrada;
-26;CruzGuia;19:30;Salida;19:35
-26;CruzGuia;20:00;Teniente Borges;
-26;CruzGuia;20:30;Campana;20:35
-26;CruzGuia;21:00;Plaza;21:15
-26;CruzGuia;21:30;S. Miguel;21:41
-26;CruzGuia;22:00;Palos;22:00
-26;CruzGuia;22:30;Francos;
-26;CruzGuia;23:00;Cuna;
-26;CruzGuia;23:30;J. Lasso Vega;
-26;CruzGuia;00:00;Entrada;
-26;Palio;20:00;Salida;
-26;Palio;20:30;Virgen B. Libros;
-26;Palio;21:00;Campana;21:06
-26;Palio;21:30;Plaza;21:46
-26;Palio;22:00;S. Miguel;22:12
-26;Palio;22:30;Palos;22:31
-26;Palio;23:00;Francos;
-26;Palio;23:30;Cuna;
-26;Palio;00:00;J. Lasso Vega;
-26;Palio;00:30;Baños;
-26;Palio;01:00;Entrada;
-27;CruzGuia;20:00;Salida;
-27;CruzGuia;20:30;Alfonso XII;
-27;CruzGuia;21:00;Campana;21:06
-27;CruzGuia;21:30;Plaza;21:46
-27;CruzGuia;22:00;S. Miguel;22:12
-27;CruzGuia;22:30;Palos;22:31
-27;CruzGuia;23:00;Francos;
-27;CruzGuia;23:30;Villegas;
-27;CruzGuia;00:00;Tetuán;
-27;CruzGuia;00:30;Campana;
-27;CruzGuia;01:00;V. Buenos Libros;
-27;CruzGuia;01:30;Entrada;01:10
-27;Palio;20:30;Salida;20:40
-27;Palio;21:00;San Vicente;
-27;Palio;21:30;Campana;21:38
-27;Palio;22:00;Plaza;22:18
-27;Palio;22:30;S. Miguel;22:44
-27;Palio;23:00;Palos;23:03
-27;Palio;23:30;Francos;
-27;Palio;00:00;Pl. Salvador;
-27;Palio;00:30;Tetuán;
-27;Palio;01:00;Alfonso XII;
-27;Palio;01:30;Entrada;01:55
-28;CruzGuia;18:00;Salida;18:15
-28;CruzGuia;18:30;Arfe;
-28;CruzGuia;19:00;Castelar;
-28;CruzGuia;19:30;Doña Guiomar;
-28;CruzGuia;20:00;Zaragoza;
-28;CruzGuia;20:30;San Pablo;
-28;CruzGuia;21:00;Rioja;
-28;CruzGuia;21:30;Campana;21:38
-28;CruzGuia;22:00;Plaza;22:18
-28;CruzGuia;22:30;S. Miguel;22:44
-28;CruzGuia;23:00;Palos;23:03
-28;CruzGuia;23:30;Min. Indalecio P.;
-28;CruzGuia;00:00;Entrada;00:15
-28;Palio;19:00;Salida;
-28;Palio;19:30;Arfe;
-28;Palio;20:00;Castelar;
-28;Palio;20:30;Zaragoza;
-28;Palio;21:00;San Pablo;
-28;Palio;21:30;Rioja;
-28;Palio;22:00;Campana;22:09
-28;Palio;22:30;Plaza;22:49
-28;Palio;23:00;S. Miguel;23:15
-28;Palio;23:30;Palos;23:34
-28;Palio;00:00;Santo Tomás;
-28;Palio;00:30;Almirantazgo;
-28;Palio;01:00;Dos de Mayo;
-28;Palio;01:30;Entrada;01:20
-29;CruzGuia;20:30;Salida;20:40
-29;CruzGuia;21:00;Pl. Museo;
-29;CruzGuia;21:30;Alfonso XII;
-29;CruzGuia;22:00;Campana;22:09
-29;CruzGuia;22:30;Plaza;22:49
-29;CruzGuia;23:00;S. Miguel;23:15
-29;CruzGuia;23:30;Palos;23:34
-29;CruzGuia;00:00;Garc. de Vinuesa;
-29;CruzGuia;00:30;Castelar;
-29;CruzGuia;01:00;Pl. Molviedro;
-29;CruzGuia;01:30;Zaragoza;
-29;CruzGuia;02:00;Gravina;
-29;CruzGuia;02:30;Entrada;
-29;Palio;21:00;Salida;21:15
-29;Palio;21:30;Pl. Museo;
-29;Palio;22:00;Alfonso XII;
-29;Palio;22:30;Campana;22:50
-29;Palio;23:00;Plaza;23:30
-29;Palio;23:30;S. Miguel;23:56
-29;Palio;00:00;Palos;00:15
-29;Palio;00:30;Alemanes;
-29;Palio;01:00;Castelar;
-29;Palio;01:30;Pl. Molviedro;
-29;Palio;02:00;Zaragoza;
-29;Palio;02:30;Gravina;
-29;Palio;03:00;Entrada;
-30;CruzGuia;11:30;Salida;11:40
-30;CruzGuia;12:30;Avda. Hytasa;
-30;CruzGuia;13:30;Av. Ramón y Cajal;
-30;CruzGuia;14:30;Avda. Carlos V;
-30;CruzGuia;15:00;Puerta de Jerez;
-30;CruzGuia;15:30;Plaza Nueva;
-30;CruzGuia;16:00;Tetuán;
-30;CruzGuia;16:30;Campana;16:40
-30;CruzGuia;17:00;Plaza;17:20
-30;CruzGuia;17:30;S. Miguel;17:46
-30;CruzGuia;18:00;P. Palos;18:05
-30;CruzGuia;18:30;Av. Constitución;
-30;CruzGuia;19:00;Avda. Roma;
-30;CruzGuia;19:30;Palos de la Fra.;
-30;CruzGuia;20:00;Glorieta S. Diego;
-30;CruzGuia;20:30;Avda. Portugal;
-30;CruzGuia;21:00;Dr. P. de Castro;
-30;CruzGuia;21:30;Enramadilla;
-30;CruzGuia;22:00;Av. Ramón y Cajal;
-30;CruzGuia;22:30;Av. Ramón y Cajal;
-30;CruzGuia;23:00;Avda. Hytasa;
-30;CruzGuia;23:30;Aníbal González;
-30;CruzGuia;00:00;Afán de Ribera;
-30;CruzGuia;00:30;NS de los Dolores;
-30;CruzGuia;01:00;Entrada;
-30;Palio;12:30;Salida;
-30;Palio;13:30;Av. Benavides;
-30;Palio;14:30;Av. Ramón y Cajal;
-30;Palio;15:00;Enramadilla;
-30;Palio;15:30;Avda. Carlos V;
-30;Palio;16:00;Av. Constitución;
-30;Palio;16:30;Plaza Nueva;
-30;Palio;17:00;Tetuán;
-30;Palio;17:30;Campana;17:44
-30;Palio;18:00;Plaza;18:24
-30;Palio;18:30;S. Miguel;18:50
-30;Palio;19:00;P. Palos;19:09
-30;Palio;19:30;Av. Constitución;
-30;Palio;20:00;Avda. Roma;
-30;Palio;20:30;Palos de la Fra.;
-30;Palio;21:00;Glorieta S. Diego;
-30;Palio;21:30;Avda. Portugal;
-30;Palio;22:00;Dr. P. de Castro;
-30;Palio;22:30;Enramadilla;
-30;Palio;23:00;Gl. Bizco Amate;
-30;Palio;23:30;Av. Ramón y Cajal;
-30;Palio;00:00;Av. Ramón y Cajal;
-30;Palio;00:30;Avda. Hytasa;
-30;Palio;01:00;Aníbal González;
-30;Palio;01:30;Afán de Ribera;
-30;Palio;02:00;Entrada;
-31;CruzGuia;14:30;Salida;
-31;CruzGuia;15:00;Luis Montoto;
-31;CruzGuia;15:30;Santiago;
-31;CruzGuia;16:00;Juan de Mesa;
-31;CruzGuia;16:30;Orfila;
-31;CruzGuia;17:00;J. Lasso Vega;
-31;CruzGuia;17:30;Campana;17:44
-31;CruzGuia;18:00;Plaza;18:24
-31;CruzGuia;18:30;S. Miguel;18:50
-31;CruzGuia;19:00;P. Palos;19:09
-31;CruzGuia;19:30;Francos;
-31;CruzGuia;20:00;Alfalfa;
-31;CruzGuia;20:30;Águilas;
-31;CruzGuia;21:00;Águilas;
-31;CruzGuia;21:30;Pl. Pilatos;
-31;CruzGuia;22:00;Entrada;21:45
-31;Palio;15:30;Salida;15:45
-31;Palio;16:00;Luis Montoto;
-31;Palio;16:30;Pta de Carmona;
-31;Palio;17:00;Santiago;
-31;Palio;17:30;Imagen;
-31;Palio;18:00;Laraña;
-31;Palio;18:30;J. Lasso Vega;
-31;Palio;19:00;Campana;19:02
-31;Palio;19:30;Plaza;19:42
-31;Palio;20:00;S. Miguel;20:08
-31;Palio;20:30;P. Palos;20:27
-31;Palio;21:00;Argote de Molina;
-31;Palio;21:30;Cue. del Rosario;
-31;Palio;22:00;J. Tres Caídas;
-31;Palio;22:30;Águilas;
-31;Palio;23:00;Pl. Pilatos;
-31;Palio;23:30;Luis Montoto;
-31;Palio;00:00;Entrada;00:15
-32;CruzGuia;17:00;Salida;17:15
-32;CruzGuia;17:30;Cardenal Spínola;
-32;CruzGuia;18:00;Pl. Gavidia;
-32;CruzGuia;18:30;Pl. Duque;
-32;CruzGuia;19:00;Campana;19:02
-32;CruzGuia;19:30;Plaza;19:42
-32;CruzGuia;20:00;S. Miguel;20:08
-32;CruzGuia;20:30;P. Palos;20:27
-32;CruzGuia;21:00;Argote de Molina;
-32;CruzGuia;21:30;Chapineros;
-32;CruzGuia;22:00;Cuna;
-32;CruzGuia;22:30;Orfila;
-32;CruzGuia;23:00;Trajano;
-32;CruzGuia;23:30;Cond. de Barajas;
-32;CruzGuia;00:00;Entrada;23:38
-32;Palio;18:00;Salida;18:05
-32;Palio;18:30;Cardenal Spínola;
-32;Palio;19:00;Las Cortes;
-32;Palio;19:30;Campana;19:42
-32;Palio;20:00;Plaza;20:22
-32;Palio;20:30;S. Miguel;20:48
-32;Palio;21:00;P. Palos;21:07
-32;Palio;21:30;Argote de Molina;
-32;Palio;22:00;Álvarez Quintero;
-32;Palio;22:30;Cuna;
-32;Palio;23:00;Orfila;
-32;Palio;23:30;García Tassara;
-32;Palio;00:00;J. del Gran Poder;
-32;Palio;00:30;Cond. de Barajas;
-32;Palio;01:00;Entrada;01:15
-33;CruzGuia;17:00;Salida;17:04
-33;CruzGuia;17:30;Alfalfa;
-33;CruzGuia;18:00;Villegas;
-33;CruzGuia;18:30;Cuna;
-33;CruzGuia;19:00;J. Lasso Vega;
-33;CruzGuia;19:30;Campana;19:42
-33;CruzGuia;20:00;Plaza;20:22
-33;CruzGuia;20:30;S. Miguel;20:48
-33;CruzGuia;21:00;P. Palos;21:07
-33;CruzGuia;21:30;Pl. Contratación;
-33;CruzGuia;22:00;Puerta de Jerez;
-33;CruzGuia;22:30;San Fernando;
-33;CruzGuia;23:00;P. Cat. de Ribera;
-33;CruzGuia;23:30;Sta Mª la Blanca;
-33;CruzGuia;00:00;San José;
-33;CruzGuia;00:30;Entrada;00:45
-33;Palio;18:00;Salida;
-33;Palio;18:30;Candilejo;
-33;Palio;19:00;Villegas;
-33;Palio;19:30;Cuna;
-33;Palio;20:00;J. Lasso Vega;
-33;Palio;20:30;Campana;20:34
-33;Palio;21:00;Plaza;21:14
-33;Palio;21:30;S. Miguel;21:40
-33;Palio;22:00;P. Palos;21:59
-33;Palio;22:30;San Gregorio;
-33;Palio;23:00;San Fernando;
-33;Palio;23:30;P. Cat. de Ribera;
-33;Palio;00:00;Sta Mª la Blanca;
-33;Palio;00:30;San José;
-33;Palio;01:30;Entrada;01:56
-34;CruzGuia;17:30;Salida;
-34;CruzGuia;18:00;Pl. San Ildefonso;
-34;CruzGuia;18:30;Dormitorio;
-34;CruzGuia;19:00;Imagen;
-34;CruzGuia;19:30;Laraña;
-34;CruzGuia;20:00;J. Lasso Vega;
-34;CruzGuia;20:30;Campana;20:34
-34;CruzGuia;21:00;Plaza;21:14
-34;CruzGuia;21:30;S. Miguel;21:40
-34;CruzGuia;22:00;P. Palos;21:59
-34;CruzGuia;22:30;Francos;
-34;CruzGuia;23:00;Cues. del Rosario;
-34;CruzGuia;23:30;Águilas;
-34;CruzGuia;00:00;Entrada;
-34;Palio;18:30;Salida;
-34;Palio;19:00;Águilas;
-34;Palio;19:30;Pl. San Leandro;
-34;Palio;20:00;Pl. Cristo Burgos;
-34;Palio;20:30;Laraña;
-34;Palio;21:00;Campana;21:21
-34;Palio;21:30;Plaza;22:01
-34;Palio;22:00;S. Miguel;22:27
-34;Palio;22:30;P. Palos;22:46
-34;Palio;23:00;Alemanes;
-34;Palio;23:30;Francos;
-34;Palio;00:00;Cues. del Rosario;
-34;Palio;00:30;Alfalfa;
-34;Palio;01:00;Águilas;
-34;Palio;01:30;Entrada;01:35
-35;CruzGuia;19:30;Salida;19:40
-35;CruzGuia;20:00;Correduría;
-35;CruzGuia;20:30;Trajano;
-35;CruzGuia;21:00;Campana;21:21
-35;CruzGuia;21:30;Plaza;22:01
-35;CruzGuia;22:00;S. Miguel;22:27
-35;CruzGuia;22:30;P. Palos;22:46
-35;CruzGuia;23:00;Argote de Molina;
-35;CruzGuia;23:30;Álvarez Quintero;
-35;CruzGuia;00:00;Cuna;
-35;CruzGuia;00:30;García Tassara;
-35;CruzGuia;01:00;Correduría;
-35;CruzGuia;01:30;Entrada;
-35;Palio;20:00;Salida;20:10
-35;Palio;20:30;Correduría;
-35;Palio;21:00;Cond. de Barajas;
-35;Palio;21:30;Campana;21:46
-35;Palio;22:00;Plaza;22:26
-35;Palio;22:30;S. Miguel;22:52
-35;Palio;23:00;P. Palos;23:11
-35;Palio;23:30;Argote de Molina;
-35;Palio;00:00;Álvarez Quintero;
-35;Palio;00:30;Cuna;
-35;Palio;01:00;García Tassara;
-35;Palio;01:30;Correduría;
-35;Palio;02:00;Entrada;02:15
-36;CruzGuia;18:30;Salida;18:50
-36;CruzGuia;19:00;Pl. Contratación;
-36;CruzGuia;19:30;Fray Ceferín. Glez;
-36;CruzGuia;20:00;Castelar;
-36;CruzGuia;20:30;Gamazo;
-36;CruzGuia;21:00;Méndez Núñez;
-36;CruzGuia;21:30;Campana;21:46
-36;CruzGuia;22:00;Plaza;22:26
-36;CruzGuia;22:30;S. Miguel;22:52
-36;CruzGuia;23:00;P. Palos;23:11
-36;CruzGuia;23:30;Mig. de Mañara;
-36;CruzGuia;00:00;Entrada;00:15
-36;Palio;20:00;Salida;
-36;Palio;20:30;Mig. de Mañara;
-36;Palio;21:00;Arfe;
-36;Palio;21:30;Gamazo;
-36;Palio;22:00;Méndez Núñez;
-36;Palio;22:30;O'Donnell;
-36;Palio;23:00;Campana;22:51
-36;Palio;23:30;Plaza;23:31
-36;Palio;00:00;S. Miguel;23:57
-36;Palio;00:30;P. Palos;00:16
-36;Palio;01:00;San Gregorio;
-36;Palio;01:30;Lonja Universid.;
-36;Palio;02:00;Entrada;01:45
-37;CruzGuia;19:30;Salida;19:50
-37;CruzGuia;20:00;Mateos Gago;
-37;CruzGuia;20:30;Pl. Triunfo;
-37;CruzGuia;21:00;Tomás de Ibarra;
-37;CruzGuia;21:30;Castelar;
-37;CruzGuia;22:00;Barcelona;
-37;CruzGuia;22:30;Velázquez;
-37;CruzGuia;23:00;Campana;22:51
-37;CruzGuia;23:30;Plaza;23:31
-37;CruzGuia;00:00;S. Miguel;23:57
-37;CruzGuia;00:30;P. Palos;00:16
-37;CruzGuia;01:00;Entrada;
-37;Palio;20:30;Salida;20:25
-37;Palio;21:00;Mateos Gago;
-37;Palio;21:30;Tomás de Ibarra;
-37;Palio;22:00;Post. del Aceite;
-37;Palio;22:30;Barcelona;
-37;Palio;23:00;Campana;23:25
-37;Palio;23:30;Sierpes;
-37;Palio;00:00;Plaza;00:05
-37;Palio;00:30;S. Miguel;00:31
-37;Palio;01:00;P. Palos;00:50
-37;Palio;01:30;Entrada;01:40
-38;CruzGuia;15:00;Salida;
-38;CruzGuia;15:30;Alam. Hércules;
-38;CruzGuia;16:00;Trajano;
-38;CruzGuia;16:30;Campana;16:43
-38;CruzGuia;17:00;Plaza;17:23
-38;CruzGuia;17:30;S. Miguel;17:49
-38;CruzGuia;18:00;P. Palos;18:08
-38;CruzGuia;18:30;Placentines;
-38;CruzGuia;19:00;Álv. Quintero;
-38;CruzGuia;19:30;Lineros;
-38;CruzGuia;20:00;Encarnación;
-38;CruzGuia;20:30;Encarnación;
-38;CruzGuia;21:00;Sta Ánge. Cruz;
-38;CruzGuia;21:30;S. J. Palma;
-38;CruzGuia;22:00;Feria;
-38;CruzGuia;22:30;Guadiana;
-38;CruzGuia;23:00;Entrada;
-38;Palio;15:30;Salida;
-38;Palio;16:00;Belén;
-38;Palio;16:30;Trajano;
-38;Palio;17:00;Campana;17:12
-38;Palio;17:30;Plaza;17:52
-38;Palio;18:00;S. Miguel;18:18
-38;Palio;18:30;P. Palos;18:37
-38;Palio;19:00;Arg. de Molina;
-38;Palio;19:30;Chapineros;
-38;Palio;20:00;Pl. Salvador;
-38;Palio;20:30;Puen. y Pellón;
-38;Palio;21:00;Encarnación;
-38;Palio;21:30;Encarnación;
-38;Palio;22:00;Sta Ánge. Cruz;
-38;Palio;22:30;Feria;
-38;Palio;23:00;Feria;
-38;Palio;23:30;Guadiana;
-38;Palio;00:00;Entrada;
-39;CruzGuia;12:00;Salida;
-39;CruzGuia;13:00;Eduardo Dato;
-39;CruzGuia;14:00;Jiménez Aran.;
-39;CruzGuia;14:30;Luis Montoto;
-39;CruzGuia;15:00;Santiago;
-39;CruzGuia;15:30;Alm. Apodaca;
-39;CruzGuia;16:00;Encarnación;
-39;CruzGuia;16:30;Orfila;
-39;CruzGuia;17:00;Campana;17:12
-39;CruzGuia;17:30;Plaza;17:52
-39;CruzGuia;18:00;S. Miguel;18:18
-39;CruzGuia;18:30;P. Palos;19:17
-39;CruzGuia;19:00;Alemanes;
-39;CruzGuia;19:30;Francos;
-39;CruzGuia;20:00;C. del Rosario;
-39;CruzGuia;20:30;Pta Carmona;
-39;CruzGuia;21:00;Luis Montoto;
-39;CruzGuia;21:30;Luis Montoto;
-39;CruzGuia;22:00;Luis Montoto;
-39;CruzGuia;22:30;Goya;
-39;CruzGuia;23:00;Crist. de la Sed;
-39;CruzGuia;23:30;Entrada;00:15
-39;Palio;13:00;Salida;13:15
-39;Palio;14:00;Eduardo Dato;
-39;Palio;14:30;Eduardo Dato;
-39;Palio;15:00;Jiménez Aran.;
-39;Palio;15:30;Luis Montoto;
-39;Palio;16:00;Muro Navarros;
-39;Palio;16:30;Juan de Mesa;
-39;Palio;17:00;Encarnación;
-39;Palio;17:30;Pl. Duque;
-39;Palio;18:00;Campana;17:58
-39;Palio;18:30;Plaza;18:38
-39;Palio;19:00;S. Miguel;19:04
-39;Palio;19:30;P. Palos;19:23
-39;Palio;20:00;Francos;
-39;Palio;20:30;C. del Rosario;
-39;Palio;21:00;Alfalfa;
-39;Palio;21:30;Águilas;
-39;Palio;22:00;San Esteban;
-39;Palio;22:30;Luis Montoto;
-39;Palio;23:00;J. L. de Casso;
-39;Palio;23:30;Goya;
-39;Palio;00:00;Crist. de la Sed;
-39;Palio;00:30;Entrada;01:20
-40;CruzGuia;15:30;Salida;15:50
-40;CruzGuia;16:00;Alcoy;
-40;CruzGuia;16:30;Pl. S. Lorenzo;
-40;CruzGuia;17:00;Jesús G. Poder;
-40;CruzGuia;17:30;Pl. Duque;
-40;CruzGuia;18:00;Campana;17:58
-40;CruzGuia;18:30;Plaza;18:38
-40;CruzGuia;19:00;S. Miguel;19:04
-40;CruzGuia;19:30;P. Palos;19:23
-40;CruzGuia;20:00;A. del Postigo;
-40;CruzGuia;20:30;Castelar;
-40;CruzGuia;21:00;Doña Guiomar;
-40;CruzGuia;21:30;Gravina;
-40;CruzGuia;22:00;Bailén;
-40;CruzGuia;22:30;San Vicente;
-40;CruzGuia;23:00;San Vicente;
-40;CruzGuia;23:30;Entrada;
-40;Palio;16:30;Salida;
-40;Palio;17:00;Alcoy;
-40;Palio;17:30;Pl. S. Lorenzo;
-40;Palio;18:00;Jesús G. Poder;
-40;Palio;18:30;Campana;18:33
-40;Palio;19:00;Plaza;19:13
-40;Palio;19:30;S. Miguel;19:35
-40;Palio;20:00;P. Palos;19:58
-40;Palio;20:30;Almirantazgo;
-40;Palio;21:00;Arfe;
-40;Palio;21:30;Castelar;
-40;Palio;22:00;Zaragoza;
-40;Palio;22:30;Gravina;
-40;Palio;23:00;Pl. Museo;
-40;Palio;23:30;San Vicente;
-40;Palio;00:00;Entrada;
-41;CruzGuia;14:00;Salida;14:15
-41;CruzGuia;14:30;Pte S Bernardo;
-41;CruzGuia;15:00;Demetrio Ríos;
-41;CruzGuia;15:30;Sta Mª Blanca;
-41;CruzGuia;16:00;Muñoz y Pabón;
-41;CruzGuia;16:30;Alfalfa;
-41;CruzGuia;17:00;Villegas;
-41;CruzGuia;17:30;Cuna;
-41;CruzGuia;18:00;J. Lasso Vega;
-41;CruzGuia;18:30;Campana;18:33
-41;CruzGuia;19:00;Plaza;19:13
-41;CruzGuia;19:30;S.Miguel;19:39
-41;CruzGuia;20:00;P. Palos;19:58
-41;CruzGuia;20:30;Pl. Alianza;
-41;CruzGuia;21:00;Fabiola;
-41;CruzGuia;21:30;Sta Mª Blanca;
-41;CruzGuia;22:00;San Bernardo;
-41;CruzGuia;22:30;Entrada;
-41;Palio;15:30;Salida;15:45
-41;Palio;16:00;Gallinato;
-41;Palio;16:30;Pte S Bernardo;
-41;Palio;17:00;Sta Mª Blanca;
-41;Palio;17:30;Pl. Jesús Salud;
-41;Palio;18:00;Alfalfa;
-41;Palio;18:30;C. del Rosario;
-41;Palio;19:00;Cuna;
-41;Palio;19:30;Campana;19:42
-41;Palio;20:00;Plaza;20:22
-41;Palio;20:30;S. Miguel;20:48
-41;Palio;21:00;P. Palos;21:07
-41;Palio;21:30;Pl. Triunfo;
-41;Palio;22:00;Rodrigo Caro;
-41;Palio;22:30;Mateos Gago;
-41;Palio;23:00;San José;
-41;Palio;23:30;Demetrio Ríos;
-41;Palio;00:00;Pte S Bernardo;
-41;Palio;00:30;San Bernardo;
-41;Palio;01:00;Cristo Salud;
-41;Palio;01:30;Entrada;
-42;CruzGuia;17:00;Salida;
-42;CruzGuia;17:30;Marco Sancho;
-42;CruzGuia;18:00;Europa;
-42;CruzGuia;18:30;Trajano;
-42;CruzGuia;19:00;Pl. Duque;
-42;CruzGuia;19:30;Campana;19:42
-42;CruzGuia;20:00;Plaza;20:22
-42;CruzGuia;20:30;S. Miguel;20:48
-42;CruzGuia;21:00;P. Palos;21:07
-42;CruzGuia;21:30;Arg. de Molina;
-42;CruzGuia;22:00;Álv. Quintero;
-42;CruzGuia;22:30;Pl. Salvador;
-42;CruzGuia;23:00;Orfila;
-42;CruzGuia;23:30;Pl. San Andrés;
-42;CruzGuia;00:00;Entrada;
-42;Palio;17:30;Salida;
-42;Palio;18:00;Saavedras;
-42;Palio;18:30;C. de Torrejón;
-42;Palio;19:00;Alameda;
-42;Palio;19:30;Jesús G. Poder;
-42;Palio;20:00;Campana;20:36
-42;Palio;20:30;Plaza;20:53
-42;Palio;21:00;S. Miguel;21:19
-42;Palio;21:30;P. Palos;21:38
-42;Palio;22:00;Arg. de Molina;
-42;Palio;22:30;Francos;
-42;Palio;23:00;Pl. Salvador;
-42;Palio;23:30;Cuna;
-42;Palio;00:00;Pl. San Andrés;
-42;Palio;00:30;Cervantes;
-42;Palio;01:00;Entrada;
-43;CruzGuia;17:00;Salida;17:10
-43;CruzGuia;17:30;Adriano;
-43;CruzGuia;18:00;Reyes Católic.;
-43;CruzGuia;18:30;Pl. Magdalena;
-43;CruzGuia;19:00;Méndez Núñez;
-43;CruzGuia;19:30;Tetuán;
-43;CruzGuia;20:00;Campana;20:13
-43;CruzGuia;20:30;Plaza;20:53
-43;CruzGuia;21:00;S.Miguel;21:19
-43;CruzGuia;21:30;P. Palos;21:38
-43;CruzGuia;22:00;Santo Tomás;
-43;CruzGuia;22:30;Arco Postigo;
-43;CruzGuia;23:00;Entrada;
-43;Palio;18:30;Salida;18:50
-43;Palio;19:00;Adriano;
-43;Palio;19:30;Reyes Católic.;
-43;Palio;20:00;Rioja;
-43;Palio;20:30;Plaza Nueva;
-43;Palio;21:00;Campana;21:23
-43;Palio;21:30;Sierpes;
-43;Palio;22:00;Plaza;22:03
-43;Palio;22:30;P. Palos;22:48
-43;Palio;23:00;Pl. Triunfo;
-43;Palio;23:30;A. Rod. Jurado;
-43;Palio;00:00;Tom. de Ibarra;
-43;Palio;00:30;Arfe;
-43;Palio;01:00;Adriano;
-43;Palio;01:30;Entrada;
-44;CruzGuia;20:00;Salida;
-44;CruzGuia;20:30;Amor de Dios;
-44;CruzGuia;21:00;Campana;21:23
-44;CruzGuia;21:30;Sierpes;
-44;CruzGuia;22:00;Plaza;22:03
-44;CruzGuia;22:30;S. Miguel;22:29
-44;CruzGuia;23:00;P. Palos;22:48
-44;CruzGuia;23:30;A. Quintero;
-44;CruzGuia;00:00;Cuna;
-44;CruzGuia;00:30;Cuna;
-44;CruzGuia;01:00;Entrada;00:55
-44;Palio;21:00;Salida;20:55
-44;Palio;21:30;Trajano;
-44;Palio;22:00;Campana;22:01
-44;Palio;22:30;Plaza;22:41
-44;Palio;23:00;S. Miguel;23:07
-44;Palio;23:30;P. Palos;23:26
-44;Palio;00:00;Francos;
-44;Palio;00:30;Chapineros;
-44;Palio;01:00;Cuna;
-44;Palio;01:30;Cuna;
-44;Palio;02:00;Entrada;02:10
-45;CruzGuia;20:30;Salida;
-45;CruzGuia;21:00;Baños;
-45;CruzGuia;21:30;Las Cortes;
-45;CruzGuia;22:00;Campana;22:01
-45;CruzGuia;22:30;Plaza;22:41
-45;CruzGuia;23:00;S. Miguel;23:07
-45;CruzGuia;23:30;P. Palos;23:26
-45;CruzGuia;00:00;Pl. S Francisco;
-45;CruzGuia;00:30;Velázquez;
-45;CruzGuia;01:00;Alfonso XI;
-45;CruzGuia;01:30;Entrada;
-45;Palio;21:00;Salida;21:15
-45;Palio;21:30;J. Vera Cruz;
-45;Palio;22:00;Pl. Gavidia;
-45;Palio;22:30;Campana;22:31
-45;Palio;23:00;Plaza;23:11
-45;Palio;23:30;S. Miguel;23:37
-45;Palio;00:00;P. Palos;23:56
-45;Palio;00:30;Plaza Nueva;
-45;Palio;01:00;Tetuán;
-45;Palio;01:30;Campana;
-45;Palio;02:00;Sta Vicenta M.;
-45;Palio;02:30;Entrada;02:15
-46;CruzGuia;21:00;Salida;
-46;CruzGuia;21:30;Laraña;
-46;CruzGuia;22:00;Orfila;
-46;CruzGuia;22:30;Campana;22:31
-46;CruzGuia;23:00;Plaza;23:11
-46;CruzGuia;23:30;S. Miguel;23:37
-46;CruzGuia;00:00;P. Palos;23:56
-46;CruzGuia;00:30;Francos;
-46;CruzGuia;01:00;Alfalfa;
-46;CruzGuia;01:30;Sales y Ferré;
-46;CruzGuia;02:00;Entrada;02:06
-46;Palio;21:30;Salida;21:40
-46;Palio;22:00;Laraña;
-46;Palio;22:30;Campana;22:56
-46;Palio;23:00;Plaza;23:36
-46;Palio;23:30;S. Miguel;00:02
-46;Palio;00:00;P. Palos;00:21
-46;Palio;00:30;Card. C. Amigo;
-46;Palio;01:00;Francos;
-46;Palio;01:30;Alcaicería;
-46;Palio;02:00;Sales y Ferré;
-46;Palio;02:30;Entrada;02:45
-47;CruzGuia;15:00;Salida;
-47;CruzGuia;15:30;San Esteban;
-47;CruzGuia;16:00;Águilas;
-47;CruzGuia;16:30;C. del Rosario;
-47;CruzGuia;17:00;Jovell.- Tetuán;
-47;CruzGuia;17:30;Campana;17:40
-47;CruzGuia;18:00;Plaza;18:20
-47;CruzGuia;18:30;S. Miguel;18:46
-47;CruzGuia;19:00;P. Palos;19:05
-47;CruzGuia;19:30;Arg. de Molina;
-47;CruzGuia;20:00;C. del Rosario;
-47;CruzGuia;20:30;Águilas;
-47;CruzGuia;21:00;San Esteban;
-47;CruzGuia;21:30;Muro Navarros;
-47;CruzGuia;22:00;Entrada;
-47;Palio;16:00;Salida;
-47;Palio;16:30;San Esteban;
-47;Palio;17:00;Pl. Pescadería;
-47;Palio;17:30;Sagasta;
-47;Palio;18:00;Campana;18:18
-47;Palio;18:30;Plaza;18:58
-47;Palio;19:00;S. Miguel;19:24
-47;Palio;19:30;P. Palos;19:43
-47;Palio;20:00;Card. C. Amigo;
-47;Palio;20:30;C. del Rosario;
-47;Palio;21:00;Alfalfa;
-47;Palio;21:30;Águilas;
-47;Palio;22:00;San Esteban;
-47;Palio;22:30;Puerta Carmona;
-47;Palio;23:00;Guadalupe;
-47;Palio;23:30;Entrada;23:20
-48;CruzGuia;16:00;Salida;
-48;CruzGuia;16:30;S. Ángela Cruz;
-48;CruzGuia;17:00;Laraña;
-48;CruzGuia;17:30;Orfila;
-48;CruzGuia;18:00;Campana;18:18
-48;CruzGuia;18:30;Plaza;18:58
-48;CruzGuia;19:00;S. Miguel;19:24
-48;CruzGuia;19:30;P. Palos;19:43
-48;CruzGuia;20:00;Card C. Amigo;
-48;CruzGuia;20:30;Chapineros;
-48;CruzGuia;21:00;Pl. Salvador;
-48;CruzGuia;21:30;Odreros;
-48;CruzGuia;22:00;Pl. Cristo Burgos;
-48;CruzGuia;22:30;Alhóndiga;
-48;CruzGuia;23:00;Entrada;
-48;Palio;17:00;Salida;
-48;Palio;17:30;S. Ángela Cruz;
-48;Palio;18:00;Alcázares;
-48;Palio;18:30;Laraña;
-48;Palio;19:00;Sierpes;
-48;Palio;19:30;Plaza;19:33
-48;Palio;20:00;S. Miguel;19:59
-48;Palio;20:30;P. Palos;20:18
-48;Palio;21:00;Francos;
-48;Palio;21:30;Pl. Salvador;
-48;Palio;22:00;Alfalfa;
-48;Palio;22:30;Sales y Ferré;
-48;Palio;23:00;Alm. Apodaca;
-48;Palio;23:30;Entrada;23:40
-49;CruzGuia;17:00;Salida;
-49;CruzGuia;17:30;Pl. San Pedro;
-49;CruzGuia;18:00;Orfila;
-49;CruzGuia;18:30;Campana;18:53
-49;CruzGuia;19:00;Sierpes;
-49;CruzGuia;19:30;Plaza;19:33
-49;CruzGuia;20:00;S. Miguel;19:59
-49;CruzGuia;20:30;P. Palos;20:18
-49;CruzGuia;21:00;Puerta de Jerez;
-49;CruzGuia;21:30;Jardines Murillo;
-49;CruzGuia;22:00;Cano y Cueto;
-49;CruzGuia;22:30;Muñoz y Pabón;
-49;CruzGuia;23:00;Sales y Ferré;
-49;CruzGuia;23:30;Dña. Mª Coronel;
-49;CruzGuia;00:00;Entrada;23:51
-49;Palio;17:30;Salida;17:50
-49;Palio;18:00;Alm. Apodaca;
-49;Palio;18:30;Imagen;
-49;Palio;19:00;J. Lasso Vega;
-49;Palio;19:30;Campana;19:25
-49;Palio;20:00;Plaza;20:05
-49;Palio;20:30;S. Miguel;20:31
-49;Palio;21:00;P. Palos;20:50
-49;Palio;21:30;Puerta de Jerez;
-49;Palio;22:00;San Fernando;
-49;Palio;22:30;Jardines Murillo;
-49;Palio;23:00;San José;
-49;Palio;23:30;Alfalfa;
-49;Palio;00:00;Dña. Mª Coronel;
-49;Palio;00:30;Entrada;00:35
-50;CruzGuia;17:30;Salida;
-50;CruzGuia;18:00;Correduría;
-50;CruzGuia;18:30;Trajano;
-50;CruzGuia;19:00;Trajano;
-50;CruzGuia;19:30;Campana;19:25
-50;CruzGuia;20:00;Plaza;20:05
-50;CruzGuia;20:30;S. Miguel;20:31
-50;CruzGuia;21:00;P. Palos;20:50
-50;CruzGuia;21:30;Álvarez Quintero;
-50;CruzGuia;22:00;Cuna;
-50;CruzGuia;22:30;Laraña;
-50;CruzGuia;23:00;Alcázares;
-50;CruzGuia;23:30;San Juan Palma;
-50;CruzGuia;00:00;Entrada;
-50;Palio;18:30;Salida;18:25
-50;Palio;19:00;Correduría;
-50;Palio;19:30;Trajano;
-50;Palio;20:00;Campana;20:10
-50;Palio;20:30;Plaza;20:50
-50;Palio;21:00;S. Miguel;21:16
-50;Palio;21:30;P. Palos;21:35
-50;Palio;22:00;Francos;
-50;Palio;22:30;Álvarez Quintero;
-50;Palio;23:00;Cuna;
-50;Palio;23:30;Laraña;
-50;Palio;00:00;Alcázares;
-50;Palio;00:30;San Juan Palma;
-50;Palio;01:00;Feria;
-50;Palio;01:30;Entrada;
-51;CruzGuia;19:30;Salida;
-51;CruzGuia;20:00;Campana;20:10
-51;CruzGuia;20:30;Plaza;20:50
-51;CruzGuia;21:00;S. Miguel;21:16
-51;CruzGuia;21:30;P. Palos;21:35
-51;CruzGuia;22:00;Arco del Postigo;
-51;CruzGuia;22:30;Castelar;
-51;CruzGuia;23:00;Entrada;23:25
-51;Paso;20:00;Salida;20:05
-51;Paso;20:30;Campana;20:45
-51;Paso;21:00;Plaza;21:25
-51;Paso;21:30;San Miguel;21:49
-51;Paso;22:00;P. Palos;22:10
-51;Paso;22:30;Fray Cefer. Glez.;
-51;Paso;23:00;Arfe;
-51;Paso;23:30;Zaragoza;
-51;Paso;00:00;Entrada;
-52;CruzGuia;19:30;Laraña;19:25
-52;CruzGuia;20:00;San Miguel;
-52;CruzGuia;20:30;Campana;20:45
-52;CruzGuia;21:00;Plaza;21:25
-52;CruzGuia;21:30;S. Miguel;21:49
-52;CruzGuia;22:00;P. Palos;22:10
-52;CruzGuia;22:30;Alemanes;
-52;CruzGuia;23:00;Álvarez Quintero;
-52;CruzGuia;23:30;Cuna;
-52;CruzGuia;00:00;Laraña;
-52;CruzGuia;00:30;Entrada;00:15
-52;Palio;20:00;Salida;20:05
-52;Palio;20:30;García Tassara;
-52;Palio;21:00;Pl. Duque;
-52;Palio;21:30;Campana;21:26
-52;Palio;22:00;Plaza;22:06
-52;Palio;22:30;S. Miguel;22:33
-52;Palio;23:00;P. Palos;22:51
-52;Palio;23:30;Álvarez Quintero;
-52;Palio;00:00;Cuna;
-52;Palio;00:30;Laraña;
-52;Palio;01:00;Entrada;00:45
-53;CruzGuia;20:00;Salida;20:15
-53;CruzGuia;20:30;Cuna;
-53;CruzGuia;21:00;Trajano;
-53;CruzGuia;21:30;Campana;21:26
-53;CruzGuia;22:00;Plaza;22:06
-53;CruzGuia;22:30;S. Miguel;22:33
-53;CruzGuia;23:00;P. Palos;22:51
-53;CruzGuia;23:30;Francos;
-53;CruzGuia;00:00;Villegas;
-53;CruzGuia;00:30;Entrada;00:15
-53;Palio;21:00;Salida;21:15
-53;Palio;21:30;Cuna;
-53;Palio;22:00;Trajano;
-53;Palio;22:30;Campana;22:25
-53;Palio;23:00;Plaza;23:05
-53;Palio;23:30;S. Miguel;23:31
-53;Palio;00:00;Palos;23:50
-53;Palio;00:30;Francos;
-53;Palio;01:00;Villegas;
-53;Palio;01:30;Entrada;01:15
-54;CruzGuia;01:00;Salida;
-54;CruzGuia;01:30;Campana;01:15
-54;CruzGuia;02:00;Plaza;01:55
-54;CruzGuia;02:30;S. Miguel;02:21
-54;CruzGuia;03:00;Palos;02:40
-54;CruzGuia;03:30;Cuna;
-54;CruzGuia;04:00;Orfila;
-54;CruzGuia;04:30;Jesús del Gran Poder;
-54;CruzGuia;05:00;Entrada;
-54;Palio;01:30;Salida;
-54;Palio;02:00;Campana;01:55
-54;Palio;02:30;Plaza;02:35
-54;Palio;03:00;S. Miguel;03:01
-54;Palio;03:30;Palos;03:20
-54;Palio;04:00;Villegas;
-54;Palio;04:30;Cuna;
-54;Palio;05:00;San Andrés;
-54;Palio;05:30;Jesús del Gran Poder;
-54;Palio;06:00;Entrada;06:05
-55;CruzGuia;01:00;Salida;
-55;CruzGuia;01:30;Jesús del Gran Poder;
-55;CruzGuia;02:00;Campana;01:55
-55;CruzGuia;02:30;Plaza;02:35
-55;CruzGuia;03:00;S. Miguel;03:01
-55;CruzGuia;03:30;Palos;03:20
-55;CruzGuia;04:00;Arfe;
-55;CruzGuia;04:30;Santas Patronas;
-55;CruzGuia;05:00;Gravina;
-55;CruzGuia;05:30;Bailén;
-55;CruzGuia;06:00;Cardenal Spínola;
-55;CruzGuia;06:30;Entrada;
-55;Palio;02:00;Salida;02:10
-55;Palio;02:30;Jesús del Gran Poder;
-55;Palio;03:00;Campana;03:04
-55;Palio;03:30;Plaza;03:44
-55;Palio;04:00;S. Miguel;04:10
-55;Palio;04:30;Palos;04:29
-55;Palio;05:00;Arfe;
-55;Palio;05:30;Santas Patronas;
-55;Palio;06:00;Gravina;
-55;Palio;06:30;Bailén;
-55;Palio;07:00;Pl. Museo;
-55;Palio;07:30;Cardenal Spínola;
-55;Palio;08:00;Entrada;
-56;CruzGuia;00:00;Salida;
-56;CruzGuia;00:30;Resolana;
-56;CruzGuia;01:00;Feria;
-56;CruzGuia;01:30;Alameda Hércules;
-56;CruzGuia;02:00;Trajano;
-56;CruzGuia;02:30;Trajano;
-56;CruzGuia;03:00;Campana;03:04
-56;CruzGuia;03:30;Plaza;03:44
-56;CruzGuia;04:00;S. Miguel;04:10
-56;CruzGuia;04:30;Palos;04:29
-56;CruzGuia;05:00;Francos;
-56;CruzGuia;05:30;Cuesta del Rosario;
-56;CruzGuia;06:00;Sales y Ferré;
-56;CruzGuia;06:30;Imagen;
-56;CruzGuia;07:00;Sta Ángela Cruz;
-56;CruzGuia;07:30;Sta Ángela Cruz;
-56;CruzGuia;08:00;Feria;
-56;CruzGuia;08:30;Feria;
-56;CruzGuia;09:00;Relator;
-56;CruzGuia;09:30;Fray Luis Sotelo;
-56;CruzGuia;10:00;Resolana;
-56;CruzGuia;10:30;Entrada;10:10
-56;Palio;01:30;Salida;01:40
-56;Palio;02:00;Resolana;
-56;Palio;02:30;Feria;
-56;Palio;03:00;Alameda Hércules;
-56;Palio;03:30;Trajano;
-56;Palio;04:00;Pl. Duque;
-56;Palio;04:30;Campana;04:49
-56;Palio;05:00;Plaza;05:29
-56;Palio;05:30;S. Miguel;05:55
-56;Palio;06:00;Palos;06:14
-56;Palio;06:30;Alemanes;
-56;Palio;07:00;Francos;
-56;Palio;07:30;Villegas;
-56;Palio;08:00;Boteros;
-56;Palio;08:30;Sta Ángela Cruz;
-56;Palio;09:00;Sta Ángela Cruz;
-56;Palio;09:30;Madre Mª Purísima;
-56;Palio;10:00;Feria;
-56;Palio;10:30;Feria;
-56;Palio;11:00;Relator;
-56;Palio;11:30;Parras;
-56;Palio;12:00;Escoberos;
-56;Palio;12:30;Fray Luis Sotelo;
-56;Palio;13:00;Resolana;
-56;Palio;13:30;Entrada;
-57;CruzGuia;04:00;Salida;
-57;CruzGuia;04:30;Campana;04:49
-57;CruzGuia;05:00;Plaza;05:29
-57;CruzGuia;05:30;S. Miguel;05:55
-57;CruzGuia;06:00;Palos;06:14
-57;CruzGuia;06:30;Fray Ceferino Glez.;
-57;CruzGuia;07:00;Castelar;
-57;CruzGuia;07:30;Entrada;07:30
-57;Palio;04:30;Salida;
-57;Palio;05:00;Campana;05:17
-57;Palio;05:30;Plaza;05:57
-57;Palio;06:00;S. Miguel;06:23
-57;Palio;06:30;Palos;06:42
-57;Palio;07:00;Almirantazgo;
-57;Palio;07:30;Pl. Molviedro;
-57;Palio;08:00;Entrada;
-58;CruzGuia;01:30;Salida;01:35
-58;CruzGuia;02:00;Pl. Altozano;
-58;CruzGuia;02:30;Paseo de Colón;
-58;CruzGuia;03:00;Reyes Católicos;
-58;CruzGuia;03:30;Zaragoza;
-58;CruzGuia;04:00;Plaza Nueva;
-58;CruzGuia;04:30;Tetuán;
-58;CruzGuia;05:00;Campana;05:17
-58;CruzGuia;05:30;Plaza;05:57
-58;CruzGuia;06:00;S. Miguel;06:23
-58;CruzGuia;06:30;Palos;06:42
-58;CruzGuia;07:00;Almirantazgo;
-58;CruzGuia;07:30;Adriano;
-58;CruzGuia;08:00;Pastor y Landero;
-58;CruzGuia;08:30;Puente de Triana;
-58;CruzGuia;09:00;San Jacinto;
-58;CruzGuia;09:30;Pagés del Corro;
-58;CruzGuia;10:00;Pelay Correa;
-58;CruzGuia;10:30;Pureza;
-58;CruzGuia;11:00;Entrada;11:16
-58;Palio;02:30;Salida;
-58;Palio;03:00;Pureza;
-58;Palio;03:30;Pl. Altozano;
-58;Palio;04:00;Puente de Triana;
-58;Palio;04:30;Reyes Católicos;
-58;Palio;05:00;Zaragoza;
-58;Palio;05:30;Plaza Nueva;
-58;Palio;06:00;Tetuán;
-58;Palio;06:30;Campana;06:38
-58;Palio;07:00;Plaza;07:18
-58;Palio;07:30;S. Miguel;07:44
-58;Palio;08:00;Palos;08:03
-58;Palio;08:30;Almirantazgo;
-58;Palio;09:00;Adriano;
-58;Palio;09:30;Reyes Católicos;
-58;Palio;10:00;Puente de Triana;
-58;Palio;10:30;San Jacinto;
-58;Palio;11:00;Pagés del Corro;
-58;Palio;11:30;Pagés del Corro;
-58;Palio;12:00;Pelayo Correa;
-58;Palio;12:30;Párroco Don Eugenio;
-58;Palio;13:00;Pureza;
-58;Palio;13:30;Pureza;
-58;Palio;14:00;Entrada;
-59;CruzGuia;02:30;Salida;
-59;CruzGuia;03:00;Pl. San Román;
-59;CruzGuia;03:30;Doña María Coronel;
-59;CruzGuia;04:00;Sta Ángela de la Cruz;
-59;CruzGuia;04:30;Encarnación;
-59;CruzGuia;05:00;Laraña;
-59;CruzGuia;05:30;Orfila;
-59;CruzGuia;06:00;Javier Lasso Vega;
-59;CruzGuia;06:30;Campana;06:38
-59;CruzGuia;07:00;Plaza;07:18
-59;CruzGuia;07:30;S. Miguel;07:44
-59;CruzGuia;08:00;Palos;08:03
-59;CruzGuia;08:30;Francos;
-59;CruzGuia;09:00;Jesús Tres Caídas;
-59;CruzGuia;09:30;Pl. Cristo de Burgos;
-59;CruzGuia;10:00;Escuelas Pías;
-59;CruzGuia;10:30;Pinto;
-59;CruzGuia;11:00;Entrada;
-59;Palio;04:00;Salida;
-59;Palio;04:30;Matahacas;
-59;Palio;05:00;Doña María Coronel;
-59;Palio;05:30;Sta Ángela de la Cruz;
-59;Palio;06:00;Alcázares;
-59;Palio;06:30;Laraña;
-59;Palio;07:00;Orfila;
-59;Palio;07:30;Campana;07:46
-59;Palio;08:00;Plaza;08:26
-59;Palio;08:30;S. Miguel;08:52
-59;Palio;09:00;Palos;09:11
-59;Palio;09:30;Argote de Molina;
-59;Palio;10:00;Francos;
-59;Palio;10:30;Cuesta del Rosario;
-59;Palio;11:00;Boteros;
-59;Palio;11:30;Pl. Cristo de Burgos;
-59;Palio;12:00;Juan de Mesa;
-59;Palio;12:30;Escuelas Pías;
-59;Palio;13:00;Valle;
-59;Palio;13:30;Entrada;13:45
-60;CruzGuia;16:30;Salida;16:25
-60;CruzGuia;17:00;Gamazo;
-60;CruzGuia;17:30;Plaza Nueva;
-60;CruzGuia;18:00;Campana;18:20
-60;CruzGuia;18:30;Plaza;19:00
-60;CruzGuia;19:00;S. Miguel;19:26
-60;CruzGuia;19:30;P. Palos;19:45
-60;CruzGuia;20:00;Santo Tomás;
-60;CruzGuia;20:30;Santander;
-60;CruzGuia;21:00;Dos de Mayo;
-60;CruzGuia;21:30;Entrada;21:35
-60;Palio;17:00;Salida;17:15
-60;Palio;17:30;Arfe;
-60;Palio;18:00;Gamazo;
-60;Palio;18:30;Campana;18:50
-60;Palio;19:00;Plaza;19:30
-60;Palio;19:30;S. Miguel;19:56
-60;Palio;20:00;P. Palos;20:15
-60;Palio;20:30;Pl. Triunfo;
-60;Palio;21:00;Santo Tomás;
-60;Palio;21:30;Temprado;
-60;Palio;22:00;Dos de Mayo;
-60;Palio;22:30;Entrada;22:25
-61;CruzGuia;17:30;Salida;17:50
-61;CruzGuia;18:00;Zaragoza;
-61;CruzGuia;18:30;Campana;18:50
-61;CruzGuia;19:00;Plaza;19:30
-61;CruzGuia;19:30;S. Miguel;19:56
-61;CruzGuia;20:00;P. Palos;20:15
-61;CruzGuia;20:30;Pl. Triunfo;
-61;CruzGuia;21:00;Castelar;
-61;CruzGuia;21:30;Pl. Molviedro;
-61;CruzGuia;22:00;Zaragoza;
-61;CruzGuia;22:30;Entrada;
-61;Paso;18:00;Salida;18:10
-61;Paso;18:30;Plaza Nueva;
-61;Paso;19:00;Campana;19:10
-61;Paso;19:30;Plaza;19:50
-61;Paso;20:00;S. Miguel;20:16
-61;Paso;20:30;Palos;20:35
-61;Paso;21:00;Fray Cefer. Glez.;
-61;Paso;21:30;Castelar;
-61;Paso;22:00;Pl. Molviedro;
-61;Paso;22:30;Zaragoza;
-61;Paso;23:00;Entrada;22:45
-62;CruzGuia;16:00;Salida;15:45
-62;CruzGuia;16:30;Castilla - Callao;
-62;CruzGuia;17:00;Altozano;
-62;CruzGuia;17:30;Pte. de Triana;
-62;CruzGuia;18:00;Reyes Católicos;
-62;CruzGuia;18:30;San Pablo;
-62;CruzGuia;19:00;Campana;19:10
-62;CruzGuia;19:30;Plaza;19:50
-62;CruzGuia;20:00;S. Miguel;20:16
-62;CruzGuia;20:30;P. Palos;20:35
-62;CruzGuia;21:00;Fray C. González;
-62;CruzGuia;21:30;Arfe;
-62;CruzGuia;22:00;Past. y Landero;
-62;CruzGuia;22:30;Reyes Católicos;
-62;CruzGuia;23:00;Pl. Altozano;
-62;CruzGuia;23:30;Castilla;
-62;CruzGuia;00:00;Castilla;
-62;CruzGuia;00:30;Castilla;
-62;CruzGuia;01:00;Entrada;
-62;Palio;17:00;Salida;
-62;Palio;17:30;Castilla;
-62;Palio;18:00;Callao;
-62;Palio;18:30;Pte. de Triana;
-62;Palio;19:00;Reyes Católicos;
-62;Palio;19:30;San Pablo;
-62;Palio;20:00;O´Donnell;
-62;Palio;20:30;Campana;20:28
-62;Palio;21:00;Plaza;21:08
-62;Palio;21:30;S. Miguel;21:34
-62;Palio;22:00;P. Palos;21:53
-62;Palio;22:30;Arfe;
-62;Palio;23:00;Adriano;
-62;Palio;23:30;Past. y Landero;
-62;Palio;00:00;Pte. de Triana;
-62;Palio;00:30;San Jorge;
-62;Palio;01:00;Castilla;
-62;Palio;01:30;Pl. Chapina;
-62;Palio;02:00;Castilla;
-62;Palio;02:30;Entrada;02:35
-63;CruzGuia;18:00;Salida;
-63;CruzGuia;18:30;Pte. de Triana;
-63;CruzGuia;19:00;Reyes Católicos;
-63;CruzGuia;19:30;Rioja;
-63;CruzGuia;20:00;Velázquez;
-63;CruzGuia;20:30;Campana;20:28
-63;CruzGuia;21:00;Plaza;21:08
-63;CruzGuia;21:30;S. Miguel;21:34
-63;CruzGuia;22:00;P. Palos;21:53
-63;CruzGuia;22:30;Pl. Triunfo;
-63;CruzGuia;23:00;Santander;
-63;CruzGuia;23:30;Temprado;
-63;CruzGuia;00:00;Adriano;
-63;CruzGuia;00:30;Pte. de Triana;
-63;CruzGuia;01:00;Pl. Altozano;
-63;CruzGuia;01:30;Callao;
-63;CruzGuia;02:00;Entrada;01:50
-63;Palio;18:30;Salida;18:39
-63;Palio;19:00;Pte. de Triana;
-63;Palio;19:30;Reyes Católicos;
-63;Palio;20:00;Rioja;
-63;Palio;20:30;Velázquez;
-63;Palio;21:00;Campana;21:07
-63;Palio;21:30;Plaza;21:47
-63;Palio;22:00;S. Miguel;22:13
-63;Palio;22:30;P. Palos;22:32
-63;Palio;23:00;Pl. Triunfo;
-63;Palio;23:30;Santander;
-63;Palio;00:00;Temprado;
-63;Palio;00:30;Adriano;
-63;Palio;01:00;Pte. de Triana;
-63;Palio;01:30;Pl. Altozano;
-63;Palio;02:00;Callao;
-63;Palio;02:30;Castilla;
-63;Palio;03:00;Entrada;02:45
-64;CruzGuia;19:30;Salida;19:40
-64;CruzGuia;20:00;Villegas;
-64;CruzGuia;20:30;Cuna;
-64;CruzGuia;21:00;Campana;21:07
-64;CruzGuia;21:30;Plaza;21:47
-64;CruzGuia;22:00;S. Miguel;22:13
-64;CruzGuia;22:30;P. Palos;22:32
-64;CruzGuia;23:00;Francos;
-64;CruzGuia;23:30;Entrada;
-64;Palio;20:00;Salida;20:15
-64;Palio;20:30;Villegas;
-64;Palio;21:00;Cuna;
-64;Palio;21:30;Campana;21:41
-64;Palio;22:00;Plaza;22:21
-64;Palio;22:30;S. Miguel;22:47
-64;Palio;23:00;P. Palos;23:06
-64;Palio;23:30;Francos;
-64;Palio;00:00;Entrada;00:15
-65;CruzGuia;20:30;Salida;
-65;CruzGuia;21:00;Rioja;
-65;CruzGuia;21:30;Campana;21:41
-65;CruzGuia;22:00;Plaza;22:21
-65;CruzGuia;22:30;S. Miguel;22:47
-65;CruzGuia;23:00;P. Palos;23:06
-65;CruzGuia;23:30;Fray C. González;
-65;CruzGuia;00:00;Arfe;
-65;CruzGuia;00:30;Pta. del Arenal;
-65;CruzGuia;01:00;Zaragoza;
-65;CruzGuia;01:30;Entrada;
-65;Palio;21:00;Salida;21:03
-65;Palio;21:30;Rioja;
-65;Palio;22:00;Campana;22:15
-65;Palio;22:30;Plaza;22:55
-65;Palio;23:00;S. Miguel;23:21
-65;Palio;23:30;P. Palos;23:40
-65;Palio;00:00;Fray C. González;
-65;Palio;00:30;Arfe;
-65;Palio;01:00;Castelar;
-65;Palio;01:30;Doña Guiomar;
-65;Palio;02:00;San Pablo;
-65;Palio;02:30;Entrada;
-66;CruzGuia;20:00;Salida;
-66;CruzGuia;20:30;S. J. de la Palma;
-66;CruzGuia;21:00;Alberto Lista;
-66;CruzGuia;21:30;Pl. San Andrés;
-66;CruzGuia;22:00;Campana;22:15
-66;CruzGuia;22:30;Plaza;22:55
-66;CruzGuia;23:00;S. Miguel;23:21
-66;CruzGuia;23:30;P. Palos;23:40
-66;CruzGuia;00:00;Arg. de Molina;
-66;CruzGuia;00:30;C. del Rosario;
-66;CruzGuia;01:00;Pl. C. de Burgos;
-66;CruzGuia;01:30;Entrada;
-66;Paso;20:30;Salida;
-66;Paso;21:00;Feria;
-66;Paso;21:30;Cervantes;
-66;Paso;22:00;San Miguel;
-66;Paso;22:30;Campana;22:35
-66;Paso;23:00;Plaza;23:15
-66;Paso;23:30;S. Miguel;23:41
-66;Paso;00:00;P. Palos;00:00
-66;Paso;00:30;Francos;
-66;Paso;01:00;Alfalfa;
-66;Paso;01:30;Dña. Mª Coronel;
-66;Paso;02:00;Entrada;
-67;CruzGuia;12:30;Salida;12:45
-67;CruzGuia;13:00;Virgen del Sol;
-67;CruzGuia;13:30;Enramadilla;
-67;CruzGuia;14:00;Catalina de Rib.;
-67;CruzGuia;14:30;Cano y Cueto;
-67;CruzGuia;15:00;San José;
-67;CruzGuia;15:30;Muñoz y Pabón;
-67;CruzGuia;16:00;C. del Rosario;
-67;CruzGuia;16:30;Jovellanos;
-67;CruzGuia;17:00;Campana;17:15
-67;CruzGuia;17:30;Plaza;17:55
-67;CruzGuia;18:00;S. Miguel;18:21
-67;CruzGuia;18:30;Palos;18:40
-67;CruzGuia;19:00;Pl. Triunfo;
-67;CruzGuia;19:30;Puerta de Jerez;
-67;CruzGuia;20:00;D. Juan Austria;
-67;CruzGuia;20:30;Enramadilla;
-67;CruzGuia;21:00;Avión C. Vientos;
-67;CruzGuia;21:30;Virgen del Sol;
-67;CruzGuia;22:00;Entrada;
-67;Palio;13:00;Salida;13:15
-67;Palio;13:30;Virgen del Sol;
-67;Palio;14:00;Avda. Carlos V;
-67;Palio;14:30;Catalina de Rib.;
-67;Palio;15:00;Cano y Cueto;
-67;Palio;15:30;San José;
-67;Palio;16:00;Candilejo;
-67;Palio;16:30;C. del Rosario;
-67;Palio;17:00;Jovellanos;
-67;Palio;17:30;Campana;17:35
-67;Palio;18:00;Plaza;18:15
-67;Palio;18:30;S. Miguel;18:41
-67;Palio;19:00;Palos;19:00
-67;Palio;19:30;Mig. de Mañara;
-67;Palio;20:00;Puerta de Jerez;
-67;Palio;20:30;Avda. Carlos V;
-67;Palio;21:00;Enramadilla;
-67;Palio;21:30;Avión C. Vientos;
-67;Palio;22:00;Virgen del Sol;
-67;Palio;22:30;Entrada;22:45
-68;CruzGuia;15:00;Salida;15:20
-68;CruzGuia;15:30;Pl. San Marcos;
-68;CruzGuia;16:00;Dueñas;
-68;CruzGuia;16:30;Alcázares;
-68;CruzGuia;17:00;Laraña;
-68;CruzGuia;17:30;Campana;17:35
-68;CruzGuia;18:00;Plaza;18:15
-68;CruzGuia;18:30;S. Miguel;18:41
-68;CruzGuia;19:00;Palos;19:00
-68;CruzGuia;19:30;Francos;
-68;CruzGuia;20:00;C. del Rosario;
-68;CruzGuia;20:30;Sales y Ferré;
-68;CruzGuia;21:00;Dña. Mª Coronel;
-68;CruzGuia;21:30;Pl. Santa Isabel;
-68;CruzGuia;22:00;Entrada;21:42
-68;Palio;16:00;Salida;16:05
-68;Palio;16:30;Dueñas;
-68;Palio;17:00;S. Ángela Cruz;
-68;Palio;17:30;Imagen;
-68;Palio;18:00;Campana;18:07
-68;Palio;18:30;Plaza;18:47
-68;Palio;19:00;S. Miguel;19:13
-68;Palio;19:30;Palos;19:32
-68;Palio;20:00;Francos;
-68;Palio;20:30;C. del Rosario;
-68;Palio;21:00;Odreros;
-68;Palio;21:30;Dña. Mª Coronel;
-68;Palio;22:00;Pl. San Marcos;
-68;Palio;22:30;Entrada;22:40
-69;CruzGuia;15:30;Salida;
-69;CruzGuia;16:00;Mª Auxiliadora;
-69;CruzGuia;16:30;Puñonrostro;
-69;CruzGuia;17:00;Alm. Apodaca;
-69;CruzGuia;17:30;Encarnación;
-69;CruzGuia;18:00;Campana;18:07
-69;CruzGuia;18:30;Plaza;18:47
-69;CruzGuia;19:00;S. Miguel;19:13
-69;CruzGuia;19:30;Palos;19:32
-69;CruzGuia;20:00;Francos;
-69;CruzGuia;20:30;C. del Rosario;
-69;CruzGuia;21:00;Boteros;
-69;CruzGuia;21:30;Pl. San Leandro;
-69;CruzGuia;22:00;Jáuregui;
-69;CruzGuia;22:30;Valle;
-69;CruzGuia;23:00;Sol;
-69;CruzGuia;23:30;Madre I. Trinidad;
-69;CruzGuia;00:00;Entrada;
-69;Palio;16:00;Salida;16:20
-69;Palio;16:30;Mª Auxiliadora;
-69;Palio;17:00;Valle;
-69;Palio;17:30;Ponce de León;
-69;Palio;18:00;Laraña;
-69;Palio;18:30;J. Lasso Vega;
-69;Palio;19:00;Campana;19:02
-69;Palio;19:30;Plaza;19:42
-69;Palio;20:00;S. Miguel;20:08
-69;Palio;20:30;Palos;20:27
-69;Palio;21:00;Francos;
-69;Palio;21:30;C. del Rosario;
-69;Palio;22:00;Boteros;
-69;Palio;22:30;F. Carrión Mejías;
-69;Palio;23:00;P.J. de Córdoba;
-69;Palio;23:30;Valle;
-69;Palio;00:00;C. Cinco Llagas;
-69;Palio;00:30;Sol;
-69;Palio;01:00;Entrada;01:30
-70;CruzGuia;18:30;Salida;18:45
-70;CruzGuia;19:00;Campana;19:02
-70;CruzGuia;19:30;Plaza;19:42
-70;CruzGuia;20:00;S. Miguel;20:08
-70;CruzGuia;20:30;Palos;20:27
-70;CruzGuia;21:00;Hernando Colón;
-70;CruzGuia;21:30;Tetuán;
-70;CruzGuia;22:00;Alfonso XII;
-70;CruzGuia;22:30;Entrada;
-70;Duelo;19:00;Salida;19:15
-70;Duelo;19:30;Campana;19:47
-70;Duelo;20:00;Plaza;20:27
-70;Duelo;20:30;S. Miguel;20:53
-70;Duelo;21:00;Palos;21:12
-70;Duelo;21:30;Alemanes;
-70;Duelo;22:00;Hernando Colón;
-70;Duelo;22:30;O´Donnell;
-70;Duelo;23:00;Entrada;
-71;CruzGuia;18:30;Salida;18:50
-71;CruzGuia;19:00;Trajano;
-71;CruzGuia;19:30;Campana;19:47
-71;CruzGuia;20:00;Plaza;20:27
-71;CruzGuia;20:30;S. Miguel;20:55
-71;CruzGuia;21:00;Palos;21:12
-71;CruzGuia;21:30;Alemanes;
-71;CruzGuia;22:00;Álvarez Quintero;
-71;CruzGuia;22:30;Cuna;
-71;CruzGuia;23:00;Las Cortes;
-71;CruzGuia;23:30;Entrada;
-71;Paso;19:30;Salida;19:30
-71;Paso;20:00;J. del Gran Poder;
-71;Paso;20:30;Campana;20:30
-71;Paso;21:00;Plaza;21:10
-71;Paso;21:30;S. Miguel;21:36
-71;Paso;22:00;Palos;21:55
-71;Paso;22:30;Chapineros;
-71;Paso;23:00;Cuna;
-71;Paso;23:30;J. Lasso Vega;
-71;Paso;00:00;Pl. San Lorenzo;
-71;Paso;00:30;Entrada;00:15
-72;CruzGuia;08:30;Salida;
-72;CruzGuia;09:00;Pl. Cronista;
-72;CruzGuia;09:30;Pl. Monte Sión;
-72;CruzGuia;10:00;Alameda Hércules;
-72;CruzGuia;10:30;Trajano;
-72;CruzGuia;11:00;Campana;
-72;CruzGuia;11:30;Plaza;11:40
-72;CruzGuia;12:00;S. Miguel;12:06
-72;CruzGuia;12:30;Palos;12:25
-72;CruzGuia;13:00;Francos;
-72;CruzGuia;13:30;Alfalfa;
-72;CruzGuia;14:00;Pl. Cristo de Burgos;
-72;CruzGuia;14:30;Bustos Tavera;
-72;CruzGuia;15:00;San Luis;
-72;CruzGuia;15:30;Entrada;15:20
-72;Palio;09:00;Salida;09:05
-72;Palio;09:30;Arrayán;
-72;Palio;10:00;Infantes;
-72;Palio;10:30;Conde de Torrejón;
-72;Palio;11:00;Trajano;
-72;Palio;11:30;Campana;11:35
-72;Palio;12:00;Plaza;12:15
-72;Palio;12:30;S. Miguel;12:41
-72;Palio;13:00;Palos;13:00
-72;Palio;13:30;Placentines;
-72;Palio;14:00;Cuesta del Rosario;
-72;Palio;14:30;Sales y Ferré;
-72;Palio;15:00;Doña María Coronel;
-72;Palio;15:30;Bustos Tavera;
-72;Palio;16:00;San Luis;
-72;Palio;16:30;Entrada;
+1;CRUZGUIA;17:30;Salida Can. Colegio;17:00
+1;CRUZGUIA;18:00;Rotonda Esqueleto;
+1;CRUZGUIA;18:30;Rotonda Ntra. Sra. Oliva;
+1;CRUZGUIA;19:00;Getsemaní;
+1;CRUZGUIA;19:30;Getsemaní;
+1;CRUZGUIA;20:00;Peña Bética N.S. Oliva;
+1;CRUZGUIA;20:30;Nenúfar;
+1;CRUZGUIA;21:00;Alfonso Lasso Vega;
+1;CRUZGUIA;21:30;Almirante Topete;
+1;CRUZGUIA;22:00;Avda. Teatinos;
+1;CRUZGUIA;22:30;Parroquia Sta. Genoveva;
+1;CRUZGUIA;23:00;Almirante Topete;
+1;CRUZGUIA;23:30;Almirante Topete;
+1;CRUZGUIA;00:00;Rotonda H.V. Rocío;
+1;CRUZGUIA;00:30;Bendición y Esperanza;
+1;CRUZGUIA;01:00;Cancel Colegio;
+1;CRUZGUIA;01:30;Entrada;01:40
+1;PASO;17:30;Salida;17:20
+1;PASO;18:00;Cancel Colegio;
+1;PASO;18:30;Rotonda Esqueleto;
+1;PASO;19:00;Ronda Ntra. Sra. Oliva;
+1;PASO;19:30;Getsemaní;
+1;PASO;20:00;Getsemaní;
+1;PASO;20:30;Peña Bética N. Sra. Oliva;
+1;PASO;21:00;Nenúfar;
+1;PASO;21:30;Alfonso Lasso Vega;
+1;PASO;22:00;Almirante Topete;
+1;PASO;22:30;Avda. Teatinos;
+1;PASO;23:00;Parr. Santa Genoveva;
+1;PASO;23:30;Almirante Topete;
+1;PASO;00:00;Almirante Topete;
+1;PASO;00:30;Rotonda H.V. Rocío;
+1;PASO;01:00;Bendición y Esperanza;
+1;PASO;01:30;Cancel Colegio;
+1;PASO;02:00;Entrada;
+2;CRUZGUIA;17:30;Salida;17:45
+2;CRUZGUIA;18:00;Pl. Ramón Rueda;
+2;CRUZGUIA;18:30;Sembradores;
+2;CRUZGUIA;19:00;Estrella Sirio;
+2;CRUZGUIA;19:30;Estrella Canopus;
+2;CRUZGUIA;20:00;Parque Sierra Norte;
+2;CRUZGUIA;20:30;Corral del Agua;
+2;CRUZGUIA;21:00;Corral de la Encarnación;
+2;CRUZGUIA;21:30;Corral de los Barquilleros;
+2;CRUZGUIA;22:00;Trav. Ntra. S. Consolación;
+2;CRUZGUIA;22:30;Viñadores;
+2;CRUZGUIA;23:00;Impresores;
+2;CRUZGUIA;23:30;Esparteros;
+2;CRUZGUIA;00:00;Alfareros;
+2;CRUZGUIA;00:30;Alfareros;
+2;CRUZGUIA;01:00;Entrada;01:15
+2;PALIO;18:30;Salida;
+2;PALIO;19:00;Tapiceros;
+2;PALIO;19:30;Agricultores;
+2;PALIO;20:00;Estrella Agena;
+2;PALIO;20:30;Estrella Canopus;
+2;PALIO;21:00;Parque Sierra Norte;
+2;PALIO;21:30;Corral del Agua;
+2;PALIO;22:00;Corral de la Encarnación;
+2;PALIO;22:30;Corral del Acabose;
+2;PALIO;23:00;Trav. Ntra. S. Consolación;
+2;PALIO;23:30;Trav. Ntra. S. Consolación;
+2;PALIO;00:00;Viñadores;
+2;PALIO;00:30;Impresores;
+2;PALIO;01:00;Esparteros;
+2;PALIO;01:30;Alfareros;
+2;PALIO;02:00;Entrada;02:15
+3;CRUZGUIA;18:00;Salida;18:15
+3;CRUZGUIA;18:30;San Antonio María Claret;
+3;CRUZGUIA;19:00;Periodista Ramón Resa;
+3;CRUZGUIA;19:30;Periodista Ramón Resa;
+3;CRUZGUIA;20:00;Páez de Ribera;
+3;CRUZGUIA;20:30;Avda. Manuel Siurot;
+3;CRUZGUIA;21:00;Avda. Manuel Siurot;
+3;CRUZGUIA;21:30;Torc. Luca de Tena;
+3;CRUZGUIA;22:00;Fotógrafo A. del Junco;
+3;CRUZGUIA;22:30;Teba;
+3;CRUZGUIA;23:00;Tajo;
+3;CRUZGUIA;23:30;Ebro;
+3;CRUZGUIA;00:00;Avda. Padre García Tejero;
+3;CRUZGUIA;00:30;Entrada;
+3;PASO;18:30;Salida;
+3;PASO;19:00;San Antonio María Claret;
+3;PASO;19:30;Periodista Ramón Resa;
+3;PASO;20:00;Periodista Ramón Resa;
+3;PASO;20:30;Cardenal Ilundain;
+3;PASO;21:00;Avda. Manuel Siurot;
+3;PASO;21:30;Avda. Manuel Siurot;
+3;PASO;22:00;Monzón;
+3;PASO;22:30;Avda. Reina Mercedes;
+3;PASO;23:00;Ensanche;
+3;PASO;23:30;Panamá;
+3;PASO;00:00;Ebro;
+3;PASO;00:30;Padre García Tejero;
+3;PASO;01:00;Entrada;
+4;CRUZGUIA;18:30;Salida;
+4;CRUZGUIA;19:00;Pl. Fernando VI;
+4;CRUZGUIA;19:30;Ávila;
+4;CRUZGUIA;20:00;Almirante Argandoña;
+4;CRUZGUIA;20:30;Santa Margarita;
+4;CRUZGUIA;21:00;Pamplona;
+4;CRUZGUIA;21:30;Guadalajara;
+4;CRUZGUIA;22:00;Vigo;
+4;CRUZGUIA;22:30;Espejo;
+4;CRUZGUIA;23:00;Almenas;
+4;CRUZGUIA;23:30;Pl. Retiro;
+4;CRUZGUIA;00:00;Rosas;
+4;CRUZGUIA;00:30;Entrada;
+4;PALIO;19:00;Salida;19:04
+4;PALIO;19:30;Soria;
+4;PALIO;20:00;Logroño;
+4;PALIO;20:30;Asensio y Toledo;
+4;PALIO;21:00;Almirante Argandoña;
+4;PALIO;21:30;Santa Margarita;
+4;PALIO;22:00;Pamplona;
+4;PALIO;22:30;Guadalajara;
+4;PALIO;23:00;Caldereros;
+4;PALIO;23:30;Pl. Cadenas;
+4;PALIO;00:00;Almenas;
+4;PALIO;00:30;Alcuceros;
+4;PALIO;01:00;Rosas;
+4;PALIO;01:30;Entrada;
+5;CRUZGUIA;20:00;Salida - C. de Bustillo;
+5;CRUZGUIA;20:30;Prosperidad;
+5;CRUZGUIA;21:00;Febo;
+5;CRUZGUIA;21:30;Victoria;
+5;CRUZGUIA;22:00;Parroquia de Santa Ana;
+5;CRUZGUIA;22:30;Pureza;
+5;CRUZGUIA;23:00;Rodrigo de Triana;
+5;CRUZGUIA;23:30;San Jacinto;
+5;CRUZGUIA;00:00;Entrada;00:10
+5;PASO;20:00;Salida;20:15
+5;PASO;20:30;Evangelista;
+5;PASO;21:00;Trabajo;
+5;PASO;21:30;Pagés del Corro;
+5;PASO;22:00;Pl. Santa Ana;
+5;PASO;22:30;Pureza;
+5;PASO;23:00;Fabié;
+5;PASO;23:30;San Jacinto;
+5;PASO;00:00;San Jacinto;
+5;PASO;00:30;Entrada;
+6;CRUZGUIA;19:30;Salida;19:45
+6;CRUZGUIA;20:00;Cardenal Carlos Amigo;
+6;CRUZGUIA;20:30;Álvarez Quintero;
+6;CRUZGUIA;21:00;Fernández y González;
+6;CRUZGUIA;21:30;García de Vinuesa;
+6;CRUZGUIA;22:00;Real de la Carretería;
+6;CRUZGUIA;22:30;Postigo del Aceite;
+6;CRUZGUIA;23:00;Joaq. Romero Murube;
+6;CRUZGUIA;23:30;Pl. Virgen de los Reyes;
+6;CRUZGUIA;00:00;Entrada;23:45
+6;PASO;20:00;Salida;
+6;PASO;20:30;Chapineros;
+6;PASO;21:00;Plaza Nueva;
+6;PASO;21:30;Fernández y González;
+6;PASO;22:00;Puerta del Arenal;
+6;PASO;22:30;Dos de Mayo;
+6;PASO;23:00;Pl. Triunfo;
+6;PASO;23:30;Mateos Gago;
+6;PASO;00:00;Entrada;
+7;CRUZGUIA;15:00;Salida;15:10
+7;CRUZGUIA;15:30;Doctora;
+7;CRUZGUIA;16:00;Puebla del Río;
+7;CRUZGUIA;16:30;Doña Francisquita;
+7;CRUZGUIA;17:00;Doña Francisquita;
+7;CRUZGUIA;17:30;Puerto de la Mora;
+7;CRUZGUIA;18:00;Calatayud;
+7;CRUZGUIA;18:30;Ntra. Sra. Dolores;
+7;CRUZGUIA;19:00;Párroco A. Gómez Villa.;
+7;CRUZGUIA;19:30;Párroco A. Gómez Villa.;
+7;CRUZGUIA;20:00;Galicia;
+7;CRUZGUIA;20:30;Coimbra;
+7;CRUZGUIA;21:00;Avda. Gavilanes;
+7;CRUZGUIA;21:30;Doña Francisquita;
+7;CRUZGUIA;22:00;Doña Francisquita;
+7;CRUZGUIA;22:30;Ronda Padre Pío;
+7;CRUZGUIA;23:00;Carrión de los Céspedes;
+7;CRUZGUIA;23:30;Puebla de Cazalla;
+7;CRUZGUIA;00:00;Castillo de las Guardas;
+7;CRUZGUIA;00:30;Entrada;
+7;PALIO;16:00;Salida;
+7;PALIO;16:30;Avda. La Plata;
+7;PALIO;17:00;Doña Francisquita;
+7;PALIO;17:30;Doña Francisquita;
+7;PALIO;18:00;Puerto de Piedrafita;
+7;PALIO;18:30;Fco Carrera Iglesias;
+7;PALIO;19:00;Afán de Ribera;
+7;PALIO;19:30;Ntra. Sra. Dolores;
+7;PALIO;20:00;Párroco A. Gómez Villa.;
+7;PALIO;20:30;Galicia;
+7;PALIO;21:00;Lisboa;
+7;PALIO;21:30;Coimbra;
+7;PALIO;22:00;Doña Francisquita;
+7;PALIO;22:30;Avda. Plata;
+7;PALIO;23:00;Ronda de Padre Pío;
+7;PALIO;23:30;Carrión de los Céspedes;
+7;PALIO;00:00;Puebla de Cazalla;
+7;PALIO;00:30;Castillo de las Guardas;
+7;PALIO;01:00;Ronda Padre Pío;
+7;PALIO;01:30;Entrada;
+8;CRUZGUIA;16:30;Salida;16:45
+8;CRUZGUIA;17:00;Pl. Platanero;
+8;CRUZGUIA;17:30;Ébano;
+8;CRUZGUIA;18:00;Abedul;
+8;CRUZGUIA;18:30;Torremejías;
+8;CRUZGUIA;19:00;Torresquevedo;
+8;CRUZGUIA;19:30;Torrellana;
+8;CRUZGUIA;20:00;Pl. Inmacul. Corazón Mª.;
+8;CRUZGUIA;20:30;Pl. Inmacul. Corazón Mª.;
+8;CRUZGUIA;21:00;Torrevieja;
+8;CRUZGUIA;21:30;Torrelaguna;
+8;CRUZGUIA;22:00;Torrecuadrada;
+8;CRUZGUIA;22:30;Torrescarcela;
+8;CRUZGUIA;23:00;Torremocha;
+8;CRUZGUIA;23:30;Pl. Salvador Valverde;
+8;CRUZGUIA;00:00;Cedro;
+8;CRUZGUIA;00:30;Entrada;
+8;PALIO;17:30;Salida;17:45
+8;PALIO;18:00;Pl. Platanero;
+8;PALIO;18:30;Ébano;
+8;PALIO;19:00;Abedul;
+8;PALIO;19:30;Torregorda;
+8;PALIO;20:00;Torremejías;
+8;PALIO;20:30;Torrellana;
+8;PALIO;21:00;Toresbermejas;
+8;PALIO;21:30;Pl. Inmacul. Corazón Mª.;
+8;PALIO;22:00;Pl. Inmacul. Corazón Mª.;
+8;PALIO;22:30;Torrelaguna;
+8;PALIO;23:00;Torrecuadrada;
+8;PALIO;23:30;Torrescarcelas;
+8;PALIO;00:00;Torremocha;
+8;PALIO;00:30;Pl. Salvador Valverde;
+8;PALIO;01:00;Cedro - Pl. Acacias;
+8;PALIO;01:30;Entrada;2:15
+9;CRUZGUIA;17:30;Salida;
+9;CRUZGUIA;18:00;Carmen Conde;
+9;CRUZGUIA;18:30;Ildefonso Mara. Lavín;
+9;CRUZGUIA;19:00;Turia;
+9;CRUZGUIA;19:30;Ciudad de Chiva;
+9;CRUZGUIA;20:00;Ciudad del Alfafar;
+9;CRUZGUIA;20:30;Parroquia;
+9;CRUZGUIA;21:00;Ntra. Sra. Desamparad.;
+9;CRUZGUIA;21:30;Jesús del Divino Perdón;
+9;CRUZGUIA;22:00;Ildefonso Mara. Lavín;
+9;CRUZGUIA;22:30;Pl. Obradoiro;
+9;CRUZGUIA;23:00;Ciudad de Chiva;
+9;CRUZGUIA;23:30;Emilia Barral;
+9;CRUZGUIA;00:00;Entrada;
+9;PALIO;18:00;Salida;18:15
+9;PALIO;18:30;Carmen Conde;
+9;PALIO;19:00;Ildefonso Mara. Lavín;
+9;PALIO;19:30;Ildefonso Mara. Lavín;
+9;PALIO;20:00;Avda. Las ONG;
+9;PALIO;20:30;Ciudad de Chiva;
+9;PALIO;21:00;Ciudad del Alfafar;
+9;PALIO;21:30;Parroquia Desampar.;
+9;PALIO;22:00;Ntra. Sra. Desamparad.;
+9;PALIO;22:30;Ontur;
+9;PALIO;23:00;Ciudad de Chiva;
+9;PALIO;23:30;Pl. Obradoiro;
+9;PALIO;00:00;Ciudad de Chiva;
+9;PALIO;00:30;Emilia Barral;
+9;PALIO;01:00;Entrada;
+10;CRUZGUIA;17:00;Salida;
+10;CRUZGUIA;17:30;Antonio Filpo Rojas;
+10;CRUZGUIA;18:00;Urquiza;
+10;CRUZGUIA;18:30;Arroyo;
+10;CRUZGUIA;19:00;Mateos;
+10;CRUZGUIA;19:30;Cristo de las Cinco Llagas;
+10;CRUZGUIA;20:00;Sol;
+10;CRUZGUIA;20:30;Maria Auxiliadora;
+10;CRUZGUIA;21:00;San Juan Bosco;
+10;CRUZGUIA;21:30;Jabugo;
+10;CRUZGUIA;22:00;M. Gómez Zarzuela;
+10;CRUZGUIA;22:30;Vicente Alanís;
+10;CRUZGUIA;23:00;Guanahaní;
+10;CRUZGUIA;23:30;Nicasio Gallego;
+10;CRUZGUIA;00:00;Entrada;00:05
+10;PALIO;17:30;Salida;
+10;PALIO;18:00;Antonio Filpo Rojas;
+10;PALIO;18:30;Venecia;
+10;PALIO;19:00;Arroyo;
+10;PALIO;19:30;Mateos;
+10;PALIO;20:00;Cristo de las Cinco Llagas;
+10;PALIO;20:30;Sol;
+10;PALIO;21:00;Madre Isabel de la Trinidad;
+10;PALIO;21:30;San Juan Bosco;
+10;PALIO;22:00;Jabugo;
+10;PALIO;22:30;M. Gómez Zarzuela;
+10;PALIO;23:00;José María de Mena;
+10;PALIO;23:30;Arroyo;
+10;PALIO;00:00;Luis Álvarez Duarte;
+10;PALIO;00:30;Entrada;00:40
+11;CRUZGUIA;16:30;Salida;
+11;CRUZGUIA;17:00;Avda. Ciudad Jardín;
+11;CRUZGUIA;17:30;Antonio de Nebrija;
+11;CRUZGUIA;18:00;Almotamid;
+11;CRUZGUIA;18:30;Arzobispo Salcedo;
+11;CRUZGUIA;19:00;Gran Plaza;
+11;CRUZGUIA;19:30;Eduardo Dato;
+11;CRUZGUIA;20:00;San Juan de Dios;
+11;CRUZGUIA;20:30;Espinosa y Cárcel;
+11;CRUZGUIA;21:00;Villegas Marmolejo;
+11;CRUZGUIA;21:30;Parque García Lorca;
+11;CRUZGUIA;22:00;Fernández de Ribera;
+11;CRUZGUIA;22:30;Avda. Ciudad Jardín;
+11;CRUZGUIA;23:00;Entrada;22:40
+11;PALIO;17:00;Salida;17:10
+11;PALIO;17:30;Avda. Ciudad Jardín;
+11;PALIO;18:00;Card. Rodrigo de Castro;
+11;PALIO;18:30;Antonio de Nebrija;
+11;PALIO;19:00;Almotamid;
+11;PALIO;19:30;Alfonso XI;
+11;PALIO;20:00;Eduardo Dato;
+11;PALIO;20:30;San Juan de Dios;
+11;PALIO;21:00;San Juan de Dios;
+11;PALIO;21:30;Santa María Mazzarello;
+11;PALIO;22:00;Villegas y Marmolejo;
+11;PALIO;22:30;Parque García Lorca;
+11;PALIO;23:00;Marqués del Nervión;
+11;PALIO;23:30;Fernández de Ribera;
+11;PALIO;00:00;Entrada;
+12;CRUZGUIA;14:30;Salida;
+12;CRUZGUIA;15:00;Lasso de la V.;
+12;CRUZGUIA;15:30;J. Gran Poder;
+12;CRUZGUIA;16:00;Campana;16:05
+12;CRUZGUIA;16:30;Plaza;16:45
+12;CRUZGUIA;17:00;S. Miguel;17:11
+12;CRUZGUIA;17:30;P. Palos;
+12;CRUZGUIA;18:00;Álv. Quintero;
+12;CRUZGUIA;18:30;Entrada;
+12;PASO;15:00;Salida;
+12;PASO;15:30;Orfila;
+12;PASO;16:00;San Miguel;
+12;PASO;16:30;Campana;14:31
+12;PASO;17:00;Plaza;17:11
+12;PASO;17:30;S. Miguel;17:37
+12;PASO;18:00;P. Palos;17:56
+12;PASO;18:30;Chapineros;
+12;PASO;19:00;Entrada;
+13;CRUZGUIA;14:00;Salida;14:17
+13;CRUZGUIA;14:30;Zaragoza;
+13;CRUZGUIA;15:00;San Pablo;
+13;CRUZGUIA;15:30;Pl. Magdalena;
+13;CRUZGUIA;16:00;O'Donnell;
+13;CRUZGUIA;16:30;Campana;16:31
+13;CRUZGUIA;17:00;Plaza;17:11
+13;CRUZGUIA;17:30;S. Miguel;17:37
+13;CRUZGUIA;18:00;P. Palos;17:56
+13;CRUZGUIA;18:30;T. de Ibarra;
+13;CRUZGUIA;19:00;Dos de Mayo;
+13;CRUZGUIA;19:30;Real Carretería;
+13;CRUZGUIA;20:00;Gamazo;
+13;CRUZGUIA;20:30;Zaragoza;
+13;CRUZGUIA;21:00;Fray B. Casas;
+13;CRUZGUIA;21:30;Entrada;21:20
+13;PALIO;15:00;Salida;15:10
+13;PALIO;15:30;Zaragoza;
+13;PALIO;16:00;San Pablo;
+13;PALIO;16:30;Velázquez;
+13;PALIO;17:00;Campana;17:00
+13;PALIO;17:30;Plaza;17:40
+13;PALIO;18:00;S. Miguel;18:06
+13;PALIO;18:30;P. Palos;18:25
+13;PALIO;19:00;A. R. Jurado;
+13;PALIO;19:30;T. de Ibarra;
+13;PALIO;20:00;Dos de Mayo;
+13;PALIO;20:30;Real Carretería;
+13;PALIO;21:00;Castelar;
+13;PALIO;21:30;Zaragoza;
+13;PALIO;22:00;Fray B. Casas;
+13;PALIO;22:30;Entrada;22:40
+14;CRUZGUIA;13:00;Salida;
+14;CRUZGUIA;13:30;Aniceto Saenz;
+14;CRUZGUIA;14:00;Relator;
+14;CRUZGUIA;14:30;Feria;
+14;CRUZGUIA;15:00;Feria;
+14;CRUZGUIA;15:30;Europa;
+14;CRUZGUIA;16:00;Trajano;
+14;CRUZGUIA;16:30;Pl. Duque;
+14;CRUZGUIA;17:00;Campana;
+14;CRUZGUIA;17:30;Plaza;17:40
+14;CRUZGUIA;18:00;S. Miguel;18:06
+14;CRUZGUIA;18:30;P. Palos;18:25
+14;CRUZGUIA;19:00;Villegas;
+14;CRUZGUIA;19:30;Pl. Alfalfa;
+14;CRUZGUIA;20:00;Pl. Cristo Burg.;
+14;CRUZGUIA;20:30;D. Mª Coronel;
+14;CRUZGUIA;21:00;Bustos Tavera;
+14;CRUZGUIA;21:30;Hiniesta;
+14;CRUZGUIA;22:00;Hiniesta;
+14;CRUZGUIA;22:30;Pl. Moravia;
+14;CRUZGUIA;23:00;Entrada;22:45
+14;PALIO;14:00;Salida;14:05
+14;PALIO;14:30;Pta. Córdoba;
+14;PALIO;15:00;Aniceto Saenz;
+14;PALIO;15:30;Relator;
+14;PALIO;16:00;Feria;
+14;PALIO;16:30;Correduría;
+14;PALIO;17:00;Trajano;
+14;PALIO;17:30;Campana;17:45
+14;PALIO;18:00;Plaza;18:25
+14;PALIO;18:30;S. Miguel;18:51
+14;PALIO;19:00;P. Palos;19:10
+14;PALIO;19:30;Alemanes;
+14;PALIO;20:00;Francos;
+14;PALIO;20:30;Tres Caídas;
+14;PALIO;21:00;Pl. Cristo Burg.;
+14;PALIO;21:30;D. Mª Coronel;
+14;PALIO;22:00;Bustos Tavera;
+14;PALIO;22:30;San Marcos;
+14;PALIO;23:00;Hiniesta;
+14;PALIO;23:30;Hiniesta;
+14;PALIO;00:00;Pl. Moravia;
+14;PALIO;00:30;Entrada;
+15;CRUZGUIA;13:00;Salida;
+15;CRUZGUIA;13:30;Gta. Covadonga;
+15;CRUZGUIA;14:00;Pl. España;
+15;CRUZGUIA;14:30;Palos Frontera;
+15;CRUZGUIA;15:00;Av. Constitución;
+15;CRUZGUIA;15:30;P. del Aceite;
+15;CRUZGUIA;16:00;Castelar;
+15;CRUZGUIA;16:30;Barcelona;
+15;CRUZGUIA;17:00;Tetuán;
+15;CRUZGUIA;17:30;Campana;17:45
+15;CRUZGUIA;18:00;Plaza;18:25
+15;CRUZGUIA;18:30;S. Miguel;18:51
+15;CRUZGUIA;19:00;P. Palos;19:10
+15;CRUZGUIA;19:30;Pl. Contratación;
+15;CRUZGUIA;20:00;Avda. Roma;
+15;CRUZGUIA;20:30;Palos Frontera;
+15;CRUZGUIA;21:00;Pl. España;
+15;CRUZGUIA;21:30;Gta. Covadonga;
+15;CRUZGUIA;22:00;Brasil;
+15;CRUZGUIA;22:30;Río de la Plata;
+15;CRUZGUIA;23:00;Entrada;
+15;PALIO;14:00;Salida;14:15
+15;PALIO;14:30;Brasil;
+15;PALIO;15:00;Avda. Borbolla;
+15;PALIO;15:30;Pl. España;
+15;PALIO;16:00;Palos Frontera;
+15;PALIO;16:30;Av. Constitución;
+15;PALIO;17:00;P. del Aceite;
+15;PALIO;17:30;Castelar;
+15;PALIO;18:00;Tetuán;
+15;PALIO;18:30;Campana;18:46
+15;PALIO;19:00;Plaza;19:26
+15;PALIO;19:30;Avenida;
+15;PALIO;20:00;S. Miguel;20:28
+15;PALIO;20:30;P. Palos;20:47
+15;PALIO;21:00;Pl. Contratación;
+15;PALIO;21:30;Avda. Roma;
+15;PALIO;22:00;Gta. del Cid;
+15;PALIO;22:30;Pl. España Torre N.;
+15;PALIO;23:00;Pl. España Torre S.;
+15;PALIO;23:30;Gta. Covadonga;
+15;PALIO;00:00;Río de la Plata;
+15;PALIO;00:30;San Salvador;
+15;PALIO;01:00;Entrada;
+16;CRUZGUIA;16:00;Salida;16:15
+16;CRUZGUIA;16:30;C. M. Santiago;
+16;CRUZGUIA;17:00;Laraña;
+16;CRUZGUIA;17:30;Orfila;
+16;CRUZGUIA;18:00;J. Gran Poder;
+16;CRUZGUIA;18:30;Campana;18:46
+16;CRUZGUIA;19:00;Plaza;19:26
+16;CRUZGUIA;19:30;Avenida;
+16;CRUZGUIA;20:00;S. Miguel;20:28
+16;CRUZGUIA;20:30;P. Palos;20:47
+16;CRUZGUIA;21:00;Alemanes;
+16;CRUZGUIA;21:30;Francos;
+16;CRUZGUIA;22:00;Alfalfa;
+16;CRUZGUIA;22:30;Gerona;
+16;CRUZGUIA;23:00;Entrada;
+16;PALIO;16:30;Salida;16:50
+16;PALIO;17:00;Alhóndiga;
+16;PALIO;17:30;Imagen;
+16;PALIO;18:00;Orfila;
+16;PALIO;18:30;San Miguel;
+16;PALIO;19:00;Campana;19:22
+16;PALIO;19:30;Plaza;20:02
+16;PALIO;20:00;S. Miguel;20:28
+16;PALIO;20:30;P. Palos;20:44
+16;PALIO;21:00;Card. C. Amigo;
+16;PALIO;21:30;Francos;
+16;PALIO;22:00;Alfalfa;
+16;PALIO;22:30;Pl. C. Burgos;
+16;PALIO;23:00;D. Mª Coronel;
+16;PALIO;23:30;Entrada;23:40
+17;CRUZGUIA;16:30;Salida;16:35
+17;CRUZGUIA;17:00;Puñonrostro;
+17;CRUZGUIA;17:30;Ponce de León;
+17;CRUZGUIA;18:00;Imagen;
+17;CRUZGUIA;18:30;Laraña;
+17;CRUZGUIA;19:00;Campana;19:22
+17;CRUZGUIA;19:30;Plaza;20:02
+17;CRUZGUIA;20:00;S. Miguel;20:28
+17;CRUZGUIA;20:30;P. Palos;20:47
+17;CRUZGUIA;21:00;Arg. de Molina;
+17;CRUZGUIA;21:30;C. del Rosario;
+17;CRUZGUIA;22:00;C. Rey D. Pedro;
+17;CRUZGUIA;22:30;Caballerizas;
+17;CRUZGUIA;23:00;Medinaceli;
+17;CRUZGUIA;23:30;Guadalupe;
+17;CRUZGUIA;00:00;Entrada;
+17;PALIO;17:30;Salida;
+17;PALIO;18:00;Puerta Osario;
+17;PALIO;18:30;Ponce de León;
+17;PALIO;19:00;Encarnación;
+17;PALIO;19:30;Campana;19:57
+17;PALIO;20:00;Sierpes;
+17;PALIO;20:30;Plaza;20:37
+17;PALIO;21:00;S. Miguel;21:03
+17;PALIO;21:30;P. Palos;21:22
+17;PALIO;22:00;Francos;
+17;PALIO;22:30;Alfalfa;
+17;PALIO;23:00;Pl. S. Ildefonso;
+17;PALIO;23:30;Águilas;
+17;PALIO;00:00;Imperial;
+17;PALIO;00:30;M. Navarros;
+17;PALIO;01:00;Entrada;01:10
+18;CRUZGUIA;18:00;Salida;18:25
+18;CRUZGUIA;18:30;Feria;
+18;CRUZGUIA;19:00;Amor de Dios;
+18;CRUZGUIA;19:30;Campana;19:57
+18;CRUZGUIA;20:00;Sierpes;
+18;CRUZGUIA;20:30;Plaza;20:37
+18;CRUZGUIA;21:00;S. Miguel;21:03
+18;CRUZGUIA;21:30;P. Palos;21:22
+18;CRUZGUIA;22:00;Villegas;
+18;CRUZGUIA;22:30;Cuna;
+18;CRUZGUIA;23:00;Encarnación;
+18;CRUZGUIA;23:30;Espíritu Santo;
+18;CRUZGUIA;00:00;Entrada;
+18;PALIO;19:00;Salida;
+18;PALIO;19:30;Conde de Torrejón;
+18;PALIO;20:00;Trajano;
+18;PALIO;20:30;Campana;20:37
+18;PALIO;21:00;Plaza;21:17
+18;PALIO;21:30;S. Miguel;21:43
+18;PALIO;22:00;P. Palos;22:02
+18;PALIO;22:30;Francos;
+18;PALIO;23:00;Cuna;
+18;PALIO;23:30;Laraña;
+18;PALIO;00:00;Alcázares;
+18;PALIO;00:30;Espíritu Santo;
+18;PALIO;01:00;Entrada;01:05
+19;CRUZGUIA;17:30;Salida;17:45
+19;CRUZGUIA;18:00;Pte de Triana;
+19;CRUZGUIA;18:30;Reyes Católicos;
+19;CRUZGUIA;19:00;San Pablo;
+19;CRUZGUIA;19:30;San Pablo;
+19;CRUZGUIA;20:00;Rioja;
+19;CRUZGUIA;20:30;Campana;20:37
+19;CRUZGUIA;21:00;Plaza;21:17
+19;CRUZGUIA;21:30;S. Miguel;21:43
+19;CRUZGUIA;22:00;P. Palos;22:02
+19;CRUZGUIA;22:30;Arfe;
+19;CRUZGUIA;23:00;Adriano;
+19;CRUZGUIA;23:30;Reyes Católicos;
+19;CRUZGUIA;00:00;Pte de Triana;
+19;CRUZGUIA;00:30;Pl. Altozano;
+19;CRUZGUIA;01:00;Entrada;01:05
+19;PALIO;19:00;Salida;19:20
+19;PALIO;19:30;San Jacinto;
+19;PALIO;20:00;Pte de Triana;
+19;PALIO;20:30;San Pablo;
+19;PALIO;21:00;Rioja;
+19;PALIO;21:30;Campana;21:47
+19;PALIO;22:00;Plaza;22:27
+19;PALIO;22:30;S. Miguel;22:53
+19;PALIO;23:00;P. Palos;23:12
+19;PALIO;23:30;Fray Cef. Glez;
+19;PALIO;00:00;Postigo;
+19;PALIO;00:30;Arfe;
+19;PALIO;01:00;Adriano;
+19;PALIO;01:30;Pastor y Land.;
+19;PALIO;02:00;Reyes Católicos;
+19;PALIO;02:30;Puerta-Entrada;03:30
+20;CRUZGUIA;20:30;Salida;20:50
+20;CRUZGUIA;21:00;Cuna;
+20;CRUZGUIA;21:30;Campana;21:47
+20;CRUZGUIA;22:00;Plaza;22:27
+20;CRUZGUIA;22:30;S. Miguel;22:53
+20;CRUZGUIA;23:00;P. Palos;23:12
+20;CRUZGUIA;23:30;Arg. de Molina;
+20;CRUZGUIA;00:00;Chapineros;
+20;CRUZGUIA;00:30;Entrada;01:10
+20;PALIO;21:30;Salida;
+20;PALIO;22:00;Cuna;
+20;PALIO;22:30;Campana;22:41
+20;PALIO;23:00;Plaza;23:21
+20;PALIO;23:30;S. Miguel;23:47
+20;PALIO;00:00;P. Palos;00:06
+20;PALIO;00:30;Arg. de Molina;
+20;PALIO;01:00;Chapineros;
+20;PALIO;01:30;Entrada;01:25
+21;CRUZGUIA;11:30;Salida;
+21;CRUZGUIA;12:00;Dr Laffón Soto;
+21;CRUZGUIA;12:30;Avda. Soleá;
+21;CRUZGUIA;13:00;Sinaí;
+21;CRUZGUIA;13:30;Luis Montoto;
+21;CRUZGUIA;14:00;Luis Montoto;
+21;CRUZGUIA;14:30;San Esteban;
+21;CRUZGUIA;15:00;J. Tres Caídas;
+21;CRUZGUIA;15:30;Granada;
+21;CRUZGUIA;16:00;Tetuán;
+21;CRUZGUIA;16:30;Campana;16:25
+21;CRUZGUIA;17:00;Plaza;17:05
+21;CRUZGUIA;17:30;S. Miguel;17:31
+21;CRUZGUIA;18:00;Palos;17:50
+21;CRUZGUIA;18:30;Pl. Jesús Pasión;
+21;CRUZGUIA;19:00;Pl. Encarnación;
+21;CRUZGUIA;19:30;Alm. Apodaca;
+21;CRUZGUIA;20:00;Valle;
+21;CRUZGUIA;20:30;J. Morales Torres;
+21;CRUZGUIA;21:00;Urquiza;
+21;CRUZGUIA;21:30;Venecia;
+21;CRUZGUIA;22:00;A. Filpo Rojas;
+21;CRUZGUIA;22:30;Samaniego;
+21;CRUZGUIA;23:00;Av. Kansas City;
+21;CRUZGUIA;23:30;Avda. Soleá;
+21;CRUZGUIA;00:00;Av. Pedro Rom.;
+21;CRUZGUIA;00:30;Virg. del Rosario;
+21;CRUZGUIA;01:00;Entrada;
+21;PALIO;12:00;Salida;12:11
+21;PALIO;12:30;Av. Pedro Rom.;
+21;PALIO;13:00;Avda. Soleá;
+21;PALIO;13:30;Sinaí;
+21;PALIO;14:00;Hern. del Pulgar;
+21;PALIO;14:30;Luis Montoto;
+21;PALIO;15:00;Luis Montoto;
+21;PALIO;15:30;J. Tres Caídas;
+21;PALIO;16:00;Cue. del Rosario;
+21;PALIO;16:30;Tetuán;
+21;PALIO;17:00;Campana;16:59
+21;PALIO;17:30;Plaza;17:39
+21;PALIO;18:00;S. Miguel;18:05
+21;PALIO;18:30;Palos;18:24
+21;PALIO;19:00;Arg. de Molina;
+21;PALIO;19:30;Pl. Jesús Pasión;
+21;PALIO;20:00;Pl. Encarnación;
+21;PALIO;20:30;San Pedro;
+21;PALIO;21:00;Pinto;
+21;PALIO;21:30;Valle;
+21;PALIO;22:00;Urquiza;
+21;PALIO;22:30;Venecia;
+21;PALIO;23:00;Venecia;
+21;PALIO;23:30;Samaniego;
+21;PALIO;00:00;Av. Kansas City;
+21;PALIO;00:30;Avda. Soleá;
+21;PALIO;01:00;Dr Laffón Soto;
+21;PALIO;01:30;Av. Pedro Rom.;
+21;PALIO;02:00;Entrada;01:50
+22;CRUZGUIA;14:30;Salida;14:45
+22;CRUZGUIA;15:00;Juan de Mesa;
+22;CRUZGUIA;15:30;Pl. San Pedro;
+22;CRUZGUIA;16:00;Orfila;
+22;CRUZGUIA;16:30;Trajano;
+22;CRUZGUIA;17:00;Campana;16:59
+22;CRUZGUIA;17:30;Plaza;17:39
+22;CRUZGUIA;18:00;S. Miguel;18:05
+22;CRUZGUIA;18:30;P. Palos;18:24
+22;CRUZGUIA;19:00;Francos;
+22;CRUZGUIA;19:30;Pl. Salvador;
+22;CRUZGUIA;20:00;Odreros;
+22;CRUZGUIA;20:30;Sales y Ferré;
+22;CRUZGUIA;21:00;Alhóndiga;
+22;CRUZGUIA;21:30;F. Carrión Mejías;
+22;CRUZGUIA;22:00;Santiago;
+22;CRUZGUIA;22:30;Entrada;
+22;PALIO;15:30;Salida;
+22;PALIO;16:00;Alm. Apodaca;
+22;PALIO;16:30;Imagen;
+22;PALIO;17:00;Orfila;
+22;PALIO;17:30;Campana;17:46
+22;PALIO;18:00;Plaza;18:26
+22;PALIO;18:30;S. Miguel;18:52
+22;PALIO;19:00;Palos;19:11
+22;PALIO;19:30;Alemanes;
+22;PALIO;20:00;Francos;
+22;PALIO;20:30;Pl. Salvador;
+22;PALIO;21:00;Odreros;
+22;PALIO;21:30;Sales y Ferré;
+22;PALIO;22:00;Alhóndiga;
+22;PALIO;22:30;F. Carrión Mejías;
+22;PALIO;23:00;Juan de Mesa;
+22;PALIO;23:30;Santiago;
+22;PALIO;00:00;Entrada;
+23;CRUZGUIA;12:30;Salida;12:25
+23;CRUZGUIA;13:00;Felipe II;
+23;CRUZGUIA;13:30;Porvenir;
+23;CRUZGUIA;14:00;Av. Isabel la Cat.;
+23;CRUZGUIA;14:30;Glorieta del Cid;
+23;CRUZGUIA;15:00;Avda. Roma;
+23;CRUZGUIA;15:30;Av. Constitución;
+23;CRUZGUIA;16:00;Pta del Arenal;
+23;CRUZGUIA;16:30;Gamazo;
+23;CRUZGUIA;17:00;Tetuán;
+23;CRUZGUIA;17:30;Campana;17:46
+23;CRUZGUIA;18:00;Plaza;18:26
+23;CRUZGUIA;18:30;S. Miguel;18:52
+23;CRUZGUIA;19:00;Palos;19:11
+23;CRUZGUIA;19:30;Pl. Triunfo;
+23;CRUZGUIA;20:00;San Gregorio;
+23;CRUZGUIA;20:30;Lonja Universid.;
+23;CRUZGUIA;21:00;Avda. Cid;
+23;CRUZGUIA;21:30;Av. Isabel la Cat.;
+23;CRUZGUIA;22:00;Av. Don Pelayo;
+23;CRUZGUIA;22:30;Felipe II;
+23;CRUZGUIA;23:00;Bogotá;
+23;CRUZGUIA;23:30;Pedro Salinas;
+23;CRUZGUIA;00:00;Avda. Teatinos;
+23;CRUZGUIA;00:30;Romero de Torr.;
+23;CRUZGUIA;01:00;Entrada;
+23;PALIO;13:30;Salida;
+23;PALIO;14:00;Almir. Topete;
+23;PALIO;14:30;Die. de la Barrera;
+23;PALIO;15:00;Río de la Plata;
+23;PALIO;15:30;Av. Isabel la Cat.;
+23;PALIO;16:00;Glorieta del Cid;
+23;PALIO;16:30;Avda. Roma;
+23;PALIO;17:00;Almirantazgo;
+23;PALIO;17:30;Pta del Arenal;
+23;PALIO;18:00;Barcelona;
+23;PALIO;18:30;Campana;18:47
+23;PALIO;19:00;Plaza;19:27
+23;PALIO;19:30;S. Miguel;19:53
+23;PALIO;20:00;Palos;20:12
+23;PALIO;20:30;Pl. Triunfo;
+23;PALIO;21:00;San Gregorio;
+23;PALIO;21:30;Lonja de la Univ.;
+23;PALIO;22:00;Avda. Cid;
+23;PALIO;22:30;Av. Isabel la Cat.;
+23;PALIO;23:00;Av. Don Pelayo;
+23;PALIO;23:30;Felipe II;
+23;PALIO;00:00;Bogotá;
+23;PALIO;00:30;Pedro Salinas;
+23;PALIO;01:00;Avda. Teatinos;
+23;PALIO;01:30;Romero de Torr.;
+23;PALIO;02:00;Entrada;02:10
+24;CRUZGUIA;18:00;Salida;18:10
+24;CRUZGUIA;18:30;Campana;18:47
+24;CRUZGUIA;19:00;Plaza;19:27
+24;CRUZGUIA;19:30;S. Miguel;19:53
+24;CRUZGUIA;20:00;P. Palos;20:12
+24;CRUZGUIA;20:30;Alemanes;
+24;CRUZGUIA;21:00;Álvarez Quintero;
+24;CRUZGUIA;21:30;Cuna;
+24;CRUZGUIA;22:00;Entrada;
+24;PASO;18:30;Salida;18:42
+24;PASO;19:00;Campana;19:19
+24;PASO;19:30;Plaza;19:59
+24;PASO;20:00;S. Miguel;20:25
+24;PASO;20:30;Palos;20:44
+24;PASO;21:00;Argote de Molina;
+24;PASO;21:30;Pl. Salvador;
+24;PASO;22:00;Cuna;
+24;PASO;22:30;Entrada;22:20
+25;CRUZGUIA;15:00;Salida;
+25;CRUZGUIA;15:30;San Jacinto;
+25;CRUZGUIA;16:00;San Jacinto;
+25;CRUZGUIA;16:30;San Jacinto;
+25;CRUZGUIA;17:00;Pte de Triana;
+25;CRUZGUIA;17:30;Reyes Católicos;
+25;CRUZGUIA;18:00;San Pablo;
+25;CRUZGUIA;18:30;Rioja;
+25;CRUZGUIA;19:00;Campana;19:19
+25;CRUZGUIA;19:30;Plaza;19:59
+25;CRUZGUIA;20:00;S. Miguel;20:25
+25;CRUZGUIA;20:30;Palos;20:44
+25;CRUZGUIA;21:00;Arfe;
+25;CRUZGUIA;21:30;Adriano;
+25;CRUZGUIA;22:00;Reyes Católicos;
+25;CRUZGUIA;22:30;Cristóbal Colón;
+25;CRUZGUIA;23:00;Pte de Triana;
+25;CRUZGUIA;23:30;San Jacinto;
+25;CRUZGUIA;00:00;San Jacinto;
+25;CRUZGUIA;00:30;N. S. de la Salud;
+25;CRUZGUIA;01:00;Entrada;00:50
+25;PALIO;16:30;Salida;
+25;PALIO;17:00;Avda. Coria;
+25;PALIO;17:30;S. Martín Porres;
+25;PALIO;18:00;San Jacinto;
+25;PALIO;18:30;San Jacinto;
+25;PALIO;19:00;Cristóbal Colón;
+25;PALIO;19:30;San Pablo;
+25;PALIO;20:00;Rioja;
+25;PALIO;20:30;Campana;20:35
+25;PALIO;21:00;Plaza;21:15
+25;PALIO;21:30;S. Miguel;21:41
+25;PALIO;22:00;Palos;22:00
+25;PALIO;22:30;Fray C. González;
+25;PALIO;23:00;Arfe;
+25;PALIO;23:30;Adriano;
+25;PALIO;00:00;Pastor y Landero;
+25;PALIO;00:30;Pte de Triana;
+25;PALIO;01:00;San Jacinto;
+25;PALIO;01:30;San Jacinto;
+25;PALIO;02:00;S. Martín Porres;
+25;PALIO;02:30;N. S. de la Salud;
+25;PALIO;03:00;Entrada;
+26;CRUZGUIA;19:30;Salida;19:35
+26;CRUZGUIA;20:00;Teniente Borges;
+26;CRUZGUIA;20:30;Campana;20:35
+26;CRUZGUIA;21:00;Plaza;21:15
+26;CRUZGUIA;21:30;S. Miguel;21:41
+26;CRUZGUIA;22:00;Palos;22:00
+26;CRUZGUIA;22:30;Francos;
+26;CRUZGUIA;23:00;Cuna;
+26;CRUZGUIA;23:30;J. Lasso Vega;
+26;CRUZGUIA;00:00;Entrada;
+26;PALIO;20:00;Salida;
+26;PALIO;20:30;Virgen B. Libros;
+26;PALIO;21:00;Campana;21:06
+26;PALIO;21:30;Plaza;21:46
+26;PALIO;22:00;S. Miguel;22:12
+26;PALIO;22:30;Palos;22:31
+26;PALIO;23:00;Francos;
+26;PALIO;23:30;Cuna;
+26;PALIO;00:00;J. Lasso Vega;
+26;PALIO;00:30;Baños;
+26;PALIO;01:00;Entrada;
+27;CRUZGUIA;20:00;Salida;
+27;CRUZGUIA;20:30;Alfonso XII;
+27;CRUZGUIA;21:00;Campana;21:06
+27;CRUZGUIA;21:30;Plaza;21:46
+27;CRUZGUIA;22:00;S. Miguel;22:12
+27;CRUZGUIA;22:30;Palos;22:31
+27;CRUZGUIA;23:00;Francos;
+27;CRUZGUIA;23:30;Villegas;
+27;CRUZGUIA;00:00;Tetuán;
+27;CRUZGUIA;00:30;Campana;
+27;CRUZGUIA;01:00;V. Buenos Libros;
+27;CRUZGUIA;01:30;Entrada;01:10
+27;PALIO;20:30;Salida;20:40
+27;PALIO;21:00;San Vicente;
+27;PALIO;21:30;Campana;21:38
+27;PALIO;22:00;Plaza;22:18
+27;PALIO;22:30;S. Miguel;22:44
+27;PALIO;23:00;Palos;23:03
+27;PALIO;23:30;Francos;
+27;PALIO;00:00;Pl. Salvador;
+27;PALIO;00:30;Tetuán;
+27;PALIO;01:00;Alfonso XII;
+27;PALIO;01:30;Entrada;01:55
+28;CRUZGUIA;18:00;Salida;18:15
+28;CRUZGUIA;18:30;Arfe;
+28;CRUZGUIA;19:00;Castelar;
+28;CRUZGUIA;19:30;Doña Guiomar;
+28;CRUZGUIA;20:00;Zaragoza;
+28;CRUZGUIA;20:30;San Pablo;
+28;CRUZGUIA;21:00;Rioja;
+28;CRUZGUIA;21:30;Campana;21:38
+28;CRUZGUIA;22:00;Plaza;22:18
+28;CRUZGUIA;22:30;S. Miguel;22:44
+28;CRUZGUIA;23:00;Palos;23:03
+28;CRUZGUIA;23:30;Min. Indalecio P.;
+28;CRUZGUIA;00:00;Entrada;00:15
+28;PALIO;19:00;Salida;
+28;PALIO;19:30;Arfe;
+28;PALIO;20:00;Castelar;
+28;PALIO;20:30;Zaragoza;
+28;PALIO;21:00;San Pablo;
+28;PALIO;21:30;Rioja;
+28;PALIO;22:00;Campana;22:09
+28;PALIO;22:30;Plaza;22:49
+28;PALIO;23:00;S. Miguel;23:15
+28;PALIO;23:30;Palos;23:34
+28;PALIO;00:00;Santo Tomás;
+28;PALIO;00:30;Almirantazgo;
+28;PALIO;01:00;Dos de Mayo;
+28;PALIO;01:30;Entrada;01:20
+29;CRUZGUIA;20:30;Salida;20:40
+29;CRUZGUIA;21:00;Pl. Museo;
+29;CRUZGUIA;21:30;Alfonso XII;
+29;CRUZGUIA;22:00;Campana;22:09
+29;CRUZGUIA;22:30;Plaza;22:49
+29;CRUZGUIA;23:00;S. Miguel;23:15
+29;CRUZGUIA;23:30;Palos;23:34
+29;CRUZGUIA;00:00;Garc. de Vinuesa;
+29;CRUZGUIA;00:30;Castelar;
+29;CRUZGUIA;01:00;Pl. Molviedro;
+29;CRUZGUIA;01:30;Zaragoza;
+29;CRUZGUIA;02:00;Gravina;
+29;CRUZGUIA;02:30;Entrada;
+29;PALIO;21:00;Salida;21:15
+29;PALIO;21:30;Pl. Museo;
+29;PALIO;22:00;Alfonso XII;
+29;PALIO;22:30;Campana;22:50
+29;PALIO;23:00;Plaza;23:30
+29;PALIO;23:30;S. Miguel;23:56
+29;PALIO;00:00;Palos;00:15
+29;PALIO;00:30;Alemanes;
+29;PALIO;01:00;Castelar;
+29;PALIO;01:30;Pl. Molviedro;
+29;PALIO;02:00;Zaragoza;
+29;PALIO;02:30;Gravina;
+29;PALIO;03:00;Entrada;
+30;CRUZGUIA;11:30;Salida;11:40
+30;CRUZGUIA;12:30;Avda. Hytasa;
+30;CRUZGUIA;13:30;Av. Ramón y Cajal;
+30;CRUZGUIA;14:30;Avda. Carlos V;
+30;CRUZGUIA;15:00;Puerta de Jerez;
+30;CRUZGUIA;15:30;Plaza Nueva;
+30;CRUZGUIA;16:00;Tetuán;
+30;CRUZGUIA;16:30;Campana;16:40
+30;CRUZGUIA;17:00;Plaza;17:20
+30;CRUZGUIA;17:30;S. Miguel;17:46
+30;CRUZGUIA;18:00;P. Palos;18:05
+30;CRUZGUIA;18:30;Av. Constitución;
+30;CRUZGUIA;19:00;Avda. Roma;
+30;CRUZGUIA;19:30;Palos de la Fra.;
+30;CRUZGUIA;20:00;Glorieta S. Diego;
+30;CRUZGUIA;20:30;Avda. Portugal;
+30;CRUZGUIA;21:00;Dr. P. de Castro;
+30;CRUZGUIA;21:30;Enramadilla;
+30;CRUZGUIA;22:00;Av. Ramón y Cajal;
+30;CRUZGUIA;22:30;Av. Ramón y Cajal;
+30;CRUZGUIA;23:00;Avda. Hytasa;
+30;CRUZGUIA;23:30;Aníbal González;
+30;CRUZGUIA;00:00;Afán de Ribera;
+30;CRUZGUIA;00:30;NS de los Dolores;
+30;CRUZGUIA;01:00;Entrada;
+30;PALIO;12:30;Salida;
+30;PALIO;13:30;Av. Benavides;
+30;PALIO;14:30;Av. Ramón y Cajal;
+30;PALIO;15:00;Enramadilla;
+30;PALIO;15:30;Avda. Carlos V;
+30;PALIO;16:00;Av. Constitución;
+30;PALIO;16:30;Plaza Nueva;
+30;PALIO;17:00;Tetuán;
+30;PALIO;17:30;Campana;17:44
+30;PALIO;18:00;Plaza;18:24
+30;PALIO;18:30;S. Miguel;18:50
+30;PALIO;19:00;P. Palos;19:09
+30;PALIO;19:30;Av. Constitución;
+30;PALIO;20:00;Avda. Roma;
+30;PALIO;20:30;Palos de la Fra.;
+30;PALIO;21:00;Glorieta S. Diego;
+30;PALIO;21:30;Avda. Portugal;
+30;PALIO;22:00;Dr. P. de Castro;
+30;PALIO;22:30;Enramadilla;
+30;PALIO;23:00;Gl. Bizco Amate;
+30;PALIO;23:30;Av. Ramón y Cajal;
+30;PALIO;00:00;Av. Ramón y Cajal;
+30;PALIO;00:30;Avda. Hytasa;
+30;PALIO;01:00;Aníbal González;
+30;PALIO;01:30;Afán de Ribera;
+30;PALIO;02:00;Entrada;
+31;CRUZGUIA;14:30;Salida;
+31;CRUZGUIA;15:00;Luis Montoto;
+31;CRUZGUIA;15:30;Santiago;
+31;CRUZGUIA;16:00;Juan de Mesa;
+31;CRUZGUIA;16:30;Orfila;
+31;CRUZGUIA;17:00;J. Lasso Vega;
+31;CRUZGUIA;17:30;Campana;17:44
+31;CRUZGUIA;18:00;Plaza;18:24
+31;CRUZGUIA;18:30;S. Miguel;18:50
+31;CRUZGUIA;19:00;P. Palos;19:09
+31;CRUZGUIA;19:30;Francos;
+31;CRUZGUIA;20:00;Alfalfa;
+31;CRUZGUIA;20:30;Águilas;
+31;CRUZGUIA;21:00;Águilas;
+31;CRUZGUIA;21:30;Pl. Pilatos;
+31;CRUZGUIA;22:00;Entrada;21:45
+31;PALIO;15:30;Salida;15:45
+31;PALIO;16:00;Luis Montoto;
+31;PALIO;16:30;Pta de Carmona;
+31;PALIO;17:00;Santiago;
+31;PALIO;17:30;Imagen;
+31;PALIO;18:00;Laraña;
+31;PALIO;18:30;J. Lasso Vega;
+31;PALIO;19:00;Campana;19:02
+31;PALIO;19:30;Plaza;19:42
+31;PALIO;20:00;S. Miguel;20:08
+31;PALIO;20:30;P. Palos;20:27
+31;PALIO;21:00;Argote de Molina;
+31;PALIO;21:30;Cue. del Rosario;
+31;PALIO;22:00;J. Tres Caídas;
+31;PALIO;22:30;Águilas;
+31;PALIO;23:00;Pl. Pilatos;
+31;PALIO;23:30;Luis Montoto;
+31;PALIO;00:00;Entrada;00:15
+32;CRUZGUIA;17:00;Salida;17:15
+32;CRUZGUIA;17:30;Cardenal Spínola;
+32;CRUZGUIA;18:00;Pl. Gavidia;
+32;CRUZGUIA;18:30;Pl. Duque;
+32;CRUZGUIA;19:00;Campana;19:02
+32;CRUZGUIA;19:30;Plaza;19:42
+32;CRUZGUIA;20:00;S. Miguel;20:08
+32;CRUZGUIA;20:30;P. Palos;20:27
+32;CRUZGUIA;21:00;Argote de Molina;
+32;CRUZGUIA;21:30;Chapineros;
+32;CRUZGUIA;22:00;Cuna;
+32;CRUZGUIA;22:30;Orfila;
+32;CRUZGUIA;23:00;Trajano;
+32;CRUZGUIA;23:30;Cond. de Barajas;
+32;CRUZGUIA;00:00;Entrada;23:38
+32;PALIO;18:00;Salida;18:05
+32;PALIO;18:30;Cardenal Spínola;
+32;PALIO;19:00;Las Cortes;
+32;PALIO;19:30;Campana;19:42
+32;PALIO;20:00;Plaza;20:22
+32;PALIO;20:30;S. Miguel;20:48
+32;PALIO;21:00;P. Palos;21:07
+32;PALIO;21:30;Argote de Molina;
+32;PALIO;22:00;Álvarez Quintero;
+32;PALIO;22:30;Cuna;
+32;PALIO;23:00;Orfila;
+32;PALIO;23:30;García Tassara;
+32;PALIO;00:00;J. del Gran Poder;
+32;PALIO;00:30;Cond. de Barajas;
+32;PALIO;01:00;Entrada;01:15
+33;CRUZGUIA;17:00;Salida;17:04
+33;CRUZGUIA;17:30;Alfalfa;
+33;CRUZGUIA;18:00;Villegas;
+33;CRUZGUIA;18:30;Cuna;
+33;CRUZGUIA;19:00;J. Lasso Vega;
+33;CRUZGUIA;19:30;Campana;19:42
+33;CRUZGUIA;20:00;Plaza;20:22
+33;CRUZGUIA;20:30;S. Miguel;20:48
+33;CRUZGUIA;21:00;P. Palos;21:07
+33;CRUZGUIA;21:30;Pl. Contratación;
+33;CRUZGUIA;22:00;Puerta de Jerez;
+33;CRUZGUIA;22:30;San Fernando;
+33;CRUZGUIA;23:00;P. Cat. de Ribera;
+33;CRUZGUIA;23:30;Sta Mª la Blanca;
+33;CRUZGUIA;00:00;San José;
+33;CRUZGUIA;00:30;Entrada;00:45
+33;PALIO;18:00;Salida;
+33;PALIO;18:30;Candilejo;
+33;PALIO;19:00;Villegas;
+33;PALIO;19:30;Cuna;
+33;PALIO;20:00;J. Lasso Vega;
+33;PALIO;20:30;Campana;20:34
+33;PALIO;21:00;Plaza;21:14
+33;PALIO;21:30;S. Miguel;21:40
+33;PALIO;22:00;P. Palos;21:59
+33;PALIO;22:30;San Gregorio;
+33;PALIO;23:00;San Fernando;
+33;PALIO;23:30;P. Cat. de Ribera;
+33;PALIO;00:00;Sta Mª la Blanca;
+33;PALIO;00:30;San José;
+33;PALIO;01:30;Entrada;01:56
+34;CRUZGUIA;17:30;Salida;
+34;CRUZGUIA;18:00;Pl. San Ildefonso;
+34;CRUZGUIA;18:30;Dormitorio;
+34;CRUZGUIA;19:00;Imagen;
+34;CRUZGUIA;19:30;Laraña;
+34;CRUZGUIA;20:00;J. Lasso Vega;
+34;CRUZGUIA;20:30;Campana;20:34
+34;CRUZGUIA;21:00;Plaza;21:14
+34;CRUZGUIA;21:30;S. Miguel;21:40
+34;CRUZGUIA;22:00;P. Palos;21:59
+34;CRUZGUIA;22:30;Francos;
+34;CRUZGUIA;23:00;Cues. del Rosario;
+34;CRUZGUIA;23:30;Águilas;
+34;CRUZGUIA;00:00;Entrada;
+34;PALIO;18:30;Salida;
+34;PALIO;19:00;Águilas;
+34;PALIO;19:30;Pl. San Leandro;
+34;PALIO;20:00;Pl. Cristo Burgos;
+34;PALIO;20:30;Laraña;
+34;PALIO;21:00;Campana;21:21
+34;PALIO;21:30;Plaza;22:01
+34;PALIO;22:00;S. Miguel;22:27
+34;PALIO;22:30;P. Palos;22:46
+34;PALIO;23:00;Alemanes;
+34;PALIO;23:30;Francos;
+34;PALIO;00:00;Cues. del Rosario;
+34;PALIO;00:30;Alfalfa;
+34;PALIO;01:00;Águilas;
+34;PALIO;01:30;Entrada;01:35
+35;CRUZGUIA;19:30;Salida;19:40
+35;CRUZGUIA;20:00;Correduría;
+35;CRUZGUIA;20:30;Trajano;
+35;CRUZGUIA;21:00;Campana;21:21
+35;CRUZGUIA;21:30;Plaza;22:01
+35;CRUZGUIA;22:00;S. Miguel;22:27
+35;CRUZGUIA;22:30;P. Palos;22:46
+35;CRUZGUIA;23:00;Argote de Molina;
+35;CRUZGUIA;23:30;Álvarez Quintero;
+35;CRUZGUIA;00:00;Cuna;
+35;CRUZGUIA;00:30;García Tassara;
+35;CRUZGUIA;01:00;Correduría;
+35;CRUZGUIA;01:30;Entrada;
+35;PALIO;20:00;Salida;20:10
+35;PALIO;20:30;Correduría;
+35;PALIO;21:00;Cond. de Barajas;
+35;PALIO;21:30;Campana;21:46
+35;PALIO;22:00;Plaza;22:26
+35;PALIO;22:30;S. Miguel;22:52
+35;PALIO;23:00;P. Palos;23:11
+35;PALIO;23:30;Argote de Molina;
+35;PALIO;00:00;Álvarez Quintero;
+35;PALIO;00:30;Cuna;
+35;PALIO;01:00;García Tassara;
+35;PALIO;01:30;Correduría;
+35;PALIO;02:00;Entrada;02:15
+36;CRUZGUIA;18:30;Salida;18:50
+36;CRUZGUIA;19:00;Pl. Contratación;
+36;CRUZGUIA;19:30;Fray Ceferín. Glez;
+36;CRUZGUIA;20:00;Castelar;
+36;CRUZGUIA;20:30;Gamazo;
+36;CRUZGUIA;21:00;Méndez Núñez;
+36;CRUZGUIA;21:30;Campana;21:46
+36;CRUZGUIA;22:00;Plaza;22:26
+36;CRUZGUIA;22:30;S. Miguel;22:52
+36;CRUZGUIA;23:00;P. Palos;23:11
+36;CRUZGUIA;23:30;Mig. de Mañara;
+36;CRUZGUIA;00:00;Entrada;00:15
+36;PALIO;20:00;Salida;
+36;PALIO;20:30;Mig. de Mañara;
+36;PALIO;21:00;Arfe;
+36;PALIO;21:30;Gamazo;
+36;PALIO;22:00;Méndez Núñez;
+36;PALIO;22:30;O'Donnell;
+36;PALIO;23:00;Campana;22:51
+36;PALIO;23:30;Plaza;23:31
+36;PALIO;00:00;S. Miguel;23:57
+36;PALIO;00:30;P. Palos;00:16
+36;PALIO;01:00;San Gregorio;
+36;PALIO;01:30;Lonja Universid.;
+36;PALIO;02:00;Entrada;01:45
+37;CRUZGUIA;19:30;Salida;19:50
+37;CRUZGUIA;20:00;Mateos Gago;
+37;CRUZGUIA;20:30;Pl. Triunfo;
+37;CRUZGUIA;21:00;Tomás de Ibarra;
+37;CRUZGUIA;21:30;Castelar;
+37;CRUZGUIA;22:00;Barcelona;
+37;CRUZGUIA;22:30;Velázquez;
+37;CRUZGUIA;23:00;Campana;22:51
+37;CRUZGUIA;23:30;Plaza;23:31
+37;CRUZGUIA;00:00;S. Miguel;23:57
+37;CRUZGUIA;00:30;P. Palos;00:16
+37;CRUZGUIA;01:00;Entrada;
+37;PALIO;20:30;Salida;20:25
+37;PALIO;21:00;Mateos Gago;
+37;PALIO;21:30;Tomás de Ibarra;
+37;PALIO;22:00;Post. del Aceite;
+37;PALIO;22:30;Barcelona;
+37;PALIO;23:00;Campana;23:25
+37;PALIO;23:30;Sierpes;
+37;PALIO;00:00;Plaza;00:05
+37;PALIO;00:30;S. Miguel;00:31
+37;PALIO;01:00;P. Palos;00:50
+37;PALIO;01:30;Entrada;01:40
+38;CRUZGUIA;15:00;Salida;
+38;CRUZGUIA;15:30;Alam. Hércules;
+38;CRUZGUIA;16:00;Trajano;
+38;CRUZGUIA;16:30;Campana;16:43
+38;CRUZGUIA;17:00;Plaza;17:23
+38;CRUZGUIA;17:30;S. Miguel;17:49
+38;CRUZGUIA;18:00;P. Palos;18:08
+38;CRUZGUIA;18:30;Placentines;
+38;CRUZGUIA;19:00;Álv. Quintero;
+38;CRUZGUIA;19:30;Lineros;
+38;CRUZGUIA;20:00;Encarnación;
+38;CRUZGUIA;20:30;Encarnación;
+38;CRUZGUIA;21:00;Sta Ánge. Cruz;
+38;CRUZGUIA;21:30;S. J. Palma;
+38;CRUZGUIA;22:00;Feria;
+38;CRUZGUIA;22:30;Guadiana;
+38;CRUZGUIA;23:00;Entrada;
+38;PALIO;15:30;Salida;
+38;PALIO;16:00;Belén;
+38;PALIO;16:30;Trajano;
+38;PALIO;17:00;Campana;17:12
+38;PALIO;17:30;Plaza;17:52
+38;PALIO;18:00;S. Miguel;18:18
+38;PALIO;18:30;P. Palos;18:37
+38;PALIO;19:00;Arg. de Molina;
+38;PALIO;19:30;Chapineros;
+38;PALIO;20:00;Pl. Salvador;
+38;PALIO;20:30;Puen. y Pellón;
+38;PALIO;21:00;Encarnación;
+38;PALIO;21:30;Encarnación;
+38;PALIO;22:00;Sta Ánge. Cruz;
+38;PALIO;22:30;Feria;
+38;PALIO;23:00;Feria;
+38;PALIO;23:30;Guadiana;
+38;PALIO;00:00;Entrada;
+39;CRUZGUIA;12:00;Salida;
+39;CRUZGUIA;13:00;Eduardo Dato;
+39;CRUZGUIA;14:00;Jiménez Aran.;
+39;CRUZGUIA;14:30;Luis Montoto;
+39;CRUZGUIA;15:00;Santiago;
+39;CRUZGUIA;15:30;Alm. Apodaca;
+39;CRUZGUIA;16:00;Encarnación;
+39;CRUZGUIA;16:30;Orfila;
+39;CRUZGUIA;17:00;Campana;17:12
+39;CRUZGUIA;17:30;Plaza;17:52
+39;CRUZGUIA;18:00;S. Miguel;18:18
+39;CRUZGUIA;18:30;P. Palos;19:17
+39;CRUZGUIA;19:00;Alemanes;
+39;CRUZGUIA;19:30;Francos;
+39;CRUZGUIA;20:00;C. del Rosario;
+39;CRUZGUIA;20:30;Pta Carmona;
+39;CRUZGUIA;21:00;Luis Montoto;
+39;CRUZGUIA;21:30;Luis Montoto;
+39;CRUZGUIA;22:00;Luis Montoto;
+39;CRUZGUIA;22:30;Goya;
+39;CRUZGUIA;23:00;Crist. de la Sed;
+39;CRUZGUIA;23:30;Entrada;00:15
+39;PALIO;13:00;Salida;13:15
+39;PALIO;14:00;Eduardo Dato;
+39;PALIO;14:30;Eduardo Dato;
+39;PALIO;15:00;Jiménez Aran.;
+39;PALIO;15:30;Luis Montoto;
+39;PALIO;16:00;Muro Navarros;
+39;PALIO;16:30;Juan de Mesa;
+39;PALIO;17:00;Encarnación;
+39;PALIO;17:30;Pl. Duque;
+39;PALIO;18:00;Campana;17:58
+39;PALIO;18:30;Plaza;18:38
+39;PALIO;19:00;S. Miguel;19:04
+39;PALIO;19:30;P. Palos;19:23
+39;PALIO;20:00;Francos;
+39;PALIO;20:30;C. del Rosario;
+39;PALIO;21:00;Alfalfa;
+39;PALIO;21:30;Águilas;
+39;PALIO;22:00;San Esteban;
+39;PALIO;22:30;Luis Montoto;
+39;PALIO;23:00;J. L. de Casso;
+39;PALIO;23:30;Goya;
+39;PALIO;00:00;Crist. de la Sed;
+39;PALIO;00:30;Entrada;01:20
+40;CRUZGUIA;15:30;Salida;15:50
+40;CRUZGUIA;16:00;Alcoy;
+40;CRUZGUIA;16:30;Pl. S. Lorenzo;
+40;CRUZGUIA;17:00;Jesús G. Poder;
+40;CRUZGUIA;17:30;Pl. Duque;
+40;CRUZGUIA;18:00;Campana;17:58
+40;CRUZGUIA;18:30;Plaza;18:38
+40;CRUZGUIA;19:00;S. Miguel;19:04
+40;CRUZGUIA;19:30;P. Palos;19:23
+40;CRUZGUIA;20:00;A. del Postigo;
+40;CRUZGUIA;20:30;Castelar;
+40;CRUZGUIA;21:00;Doña Guiomar;
+40;CRUZGUIA;21:30;Gravina;
+40;CRUZGUIA;22:00;Bailén;
+40;CRUZGUIA;22:30;San Vicente;
+40;CRUZGUIA;23:00;San Vicente;
+40;CRUZGUIA;23:30;Entrada;
+40;PALIO;16:30;Salida;
+40;PALIO;17:00;Alcoy;
+40;PALIO;17:30;Pl. S. Lorenzo;
+40;PALIO;18:00;Jesús G. Poder;
+40;PALIO;18:30;Campana;18:33
+40;PALIO;19:00;Plaza;19:13
+40;PALIO;19:30;S. Miguel;19:35
+40;PALIO;20:00;P. Palos;19:58
+40;PALIO;20:30;Almirantazgo;
+40;PALIO;21:00;Arfe;
+40;PALIO;21:30;Castelar;
+40;PALIO;22:00;Zaragoza;
+40;PALIO;22:30;Gravina;
+40;PALIO;23:00;Pl. Museo;
+40;PALIO;23:30;San Vicente;
+40;PALIO;00:00;Entrada;
+41;CRUZGUIA;14:00;Salida;14:15
+41;CRUZGUIA;14:30;Pte S Bernardo;
+41;CRUZGUIA;15:00;Demetrio Ríos;
+41;CRUZGUIA;15:30;Sta Mª Blanca;
+41;CRUZGUIA;16:00;Muñoz y Pabón;
+41;CRUZGUIA;16:30;Alfalfa;
+41;CRUZGUIA;17:00;Villegas;
+41;CRUZGUIA;17:30;Cuna;
+41;CRUZGUIA;18:00;J. Lasso Vega;
+41;CRUZGUIA;18:30;Campana;18:33
+41;CRUZGUIA;19:00;Plaza;19:13
+41;CRUZGUIA;19:30;S.Miguel;19:39
+41;CRUZGUIA;20:00;P. Palos;19:58
+41;CRUZGUIA;20:30;Pl. Alianza;
+41;CRUZGUIA;21:00;Fabiola;
+41;CRUZGUIA;21:30;Sta Mª Blanca;
+41;CRUZGUIA;22:00;San Bernardo;
+41;CRUZGUIA;22:30;Entrada;
+41;PALIO;15:30;Salida;15:45
+41;PALIO;16:00;Gallinato;
+41;PALIO;16:30;Pte S Bernardo;
+41;PALIO;17:00;Sta Mª Blanca;
+41;PALIO;17:30;Pl. Jesús Salud;
+41;PALIO;18:00;Alfalfa;
+41;PALIO;18:30;C. del Rosario;
+41;PALIO;19:00;Cuna;
+41;PALIO;19:30;Campana;19:42
+41;PALIO;20:00;Plaza;20:22
+41;PALIO;20:30;S. Miguel;20:48
+41;PALIO;21:00;P. Palos;21:07
+41;PALIO;21:30;Pl. Triunfo;
+41;PALIO;22:00;Rodrigo Caro;
+41;PALIO;22:30;Mateos Gago;
+41;PALIO;23:00;San José;
+41;PALIO;23:30;Demetrio Ríos;
+41;PALIO;00:00;Pte S Bernardo;
+41;PALIO;00:30;San Bernardo;
+41;PALIO;01:00;Cristo Salud;
+41;PALIO;01:30;Entrada;
+42;CRUZGUIA;17:00;Salida;
+42;CRUZGUIA;17:30;Marco Sancho;
+42;CRUZGUIA;18:00;Europa;
+42;CRUZGUIA;18:30;Trajano;
+42;CRUZGUIA;19:00;Pl. Duque;
+42;CRUZGUIA;19:30;Campana;19:42
+42;CRUZGUIA;20:00;Plaza;20:22
+42;CRUZGUIA;20:30;S. Miguel;20:48
+42;CRUZGUIA;21:00;P. Palos;21:07
+42;CRUZGUIA;21:30;Arg. de Molina;
+42;CRUZGUIA;22:00;Álv. Quintero;
+42;CRUZGUIA;22:30;Pl. Salvador;
+42;CRUZGUIA;23:00;Orfila;
+42;CRUZGUIA;23:30;Pl. San Andrés;
+42;CRUZGUIA;00:00;Entrada;
+42;PALIO;17:30;Salida;
+42;PALIO;18:00;Saavedras;
+42;PALIO;18:30;C. de Torrejón;
+42;PALIO;19:00;Alameda;
+42;PALIO;19:30;Jesús G. Poder;
+42;PALIO;20:00;Campana;20:36
+42;PALIO;20:30;Plaza;20:53
+42;PALIO;21:00;S. Miguel;21:19
+42;PALIO;21:30;P. Palos;21:38
+42;PALIO;22:00;Arg. de Molina;
+42;PALIO;22:30;Francos;
+42;PALIO;23:00;Pl. Salvador;
+42;PALIO;23:30;Cuna;
+42;PALIO;00:00;Pl. San Andrés;
+42;PALIO;00:30;Cervantes;
+42;PALIO;01:00;Entrada;
+43;CRUZGUIA;17:00;Salida;17:10
+43;CRUZGUIA;17:30;Adriano;
+43;CRUZGUIA;18:00;Reyes Católic.;
+43;CRUZGUIA;18:30;Pl. Magdalena;
+43;CRUZGUIA;19:00;Méndez Núñez;
+43;CRUZGUIA;19:30;Tetuán;
+43;CRUZGUIA;20:00;Campana;20:13
+43;CRUZGUIA;20:30;Plaza;20:53
+43;CRUZGUIA;21:00;S.Miguel;21:19
+43;CRUZGUIA;21:30;P. Palos;21:38
+43;CRUZGUIA;22:00;Santo Tomás;
+43;CRUZGUIA;22:30;Arco Postigo;
+43;CRUZGUIA;23:00;Entrada;
+43;PALIO;18:30;Salida;18:50
+43;PALIO;19:00;Adriano;
+43;PALIO;19:30;Reyes Católic.;
+43;PALIO;20:00;Rioja;
+43;PALIO;20:30;Plaza Nueva;
+43;PALIO;21:00;Campana;21:23
+43;PALIO;21:30;Sierpes;
+43;PALIO;22:00;Plaza;22:03
+43;PALIO;22:30;P. Palos;22:48
+43;PALIO;23:00;Pl. Triunfo;
+43;PALIO;23:30;A. Rod. Jurado;
+43;PALIO;00:00;Tom. de Ibarra;
+43;PALIO;00:30;Arfe;
+43;PALIO;01:00;Adriano;
+43;PALIO;01:30;Entrada;
+44;CRUZGUIA;20:00;Salida;
+44;CRUZGUIA;20:30;Amor de Dios;
+44;CRUZGUIA;21:00;Campana;21:23
+44;CRUZGUIA;21:30;Sierpes;
+44;CRUZGUIA;22:00;Plaza;22:03
+44;CRUZGUIA;22:30;S. Miguel;22:29
+44;CRUZGUIA;23:00;P. Palos;22:48
+44;CRUZGUIA;23:30;A. Quintero;
+44;CRUZGUIA;00:00;Cuna;
+44;CRUZGUIA;00:30;Cuna;
+44;CRUZGUIA;01:00;Entrada;00:55
+44;PALIO;21:00;Salida;20:55
+44;PALIO;21:30;Trajano;
+44;PALIO;22:00;Campana;22:01
+44;PALIO;22:30;Plaza;22:41
+44;PALIO;23:00;S. Miguel;23:07
+44;PALIO;23:30;P. Palos;23:26
+44;PALIO;00:00;Francos;
+44;PALIO;00:30;Chapineros;
+44;PALIO;01:00;Cuna;
+44;PALIO;01:30;Cuna;
+44;PALIO;02:00;Entrada;02:10
+45;CRUZGUIA;20:30;Salida;
+45;CRUZGUIA;21:00;Baños;
+45;CRUZGUIA;21:30;Las Cortes;
+45;CRUZGUIA;22:00;Campana;22:01
+45;CRUZGUIA;22:30;Plaza;22:41
+45;CRUZGUIA;23:00;S. Miguel;23:07
+45;CRUZGUIA;23:30;P. Palos;23:26
+45;CRUZGUIA;00:00;Pl. S Francisco;
+45;CRUZGUIA;00:30;Velázquez;
+45;CRUZGUIA;01:00;Alfonso XI;
+45;CRUZGUIA;01:30;Entrada;
+45;PALIO;21:00;Salida;21:15
+45;PALIO;21:30;J. Vera Cruz;
+45;PALIO;22:00;Pl. Gavidia;
+45;PALIO;22:30;Campana;22:31
+45;PALIO;23:00;Plaza;23:11
+45;PALIO;23:30;S. Miguel;23:37
+45;PALIO;00:00;P. Palos;23:56
+45;PALIO;00:30;Plaza Nueva;
+45;PALIO;01:00;Tetuán;
+45;PALIO;01:30;Campana;
+45;PALIO;02:00;Sta Vicenta M.;
+45;PALIO;02:30;Entrada;02:15
+46;CRUZGUIA;21:00;Salida;
+46;CRUZGUIA;21:30;Laraña;
+46;CRUZGUIA;22:00;Orfila;
+46;CRUZGUIA;22:30;Campana;22:31
+46;CRUZGUIA;23:00;Plaza;23:11
+46;CRUZGUIA;23:30;S. Miguel;23:37
+46;CRUZGUIA;00:00;P. Palos;23:56
+46;CRUZGUIA;00:30;Francos;
+46;CRUZGUIA;01:00;Alfalfa;
+46;CRUZGUIA;01:30;Sales y Ferré;
+46;CRUZGUIA;02:00;Entrada;02:06
+46;PALIO;21:30;Salida;21:40
+46;PALIO;22:00;Laraña;
+46;PALIO;22:30;Campana;22:56
+46;PALIO;23:00;Plaza;23:36
+46;PALIO;23:30;S. Miguel;00:02
+46;PALIO;00:00;P. Palos;00:21
+46;PALIO;00:30;Card. C. Amigo;
+46;PALIO;01:00;Francos;
+46;PALIO;01:30;Alcaicería;
+46;PALIO;02:00;Sales y Ferré;
+46;PALIO;02:30;Entrada;02:45
+47;CRUZGUIA;15:00;Salida;
+47;CRUZGUIA;15:30;San Esteban;
+47;CRUZGUIA;16:00;Águilas;
+47;CRUZGUIA;16:30;C. del Rosario;
+47;CRUZGUIA;17:00;Jovell.- Tetuán;
+47;CRUZGUIA;17:30;Campana;17:40
+47;CRUZGUIA;18:00;Plaza;18:20
+47;CRUZGUIA;18:30;S. Miguel;18:46
+47;CRUZGUIA;19:00;P. Palos;19:05
+47;CRUZGUIA;19:30;Arg. de Molina;
+47;CRUZGUIA;20:00;C. del Rosario;
+47;CRUZGUIA;20:30;Águilas;
+47;CRUZGUIA;21:00;San Esteban;
+47;CRUZGUIA;21:30;Muro Navarros;
+47;CRUZGUIA;22:00;Entrada;
+47;PALIO;16:00;Salida;
+47;PALIO;16:30;San Esteban;
+47;PALIO;17:00;Pl. Pescadería;
+47;PALIO;17:30;Sagasta;
+47;PALIO;18:00;Campana;18:18
+47;PALIO;18:30;Plaza;18:58
+47;PALIO;19:00;S. Miguel;19:24
+47;PALIO;19:30;P. Palos;19:43
+47;PALIO;20:00;Card. C. Amigo;
+47;PALIO;20:30;C. del Rosario;
+47;PALIO;21:00;Alfalfa;
+47;PALIO;21:30;Águilas;
+47;PALIO;22:00;San Esteban;
+47;PALIO;22:30;Puerta Carmona;
+47;PALIO;23:00;Guadalupe;
+47;PALIO;23:30;Entrada;23:20
+48;CRUZGUIA;16:00;Salida;
+48;CRUZGUIA;16:30;S. Ángela Cruz;
+48;CRUZGUIA;17:00;Laraña;
+48;CRUZGUIA;17:30;Orfila;
+48;CRUZGUIA;18:00;Campana;18:18
+48;CRUZGUIA;18:30;Plaza;18:58
+48;CRUZGUIA;19:00;S. Miguel;19:24
+48;CRUZGUIA;19:30;P. Palos;19:43
+48;CRUZGUIA;20:00;Card C. Amigo;
+48;CRUZGUIA;20:30;Chapineros;
+48;CRUZGUIA;21:00;Pl. Salvador;
+48;CRUZGUIA;21:30;Odreros;
+48;CRUZGUIA;22:00;Pl. Cristo Burgos;
+48;CRUZGUIA;22:30;Alhóndiga;
+48;CRUZGUIA;23:00;Entrada;
+48;PALIO;17:00;Salida;
+48;PALIO;17:30;S. Ángela Cruz;
+48;PALIO;18:00;Alcázares;
+48;PALIO;18:30;Laraña;
+48;PALIO;19:00;Sierpes;
+48;PALIO;19:30;Plaza;19:33
+48;PALIO;20:00;S. Miguel;19:59
+48;PALIO;20:30;P. Palos;20:18
+48;PALIO;21:00;Francos;
+48;PALIO;21:30;Pl. Salvador;
+48;PALIO;22:00;Alfalfa;
+48;PALIO;22:30;Sales y Ferré;
+48;PALIO;23:00;Alm. Apodaca;
+48;PALIO;23:30;Entrada;23:40
+49;CRUZGUIA;17:00;Salida;
+49;CRUZGUIA;17:30;Pl. San Pedro;
+49;CRUZGUIA;18:00;Orfila;
+49;CRUZGUIA;18:30;Campana;18:53
+49;CRUZGUIA;19:00;Sierpes;
+49;CRUZGUIA;19:30;Plaza;19:33
+49;CRUZGUIA;20:00;S. Miguel;19:59
+49;CRUZGUIA;20:30;P. Palos;20:18
+49;CRUZGUIA;21:00;Puerta de Jerez;
+49;CRUZGUIA;21:30;Jardines Murillo;
+49;CRUZGUIA;22:00;Cano y Cueto;
+49;CRUZGUIA;22:30;Muñoz y Pabón;
+49;CRUZGUIA;23:00;Sales y Ferré;
+49;CRUZGUIA;23:30;Dña. Mª Coronel;
+49;CRUZGUIA;00:00;Entrada;23:51
+49;PALIO;17:30;Salida;17:50
+49;PALIO;18:00;Alm. Apodaca;
+49;PALIO;18:30;Imagen;
+49;PALIO;19:00;J. Lasso Vega;
+49;PALIO;19:30;Campana;19:25
+49;PALIO;20:00;Plaza;20:05
+49;PALIO;20:30;S. Miguel;20:31
+49;PALIO;21:00;P. Palos;20:50
+49;PALIO;21:30;Puerta de Jerez;
+49;PALIO;22:00;San Fernando;
+49;PALIO;22:30;Jardines Murillo;
+49;PALIO;23:00;San José;
+49;PALIO;23:30;Alfalfa;
+49;PALIO;00:00;Dña. Mª Coronel;
+49;PALIO;00:30;Entrada;00:35
+50;CRUZGUIA;17:30;Salida;
+50;CRUZGUIA;18:00;Correduría;
+50;CRUZGUIA;18:30;Trajano;
+50;CRUZGUIA;19:00;Trajano;
+50;CRUZGUIA;19:30;Campana;19:25
+50;CRUZGUIA;20:00;Plaza;20:05
+50;CRUZGUIA;20:30;S. Miguel;20:31
+50;CRUZGUIA;21:00;P. Palos;20:50
+50;CRUZGUIA;21:30;Álvarez Quintero;
+50;CRUZGUIA;22:00;Cuna;
+50;CRUZGUIA;22:30;Laraña;
+50;CRUZGUIA;23:00;Alcázares;
+50;CRUZGUIA;23:30;San Juan Palma;
+50;CRUZGUIA;00:00;Entrada;
+50;PALIO;18:30;Salida;18:25
+50;PALIO;19:00;Correduría;
+50;PALIO;19:30;Trajano;
+50;PALIO;20:00;Campana;20:10
+50;PALIO;20:30;Plaza;20:50
+50;PALIO;21:00;S. Miguel;21:16
+50;PALIO;21:30;P. Palos;21:35
+50;PALIO;22:00;Francos;
+50;PALIO;22:30;Álvarez Quintero;
+50;PALIO;23:00;Cuna;
+50;PALIO;23:30;Laraña;
+50;PALIO;00:00;Alcázares;
+50;PALIO;00:30;San Juan Palma;
+50;PALIO;01:00;Feria;
+50;PALIO;01:30;Entrada;
+51;CRUZGUIA;19:30;Salida;
+51;CRUZGUIA;20:00;Campana;20:10
+51;CRUZGUIA;20:30;Plaza;20:50
+51;CRUZGUIA;21:00;S. Miguel;21:16
+51;CRUZGUIA;21:30;P. Palos;21:35
+51;CRUZGUIA;22:00;Arco del Postigo;
+51;CRUZGUIA;22:30;Castelar;
+51;CRUZGUIA;23:00;Entrada;23:25
+51;PASO;20:00;Salida;20:05
+51;PASO;20:30;Campana;20:45
+51;PASO;21:00;Plaza;21:25
+51;PASO;21:30;San Miguel;21:49
+51;PASO;22:00;P. Palos;22:10
+51;PASO;22:30;Fray Cefer. Glez.;
+51;PASO;23:00;Arfe;
+51;PASO;23:30;Zaragoza;
+51;PASO;00:00;Entrada;
+52;CRUZGUIA;19:30;Laraña;19:25
+52;CRUZGUIA;20:00;San Miguel;
+52;CRUZGUIA;20:30;Campana;20:45
+52;CRUZGUIA;21:00;Plaza;21:25
+52;CRUZGUIA;21:30;S. Miguel;21:49
+52;CRUZGUIA;22:00;P. Palos;22:10
+52;CRUZGUIA;22:30;Alemanes;
+52;CRUZGUIA;23:00;Álvarez Quintero;
+52;CRUZGUIA;23:30;Cuna;
+52;CRUZGUIA;00:00;Laraña;
+52;CRUZGUIA;00:30;Entrada;00:15
+52;PALIO;20:00;Salida;20:05
+52;PALIO;20:30;García Tassara;
+52;PALIO;21:00;Pl. Duque;
+52;PALIO;21:30;Campana;21:26
+52;PALIO;22:00;Plaza;22:06
+52;PALIO;22:30;S. Miguel;22:33
+52;PALIO;23:00;P. Palos;22:51
+52;PALIO;23:30;Álvarez Quintero;
+52;PALIO;00:00;Cuna;
+52;PALIO;00:30;Laraña;
+52;PALIO;01:00;Entrada;00:45
+53;CRUZGUIA;20:00;Salida;20:15
+53;CRUZGUIA;20:30;Cuna;
+53;CRUZGUIA;21:00;Trajano;
+53;CRUZGUIA;21:30;Campana;21:26
+53;CRUZGUIA;22:00;Plaza;22:06
+53;CRUZGUIA;22:30;S. Miguel;22:33
+53;CRUZGUIA;23:00;P. Palos;22:51
+53;CRUZGUIA;23:30;Francos;
+53;CRUZGUIA;00:00;Villegas;
+53;CRUZGUIA;00:30;Entrada;00:15
+53;PALIO;21:00;Salida;21:15
+53;PALIO;21:30;Cuna;
+53;PALIO;22:00;Trajano;
+53;PALIO;22:30;Campana;22:25
+53;PALIO;23:00;Plaza;23:05
+53;PALIO;23:30;S. Miguel;23:31
+53;PALIO;00:00;Palos;23:50
+53;PALIO;00:30;Francos;
+53;PALIO;01:00;Villegas;
+53;PALIO;01:30;Entrada;01:15
+54;CRUZGUIA;01:00;Salida;
+54;CRUZGUIA;01:30;Campana;01:15
+54;CRUZGUIA;02:00;Plaza;01:55
+54;CRUZGUIA;02:30;S. Miguel;02:21
+54;CRUZGUIA;03:00;Palos;02:40
+54;CRUZGUIA;03:30;Cuna;
+54;CRUZGUIA;04:00;Orfila;
+54;CRUZGUIA;04:30;Jesús del Gran Poder;
+54;CRUZGUIA;05:00;Entrada;
+54;PALIO;01:30;Salida;
+54;PALIO;02:00;Campana;01:55
+54;PALIO;02:30;Plaza;02:35
+54;PALIO;03:00;S. Miguel;03:01
+54;PALIO;03:30;Palos;03:20
+54;PALIO;04:00;Villegas;
+54;PALIO;04:30;Cuna;
+54;PALIO;05:00;San Andrés;
+54;PALIO;05:30;Jesús del Gran Poder;
+54;PALIO;06:00;Entrada;06:05
+55;CRUZGUIA;01:00;Salida;
+55;CRUZGUIA;01:30;Jesús del Gran Poder;
+55;CRUZGUIA;02:00;Campana;01:55
+55;CRUZGUIA;02:30;Plaza;02:35
+55;CRUZGUIA;03:00;S. Miguel;03:01
+55;CRUZGUIA;03:30;Palos;03:20
+55;CRUZGUIA;04:00;Arfe;
+55;CRUZGUIA;04:30;Santas Patronas;
+55;CRUZGUIA;05:00;Gravina;
+55;CRUZGUIA;05:30;Bailén;
+55;CRUZGUIA;06:00;Cardenal Spínola;
+55;CRUZGUIA;06:30;Entrada;
+55;PALIO;02:00;Salida;02:10
+55;PALIO;02:30;Jesús del Gran Poder;
+55;PALIO;03:00;Campana;03:04
+55;PALIO;03:30;Plaza;03:44
+55;PALIO;04:00;S. Miguel;04:10
+55;PALIO;04:30;Palos;04:29
+55;PALIO;05:00;Arfe;
+55;PALIO;05:30;Santas Patronas;
+55;PALIO;06:00;Gravina;
+55;PALIO;06:30;Bailén;
+55;PALIO;07:00;Pl. Museo;
+55;PALIO;07:30;Cardenal Spínola;
+55;PALIO;08:00;Entrada;
+56;CRUZGUIA;00:00;Salida;
+56;CRUZGUIA;00:30;Resolana;
+56;CRUZGUIA;01:00;Feria;
+56;CRUZGUIA;01:30;Alameda Hércules;
+56;CRUZGUIA;02:00;Trajano;
+56;CRUZGUIA;02:30;Trajano;
+56;CRUZGUIA;03:00;Campana;03:04
+56;CRUZGUIA;03:30;Plaza;03:44
+56;CRUZGUIA;04:00;S. Miguel;04:10
+56;CRUZGUIA;04:30;Palos;04:29
+56;CRUZGUIA;05:00;Francos;
+56;CRUZGUIA;05:30;Cuesta del Rosario;
+56;CRUZGUIA;06:00;Sales y Ferré;
+56;CRUZGUIA;06:30;Imagen;
+56;CRUZGUIA;07:00;Sta Ángela Cruz;
+56;CRUZGUIA;07:30;Sta Ángela Cruz;
+56;CRUZGUIA;08:00;Feria;
+56;CRUZGUIA;08:30;Feria;
+56;CRUZGUIA;09:00;Relator;
+56;CRUZGUIA;09:30;Fray Luis Sotelo;
+56;CRUZGUIA;10:00;Resolana;
+56;CRUZGUIA;10:30;Entrada;10:10
+56;PALIO;01:30;Salida;01:40
+56;PALIO;02:00;Resolana;
+56;PALIO;02:30;Feria;
+56;PALIO;03:00;Alameda Hércules;
+56;PALIO;03:30;Trajano;
+56;PALIO;04:00;Pl. Duque;
+56;PALIO;04:30;Campana;04:49
+56;PALIO;05:00;Plaza;05:29
+56;PALIO;05:30;S. Miguel;05:55
+56;PALIO;06:00;Palos;06:14
+56;PALIO;06:30;Alemanes;
+56;PALIO;07:00;Francos;
+56;PALIO;07:30;Villegas;
+56;PALIO;08:00;Boteros;
+56;PALIO;08:30;Sta Ángela Cruz;
+56;PALIO;09:00;Sta Ángela Cruz;
+56;PALIO;09:30;Madre Mª Purísima;
+56;PALIO;10:00;Feria;
+56;PALIO;10:30;Feria;
+56;PALIO;11:00;Relator;
+56;PALIO;11:30;Parras;
+56;PALIO;12:00;Escoberos;
+56;PALIO;12:30;Fray Luis Sotelo;
+56;PALIO;13:00;Resolana;
+56;PALIO;13:30;Entrada;
+57;CRUZGUIA;04:00;Salida;
+57;CRUZGUIA;04:30;Campana;04:49
+57;CRUZGUIA;05:00;Plaza;05:29
+57;CRUZGUIA;05:30;S. Miguel;05:55
+57;CRUZGUIA;06:00;Palos;06:14
+57;CRUZGUIA;06:30;Fray Ceferino Glez.;
+57;CRUZGUIA;07:00;Castelar;
+57;CRUZGUIA;07:30;Entrada;07:30
+57;PALIO;04:30;Salida;
+57;PALIO;05:00;Campana;05:17
+57;PALIO;05:30;Plaza;05:57
+57;PALIO;06:00;S. Miguel;06:23
+57;PALIO;06:30;Palos;06:42
+57;PALIO;07:00;Almirantazgo;
+57;PALIO;07:30;Pl. Molviedro;
+57;PALIO;08:00;Entrada;
+58;CRUZGUIA;01:30;Salida;01:35
+58;CRUZGUIA;02:00;Pl. Altozano;
+58;CRUZGUIA;02:30;Paseo de Colón;
+58;CRUZGUIA;03:00;Reyes Católicos;
+58;CRUZGUIA;03:30;Zaragoza;
+58;CRUZGUIA;04:00;Plaza Nueva;
+58;CRUZGUIA;04:30;Tetuán;
+58;CRUZGUIA;05:00;Campana;05:17
+58;CRUZGUIA;05:30;Plaza;05:57
+58;CRUZGUIA;06:00;S. Miguel;06:23
+58;CRUZGUIA;06:30;Palos;06:42
+58;CRUZGUIA;07:00;Almirantazgo;
+58;CRUZGUIA;07:30;Adriano;
+58;CRUZGUIA;08:00;Pastor y Landero;
+58;CRUZGUIA;08:30;Puente de Triana;
+58;CRUZGUIA;09:00;San Jacinto;
+58;CRUZGUIA;09:30;Pagés del Corro;
+58;CRUZGUIA;10:00;Pelay Correa;
+58;CRUZGUIA;10:30;Pureza;
+58;CRUZGUIA;11:00;Entrada;11:16
+58;PALIO;02:30;Salida;
+58;PALIO;03:00;Pureza;
+58;PALIO;03:30;Pl. Altozano;
+58;PALIO;04:00;Puente de Triana;
+58;PALIO;04:30;Reyes Católicos;
+58;PALIO;05:00;Zaragoza;
+58;PALIO;05:30;Plaza Nueva;
+58;PALIO;06:00;Tetuán;
+58;PALIO;06:30;Campana;06:38
+58;PALIO;07:00;Plaza;07:18
+58;PALIO;07:30;S. Miguel;07:44
+58;PALIO;08:00;Palos;08:03
+58;PALIO;08:30;Almirantazgo;
+58;PALIO;09:00;Adriano;
+58;PALIO;09:30;Reyes Católicos;
+58;PALIO;10:00;Puente de Triana;
+58;PALIO;10:30;San Jacinto;
+58;PALIO;11:00;Pagés del Corro;
+58;PALIO;11:30;Pagés del Corro;
+58;PALIO;12:00;Pelayo Correa;
+58;PALIO;12:30;Párroco Don Eugenio;
+58;PALIO;13:00;Pureza;
+58;PALIO;13:30;Pureza;
+58;PALIO;14:00;Entrada;
+59;CRUZGUIA;02:30;Salida;
+59;CRUZGUIA;03:00;Pl. San Román;
+59;CRUZGUIA;03:30;Doña María Coronel;
+59;CRUZGUIA;04:00;Sta Ángela de la Cruz;
+59;CRUZGUIA;04:30;Encarnación;
+59;CRUZGUIA;05:00;Laraña;
+59;CRUZGUIA;05:30;Orfila;
+59;CRUZGUIA;06:00;Javier Lasso Vega;
+59;CRUZGUIA;06:30;Campana;06:38
+59;CRUZGUIA;07:00;Plaza;07:18
+59;CRUZGUIA;07:30;S. Miguel;07:44
+59;CRUZGUIA;08:00;Palos;08:03
+59;CRUZGUIA;08:30;Francos;
+59;CRUZGUIA;09:00;Jesús Tres Caídas;
+59;CRUZGUIA;09:30;Pl. Cristo de Burgos;
+59;CRUZGUIA;10:00;Escuelas Pías;
+59;CRUZGUIA;10:30;Pinto;
+59;CRUZGUIA;11:00;Entrada;
+59;PALIO;04:00;Salida;
+59;PALIO;04:30;Matahacas;
+59;PALIO;05:00;Doña María Coronel;
+59;PALIO;05:30;Sta Ángela de la Cruz;
+59;PALIO;06:00;Alcázares;
+59;PALIO;06:30;Laraña;
+59;PALIO;07:00;Orfila;
+59;PALIO;07:30;Campana;07:46
+59;PALIO;08:00;Plaza;08:26
+59;PALIO;08:30;S. Miguel;08:52
+59;PALIO;09:00;Palos;09:11
+59;PALIO;09:30;Argote de Molina;
+59;PALIO;10:00;Francos;
+59;PALIO;10:30;Cuesta del Rosario;
+59;PALIO;11:00;Boteros;
+59;PALIO;11:30;Pl. Cristo de Burgos;
+59;PALIO;12:00;Juan de Mesa;
+59;PALIO;12:30;Escuelas Pías;
+59;PALIO;13:00;Valle;
+59;PALIO;13:30;Entrada;13:45
+60;CRUZGUIA;16:30;Salida;16:25
+60;CRUZGUIA;17:00;Gamazo;
+60;CRUZGUIA;17:30;Plaza Nueva;
+60;CRUZGUIA;18:00;Campana;18:20
+60;CRUZGUIA;18:30;Plaza;19:00
+60;CRUZGUIA;19:00;S. Miguel;19:26
+60;CRUZGUIA;19:30;P. Palos;19:45
+60;CRUZGUIA;20:00;Santo Tomás;
+60;CRUZGUIA;20:30;Santander;
+60;CRUZGUIA;21:00;Dos de Mayo;
+60;CRUZGUIA;21:30;Entrada;21:35
+60;PALIO;17:00;Salida;17:15
+60;PALIO;17:30;Arfe;
+60;PALIO;18:00;Gamazo;
+60;PALIO;18:30;Campana;18:50
+60;PALIO;19:00;Plaza;19:30
+60;PALIO;19:30;S. Miguel;19:56
+60;PALIO;20:00;P. Palos;20:15
+60;PALIO;20:30;Pl. Triunfo;
+60;PALIO;21:00;Santo Tomás;
+60;PALIO;21:30;Temprado;
+60;PALIO;22:00;Dos de Mayo;
+60;PALIO;22:30;Entrada;22:25
+61;CRUZGUIA;17:30;Salida;17:50
+61;CRUZGUIA;18:00;Zaragoza;
+61;CRUZGUIA;18:30;Campana;18:50
+61;CRUZGUIA;19:00;Plaza;19:30
+61;CRUZGUIA;19:30;S. Miguel;19:56
+61;CRUZGUIA;20:00;P. Palos;20:15
+61;CRUZGUIA;20:30;Pl. Triunfo;
+61;CRUZGUIA;21:00;Castelar;
+61;CRUZGUIA;21:30;Pl. Molviedro;
+61;CRUZGUIA;22:00;Zaragoza;
+61;CRUZGUIA;22:30;Entrada;
+61;PASO;18:00;Salida;18:10
+61;PASO;18:30;Plaza Nueva;
+61;PASO;19:00;Campana;19:10
+61;PASO;19:30;Plaza;19:50
+61;PASO;20:00;S. Miguel;20:16
+61;PASO;20:30;Palos;20:35
+61;PASO;21:00;Fray Cefer. Glez.;
+61;PASO;21:30;Castelar;
+61;PASO;22:00;Pl. Molviedro;
+61;PASO;22:30;Zaragoza;
+61;PASO;23:00;Entrada;22:45
+62;CRUZGUIA;16:00;Salida;15:45
+62;CRUZGUIA;16:30;Castilla - Callao;
+62;CRUZGUIA;17:00;Altozano;
+62;CRUZGUIA;17:30;Pte. de Triana;
+62;CRUZGUIA;18:00;Reyes Católicos;
+62;CRUZGUIA;18:30;San Pablo;
+62;CRUZGUIA;19:00;Campana;19:10
+62;CRUZGUIA;19:30;Plaza;19:50
+62;CRUZGUIA;20:00;S. Miguel;20:16
+62;CRUZGUIA;20:30;P. Palos;20:35
+62;CRUZGUIA;21:00;Fray C. González;
+62;CRUZGUIA;21:30;Arfe;
+62;CRUZGUIA;22:00;Past. y Landero;
+62;CRUZGUIA;22:30;Reyes Católicos;
+62;CRUZGUIA;23:00;Pl. Altozano;
+62;CRUZGUIA;23:30;Castilla;
+62;CRUZGUIA;00:00;Castilla;
+62;CRUZGUIA;00:30;Castilla;
+62;CRUZGUIA;01:00;Entrada;
+62;PALIO;17:00;Salida;
+62;PALIO;17:30;Castilla;
+62;PALIO;18:00;Callao;
+62;PALIO;18:30;Pte. de Triana;
+62;PALIO;19:00;Reyes Católicos;
+62;PALIO;19:30;San Pablo;
+62;PALIO;20:00;O´Donnell;
+62;PALIO;20:30;Campana;20:28
+62;PALIO;21:00;Plaza;21:08
+62;PALIO;21:30;S. Miguel;21:34
+62;PALIO;22:00;P. Palos;21:53
+62;PALIO;22:30;Arfe;
+62;PALIO;23:00;Adriano;
+62;PALIO;23:30;Past. y Landero;
+62;PALIO;00:00;Pte. de Triana;
+62;PALIO;00:30;San Jorge;
+62;PALIO;01:00;Castilla;
+62;PALIO;01:30;Pl. Chapina;
+62;PALIO;02:00;Castilla;
+62;PALIO;02:30;Entrada;02:35
+63;CRUZGUIA;18:00;Salida;
+63;CRUZGUIA;18:30;Pte. de Triana;
+63;CRUZGUIA;19:00;Reyes Católicos;
+63;CRUZGUIA;19:30;Rioja;
+63;CRUZGUIA;20:00;Velázquez;
+63;CRUZGUIA;20:30;Campana;20:28
+63;CRUZGUIA;21:00;Plaza;21:08
+63;CRUZGUIA;21:30;S. Miguel;21:34
+63;CRUZGUIA;22:00;P. Palos;21:53
+63;CRUZGUIA;22:30;Pl. Triunfo;
+63;CRUZGUIA;23:00;Santander;
+63;CRUZGUIA;23:30;Temprado;
+63;CRUZGUIA;00:00;Adriano;
+63;CRUZGUIA;00:30;Pte. de Triana;
+63;CRUZGUIA;01:00;Pl. Altozano;
+63;CRUZGUIA;01:30;Callao;
+63;CRUZGUIA;02:00;Entrada;01:50
+63;PALIO;18:30;Salida;18:39
+63;PALIO;19:00;Pte. de Triana;
+63;PALIO;19:30;Reyes Católicos;
+63;PALIO;20:00;Rioja;
+63;PALIO;20:30;Velázquez;
+63;PALIO;21:00;Campana;21:07
+63;PALIO;21:30;Plaza;21:47
+63;PALIO;22:00;S. Miguel;22:13
+63;PALIO;22:30;P. Palos;22:32
+63;PALIO;23:00;Pl. Triunfo;
+63;PALIO;23:30;Santander;
+63;PALIO;00:00;Temprado;
+63;PALIO;00:30;Adriano;
+63;PALIO;01:00;Pte. de Triana;
+63;PALIO;01:30;Pl. Altozano;
+63;PALIO;02:00;Callao;
+63;PALIO;02:30;Castilla;
+63;PALIO;03:00;Entrada;02:45
+64;CRUZGUIA;19:30;Salida;19:40
+64;CRUZGUIA;20:00;Villegas;
+64;CRUZGUIA;20:30;Cuna;
+64;CRUZGUIA;21:00;Campana;21:07
+64;CRUZGUIA;21:30;Plaza;21:47
+64;CRUZGUIA;22:00;S. Miguel;22:13
+64;CRUZGUIA;22:30;P. Palos;22:32
+64;CRUZGUIA;23:00;Francos;
+64;CRUZGUIA;23:30;Entrada;
+64;PALIO;20:00;Salida;20:15
+64;PALIO;20:30;Villegas;
+64;PALIO;21:00;Cuna;
+64;PALIO;21:30;Campana;21:41
+64;PALIO;22:00;Plaza;22:21
+64;PALIO;22:30;S. Miguel;22:47
+64;PALIO;23:00;P. Palos;23:06
+64;PALIO;23:30;Francos;
+64;PALIO;00:00;Entrada;00:15
+65;CRUZGUIA;20:30;Salida;
+65;CRUZGUIA;21:00;Rioja;
+65;CRUZGUIA;21:30;Campana;21:41
+65;CRUZGUIA;22:00;Plaza;22:21
+65;CRUZGUIA;22:30;S. Miguel;22:47
+65;CRUZGUIA;23:00;P. Palos;23:06
+65;CRUZGUIA;23:30;Fray C. González;
+65;CRUZGUIA;00:00;Arfe;
+65;CRUZGUIA;00:30;Pta. del Arenal;
+65;CRUZGUIA;01:00;Zaragoza;
+65;CRUZGUIA;01:30;Entrada;
+65;PALIO;21:00;Salida;21:03
+65;PALIO;21:30;Rioja;
+65;PALIO;22:00;Campana;22:15
+65;PALIO;22:30;Plaza;22:55
+65;PALIO;23:00;S. Miguel;23:21
+65;PALIO;23:30;P. Palos;23:40
+65;PALIO;00:00;Fray C. González;
+65;PALIO;00:30;Arfe;
+65;PALIO;01:00;Castelar;
+65;PALIO;01:30;Doña Guiomar;
+65;PALIO;02:00;San Pablo;
+65;PALIO;02:30;Entrada;
+66;CRUZGUIA;20:00;Salida;
+66;CRUZGUIA;20:30;S. J. de la Palma;
+66;CRUZGUIA;21:00;Alberto Lista;
+66;CRUZGUIA;21:30;Pl. San Andrés;
+66;CRUZGUIA;22:00;Campana;22:15
+66;CRUZGUIA;22:30;Plaza;22:55
+66;CRUZGUIA;23:00;S. Miguel;23:21
+66;CRUZGUIA;23:30;P. Palos;23:40
+66;CRUZGUIA;00:00;Arg. de Molina;
+66;CRUZGUIA;00:30;C. del Rosario;
+66;CRUZGUIA;01:00;Pl. C. de Burgos;
+66;CRUZGUIA;01:30;Entrada;
+66;PASO;20:30;Salida;
+66;PASO;21:00;Feria;
+66;PASO;21:30;Cervantes;
+66;PASO;22:00;San Miguel;
+66;PASO;22:30;Campana;22:35
+66;PASO;23:00;Plaza;23:15
+66;PASO;23:30;S. Miguel;23:41
+66;PASO;00:00;P. Palos;00:00
+66;PASO;00:30;Francos;
+66;PASO;01:00;Alfalfa;
+66;PASO;01:30;Dña. Mª Coronel;
+66;PASO;02:00;Entrada;
+67;CRUZGUIA;12:30;Salida;12:45
+67;CRUZGUIA;13:00;Virgen del Sol;
+67;CRUZGUIA;13:30;Enramadilla;
+67;CRUZGUIA;14:00;Catalina de Rib.;
+67;CRUZGUIA;14:30;Cano y Cueto;
+67;CRUZGUIA;15:00;San José;
+67;CRUZGUIA;15:30;Muñoz y Pabón;
+67;CRUZGUIA;16:00;C. del Rosario;
+67;CRUZGUIA;16:30;Jovellanos;
+67;CRUZGUIA;17:00;Campana;17:15
+67;CRUZGUIA;17:30;Plaza;17:55
+67;CRUZGUIA;18:00;S. Miguel;18:21
+67;CRUZGUIA;18:30;Palos;18:40
+67;CRUZGUIA;19:00;Pl. Triunfo;
+67;CRUZGUIA;19:30;Puerta de Jerez;
+67;CRUZGUIA;20:00;D. Juan Austria;
+67;CRUZGUIA;20:30;Enramadilla;
+67;CRUZGUIA;21:00;Avión C. Vientos;
+67;CRUZGUIA;21:30;Virgen del Sol;
+67;CRUZGUIA;22:00;Entrada;
+67;PALIO;13:00;Salida;13:15
+67;PALIO;13:30;Virgen del Sol;
+67;PALIO;14:00;Avda. Carlos V;
+67;PALIO;14:30;Catalina de Rib.;
+67;PALIO;15:00;Cano y Cueto;
+67;PALIO;15:30;San José;
+67;PALIO;16:00;Candilejo;
+67;PALIO;16:30;C. del Rosario;
+67;PALIO;17:00;Jovellanos;
+67;PALIO;17:30;Campana;17:35
+67;PALIO;18:00;Plaza;18:15
+67;PALIO;18:30;S. Miguel;18:41
+67;PALIO;19:00;Palos;19:00
+67;PALIO;19:30;Mig. de Mañara;
+67;PALIO;20:00;Puerta de Jerez;
+67;PALIO;20:30;Avda. Carlos V;
+67;PALIO;21:00;Enramadilla;
+67;PALIO;21:30;Avión C. Vientos;
+67;PALIO;22:00;Virgen del Sol;
+67;PALIO;22:30;Entrada;22:45
+68;CRUZGUIA;15:00;Salida;15:20
+68;CRUZGUIA;15:30;Pl. San Marcos;
+68;CRUZGUIA;16:00;Dueñas;
+68;CRUZGUIA;16:30;Alcázares;
+68;CRUZGUIA;17:00;Laraña;
+68;CRUZGUIA;17:30;Campana;17:35
+68;CRUZGUIA;18:00;Plaza;18:15
+68;CRUZGUIA;18:30;S. Miguel;18:41
+68;CRUZGUIA;19:00;Palos;19:00
+68;CRUZGUIA;19:30;Francos;
+68;CRUZGUIA;20:00;C. del Rosario;
+68;CRUZGUIA;20:30;Sales y Ferré;
+68;CRUZGUIA;21:00;Dña. Mª Coronel;
+68;CRUZGUIA;21:30;Pl. Santa Isabel;
+68;CRUZGUIA;22:00;Entrada;21:42
+68;PALIO;16:00;Salida;16:05
+68;PALIO;16:30;Dueñas;
+68;PALIO;17:00;S. Ángela Cruz;
+68;PALIO;17:30;Imagen;
+68;PALIO;18:00;Campana;18:07
+68;PALIO;18:30;Plaza;18:47
+68;PALIO;19:00;S. Miguel;19:13
+68;PALIO;19:30;Palos;19:32
+68;PALIO;20:00;Francos;
+68;PALIO;20:30;C. del Rosario;
+68;PALIO;21:00;Odreros;
+68;PALIO;21:30;Dña. Mª Coronel;
+68;PALIO;22:00;Pl. San Marcos;
+68;PALIO;22:30;Entrada;22:40
+69;CRUZGUIA;15:30;Salida;
+69;CRUZGUIA;16:00;Mª Auxiliadora;
+69;CRUZGUIA;16:30;Puñonrostro;
+69;CRUZGUIA;17:00;Alm. Apodaca;
+69;CRUZGUIA;17:30;Encarnación;
+69;CRUZGUIA;18:00;Campana;18:07
+69;CRUZGUIA;18:30;Plaza;18:47
+69;CRUZGUIA;19:00;S. Miguel;19:13
+69;CRUZGUIA;19:30;Palos;19:32
+69;CRUZGUIA;20:00;Francos;
+69;CRUZGUIA;20:30;C. del Rosario;
+69;CRUZGUIA;21:00;Boteros;
+69;CRUZGUIA;21:30;Pl. San Leandro;
+69;CRUZGUIA;22:00;Jáuregui;
+69;CRUZGUIA;22:30;Valle;
+69;CRUZGUIA;23:00;Sol;
+69;CRUZGUIA;23:30;Madre I. Trinidad;
+69;CRUZGUIA;00:00;Entrada;
+69;PALIO;16:00;Salida;16:20
+69;PALIO;16:30;Mª Auxiliadora;
+69;PALIO;17:00;Valle;
+69;PALIO;17:30;Ponce de León;
+69;PALIO;18:00;Laraña;
+69;PALIO;18:30;J. Lasso Vega;
+69;PALIO;19:00;Campana;19:02
+69;PALIO;19:30;Plaza;19:42
+69;PALIO;20:00;S. Miguel;20:08
+69;PALIO;20:30;Palos;20:27
+69;PALIO;21:00;Francos;
+69;PALIO;21:30;C. del Rosario;
+69;PALIO;22:00;Boteros;
+69;PALIO;22:30;F. Carrión Mejías;
+69;PALIO;23:00;P.J. de Córdoba;
+69;PALIO;23:30;Valle;
+69;PALIO;00:00;C. Cinco Llagas;
+69;PALIO;00:30;Sol;
+69;PALIO;01:00;Entrada;01:30
+70;CRUZGUIA;18:30;Salida;18:45
+70;CRUZGUIA;19:00;Campana;19:02
+70;CRUZGUIA;19:30;Plaza;19:42
+70;CRUZGUIA;20:00;S. Miguel;20:08
+70;CRUZGUIA;20:30;Palos;20:27
+70;CRUZGUIA;21:00;Hernando Colón;
+70;CRUZGUIA;21:30;Tetuán;
+70;CRUZGUIA;22:00;Alfonso XII;
+70;CRUZGUIA;22:30;Entrada;
+70;DUELO;19:00;Salida;19:15
+70;DUELO;19:30;Campana;19:47
+70;DUELO;20:00;Plaza;20:27
+70;DUELO;20:30;S. Miguel;20:53
+70;DUELO;21:00;Palos;21:12
+70;DUELO;21:30;Alemanes;
+70;DUELO;22:00;Hernando Colón;
+70;DUELO;22:30;O´Donnell;
+70;DUELO;23:00;Entrada;
+71;CRUZGUIA;18:30;Salida;18:50
+71;CRUZGUIA;19:00;Trajano;
+71;CRUZGUIA;19:30;Campana;19:47
+71;CRUZGUIA;20:00;Plaza;20:27
+71;CRUZGUIA;20:30;S. Miguel;20:55
+71;CRUZGUIA;21:00;Palos;21:12
+71;CRUZGUIA;21:30;Alemanes;
+71;CRUZGUIA;22:00;Álvarez Quintero;
+71;CRUZGUIA;22:30;Cuna;
+71;CRUZGUIA;23:00;Las Cortes;
+71;CRUZGUIA;23:30;Entrada;
+71;PASO;19:30;Salida;19:30
+71;PASO;20:00;J. del Gran Poder;
+71;PASO;20:30;Campana;20:30
+71;PASO;21:00;Plaza;21:10
+71;PASO;21:30;S. Miguel;21:36
+71;PASO;22:00;Palos;21:55
+71;PASO;22:30;Chapineros;
+71;PASO;23:00;Cuna;
+71;PASO;23:30;J. Lasso Vega;
+71;PASO;00:00;Pl. San Lorenzo;
+71;PASO;00:30;Entrada;00:15
+72;CRUZGUIA;08:30;Salida;
+72;CRUZGUIA;09:00;Pl. Cronista;
+72;CRUZGUIA;09:30;Pl. Monte Sión;
+72;CRUZGUIA;10:00;Alameda Hércules;
+72;CRUZGUIA;10:30;Trajano;
+72;CRUZGUIA;11:00;Campana;
+72;CRUZGUIA;11:30;Plaza;11:40
+72;CRUZGUIA;12:00;S. Miguel;12:06
+72;CRUZGUIA;12:30;Palos;12:25
+72;CRUZGUIA;13:00;Francos;
+72;CRUZGUIA;13:30;Alfalfa;
+72;CRUZGUIA;14:00;Pl. Cristo de Burgos;
+72;CRUZGUIA;14:30;Bustos Tavera;
+72;CRUZGUIA;15:00;San Luis;
+72;CRUZGUIA;15:30;Entrada;15:20
+72;PALIO;09:00;Salida;09:05
+72;PALIO;09:30;Arrayán;
+72;PALIO;10:00;Infantes;
+72;PALIO;10:30;Conde de Torrejón;
+72;PALIO;11:00;Trajano;
+72;PALIO;11:30;Campana;11:35
+72;PALIO;12:00;Plaza;12:15
+72;PALIO;12:30;S. Miguel;12:41
+72;PALIO;13:00;Palos;13:00
+72;PALIO;13:30;Placentines;
+72;PALIO;14:00;Cuesta del Rosario;
+72;PALIO;14:30;Sales y Ferré;
+72;PALIO;15:00;Doña María Coronel;
+72;PALIO;15:30;Bustos Tavera;
+72;PALIO;16:00;San Luis;
+72;PALIO;16:30;Entrada;
 
 
 
