@@ -1,9 +1,8 @@
 import csv
-from sqlalchemy.orm import Session
 from sqlalchemy import text
-from database import SessionLocal, engine, Base
+from database import SessionLocal
 from models import Dia, Hermandad, InfoPaso, TipoPaso
-from datetime import datetime, time
+from datetime import datetime
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -52,6 +51,7 @@ def clear_seed_tables(db):
     db.query(Hermandad).delete(synchronize_session=False)
     db.query(Dia).delete(synchronize_session=False)
     
+    
 def reset_auto_increment(db):
     db.execute(text("ALTER TABLE infopaso AUTO_INCREMENT = 1"))
     db.execute(text("ALTER TABLE hermandades AUTO_INCREMENT = 1"))
@@ -59,8 +59,8 @@ def reset_auto_increment(db):
     db.commit()
     print("Reset AUTO_INCREMENT counters")
     
+    
 def seed_database():
-    Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         clear_seed_tables(db)
@@ -74,6 +74,7 @@ def seed_database():
         print(f"Error: {e}")
     finally:
         db.close()
+
 
 if __name__ == "__main__":
     seed_database()
