@@ -7,11 +7,10 @@ from sqlalchemy import pool
 
 from alembic import context
 
-# Agregar el directorio backend al path para importar los modelos
 sys.path.insert(0, str(Path(__file__).parent.parent / 'backend'))
 
 from database import Base
-from models import *  # Importa todos los modelos
+from models import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
