@@ -108,6 +108,11 @@ def delete_infopaso(db: Session, infopaso_id: int) -> bool:
         return True
     return False
 
+def get_infopasos_by_dia(db: Session, dia_id: int) -> List[models.InfoPaso]:
+    return db.query(models.InfoPaso).join(models.Hermandad).filter(models.Hermandad.idDia == dia_id).all()
+
+def get_infopasos_by_dia_and_hermandad(db: Session, dia_id: int, hermandad_id: int) -> List[models.InfoPaso]:
+    return db.query(models.InfoPaso).join(models.Hermandad).filter(models.Hermandad.idDia == dia_id, models.Hermandad.id == hermandad_id).all()
 
 #Usuario
 def get_usuario(db: Session, usuario_id: int) -> Optional[models.Usuario]:
@@ -149,33 +154,46 @@ def delete_usuario(db: Session, usuario_id: int) -> bool:
 def get_itinerario(db: Session, itinerario_id: int) -> Optional[models.Itinerario]:
     return db.query(models.Itinerario).filter(models.Itinerario.id == itinerario_id).first()
 
+def get_itinerario_by_usuario(db: Session, usuario_id: int) -> Optional[models.Itinerario]:
+    return db.query(models.Itinerario).filter(models.Itinerario.idUsuario == usuario_id).first()
+
 def get_itinerarios(db: Session, skip: int = 0, limit: int = 100) -> List[models.Itinerario]:
     return db.query(models.Itinerario).offset(skip).limit(limit).all()
 
-def get_itinerarios_by_usuario(db: Session, usuario_id: int) -> List[models.Itinerario]:
-    return db.query(models.Itinerario).filter(models.Itinerario.idUsuario == usuario_id).all()
-
 def create_itinerario(db: Session, itinerario: schemas.ItinerarioCreate) -> models.Itinerario:
-    db_itinerario = models.Itinerario(**itinerario.model_dump())
+    db_itinerario = models.Itinerario(idUsuario=itinerario.idUsuario)
     db.add(db_itinerario)
     db.commit()
     db.refresh(db_itinerario)
-    return db_itinerario
-
-def update_itinerario(db: Session, itinerario_id: int, itinerario: schemas.ItinerarioUpdate) -> Optional[models.Itinerario]:
-    db_itinerario = get_itinerario(db, itinerario_id)
-    if db_itinerario:
-        update_data = itinerario.model_dump(exclude_unset=True)
-        for key, value in update_data.items():
-            setattr(db_itinerario, key, value)
-        db.commit()
-        db.refresh(db_itinerario)
     return db_itinerario
 
 def delete_itinerario(db: Session, itinerario_id: int) -> bool:
     db_itinerario = get_itinerario(db, itinerario_id)
     if db_itinerario:
         db.delete(db_itinerario)
+        db.commit()
+        return True
+    return False
+
+
+#ItemItinerario
+def get_item_itinerario(db: Session, item_id: int) -> Optional[models.ItemItinerario]:
+    return db.query(models.ItemItinerario).filter(models.ItemItinerario.id == item_id).first()
+
+def get_items_by_itinerario(db: Session, itinerario_id: int) -> List[models.ItemItinerario]:
+    return db.query(models.ItemItinerario).filter(models.ItemItinerario.idItinerario == itinerario_id).all()
+
+def create_item_itinerario(db: Session, itinerario_id: int, item: schemas.ItemItinerarioCreate) -> models.ItemItinerario:
+    db_item = models.ItemItinerario(idItinerario=itinerario_id, idInfoPaso=item.idInfoPaso)
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+def delete_item_itinerario(db: Session, item_id: int) -> bool:
+    db_item = get_item_itinerario(db, item_id)
+    if db_item:
+        db.delete(db_item)
         db.commit()
         return True
     return False

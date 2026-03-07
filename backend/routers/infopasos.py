@@ -45,3 +45,11 @@ def delete_infopaso(infopaso_id: int, db: Session = Depends(get_db)):
     if not success:
         raise HTTPException(status_code=404, detail="InfoPaso no encontrado")
     return None
+
+@router.get("/dia/{dia_id}", response_model=List[schemas.InfoPasoResponse])
+def read_infopasos_by_dia(dia_id: int, db: Session = Depends(get_db)):
+    return crud.get_infopasos_by_dia(db, dia_id=dia_id)
+
+@router.get("/dia/{dia_id}/hermandad/{hermandad_id}", response_model=List[schemas.InfoPasoResponse])
+def read_infopasos_by_dia_and_hermandad(dia_id: int, hermandad_id: int, db: Session = Depends(get_db)):
+    return crud.get_infopasos_by_dia_and_hermandad(db, dia_id=dia_id, hermandad_id=hermandad_id)
