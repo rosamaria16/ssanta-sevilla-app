@@ -1,0 +1,6 @@
+id;nombre;urlStream;urlImagen
+1;Cadena SER Sevilla;https://playerservices.streamtheworld.com/api/livestream-redirect/CADABORAM.mp3;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cadena_SER_logo.svg/330px-Cadena_SER_logo.svg.png
+2;Canal Sur Radio;https://cdnlive.shooowit.net/rtvalive/livestream/channel10.stream_aac/playlist.m3u8;https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Canal_Sur_Radio_2018.svg/330px-Canal_Sur_Radio_2018.svg.png
+3;COPE Sevilla;https://playerservices.streamtheworld.com/api/livestream-redirect/COPE_SEVILLA.mp3;https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Cope_logo.svg/330px-Cope_logo.svg.png
+4;Radio Sevilla;https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_SEVILLA.mp3;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Onda_Cero_logo.svg/330px-Onda_Cero_logo.svg.png
+5;Sevilla FC Radio;https://sevillafc.stream.com/live;https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Sevilla_FC_logo.svg/190px-Sevilla_FC_logo.svg.png
