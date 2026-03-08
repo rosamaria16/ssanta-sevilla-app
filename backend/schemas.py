@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime, time
-from typing import Optional
+from typing import Optional, List
 from enum import Enum
 
 #Enum para el tipo de paso
@@ -97,17 +97,33 @@ class UsuarioResponse(UsuarioBase):
 #Itinerario
 class ItinerarioBase(BaseModel):
     idUsuario: int
-    idInfoPaso: int
 
 class ItinerarioCreate(ItinerarioBase):
     pass
 
-class ItinerarioUpdate(BaseModel):
-    idUsuario: Optional[int] = None
-    idInfoPaso: Optional[int] = None
-
 class ItinerarioResponse(ItinerarioBase):
     id: int
+
+    class Config:
+        from_attributes = True
+
+class ItemItinerarioBase(BaseModel):
+    idInfoPaso: int
+
+class ItemItinerarioCreate(ItemItinerarioBase):
+    pass
+
+class ItemItinerarioResponse(BaseModel):
+    id: int
+    idItinerario: int
+    idInfoPaso: int
+
+    class Config:
+        from_attributes = True
+
+class ItinerarioDetalleResponse(ItinerarioBase):
+    id: int
+    items: List[ItemItinerarioResponse] = []
 
     class Config:
         from_attributes = True

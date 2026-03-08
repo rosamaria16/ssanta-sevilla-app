@@ -1,0 +1,32 @@
+//AI Generated (Claude Opus 4.6 - 07/03/2026)
+{
+  "name": "SSanta Sevilla App",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  },
+  "forwardPorts": [8000, 3306],
+  "postCreateCommand": "pip install -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/python/current/bin/python3"
+      }
+    }
+  },
+  "remoteEnv": {
+    "DB_USER": "root",
+    "DB_PASSWORD": "root_ssanta",
+    "DB_HOST": "db",
+    "DB_PORT": "3306",
+    "DB_NAME": "ssanta_sevilla"
+  }
+}

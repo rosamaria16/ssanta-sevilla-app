@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Time, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Time, Enum, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime, time
 import enum
@@ -26,12 +26,24 @@ class Itinerario(Base):
     __tablename__ = "itinerarios"
     
     id = Column(Integer, primary_key=True, index=True)
-    idUsuario = Column(Integer, ForeignKey("usuarios.id"), nullable=False)
-    idInfoPaso = Column(Integer, ForeignKey("infopaso.id"), nullable=False)
+    idUsuario = Column(Integer, ForeignKey("usuarios.id"), unique=True, nullable=False)
     
     usuario = relationship("Usuario", back_populates="itinerario")
-    infopaso = relationship("InfoPaso", back_populates="itinerario")
+    items = relationship("ItemItinerario", back_populates="itinerario", cascade="all, delete-orphan")
 
+class ItemItinerario(Base):
+    __tablename__ = "items_itinerario"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    idItinerario = Column(Integer, ForeignKey("itinerarios.id"), nullable=False)
+    idInfoPaso = Column(Integer, ForeignKey("infopaso.id"), nullable=False)
+    
+    __table_args__ = (
+        UniqueConstraint("idItinerario", "idInfoPaso", name="uq_itinerario_infopaso"),
+    )
+    
+    itinerario = relationship("Itinerario", back_populates="items")
+    infopaso = relationship("InfoPaso")
 
 class Noticia(Base):
     __tablename__ = "noticias"
@@ -81,6 +93,5 @@ class InfoPaso(Base):
     difHora = Column(Time, nullable=True)
     
     hermandad = relationship("Hermandad", back_populates="infopasos")
-    itinerario = relationship("Itinerario", back_populates="infopaso")
     
 
