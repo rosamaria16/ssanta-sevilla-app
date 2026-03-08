@@ -1,11 +1,15 @@
 from logging.config import fileConfig
 import sys
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+
+load_dotenv()
 
 sys.path.insert(0, str(Path(__file__).parent.parent / 'backend'))
 
@@ -45,7 +49,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    url = os.getenv("DATABASE_URL") or config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -64,6 +68,10 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
+    database_url = os.getenv("DATABASE_URL")
+    if database_url:
+        config.set_main_option("sqlalchemy.url", database_url)
+    
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
