@@ -2,8 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent / ".env") #AI generated line
 
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")

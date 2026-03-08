@@ -4,6 +4,7 @@ services:
     image: mcr.microsoft.com/devcontainers/base:ubuntu
     volumes:
       - ..:/workspaces/${LOCAL_WORKSPACE_FOLDER_BASENAME:-ssanta-sevilla-app}:cached
+    env_file: ../.env
     command: sleep infinity
     depends_on:
       db:
@@ -12,15 +13,16 @@ services:
   db:
     image: mysql:8.0
     restart: unless-stopped
+    env_file: ../.env
     environment:
-      MYSQL_ROOT_PASSWORD: root_ssanta
-      MYSQL_DATABASE: ssanta_sevilla
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=${DB_PASSWORD}"]
       interval: 5s
       timeout: 5s
       retries: 10
