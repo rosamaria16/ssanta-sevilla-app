@@ -31,8 +31,12 @@ def read_itinerario_by_usuario(usuario_id: int, db: Session = Depends(get_db)):
 
 @router.post("/", response_model=schemas.ItinerarioResponse, status_code=201)
 def create_itinerario(itinerario: schemas.ItinerarioCreate, db: Session = Depends(get_db)):
-    existing = crud.get_itinerario_by_usuario(db, usuario_id=itinerario.idUsuario)
-    if existing:
+    usuario = crud.get_usuario(db, usuario_id=itinerario.idUsuario)
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    
+    existente = crud.get_itinerario_by_usuario(db, usuario_id=itinerario.idUsuario)
+    if existente:
         raise HTTPException(status_code=400, detail="El usuario ya tiene un itinerario")
     return crud.create_itinerario(db=db, itinerario=itinerario)
 
