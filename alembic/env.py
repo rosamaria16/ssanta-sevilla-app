@@ -16,6 +16,25 @@ sys.path.insert(0, str(Path(__file__).parent.parent / 'backend'))
 from database import Base
 from models import *
 
+
+def get_database_url() -> str:
+    """Get database URL from environment variables or construction."""
+    db_url = os.getenv("DATABASE_URL")
+    if db_url:
+        return db_url
+    
+    db_user = os.getenv("DB_USER")
+    db_password = os.getenv("DB_PASSWORD")
+    db_host = os.getenv("DB_HOST")
+    db_port = os.getenv("DB_PORT")
+    db_name = os.getenv("DB_NAME")
+    
+    if all([db_user, db_password, db_host, db_port, db_name]):
+        return f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+    
+    return ""
+
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -49,7 +68,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = os.getenv("DATABASE_URL") or config.get_main_option("sqlalchemy.url")
+    url = get_database_url() or config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -68,12 +87,15 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    database_url = os.getenv("DATABASE_URL")
+    database_url = get_database_url()
     if database_url:
         config.set_main_option("sqlalchemy.url", database_url)
     
+    configuration = config.get_section(config.config_ini_section, {})
+    configuration["sqlalchemy.url"] = database_url or config.get_main_option("sqlalchemy.url")
+    
     connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        configuration,
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
