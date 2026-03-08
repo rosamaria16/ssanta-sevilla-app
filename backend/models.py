@@ -17,6 +17,7 @@ class Usuario(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50), nullable=False)
     email = Column(String(100), unique=True, index=True, nullable=False)
+    admin = Column(Integer, default=0, nullable=False)
     contrasena = Column(String(255), nullable=False)
     
     itinerario = relationship("Itinerario", back_populates="usuario", uselist=False)

@@ -86,6 +86,9 @@ class UsuarioUpdate(BaseModel):
     nombre: Optional[str] = None
     email: Optional[EmailStr] = None
     contrasena: Optional[str] = None
+    
+class UsuarioUpdateAdmin(BaseModel):
+    admin: Optional[bool] = None
 
 class UsuarioResponse(UsuarioBase):
     id: int

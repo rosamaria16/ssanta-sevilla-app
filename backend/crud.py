@@ -141,6 +141,16 @@ def update_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioUpdate)
         db.refresh(db_usuario)
     return db_usuario
 
+def update_admin_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioUpdateAdmin) -> Optional[models.Usuario]:
+    db_usuario = get_usuario(db, usuario_id)
+    if db_usuario:
+        update_data = usuario.model_dump(exclude_unset=True)
+        for key, value in update_data.items():
+            setattr(db_usuario, key, value)
+        db.commit()
+        db.refresh(db_usuario)
+    return db_usuario
+
 def delete_usuario(db: Session, usuario_id: int) -> bool:
     db_usuario = get_usuario(db, usuario_id)
     if db_usuario:
