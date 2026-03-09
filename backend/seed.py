@@ -54,7 +54,8 @@ def load_usuarios(db):
                 id=int(row['id']),
                 nombre=row['nombre'],
                 email=row['email'],
-                contrasena=row['contrasena']
+                contrasena=row['contrasena'],
+                admin = int(row['admin'])
             )
             db.add(usuario)
     print("Loaded usuarios")
