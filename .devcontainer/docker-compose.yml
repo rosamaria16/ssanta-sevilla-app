@@ -4,7 +4,7 @@ services:
     image: mcr.microsoft.com/devcontainers/base:ubuntu
     volumes:
       - ..:/workspaces/${LOCAL_WORKSPACE_FOLDER_BASENAME:-ssanta-sevilla-app}:cached
-    env_file: ../.env
+    env_file: .env
     command: sleep infinity
     depends_on:
       db:
@@ -13,7 +13,7 @@ services:
   db:
     image: mysql:8.0
     restart: unless-stopped
-    env_file: ../.env
+    env_file: .env
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
