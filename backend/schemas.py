@@ -96,6 +96,15 @@ class UsuarioResponse(UsuarioBase):
     class Config:
         from_attributes = True
 
+class LoginRequest(BaseModel):
+    email: EmailStr
+    contrasena: str
+
+class LoginResponse(BaseModel):
+    access_token: str
+    token_type: str
+    usuario: UsuarioResponse
+
 
 #Itinerario
 class ItinerarioBase(BaseModel):

@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 import models
 import schemas
+from hashing import get_password_hash
 
 
 #Día
@@ -125,7 +126,9 @@ def get_usuarios(db: Session, skip: int = 0, limit: int = 100) -> List[models.Us
     return db.query(models.Usuario).offset(skip).limit(limit).all()
 
 def create_usuario(db: Session, usuario: schemas.UsuarioCreate) -> models.Usuario:
-    db_usuario = models.Usuario(**usuario.model_dump())
+    user_data = usuario.model_dump()
+    user_data["contrasena"] = get_password_hash(user_data["contrasena"])
+    db_usuario = models.Usuario(**user_data)
     db.add(db_usuario)
     db.commit()
     db.refresh(db_usuario)
@@ -135,6 +138,8 @@ def update_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioUpdate)
     db_usuario = get_usuario(db, usuario_id)
     if db_usuario:
         update_data = usuario.model_dump(exclude_unset=True)
+        if "contrasena" in update_data and update_data["contrasena"]:
+            update_data["contrasena"] = get_password_hash(update_data["contrasena"])
         for key, value in update_data.items():
             setattr(db_usuario, key, value)
         db.commit()

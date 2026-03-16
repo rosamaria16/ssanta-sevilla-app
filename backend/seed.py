@@ -2,6 +2,7 @@ import csv
 from sqlalchemy import text
 from database import SessionLocal, engine, Base
 from models import Dia, Hermandad, InfoPaso, TipoPaso, Usuario, Emisora, Noticia, Itinerario, ItemItinerario
+from hashing import get_password_hash
 from datetime import datetime
 import os
 
@@ -54,7 +55,7 @@ def load_usuarios(db):
                 id=int(row['id']),
                 nombre=row['nombre'],
                 email=row['email'],
-                contrasena=row['contrasena'],
+                contrasena=get_password_hash(row['contrasena']),
                 admin = int(row['admin'])
             )
             db.add(usuario)
