@@ -10,7 +10,7 @@
     }
   },
   "forwardPorts": [8000],
-  "postCreateCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "pip install -r requirements.txt && ./.devcontainer/install-flutter.sh && ./.devcontainer/install-android-sdk.sh",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -23,6 +23,8 @@
     }
   },
   "remoteEnv": {
-    "DB_HOST": "db"
+    "DB_HOST": "db",
+    "ANDROID_SDK_ROOT": "/opt/android-sdk",
+    "PATH": "/opt/flutter/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/cmdline-tools/latest/bin:${containerEnv:PATH}"
   }
 }
