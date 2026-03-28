@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 import models
 import schemas
-from hashing import get_password_hash
+from hashing import get_password_hash, verify_password
 
 
 #Día
@@ -163,6 +163,17 @@ def delete_usuario(db: Session, usuario_id: int) -> bool:
         db.commit()
         return True
     return False
+
+def usuario_exists_by_email(db: Session, email: str) -> bool:
+    return db.query(models.Usuario).filter(models.Usuario.email == email).first() is not None
+
+def authenticate_usuario(db: Session, email: str, contrasena: str) -> Optional[models.Usuario]:
+    db_usuario = get_usuario_by_email(db, email)
+    if not db_usuario:
+        return None
+    if not verify_password(contrasena, db_usuario.contrasena):
+        return None
+    return db_usuario
 
 
 #Itinerario

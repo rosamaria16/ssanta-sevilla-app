@@ -1,10 +1,7 @@
 import os
 from pathlib import Path
-from datetime import datetime, timedelta, timezone
-
 from dotenv import load_dotenv
 from pwdlib import PasswordHash
-import jwt
 
 import models
 
