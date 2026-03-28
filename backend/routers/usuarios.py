@@ -7,6 +7,22 @@ from database import get_db
 
 router = APIRouter()
 
+@router.post("/login", response_model=schemas.LoginResponse, status_code=200)
+def login(login_data: schemas.LoginRequest, db: Session = Depends(get_db)):
+    db_usuario = crud.authenticate_usuario(db, email=login_data.email, contrasena=login_data.contrasena)
+    if not db_usuario:
+        raise HTTPException(status_code=401, detail="Credenciales inválidas")
+    return schemas.LoginResponse(
+        access_token="token_placeholder",
+        token_type="bearer",
+        usuario=db_usuario
+    )
+
+@router.post("/", response_model=schemas.UsuarioResponse, status_code=201)
+def create_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
+    if crud.usuario_exists_by_email(db, email=usuario.email):
+        raise HTTPException(status_code=400, detail="Email ya registrado")
+    return crud.create_usuario(db=db, usuario=usuario)
 
 @router.get("/", response_model=List[schemas.UsuarioResponse])
 def read_usuarios(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -19,15 +35,6 @@ def read_usuario(usuario_id: int, db: Session = Depends(get_db)):
     if db_usuario is None:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return db_usuario
-
-
-@router.post("/", response_model=schemas.UsuarioResponse, status_code=201)
-def create_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
-    db_usuario = crud.get_usuario_by_email(db, email=usuario.email)
-    if db_usuario:
-        raise HTTPException(status_code=400, detail="Email ya registrado")
-    return crud.create_usuario(db=db, usuario=usuario)
-
 
 @router.put("/{usuario_id}", response_model=schemas.UsuarioResponse)
 def update_usuario(usuario_id: int, usuario: schemas.UsuarioUpdate, db: Session = Depends(get_db)):
