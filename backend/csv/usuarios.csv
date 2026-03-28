@@ -2,5 +2,3 @@ id;nombre;email;contrasena;admin
 1;Admin;admin@ssantasevilla.com;admin1234;1
 2;Fernando Alonso;fernando.alonso@email.com;1234;0
 3;Carlos Sainz;carlos.sainz@email.com;1234;0
-4;Raquel Pavón;raquel.pavon@email.com;1234;0
-5;Julia Pavón;julia.pavon@email.com;1234;0
