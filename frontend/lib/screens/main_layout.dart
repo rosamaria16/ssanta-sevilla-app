@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'noticias_screen.dart';
-import 'programa_screen.dart';
+import 'programa_oficial_first_screen.dart';
 import 'mi_itinerario_screen.dart';
 import 'radio_screen.dart';
 import 'login_screen.dart';
@@ -91,7 +91,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget getScreen(int index) {
     switch (index) {
       case 0: return const NoticiasScreen();
-      case 1: return const ProgramaScreen();
+      case 1: return const ProgramaFirstScreen();
       case 2: return const MiItinerarioScreen();
       case 3: return const RadioScreen();
       default: return const NoticiasScreen();
