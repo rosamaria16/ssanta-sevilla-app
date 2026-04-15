@@ -154,3 +154,74 @@ class Hermandad {
     }
   }
 }
+
+class InfoPaso {
+  final int id;
+  final String hora;
+  final String tipoPaso;
+  final String localizacion;
+  final int idHermandad;
+  final String? difHora;
+
+  InfoPaso({
+    required this.id,
+    required this.hora,
+    required this.tipoPaso,
+    required this.localizacion,
+    required this.idHermandad,
+    this.difHora,
+  });
+
+  factory InfoPaso.fromJson(Map<String, dynamic> json) {
+    return InfoPaso(
+      id: json['id'],
+      hora: json['hora'],
+      tipoPaso: json['tipoPaso'],
+      localizacion: json['localizacion'],
+      idHermandad: json['idHermandad'],
+      difHora: json['difHora'],
+    );
+  }
+
+  static Future<List<InfoPaso>> getByHermandad(int idHermandad) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/infopasos/hermandad/$idHermandad'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List<dynamic>;
+        return data.map((infopaso) => InfoPaso.fromJson(infopaso)).toList();
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<List<InfoPaso>> getByDia(int idDia) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/infopasos/dia/$idDia'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List<dynamic>;
+        return data.map((infopaso) => InfoPaso.fromJson(infopaso)).toList();
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
-
+import 'programa_oficial_third_screen.dart';
+import 'programa_oficial_all_screen.dart';
 class ProgramaSecondScreen extends StatefulWidget {
   
   final int idDia;
@@ -13,7 +14,7 @@ class ProgramaSecondScreen extends StatefulWidget {
 }
 
 class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
-  late List<String> listaHermandades = [];
+  late List<Hermandad> listaHermandades = [];
 
   @override
   void initState() {
@@ -24,7 +25,7 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
   Future<void> _cargarHermandades() async {
     final hermandades = await Hermandad.getHermandadesDia(widget.idDia);
     setState(() {
-      listaHermandades = hermandades.map((hdad) => (hdad.nombre)).toList();
+      listaHermandades = hermandades;
     });
   }
 
@@ -45,17 +46,63 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProgramaAllScreen(
+                          idDia: widget.idDia,
+                          nombreDia: widget.nombreDia,
+                        ),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.grid_view, color: Colors.white),
+                  label: const Text(
+                    'Ver todas',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                    backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const Divider(),
+
+            Expanded(
+              child: ListView.builder(
           itemCount: listaHermandades.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
-            final nombre = listaHermandades[index];
+            final hermandad = listaHermandades[index];
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO
-                },
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProgramaThirdScreen(idHermandad: hermandad.id, nombreHermandad: hermandad.nombre),
+                        ),
+                      );
+                    },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
                   backgroundColor: const Color.fromARGB(255, 26, 19, 92),
@@ -65,7 +112,7 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
                   ),
                 ),
                 child: Text(
-                  nombre,
+                  hermandad.nombre,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -75,6 +122,9 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
               ),
             );
           },
+        ),
+            ),
+          ],
         ),
       ),
     );
