@@ -225,3 +225,77 @@ class InfoPaso {
     }
   }
 }
+
+class ItinerarioApi {
+  static Future<Map<String, dynamic>> getOrCreateByUsuario(int userId) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/itinerarios/usuario/$userId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 404) {
+        final createResponse = await http.post(
+          Uri.parse('$apiBaseUrl/itinerarios/'),
+          body: json.encode({'idUsuario': userId}),
+        ).timeout(requestTimeout, onTimeout: () {
+          throw Exception('Tiempo de conexión agotado');
+        });
+
+        if (createResponse.statusCode == 201) {
+          final data = json.decode(createResponse.body);
+          data['items'] = [];
+          return data;
+        }
+        throw Exception('Error al crear itinerario');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<Map<String, dynamic>> addItem(int itinerarioId, int idInfoPaso) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/items'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({'idInfoPaso': idInfoPaso}),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<void> removeItem(int itinerarioId, int itemId) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/items/$itemId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode != 204) {
+        throw Exception('Error al eliminar elemento');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+}

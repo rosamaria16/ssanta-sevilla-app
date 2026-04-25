@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/auth_manager.dart';
 import '../widgets/login_modal.dart';
 import 'login_screen.dart';
+import 'mi_itinerario_first_screen.dart';
 
 class MiItinerarioScreen extends StatefulWidget {
   const MiItinerarioScreen({super.key});
@@ -79,12 +80,6 @@ class _MiItinerarioScreenState extends State<MiItinerarioScreen> {
       );
     }
 
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Text(
-        'Tu Itinerario',
-        style: TextStyle(color: Colors.black, fontSize: 18),
-      ),
-    );
+    return const ItinerarioFirstScreen();
   }
 }
