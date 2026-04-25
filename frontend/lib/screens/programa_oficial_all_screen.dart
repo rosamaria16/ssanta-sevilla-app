@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
+import '../utils/hora_utils.dart';
+import '../utils/franja_horaria_utils.dart';
 
 class ProgramaAllScreen extends StatefulWidget {
   final int idDia;
@@ -20,50 +22,52 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
   bool _isLoading = true;
   String? _error;
 
-  final ScrollController _fixedVerticalController = ScrollController();
-  final ScrollController _dataVerticalController = ScrollController();
-  bool _isSyncingScroll = false;
+  final ScrollController _controladorScrollFijo = ScrollController();
+  final ScrollController _controladorScrollDatos = ScrollController();
+  bool _sincronizandoScroll = false;
+
+  static const _ordenTipos = ['CRUZGUIA', 'PASO', 'PALIO', 'DUELO'];
 
   @override
   void initState() {
     super.initState();
-    _fixedVerticalController.addListener(_onFixedScroll);
-    _dataVerticalController.addListener(_onDataScroll);
+    _controladorScrollFijo.addListener(_alDesplazarFijo);
+    _controladorScrollDatos.addListener(_alDesplazarDatos);
     _cargarDatos();
   }
 
-  void _onFixedScroll() {
-    if (_isSyncingScroll) return;
-    _isSyncingScroll = true;
-    _dataVerticalController.jumpTo(_fixedVerticalController.offset);
-    _isSyncingScroll = false;
+  void _alDesplazarFijo() {
+    if (_sincronizandoScroll) return;
+    _sincronizandoScroll = true;
+    _controladorScrollDatos.jumpTo(_controladorScrollFijo.offset);
+    _sincronizandoScroll = false;
   }
 
-  void _onDataScroll() {
-    if (_isSyncingScroll) return;
-    _isSyncingScroll = true;
-    _fixedVerticalController.jumpTo(_dataVerticalController.offset);
-    _isSyncingScroll = false;
+  void _alDesplazarDatos() {
+    if (_sincronizandoScroll) return;
+    _sincronizandoScroll = true;
+    _controladorScrollFijo.jumpTo(_controladorScrollDatos.offset);
+    _sincronizandoScroll = false;
   }
 
   @override
   void dispose() {
-    _fixedVerticalController.removeListener(_onFixedScroll);
-    _dataVerticalController.removeListener(_onDataScroll);
-    _fixedVerticalController.dispose();
-    _dataVerticalController.dispose();
+    _controladorScrollFijo.removeListener(_alDesplazarFijo);
+    _controladorScrollDatos.removeListener(_alDesplazarDatos);
+    _controladorScrollFijo.dispose();
+    _controladorScrollDatos.dispose();
     super.dispose();
   }
 
   Future<void> _cargarDatos() async {
     try {
-      final results = await Future.wait([
+      final resultados = await Future.wait([
         InfoPaso.getByDia(widget.idDia),
         Hermandad.getHermandadesDia(widget.idDia),
       ]);
       setState(() {
-        listaInfoPasos = results[0] as List<InfoPaso>;
-        listaHermandades = results[1] as List<Hermandad>;
+        listaInfoPasos = resultados[0] as List<InfoPaso>;
+        listaHermandades = resultados[1] as List<Hermandad>;
         _isLoading = false;
       });
     } catch (e) {
@@ -74,40 +78,22 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
     }
   }
 
-  int _rawMinutes(String hora) {
-    final clean = hora.length >= 5 ? hora.substring(0, 5) : hora;
-    final parts = clean.split(':');
-    return int.parse(parts[0]) * 60 + int.parse(parts[1]);
-  }
-
-  int _findStartOffset(List<int> rawList) {
-    if (rawList.isEmpty) return 0;
-    final sorted = rawList.toSet().toList()..sort();
-    if (sorted.length == 1) return sorted[0];
-    int maxGap = sorted[0] + 1440 - sorted.last;
-    int startAfterGap = sorted[0];
-    for (int i = 1; i < sorted.length; i++) {
-      final gap = sorted[i] - sorted[i - 1];
-      if (gap > maxGap) {
-        maxGap = gap;
-        startAfterGap = sorted[i];
+  ///determina el tipo de paso con mayor prioridad para cada hermandad
+  Map<int, String> _calcularTipoPrincipal() {
+    final tipoPrincipal = <int, String>{};
+    for (final info in listaInfoPasos) {
+      final actual = tipoPrincipal[info.idHermandad];
+      if (actual == null) {
+        tipoPrincipal[info.idHermandad] = info.tipoPaso;
+      } else {
+        final idxActual = _ordenTipos.indexOf(actual);
+        final idxNuevo = _ordenTipos.indexOf(info.tipoPaso);
+        if (idxNuevo != -1 && (idxActual == -1 || idxNuevo < idxActual)) {
+          tipoPrincipal[info.idHermandad] = info.tipoPaso;
+        }
       }
     }
-    return startAfterGap;
-  }
-
-  int _adjustedMinutes(String hora, int startOffset) {
-    return (_rawMinutes(hora) - startOffset + 1440) % 1440;
-  }
-
-  String _minutesToTimeStr(int totalMinutes) {
-    int hours = (totalMinutes ~/ 60) % 24;
-    int mins = totalMinutes % 60;
-    return '${hours.toString().padLeft(2, '0')}:${mins.toString().padLeft(2, '0')}';
-  }
-
-  String _normalizaHora(String hora) {
-    return hora.length >= 5 ? hora.substring(0, 5) : hora;
+    return tipoPrincipal;
   }
 
   @override
@@ -131,73 +117,50 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
       );
     }
 
-    // Mapa id → nombre hermandad
-    final hermandadNombres = <int, String>{};
-    for (final h in listaHermandades) {
-      hermandadNombres[h.id] = h.nombre;
-    }
+    final nombresHermandad = {
+      for (final h in listaHermandades) h.id: h.nombre,
+    };
 
-    // Determinar el tipo principal de cada hermandad (CRUZGUIA si existe, si no el primero según orden)
-    const tipoOrder = ['CRUZGUIA', 'PASO', 'PALIO', 'DUELO'];
-    final hermandadPrimaryTipo = <int, String>{};
-    for (final info in listaInfoPasos) {
-      final current = hermandadPrimaryTipo[info.idHermandad];
-      if (current == null) {
-        hermandadPrimaryTipo[info.idHermandad] = info.tipoPaso;
-      } else {
-        final currentIdx = tipoOrder.indexOf(current);
-        final newIdx = tipoOrder.indexOf(info.tipoPaso);
-        if (newIdx != -1 && (currentIdx == -1 || newIdx < currentIdx)) {
-          hermandadPrimaryTipo[info.idHermandad] = info.tipoPaso;
-        }
-      }
-    }
+    //filtro tipo principal
+    final tipoPrincipal = _calcularTipoPrincipal();
+    final filtrados = listaInfoPasos
+        .where((info) => tipoPrincipal[info.idHermandad] == info.tipoPaso)
+        .toList();
 
-    // Filtrar: solo el tipo principal de cada hermandad
-    final filtered = listaInfoPasos.where((info) =>
-        hermandadPrimaryTipo[info.idHermandad] == info.tipoPaso).toList();
-
-    // Columnas: una por hermandad que tenga datos
-    final hermandadIds = <int>{};
-    for (final info in filtered) {
-      hermandadIds.add(info.idHermandad);
-    }
-
-    // Ordenar hermandades según el orden original de la lista
-    final orderedHermandadIds = listaHermandades
-        .where((h) => hermandadIds.contains(h.id))
+    //columnas
+    final idsConDatos = filtrados.map((info) => info.idHermandad).toSet();
+    final idsHermandadesOrdenadas = listaHermandades
+        .where((h) => idsConDatos.contains(h.id))
         .map((h) => h.id)
         .toList();
 
-    // Solo franjas horarias que tienen datos (sin rellenar huecos vacíos)
-    final allRaw = filtered.map((info) => _rawMinutes(info.hora)).toList();
-    final startOffset = _findStartOffset(allRaw);
-    final horaAdjustedSet = <int>{};
-    for (final info in filtered) {
-      horaAdjustedSet.add(_adjustedMinutes(info.hora, startOffset));
-    }
-    final sortedAdjusted = horaAdjustedSet.toList()..sort();
-    final timeSlots = sortedAdjusted
-        .map((adj) => _minutesToTimeStr((adj + startOffset) % 1440))
-        .toList();
+    //franjas horas
+    final todosMinutos = filtrados.map((info) => horaAMinutos(info.hora)).toList();
+    final inicioMinutos = calcularHoraInicio(todosMinutos);
+    final minutosAjustados = filtrados
+        .map((info) => (horaAMinutos(info.hora) - inicioMinutos + 1440) % 1440)
+        .toSet()
+        .toList()
+      ..sort();
+    final franjaHoraria = FranjaHoraria.calcularFranjasDesdeUnicas(minutosAjustados, inicioMinutos);
+    final franjasHorarias = franjaHoraria.horas;
 
-    // Mapa hora → idHermandad → texto celda (solo tipo principal)
-    final dataMap = <String, Map<int, String>>{};
-    for (final info in filtered) {
-      final horaKey = _normalizaHora(info.hora);
-      dataMap.putIfAbsent(horaKey, () => {});
-      String text = info.localizacion;
+    final mapaDatos = <String, Map<int, String>>{};
+    for (final info in filtrados) {
+      final hora = normalizaHora(info.hora);
+      mapaDatos.putIfAbsent(hora, () => {});
+      String textoCelda = info.localizacion;
       if (info.difHora != null && info.difHora!.isNotEmpty) {
-        text += ' (${_normalizaHora(info.difHora!)})';
+        textoCelda += ' (${normalizaHora(info.difHora!)})';
       }
-      dataMap[horaKey]![info.idHermandad] = text;
+      mapaDatos[hora]![info.idHermandad] = textoCelda;
     }
 
-    const double rowHeight = 56.0;
-    const double headerHeight = 48.0;
-    const double fixedColumnWidth = 70.0;
-    const double dataColumnWidth = 130.0;
-    final double totalDataWidth = dataColumnWidth * orderedHermandadIds.length;
+    const double alturaFila = 56.0;
+    const double alturaCabecera = 48.0;
+    const double anchoColumnaFija = 70.0;
+    const double anchoColumnaDato = 130.0;
+    final double anchoTotalDatos = anchoColumnaDato * idsHermandadesOrdenadas.length;
 
     return Scaffold(
       appBar: _buildAppBar(),
@@ -205,50 +168,17 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
         children: [
           // Columna fija (Hora)
           SizedBox(
-            width: fixedColumnWidth,
+            width: anchoColumnaFija,
             child: Column(
               children: [
-                Container(
-                  height: headerHeight,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(25, 52, 89, 1),
-                    border: Border(
-                      right: BorderSide(color: Colors.white24),
-                      bottom: BorderSide(color: Colors.white24),
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'Hora',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                _buildCeldaCabeceraFija('Hora', alturaCabecera),
                 Expanded(
                   child: ListView.builder(
-                    controller: _fixedVerticalController,
-                    itemCount: timeSlots.length,
-                    itemExtent: rowHeight,
+                    controller: _controladorScrollFijo,
+                    itemCount: franjasHorarias.length,
+                    itemExtent: alturaFila,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(25, 52, 89, 0.85),
-                          border: Border(
-                            right: BorderSide(color: Colors.grey.shade400),
-                            bottom: BorderSide(color: Colors.grey.shade400),
-                          ),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          timeSlots[index],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      );
+                      return _buildCeldaHora(franjasHorarias[index]);
                     },
                   ),
                 ),
@@ -261,36 +191,17 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: SizedBox(
-                width: totalDataWidth,
+                width: anchoTotalDatos,
                 child: Column(
                   children: [
                     // Cabecera con nombres de hermandades
                     SizedBox(
-                      height: headerHeight,
+                      height: alturaCabecera,
                       child: Row(
-                        children: orderedHermandadIds.map((hId) {
-                          return Container(
-                            width: dataColumnWidth,
-                            decoration: const BoxDecoration(
-                              color: Color.fromRGBO(25, 52, 89, 1),
-                              border: Border(
-                                right: BorderSide(color: Colors.white24),
-                                bottom: BorderSide(color: Colors.white24),
-                              ),
-                            ),
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: Text(
-                              hermandadNombres[hId] ?? '',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
-                              ),
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                            ),
+                        children: idsHermandadesOrdenadas.map((hId) {
+                          return _buildCeldaCabeceraDato(
+                            nombresHermandad[hId] ?? '',
+                            anchoColumnaDato,
                           );
                         }).toList(),
                       ),
@@ -298,38 +209,18 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
                     // Filas de datos
                     Expanded(
                       child: ListView.builder(
-                        controller: _dataVerticalController,
-                        itemCount: timeSlots.length,
-                        itemExtent: rowHeight,
+                        controller: _controladorScrollDatos,
+                        itemCount: franjasHorarias.length,
+                        itemExtent: alturaFila,
                         itemBuilder: (context, index) {
-                          final hora = timeSlots[index];
+                          final hora = franjasHorarias[index];
                           return Row(
-                            children: orderedHermandadIds.map((hId) {
-                              final cellText = dataMap[hora]?[hId] ?? '';
-                              return Container(
-                                width: dataColumnWidth,
-                                height: rowHeight,
-                                decoration: BoxDecoration(
-                                  color: index.isEven
-                                      ? const Color.fromRGBO(240, 240, 245, 1)
-                                      : Colors.white,
-                                  border: Border(
-                                    right: BorderSide(
-                                        color: Colors.grey.shade300),
-                                    bottom: BorderSide(
-                                        color: Colors.grey.shade300),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 4),
-                                child: Text(
-                                  cellText,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(fontSize: 11),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 3,
-                                ),
+                            children: idsHermandadesOrdenadas.map((hId) {
+                              return _buildCeldaDato(
+                                mapaDatos[hora]?[hId] ?? '',
+                                anchoColumnaDato,
+                                alturaFila,
+                                index.isEven,
                               );
                             }).toList(),
                           );
@@ -342,6 +233,92 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCeldaCabeceraFija(String texto, double altura) {
+    return Container(
+      height: altura,
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(25, 52, 89, 1),
+        border: Border(
+          right: BorderSide(color: Colors.white24),
+          bottom: BorderSide(color: Colors.white24),
+        ),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        texto,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildCeldaCabeceraDato(String texto, double ancho) {
+    return Container(
+      width: ancho,
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(25, 52, 89, 1),
+        border: Border(
+          right: BorderSide(color: Colors.white24),
+          bottom: BorderSide(color: Colors.white24),
+        ),
+      ),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Text(
+        texto,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 11,
+        ),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+      ),
+    );
+  }
+
+  Widget _buildCeldaHora(String hora) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(25, 52, 89, 0.85),
+        border: Border(
+          right: BorderSide(color: Colors.grey.shade400),
+          bottom: BorderSide(color: Colors.grey.shade400),
+        ),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        hora,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildCeldaDato(String texto, double ancho, double altura, bool esPar) {
+    return Container(
+      width: ancho,
+      height: altura,
+      decoration: BoxDecoration(
+        color: esPar
+            ? const Color.fromRGBO(240, 240, 245, 1)
+            : Colors.white,
+        border: Border(
+          right: BorderSide(color: Colors.grey.shade300),
+          bottom: BorderSide(color: Colors.grey.shade300),
+        ),
+      ),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: Text(
+        texto,
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 11),
+        overflow: TextOverflow.ellipsis,
+        maxLines: 3,
       ),
     );
   }
