@@ -298,4 +298,63 @@ class ItinerarioApi {
       throw Exception(e.toString().replaceFirst('Exception: ', ''));
     }
   }
+
+  static Future<List<Map<String, dynamic>>> getDias(int itinerarioId) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List<dynamic>;
+        return data.cast<Map<String, dynamic>>();
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<Map<String, dynamic>> addDia(int itinerarioId, int idDia) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({'idDia': idDia}),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<void> removeDia(int itinerarioId, int diaItinerarioId) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias/$diaItinerarioId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode != 204) {
+        throw Exception('Error al eliminar día del itinerario');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
 }
