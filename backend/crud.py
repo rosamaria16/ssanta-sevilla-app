@@ -225,6 +225,26 @@ def delete_item_itinerario(db: Session, item_id: int) -> bool:
     return False
 
 
+#DiaItinerario
+def get_dias_by_itinerario(db: Session, itinerario_id: int) -> List[models.DiaItinerario]:
+    return db.query(models.DiaItinerario).filter(models.DiaItinerario.idItinerario == itinerario_id).all()
+
+def create_dia_itinerario(db: Session, itinerario_id: int, dia: schemas.DiaItinerarioCreate) -> models.DiaItinerario:
+    db_dia = models.DiaItinerario(idItinerario=itinerario_id, idDia=dia.idDia)
+    db.add(db_dia)
+    db.commit()
+    db.refresh(db_dia)
+    return db_dia
+
+def delete_dia_itinerario(db: Session, dia_itinerario_id: int) -> bool:
+    db_dia = db.query(models.DiaItinerario).filter(models.DiaItinerario.id == dia_itinerario_id).first()
+    if db_dia:
+        db.delete(db_dia)
+        db.commit()
+        return True
+    return False
+
+
 #Noticia
 def get_noticia(db: Session, noticia_id: int) -> Optional[models.Noticia]:
     return db.query(models.Noticia).filter(models.Noticia.id == noticia_id).first()

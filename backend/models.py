@@ -31,6 +31,22 @@ class Itinerario(Base):
     
     usuario = relationship("Usuario", back_populates="itinerario")
     items = relationship("ItemItinerario", back_populates="itinerario", cascade="all, delete-orphan")
+    dias = relationship("DiaItinerario", back_populates="itinerario", cascade="all, delete-orphan")
+
+
+class DiaItinerario(Base):
+    __tablename__ = "dias_itinerario"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    idItinerario = Column(Integer, ForeignKey("itinerarios.id"), nullable=False)
+    idDia = Column(Integer, ForeignKey("dias.id"), nullable=False)
+    
+    __table_args__ = (
+        UniqueConstraint("idItinerario", "idDia", name="uq_itinerario_dia"),
+    )
+    
+    itinerario = relationship("Itinerario", back_populates="dias")
+    dia = relationship("Dia")
 
 class ItemItinerario(Base):
     __tablename__ = "items_itinerario"

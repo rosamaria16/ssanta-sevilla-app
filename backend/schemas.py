@@ -133,9 +133,23 @@ class ItemItinerarioResponse(BaseModel):
     class Config:
         from_attributes = True
 
+#Diaitinerario
+class DiaItinerarioCreate(BaseModel):
+    idDia: int
+
+class DiaItinerarioResponse(BaseModel):
+    id: int
+    idItinerario: int
+    idDia: int
+
+    class Config:
+        from_attributes = True
+
+
 class ItinerarioDetalleResponse(ItinerarioBase):
     id: int
     items: List[ItemItinerarioResponse] = []
+    dias: List[DiaItinerarioResponse] = []
 
     class Config:
         from_attributes = True
