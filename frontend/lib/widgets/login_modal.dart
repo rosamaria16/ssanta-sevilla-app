@@ -25,6 +25,13 @@ class _LoginModalState extends State<LoginModal> {
   }
 
   Future<void> _handleLogin() async {
+    if (_emailController.text.trim().isEmpty || _passwordController.text.trim().isEmpty) {
+      setState(() {
+        _errorMessage = 'Por favor, introduce tus credenciales';
+      });
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _errorMessage = null;
