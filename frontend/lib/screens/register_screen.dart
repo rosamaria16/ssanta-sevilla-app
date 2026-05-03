@@ -79,15 +79,12 @@ class _RegisterScreenState extends State<RegisterScreen>{
       );
 
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Registro realizado correctamente'), backgroundColor: Colors.green),
-        );
-        Navigator.pop(context);
+        Navigator.pop(context, true);
       }
     } catch (e) {
       if (mounted) {
         setState(() {
-          errorMessage = e.toString();
+          errorMessage = e.toString().replaceFirst('Exception: ', '');
         });
       }
     } finally {

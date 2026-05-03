@@ -23,19 +23,26 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
+    if (_emailController.text.trim().isEmpty || _passwordController.text.trim().isEmpty) {
+      setState(() {
+        _errorMessage = 'Por favor, introduce tus credenciales';
+      });
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _errorMessage = null;
     });
 
     try {
-      final result = await ApiService.login(
+      await ApiService.login(
         _emailController.text,
         _passwordController.text,
       );
 
       if (mounted) {
-        Navigator.pop(context, true); // Return true to indicate successful login
+        Navigator.pop(context, true);
       }
     } catch (e) {
       if (mounted) {
@@ -47,11 +54,14 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void _goToRegister() {
-    Navigator.push(
+  void _goToRegister() async {
+    final registered = await Navigator.push<bool>(
       context,
       MaterialPageRoute(builder: (context) => const RegisterScreen()),
     );
+    if (registered == true && mounted) {
+      Navigator.pop(context, true);
+    }
   }
 
   @override
