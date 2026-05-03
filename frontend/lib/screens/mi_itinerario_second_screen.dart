@@ -234,35 +234,20 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
       });
     }
 
-    //Para cada franja, calcula infopasos activos,
-    //siendo el activo de cada hermandad el último cuya horaAjustada <= franjaAdj
-    //pero solo se arrastra si la hermandad tiene un infopaso futuro (sigue en la calle).
-    //Si el activo es el último de la hermandad, solo se muestra en su propia franja
+    //Para cada franja, asignar los infopasos cuya hora coincide
     final opcionesMap = <String, List<InfoPaso>>{};
     for (int i = 0; i < franjasHoras.length; i++) {
       final franjaAdj = franjasHorasEnMinutos[i];
       final activos = <InfoPaso>[];
       for (final entry in porGrupo.entries) {
         final infoList = entry.value;
-        InfoPaso? activo;
         for (final info in infoList) {
           final infoAdj = franjaHoraria.ajustarHora(horaAMinutos(info.hora));
-          if (infoAdj <= franjaAdj) {
-            activo = info;
-          } else {
-            break;
-          }
-        }
-        if (activo != null) {
-          final activoAdj = franjaHoraria.ajustarHora(horaAMinutos(activo.hora));
-          final esUltimo = identical(activo, infoList.last);
-
-          if (!esUltimo || (franjaAdj - activoAdj) < 30) {
-            activos.add(activo);
+          if (infoAdj == franjaAdj) {
+            activos.add(info);
           }
         }
       }
-      
       opcionesMap[franjasHoras[i]] = activos;
     }
 

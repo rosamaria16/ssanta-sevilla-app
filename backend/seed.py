@@ -27,7 +27,18 @@ def load_hermandades(db):
     print("Loaded hermandades")
 
 
+def hora_a_minutos(hora):
+    return hora.hour * 60 + hora.minute
+
+def minutos_a_hora(minutos):
+    minutos = minutos % 1440
+    horas = minutos // 60
+    mins = minutos % 60
+    return datetime.strptime(f"{horas:02d}:{mins:02d}", "%H:%M").time()
+
+
 def load_infopasos(db):
+    grupos_por_hermandad_tipo = {}
     with open(os.path.join(CSV_DIR, "infopasos.csv"), encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter=";")
         for row in reader:
@@ -36,12 +47,53 @@ def load_infopasos(db):
             tipo_paso_str = row['tipoPaso'].strip()
             tipo_paso_enum = TipoPaso[tipo_paso_str.upper()]
             
+            entrada = {
+                'hora': datetime.strptime(hora_str, "%H:%M").time(),
+                'tipoPaso': tipo_paso_enum,
+                'localizacion': row['localizacion'],
+                'idHermandad': int(row['idHermandad']),
+                'difHora': datetime.strptime(dif_hora_str, "%H:%M").time() if dif_hora_str else None
+            }
+            clave = (entrada['idHermandad'], tipo_paso_str.upper())
+            grupos_por_hermandad_tipo.setdefault(clave, []).append(entrada)
+
+    #Para cada grupo, rellenar huecos mayores de 30 minutos entre entradas consecutivas
+    #para que cada franja de media hora tenga su propio registro en la base de datis
+    for clave, entradas in grupos_por_hermandad_tipo.items():
+        entradas_a_insertar = []
+        for i in range(len(entradas) - 1):
+            entrada_actual = entradas[i]
+            entrada_siguiente = entradas[i + 1]
+            minutos_actual = hora_a_minutos(entrada_actual['hora'])
+            minutos_siguiente = hora_a_minutos(entrada_siguiente['hora'])
+            
+            if minutos_siguiente <= minutos_actual:
+                minutos_siguiente += 1440
+            dif = minutos_siguiente - minutos_actual
+            
+            if dif > 30:
+                minutos_relleno = minutos_actual + 30
+                while minutos_relleno < minutos_siguiente:
+                    entrada_relleno = {
+                        'hora': minutos_a_hora(minutos_relleno),
+                        'tipoPaso': entrada_actual['tipoPaso'],
+                        'localizacion': entrada_actual['localizacion'],
+                        'idHermandad': entrada_actual['idHermandad'],
+                        'difHora': None
+                    }
+                    entradas_a_insertar.append(entrada_relleno)
+                    minutos_relleno += 30
+        entradas.extend(entradas_a_insertar)
+        entradas.sort(key=lambda e: hora_a_minutos(e['hora']))
+
+    for entradas in grupos_por_hermandad_tipo.values():
+        for entrada in entradas:
             info_paso = InfoPaso(
-                hora=datetime.strptime(hora_str, "%H:%M").time(),
-                tipoPaso=tipo_paso_enum,
-                localizacion=row['localizacion'],
-                idHermandad=int(row['idHermandad']),
-                difHora=datetime.strptime(dif_hora_str, "%H:%M").time() if dif_hora_str else None
+                hora=entrada['hora'],
+                tipoPaso=entrada['tipoPaso'],
+                localizacion=entrada['localizacion'],
+                idHermandad=entrada['idHermandad'],
+                difHora=entrada['difHora']
             )
             db.add(info_paso)
     print("Loaded infopasos")
