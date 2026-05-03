@@ -36,12 +36,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (mounted) {
         Navigator.pop(context, true); // Return true to indicate successful login
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Bienvenido, ${result['usuario']['nombre'] ?? 'Usuario'}'),
-            backgroundColor: Colors.green,
-          ),
-        );
       }
     } catch (e) {
       if (mounted) {
@@ -146,6 +140,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                 ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                '¿Olvidaste tu contraseña? Contacta con placeholder@email.com',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey.shade600,
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
               Row(

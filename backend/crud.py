@@ -146,6 +146,17 @@ def update_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioUpdate)
         db.refresh(db_usuario)
     return db_usuario
 
+def change_password(db: Session, usuario_id: int, contrasena_actual: str, contrasena_nueva: str) -> Optional[models.Usuario]:
+    db_usuario = get_usuario(db, usuario_id)
+    if not db_usuario:
+        return None
+    if not verify_password(contrasena_actual, db_usuario.contrasena):
+        return False
+    db_usuario.contrasena = get_password_hash(contrasena_nueva)
+    db.commit()
+    db.refresh(db_usuario)
+    return db_usuario
+
 def update_admin_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioUpdateAdmin) -> Optional[models.Usuario]:
     db_usuario = get_usuario(db, usuario_id)
     if db_usuario:

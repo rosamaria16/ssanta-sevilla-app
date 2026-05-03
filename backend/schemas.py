@@ -90,6 +90,10 @@ class UsuarioUpdate(BaseModel):
 class UsuarioUpdateAdmin(BaseModel):
     admin: Optional[bool] = None
 
+class ChangePassword(BaseModel):
+    contrasena_actual: str
+    contrasena_nueva: str
+
 class UsuarioResponse(UsuarioBase):
     id: int
 

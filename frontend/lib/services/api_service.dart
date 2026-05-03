@@ -6,7 +6,7 @@ const String apiBaseUrl = 'http://10.0.2.2:8000/api/v1';
 const Duration requestTimeout = Duration(seconds: 10);
 
 class ApiService {
-  // Login
+  //Login
   static Future<Map<String, dynamic>> login(String email, String password) async {
     try {
       final response = await http.post(
@@ -25,7 +25,7 @@ class ApiService {
         AuthManager().setUser(data['usuario'] ?? data);
         return data;
       } else if (response.statusCode == 401) {
-        throw Exception('Credenciales inválidas');
+        throw Exception('Email o contraseña incorrectos');
       } else if (response.statusCode >= 500) {
         throw Exception('Error en el servidor');
       } else {
@@ -36,7 +36,7 @@ class ApiService {
     }
   }
 
-  // Registro
+  //Registro
   static Future<Map<String, dynamic>> register(
     String email,
     String password,
@@ -71,13 +71,82 @@ class ApiService {
     }
   }
 
-  // Logout
+  //Actualizar perfil (nombre y/o email)
+  static Future<Map<String, dynamic>> updateProfile(
+    int userId, {
+    String? nombre,
+    String? email,
+  }) async {
+    try {
+      final body = <String, dynamic>{};
+      if (nombre != null) body['nombre'] = nombre;
+      if (email != null) body['email'] = email;
+
+      final response = await http.put(
+        Uri.parse('$apiBaseUrl/usuarios/$userId'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(body),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        AuthManager().setUser(data);
+        return data;
+      } else if (response.statusCode == 404) {
+        throw Exception('Usuario no encontrado');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  //Cambiar contraseña
+  static Future<void> changePassword(
+    int userId,
+    String currentPassword,
+    String newPassword,
+  ) async {
+    try {
+      final response = await http.put(
+        Uri.parse('$apiBaseUrl/usuarios/$userId/change-password'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'contrasena_actual': currentPassword,
+          'contrasena_nueva': newPassword,
+        }),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        return;
+      } else if (response.statusCode == 400) {
+        throw Exception('La contraseña actual es incorrecta');
+      } else if (response.statusCode == 404) {
+        throw Exception('Usuario no encontrado');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  //Logout
   static void logout() {
     AuthManager().logout();
   }
 }
 
-// Dia (para poder sacar los datos de la BD)
+//Dia (para poder sacar los datos de la BD)
 class Dia {
   final int id;
   final String nombre;
@@ -116,7 +185,7 @@ class Dia {
   }
 }
 
-// Dia (para poder sacar los datos de la BD)
+//Dia (para poder sacar los datos de la BD)
 class Hermandad {
   final int id;
   final String nombre;

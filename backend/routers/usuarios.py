@@ -43,6 +43,15 @@ def update_usuario(usuario_id: int, usuario: schemas.UsuarioUpdate, db: Session 
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return db_usuario
 
+@router.put("/{usuario_id}/change-password", response_model=schemas.UsuarioResponse)
+def change_password(usuario_id: int, data: schemas.ChangePassword, db: Session = Depends(get_db)):
+    result = crud.change_password(db, usuario_id=usuario_id, contrasena_actual=data.contrasena_actual, contrasena_nueva=data.contrasena_nueva)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    if result is False:
+        raise HTTPException(status_code=400, detail="Contraseña actual incorrecta")
+    return result
+
 @router.put("/admin/{usuario_id}", response_model=schemas.UsuarioResponse)
 def update_admin_usuario(usuario_id: int, usuario: schemas.UsuarioUpdateAdmin, db: Session = Depends(get_db)):
     db_usuario = crud.update_admin_usuario(db, usuario_id=usuario_id, usuario=usuario)
