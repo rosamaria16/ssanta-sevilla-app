@@ -309,6 +309,7 @@ class ItinerarioApi {
       } else if (response.statusCode == 404) {
         final createResponse = await http.post(
           Uri.parse('$apiBaseUrl/itinerarios/'),
+          headers: {'Content-Type': 'application/json'},
           body: json.encode({'idUsuario': userId}),
         ).timeout(requestTimeout, onTimeout: () {
           throw Exception('Tiempo de conexión agotado');
