@@ -1,7 +1,7 @@
 import csv
 from sqlalchemy import text
 from database import SessionLocal, engine, Base
-from models import Dia, Hermandad, InfoPaso, TipoPaso, Usuario, Emisora, Noticia, Itinerario, ItemItinerario
+from models import Dia, Hermandad, InfoPaso, TipoPaso, Usuario, Emisora, Noticia, Itinerario, ItemItinerario, DiaItinerario
 from hashing import get_password_hash
 from datetime import datetime
 import os
@@ -116,6 +116,7 @@ def load_items_itinerario(db):
 
 
 def clear_seed_tables(db):
+    db.query(DiaItinerario).delete(synchronize_session=False)
     db.query(ItemItinerario).delete(synchronize_session=False)
     db.query(Itinerario).delete(synchronize_session=False)
     db.query(InfoPaso).delete(synchronize_session=False)
@@ -127,6 +128,7 @@ def clear_seed_tables(db):
     
     
 def reset_auto_increment(db):
+    db.execute(text("ALTER TABLE dias_itinerario AUTO_INCREMENT = 1"))
     db.execute(text("ALTER TABLE items_itinerario AUTO_INCREMENT = 1"))
     db.execute(text("ALTER TABLE itinerarios AUTO_INCREMENT = 1"))
     db.execute(text("ALTER TABLE infopaso AUTO_INCREMENT = 1"))
