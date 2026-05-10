@@ -5,6 +5,7 @@ import 'mi_itinerario_screen.dart';
 import 'radio_screen.dart';
 import 'login_screen.dart';
 import 'logged_user_screen.dart';
+import 'admin_screen.dart';
 import '../services/auth_manager.dart';
 
 class MainLayout extends StatefulWidget {
@@ -52,6 +53,10 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+    if (AuthManager().isAdmin) {
+      return AdminScreen(onLogout: () => setState(() {}));
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(25, 52, 89, 1),

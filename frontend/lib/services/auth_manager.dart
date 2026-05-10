@@ -10,6 +10,8 @@ class AuthManager {
   Map<String, dynamic>? _currentUser;
 
   bool get isLoggedIn => _currentUser != null;
+
+  bool get isAdmin => _currentUser != null && _currentUser!['admin'] == 1;
   
   Map<String, dynamic>? get currentUser => _currentUser;
 
