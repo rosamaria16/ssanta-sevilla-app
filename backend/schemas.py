@@ -96,6 +96,7 @@ class ChangePassword(BaseModel):
 
 class UsuarioResponse(UsuarioBase):
     id: int
+    admin: int
 
     class Config:
         from_attributes = True
@@ -198,3 +199,12 @@ class EmisoraResponse(EmisoraBase):
 
     class Config:
         from_attributes = True
+
+
+#Admin
+class DiaActualizarFecha(BaseModel):
+    fecha: datetime
+
+class CargarInfoPasosResponse(BaseModel):
+    mensaje: str
+    registros_cargados: int

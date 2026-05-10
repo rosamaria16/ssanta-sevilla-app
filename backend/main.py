@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from seed import seed_database
 import uvicorn
-from routers import dias, hermandades, infopasos, usuarios, itinerarios, noticias, emisoras
+from routers import dias, hermandades, infopasos, usuarios, itinerarios, noticias, emisoras, admin
 
 app = FastAPI()
 
@@ -29,6 +29,7 @@ app.include_router(usuarios.router, prefix="/api/v1/usuarios", tags=["Usuarios"]
 app.include_router(itinerarios.router, prefix="/api/v1/itinerarios", tags=["Itinerarios"])
 app.include_router(noticias.router, prefix="/api/v1/noticias", tags=["Noticias"])
 app.include_router(emisoras.router, prefix="/api/v1/emisoras", tags=["Emisoras"])
+app.include_router(admin.router, prefix="/api/v1/admin", tags=["Admin"])
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
