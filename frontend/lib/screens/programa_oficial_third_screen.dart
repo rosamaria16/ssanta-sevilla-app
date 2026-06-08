@@ -116,10 +116,13 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
                   children: [
                     _buildCeldaHora(hora, rowHeight),
                     ...columnasUnicas.map((tipo) {
+                      final esCarrera = listaInfoPasos.any((i) =>
+                        normalizaHora(i.hora) == hora && i.tipoPaso == tipo && i.esCarreraOficial);
                       return _buildCeldaDato(
                         mapaDatos[hora]?[tipo] ?? '',
                         rowHeight,
                         index.isEven,
+                        esCarreraOficial: esCarrera,
                       );
                     }),
                   ],
@@ -188,15 +191,17 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
     );
   }
 
-  Widget _buildCeldaDato(String texto, double altura, bool esPar) {
+  Widget _buildCeldaDato(String texto, double altura, bool esPar, {bool esCarreraOficial = false}) {
     return Expanded(
       flex: 3,
       child: Container(
         height: altura,
         decoration: BoxDecoration(
-          color: esPar
-              ? const Color.fromRGBO(240, 240, 245, 1)
-              : Colors.white,
+          color: esCarreraOficial
+              ? const Color.fromRGBO(155, 89, 182, 0.15)
+              : esPar
+                  ? const Color.fromRGBO(240, 240, 245, 1)
+                  : Colors.white,
           border: Border(
             right: BorderSide(color: Colors.grey.shade300),
             bottom: BorderSide(color: Colors.grey.shade300),
@@ -207,7 +212,11 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
         child: Text(
           texto,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 12),
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: esCarreraOficial ? FontWeight.bold : FontWeight.normal,
+            color: esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
+          ),
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
         ),

@@ -143,12 +143,21 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                             _buildDisplayText(info),
                             style: TextStyle(
                               fontSize: 14,
-                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              fontWeight: (isSelected || info.esCarreraOficial) ? FontWeight.bold : FontWeight.normal,
+                              color: info.esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
                             ),
                           ),
                           subtitle: Text(
-                            displayTipoPaso(info.tipoPaso),
-                            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                            info.esCarreraOficial
+                                ? '${displayTipoPaso(info.tipoPaso)} · Carrera Oficial'
+                                : displayTipoPaso(info.tipoPaso),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: info.esCarreraOficial
+                                  ? const Color.fromRGBO(142, 68, 173, 1)
+                                  : Colors.grey[600],
+                              fontWeight: info.esCarreraOficial ? FontWeight.w600 : FontWeight.normal,
+                            ),
                           ),
                           onTap: isSelected ? null : () => Navigator.pop(context, info),
                         );
@@ -352,7 +361,9 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                           height: rowHeight,
                           decoration: BoxDecoration(
                             color: seleccionado != null
-                                ? const Color.fromRGBO(200, 230, 201, 1)
+                                ? (seleccionado.esCarreraOficial
+                                    ? const Color.fromRGBO(155, 89, 182, 0.15)
+                                    : const Color.fromRGBO(200, 230, 201, 1))
                                 : index.isEven
                                     ? const Color.fromRGBO(240, 240, 245, 1)
                                     : Colors.white,
@@ -366,7 +377,11 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                               ? Text(
                                   _buildDisplayTextWithTipo(seleccionado),
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(fontSize: 12),
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: seleccionado.esCarreraOficial ? FontWeight.bold : FontWeight.normal,
+                                    color: seleccionado.esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                 )
