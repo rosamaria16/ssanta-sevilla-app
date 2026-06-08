@@ -7,6 +7,7 @@ import 'login_screen.dart';
 import 'logged_user_screen.dart';
 import 'admin_screen.dart';
 import '../services/auth_manager.dart';
+import '../services/radio_player_controller.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -17,6 +18,7 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentIndex = 0;
+  final RadioPlayerController _radioController = RadioPlayerController();
 
   final List<String> screenTitles = [
     'Noticias',
@@ -71,7 +73,12 @@ class _MainLayoutState extends State<MainLayout> {
           style: const TextStyle(color: Colors.white),
         ),
       ),
-      body: getScreen(currentIndex),
+      body: Column(
+        children: [
+          Expanded(child: getScreen(currentIndex)),
+          _buildRadioBar(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
@@ -98,8 +105,68 @@ class _MainLayoutState extends State<MainLayout> {
       case 0: return const NoticiasScreen();
       case 1: return const ProgramaFirstScreen();
       case 2: return const MiItinerarioScreen();
-      case 3: return const RadioScreen();
+      case 3: return RadioScreen(controller: _radioController);
       default: return const NoticiasScreen();
     }
+  }
+
+  Widget _buildRadioBar() {
+    return ListenableBuilder(
+      listenable: _radioController,
+      builder: (context, _) {
+        final emisora = _radioController.currentEmisora;
+        if (emisora == null) return const SizedBox.shrink();
+
+        final isPlaying = _radioController.isPlaying;
+
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              currentIndex = 3;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            color: const Color.fromRGBO(25, 52, 89, 1),
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Image.network(
+                    emisora.urlImagen,
+                    width: 36,
+                    height: 36,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.radio, color: Colors.white, size: 36),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    emisora.nombre,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+                IconButton(
+                  onPressed: isPlaying
+                      ? _radioController.pause
+                      : _radioController.resume,
+                  icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                  color: Colors.white,
+                ),
+                IconButton(
+                  onPressed: _radioController.stop,
+                  icon: const Icon(Icons.stop),
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }
