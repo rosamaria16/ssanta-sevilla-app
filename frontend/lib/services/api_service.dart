@@ -231,6 +231,7 @@ class InfoPaso {
   final String localizacion;
   final int idHermandad;
   final String? difHora;
+  final bool esCarreraOficial;
 
   InfoPaso({
     required this.id,
@@ -239,6 +240,7 @@ class InfoPaso {
     required this.localizacion,
     required this.idHermandad,
     this.difHora,
+    this.esCarreraOficial = false,
   });
 
   factory InfoPaso.fromJson(Map<String, dynamic> json) {
@@ -249,6 +251,7 @@ class InfoPaso {
       localizacion: json['localizacion'],
       idHermandad: json['idHermandad'],
       difHora: json['difHora'],
+      esCarreraOficial: (json['esCarreraOficial'] ?? 0) == 1,
     );
   }
 
