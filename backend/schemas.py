@@ -56,6 +56,7 @@ class InfoPasoBase(BaseModel):
     localizacion: str
     idHermandad: int
     difHora: Optional[time] = None
+    esCarreraOficial: Optional[int] = 0
 
 class InfoPasoCreate(InfoPasoBase):
     pass
@@ -66,6 +67,7 @@ class InfoPasoUpdate(BaseModel):
     localizacion: Optional[str] = None
     idHermandad: Optional[int] = None
     difHora: Optional[time] = None
+    esCarreraOficial: Optional[int] = None
 
 class InfoPasoResponse(InfoPasoBase):
     id: int

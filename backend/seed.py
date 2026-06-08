@@ -47,12 +47,14 @@ def load_infopasos(db):
             tipo_paso_str = row['tipoPaso'].strip()
             tipo_paso_enum = TipoPaso[tipo_paso_str.upper()]
             
+            es_carrera_str = row.get('esCarreraOficial', '0').strip()
             entrada = {
                 'hora': datetime.strptime(hora_str, "%H:%M").time(),
                 'tipoPaso': tipo_paso_enum,
                 'localizacion': row['localizacion'],
                 'idHermandad': int(row['idHermandad']),
-                'difHora': datetime.strptime(dif_hora_str, "%H:%M").time() if dif_hora_str else None
+                'difHora': datetime.strptime(dif_hora_str, "%H:%M").time() if dif_hora_str else None,
+                'esCarreraOficial': int(es_carrera_str) if es_carrera_str else 0
             }
             clave = (entrada['idHermandad'], tipo_paso_str.upper())
             grupos_por_hermandad_tipo.setdefault(clave, []).append(entrada)
@@ -79,7 +81,8 @@ def load_infopasos(db):
                         'tipoPaso': entrada_actual['tipoPaso'],
                         'localizacion': entrada_actual['localizacion'],
                         'idHermandad': entrada_actual['idHermandad'],
-                        'difHora': None
+                        'difHora': None,
+                        'esCarreraOficial': entrada_actual['esCarreraOficial']
                     }
                     entradas_a_insertar.append(entrada_relleno)
                     minutos_relleno += 30
@@ -93,7 +96,8 @@ def load_infopasos(db):
                 tipoPaso=entrada['tipoPaso'],
                 localizacion=entrada['localizacion'],
                 idHermandad=entrada['idHermandad'],
-                difHora=entrada['difHora']
+                difHora=entrada['difHora'],
+                esCarreraOficial=entrada['esCarreraOficial']
             )
             db.add(info_paso)
     print("Loaded infopasos")

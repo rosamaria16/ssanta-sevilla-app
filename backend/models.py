@@ -108,6 +108,7 @@ class InfoPaso(Base):
     localizacion = Column(String(255), nullable=False)
     idHermandad = Column(Integer, ForeignKey("hermandades.id"), nullable=False)
     difHora = Column(Time, nullable=True)
+    esCarreraOficial = Column(Integer, default=0, nullable=False)
     
     hermandad = relationship("Hermandad", back_populates="infopasos")
     
