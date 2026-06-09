@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'auth_manager.dart';
+import '../utils/hora_utils.dart';
 
 const String apiBaseUrl = 'http://10.0.2.2:8000/api/v1';
 const Duration requestTimeout = Duration(seconds: 10);
@@ -150,16 +151,19 @@ class ApiService {
 class Dia {
   final int id;
   final String nombre;
+  final DateTime fecha;
 
   Dia({
     required this.id,
-    required this.nombre
+    required this.nombre,
+    required this.fecha
   });
 
   factory Dia.fromJson(Map<String, dynamic> json) {
     return Dia(
       id: json['id'],
-      nombre: json['nombre']
+      nombre: json['nombre'],
+      fecha: DateTime.parse(json['fecha'])
     );
   }
 
@@ -488,6 +492,35 @@ class AdminService {
     }
   }
 
+  static Future<Map<String, dynamic>> actualizarFechasDesdeInicio(
+    int usuarioId,
+    String fechaInicio,
+  ) async {
+    try {
+      final response = await http.put(
+        Uri.parse('$apiBaseUrl/admin/dias/fecha-inicio?usuario_id=$usuarioId'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({'fecha_inicio': fechaInicio}),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 403) {
+        throw Exception('No tienes permisos de administrador');
+      } else if (response.statusCode == 404) {
+        throw Exception('No hay días configurados');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
   static Future<Map<String, dynamic>> uploadInfopasosCsv(
     int usuarioId,
     String filePath,
@@ -568,6 +601,91 @@ class Emisora {
       } else {
         throw Exception('Error: ${response.statusCode}');
       }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+}
+
+class EntradaItinerarioExport {
+
+  final String dia;
+  final DateTime fecha;
+  final String hora;
+  final String hermandad;
+  final String tipoPaso;
+  final String localizacion;
+
+  EntradaItinerarioExport({
+    required this.dia,
+    required this.fecha,
+    required this.hora,
+    required this.hermandad,
+    required this.tipoPaso,
+    required this.localizacion,
+  });
+
+  //Si el dia es null, devuelve las filas de todos los días del itinerario (descarga completa)
+  //Si viene con un id, devuelve las filas de ese día en concreto (descarga general)
+  static Future<List<EntradaItinerarioExport>> getEntradasItinerarioExport(int usuarioId, {int? idDia}) async {
+    try {
+      //buscar el itinerario del usuario
+      final itinerario = await ItinerarioApi.getOrCreateByUsuario(usuarioId);
+      final itinerarioId = itinerario['id'] as int;
+
+      //saber qué infopasos ha seleccionado
+      final idsInfoPasoElegidos = (itinerario['items'] as List)
+        .map((item) => item['idInfoPaso'] as int)
+        .toSet();
+
+      //saber qué días ha seleccionado
+      final diasItinerario = await ItinerarioApi.getDias(itinerarioId);
+      final todosLosDias = await Dia.getDiasSemanaSanta();
+
+      //filtrar por día
+      final diasAExportar = idDia != null
+        ? diasItinerario.where((d) => d['idDia'] == idDia).toList()
+        : diasItinerario;
+
+
+      final List<EntradaItinerarioExport> entradas = [];
+
+      for (final diaItinerario in diasAExportar) {
+
+        final dia = todosLosDias.firstWhere((d) => d.id == diaItinerario['idDia'],);
+
+        //buscar infopasos y hermandades del día
+        final infoPasosDelDia = await InfoPaso.getByDia(dia.id);
+        final hermandadesDelDia = await Hermandad.getHermandadesDia(dia.id);
+
+        final nombreHermandadPorId = { //dict{id_hdad:nombre}
+          for (final h in hermandadesDelDia) 
+            h.id: h.nombre
+        };
+
+        //filtrar los seleccionados y convertir
+        final seleccionadosDelDia = infoPasosDelDia.where((i) => idsInfoPasoElegidos.contains(i.id));
+
+        for (final info in seleccionadosDelDia) {
+          entradas.add(EntradaItinerarioExport(
+            dia: dia.nombre,
+            fecha: dia.fecha,
+            hora: info.hora,
+            hermandad: nombreHermandadPorId[info.idHermandad] ?? 'Desconocida',
+            tipoPaso: info.tipoPaso,
+            localizacion: info.localizacion,
+          ));
+        }
+      }
+
+      //ordenar por fecha y hora
+      entradas.sort((a, b) {
+        final comparacionFecha = a.fecha.compareTo(b.fecha);
+        if (comparacionFecha != 0) return comparacionFecha;
+        return horaAMinutos(a.hora).compareTo(horaAMinutos(b.hora));
+      });
+
+      return entradas;
     } catch (e) {
       throw Exception(e.toString().replaceFirst('Exception: ', ''));
     }

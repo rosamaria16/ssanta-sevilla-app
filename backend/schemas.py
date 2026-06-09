@@ -207,6 +207,13 @@ class EmisoraResponse(EmisoraBase):
 class DiaActualizarFecha(BaseModel):
     fecha: datetime
 
+class DiasActualizarFechaInicio(BaseModel):
+    fecha_inicio: datetime
+
+class DiasActualizarFechaInicioResponse(BaseModel):
+    mensaje: str
+    dias_actualizados: int
+
 class CargarInfoPasosResponse(BaseModel):
     mensaje: str
     registros_cargados: int

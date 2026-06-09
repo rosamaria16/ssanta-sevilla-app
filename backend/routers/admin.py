@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Query
 from sqlalchemy.orm import Session
 from typing import List
+from datetime import timedelta
 import crud
 import schemas
 from database import get_db
@@ -53,6 +54,38 @@ def listar_dias(
 ):
     verificar_admin(db, usuario_id)
     return crud.get_dias(db)
+
+
+@router.put("/dias/fecha-inicio", response_model=schemas.DiasActualizarFechaInicioResponse)
+def actualizar_fechas_desde_inicio(
+    datos: schemas.DiasActualizarFechaInicio,
+    usuario_id: int = Query(...),
+    db: Session = Depends(get_db),
+):
+    verificar_admin(db, usuario_id)
+
+    dias = crud.get_dias(db)
+    if not dias:
+        raise HTTPException(status_code=404, detail="No hay días")
+
+    dias_ordenados = sorted(dias, key=lambda d: d.id)
+
+    #Madrugá y Viernes Santo comparten fecha, por eso se repite
+    offsets = [0, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9]
+
+    if len(dias_ordenados) != len(offsets):
+        offsets = list(range(len(dias_ordenados))) #fallback
+
+    fecha_inicio = datos.fecha_inicio
+    for i, dia in enumerate(dias_ordenados):
+        nueva_fecha = fecha_inicio + timedelta(days=offsets[i])
+        dia_update = schemas.DiaUpdate(fecha=nueva_fecha)
+        crud.update_dia(db, dia_id=dia.id, dia=dia_update)
+
+    return schemas.DiasActualizarFechaInicioResponse(
+        mensaje=f"Se han actualizado {len(dias_ordenados)} fechas desde {fecha_inicio.strftime('%d/%m/%Y')}",
+        dias_actualizados=len(dias_ordenados),
+    )
 
 
 @router.put("/dias/{dia_id}/fecha", response_model=schemas.DiaResponse)
