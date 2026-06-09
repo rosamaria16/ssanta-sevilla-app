@@ -120,30 +120,45 @@ class _AdminScreenState extends State<AdminScreen>
     }
   }
 
-  Future<void> _seleccionarFecha(Map<String, dynamic> dia) async {
-    final fechaActual = DateTime.tryParse(dia['fecha'] ?? '') ?? DateTime.now();
+  Future<void> _seleccionarFechaInicio() async {
+    final primerDia = _dias.isNotEmpty ? _dias.first : null;
+    var fechaInicial = primerDia != null
+        ? (DateTime.tryParse(primerDia['fecha'] ?? '') ?? DateTime.now())
+        : DateTime.now();
+
+    //initialDate debe caer en viernes
+    if (fechaInicial.weekday != DateTime.friday) {
+      final diasHastaViernes = (DateTime.friday - fechaInicial.weekday + 7) % 7;
+      fechaInicial = fechaInicial.add(Duration(days: diasHastaViernes == 0 ? 7 : diasHastaViernes));
+    }
 
     final nuevaFecha = await showDatePicker(
       context: context,
-      initialDate: fechaActual,
+      initialDate: fechaInicial,
       firstDate: DateTime(2020),
-      lastDate: DateTime(2035),
+      lastDate: DateTime(2040),
       locale: const Locale('es', 'ES'),
+      helpText: 'Selecciona la fecha del Viernes de Dolores',
+      selectableDayPredicate: (DateTime day) => day.weekday == DateTime.friday,
     );
 
     if (nuevaFecha == null) return;
 
     setState(() {
       _mensajeDias = null;
+      _cargandoDias = true;
     });
 
     try {
       final fechaStr = nuevaFecha.toIso8601String();
-      await AdminService.actualizarFechaDia(_usuarioId, dia['id'], fechaStr);
+      final respuesta = await AdminService.actualizarFechasDesdeInicio(
+        _usuarioId,
+        fechaStr,
+      );
 
       if (mounted) {
         setState(() {
-          _mensajeDias = 'Fecha de "${dia['nombre']}" actualizada';
+          _mensajeDias = respuesta['mensaje'] ?? 'Fechas actualizadas';
           _mensajeDiasError = false;
         });
         _cargarDias();
@@ -151,6 +166,7 @@ class _AdminScreenState extends State<AdminScreen>
     } catch (e) {
       if (mounted) {
         setState(() {
+          _cargandoDias = false;
           _mensajeDias = e.toString().replaceFirst('Exception: ', '');
           _mensajeDiasError = true;
         });
@@ -320,8 +336,25 @@ class _AdminScreenState extends State<AdminScreen>
           ),
           const SizedBox(height: 8),
           const Text(
-            'Pulsa sobre un día para cambiar su fecha.',
+            'Selecciona la fecha del Viernes de Dolores y el resto de días se calcularán automáticamente.',
             style: TextStyle(fontSize: 14, color: Colors.grey),
+          ),
+          const SizedBox(height: 16),
+
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: _seleccionarFechaInicio,
+              icon: const Icon(Icons.edit_calendar, color: Colors.white),
+              label: const Text(
+                'Seleccionar fecha de inicio',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
+                padding: const EdgeInsets.symmetric(vertical: 14),
+              ),
+            ),
           ),
 
           if (_mensajeDias != null) ...[
@@ -396,12 +429,6 @@ class _AdminScreenState extends State<AdminScreen>
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text('Fecha: $fechaFormateada'),
-        trailing: IconButton(
-          icon: const Icon(Icons.edit_calendar, color: Colors.blue),
-          onPressed: () => _seleccionarFecha(dia),
-          tooltip: 'Cambiar fecha',
-        ),
-        onTap: () => _seleccionarFecha(dia),
       ),
     );
   }

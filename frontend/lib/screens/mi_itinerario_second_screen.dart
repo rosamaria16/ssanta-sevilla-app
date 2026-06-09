@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 import 'package:frontend/utils/hora_utils.dart';
 import 'package:frontend/utils/franja_horaria_utils.dart';
 import 'package:frontend/utils/tipopaso_utils.dart';
 import '../services/api_service.dart';
 import '../services/auth_manager.dart';
+import '../services/pdf_itinerario_service.dart';
 
 class ItinerarioSecondScreen extends StatefulWidget {
   final int idDia;
@@ -403,6 +405,35 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
     );
   }
 
+  Future<void> _descargarPdfDia() async {
+    final userId = AuthManager().currentUser?['id'];
+    if (userId == null) return;
+
+    try {
+      final entradas = await EntradaItinerarioExport.getEntradasItinerarioExport(
+        userId,
+        idDia: widget.idDia,
+      );
+      if (entradas.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('No hay entradas para este día')),
+          );
+        }
+        return;
+      }
+      final pdfBytes = await PdfItinerarioService.crearPdf(entradas, diaFiltro: widget.nombreDia);
+      final nombreArchivo = 'itinerario_${widget.nombreDia.toLowerCase().replaceAll(' ', '_')}.pdf';
+      await Printing.sharePdf(bytes: pdfBytes, filename: nombreArchivo);
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al generar PDF: ${e.toString()}')),
+        );
+      }
+    }
+  }
+
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
@@ -415,6 +446,13 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
         ),
       ),
       iconTheme: const IconThemeData(color: Colors.white),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.picture_as_pdf),
+          tooltip: 'Descargar PDF',
+          onPressed: _descargarPdfDia,
+        ),
+      ],
     );
   }
 }

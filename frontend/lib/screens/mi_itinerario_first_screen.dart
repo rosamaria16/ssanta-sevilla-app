@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 import '../services/api_service.dart';
 import '../services/auth_manager.dart';
+import '../services/pdf_itinerario_service.dart';
 import 'mi_itinerario_second_screen.dart';
 
 class ItinerarioFirstScreen extends StatefulWidget {
@@ -53,6 +55,31 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
       diaIdToDiaItinerarioId = mapDiaItinerario;
       _cargando = false;
     });
+  }
+
+  Future<void> _descargarPdfGeneral() async {
+    final userId = AuthManager().currentUser?['id'];
+    if (userId == null) return;
+
+    try {
+      final entradas = await EntradaItinerarioExport.getEntradasItinerarioExport(userId);
+      if (entradas.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('No hay entradas en tu itinerario')),
+          );
+        }
+        return;
+      }
+      final pdfBytes = await PdfItinerarioService.crearPdf(entradas);
+      await Printing.sharePdf(bytes: pdfBytes, filename: 'mi_itinerario_semana_santa.pdf');
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al generar PDF: ${e.toString()}')),
+        );
+      }
+    }
   }
 
   Future<void> _mostrarSelectorDias() async {
@@ -149,6 +176,24 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 side: const BorderSide(color: Color.fromARGB(255, 26, 19, 92)),
+                foregroundColor: const Color.fromARGB(255, 26, 19, 92),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: diasSeleccionados.isEmpty ? null : _descargarPdfGeneral,
+              icon: const Icon(Icons.picture_as_pdf),
+              label: const Text("Descargar itinerario completo"),
+              style: OutlinedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                side: BorderSide(
+                  color: diasSeleccionados.isEmpty
+                      ? Colors.grey
+                      : const Color.fromARGB(255, 26, 19, 92),
+                ),
                 foregroundColor: const Color.fromARGB(255, 26, 19, 92),
               ),
             ),
