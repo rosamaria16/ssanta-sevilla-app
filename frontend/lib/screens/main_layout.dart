@@ -104,7 +104,7 @@ class _MainLayoutState extends State<MainLayout> {
     switch (index) {
       case 0: return const NoticiasScreen();
       case 1: return const ProgramaFirstScreen();
-      case 2: return const MiItinerarioScreen();
+      case 2: return MiItinerarioScreen(onLoginSuccess: () => setState(() {}));
       case 3: return RadioScreen(controller: _radioController);
       default: return const NoticiasScreen();
     }

@@ -6,7 +6,9 @@ import 'login_screen.dart';
 import 'mi_itinerario_first_screen.dart';
 
 class MiItinerarioScreen extends StatefulWidget {
-  const MiItinerarioScreen({super.key});
+  final VoidCallback? onLoginSuccess;
+
+  const MiItinerarioScreen({super.key, this.onLoginSuccess});
 
   @override
   State<MiItinerarioScreen> createState() => _MiItinerarioScreenState();
@@ -30,6 +32,7 @@ class _MiItinerarioScreenState extends State<MiItinerarioScreen> {
       builder: (context) => LoginModal(
         onLoginSuccess: () {
           setState(() {});
+          widget.onLoginSuccess?.call();
         },
       ),
     );
@@ -65,6 +68,7 @@ class _MiItinerarioScreenState extends State<MiItinerarioScreen> {
                       ).then((result) {
                         if (result == true) {
                           setState(() {});
+                          widget.onLoginSuccess?.call();
                         }
                       });
                     },
