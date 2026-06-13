@@ -85,3 +85,32 @@ async def upload_infopasos(
         mensaje=f"Se cargaron {total} registros correctamente",
         registros_cargados=total,
     )
+
+
+@router.post("/upload-hermandades", response_model=schemas.CargarHermandadesResponse)
+async def upload_hermandades(
+    file: UploadFile = File(...),
+    usuario_id: int = Query(...),
+    db: Session = Depends(get_db),
+):
+    verificar_admin(db, usuario_id)
+
+    if not file.filename.endswith(".csv"):
+        raise HTTPException(status_code=400, detail="El archivo debe ser un CSV")
+
+    try:
+        contenido = await file.read()
+        csv_text = contenido.decode("utf-8")
+    except UnicodeDecodeError:
+        raise HTTPException(status_code=400, detail="El archivo no tiene codificación UTF-8 válida")
+
+    try:
+        crud.clear_hermandades(db)
+        total = crud.load_hermandades_from_csv(db, csv_text)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    return schemas.CargarHermandadesResponse(
+        mensaje=f"Se cargaron {total} hermandades correctamente",
+        registros_cargados=total,
+    )

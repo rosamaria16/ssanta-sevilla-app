@@ -21,6 +21,7 @@ class _AdminScreenState extends State<AdminScreen>
   bool _subiendo = false;
   String? _mensajeCsv;
   bool _mensajeCsvError = false;
+  String _tipoCsv = 'infopasos';
 
   List<Map<String, dynamic>> _dias = [];
   bool _cargandoDias = false;
@@ -68,12 +69,21 @@ class _AdminScreenState extends State<AdminScreen>
     });
 
     try {
-      final respuesta = await AdminService.uploadInfopasosCsv(
-        _usuarioId,
-        '',
-        _bytesArchivo!,
-        _nombreArchivo!,
-      );
+      final Map<String, dynamic> respuesta;
+      if (_tipoCsv == 'hermandades') {
+        respuesta = await AdminService.uploadHermandadesCsv(
+          _usuarioId,
+          _bytesArchivo!,
+          _nombreArchivo!,
+        );
+      } else {
+        respuesta = await AdminService.uploadInfopasosCsv(
+          _usuarioId,
+          '',
+          _bytesArchivo!,
+          _nombreArchivo!,
+        );
+      }
 
       if (mounted) {
         setState(() {
@@ -208,7 +218,7 @@ class _AdminScreenState extends State<AdminScreen>
           labelColor: Colors.white,
           unselectedLabelColor: Colors.grey[400],
           tabs: const [
-            Tab(icon: Icon(Icons.upload_file), text: 'InfoPasos'),
+            Tab(icon: Icon(Icons.upload_file), text: 'Cargar CSVs'),
             Tab(icon: Icon(Icons.calendar_today), text: 'Días'),
           ],
         ),
@@ -216,7 +226,7 @@ class _AdminScreenState extends State<AdminScreen>
       body: TabBarView(
         controller: _tabController,
         children: [
-          _buildInfoPasosTab(),
+          _buildCsvTab(),
           _buildDiasTab(),
         ],
       ),
@@ -224,21 +234,54 @@ class _AdminScreenState extends State<AdminScreen>
   }
 
 
-  Widget _buildInfoPasosTab() {
+  Widget _buildCsvTab() {
+    final opciones = {
+      'infopasos': 'InfoPasos',
+      'hermandades': 'Hermandades',
+    };
+    final descripciones = {
+      'infopasos': 'Formato: idHermandad;tipoPaso;hora;localizacion;difHora;esCarreraOficial',
+      'hermandades': 'Formato: id;nombre;idDia',
+    };
+
     return Padding(
       padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Cargar CSV de InfoPasos',
+            'Cargar CSV',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 16),
+
+          DropdownButtonFormField<String>(
+            initialValue: _tipoCsv,
+            decoration: InputDecoration(
+              labelText: 'Tipo de datos',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+            ),
+            items: opciones.entries
+                .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                .toList(),
+            onChanged: _subiendo
+                ? null
+                : (value) {
+                    setState(() {
+                      _tipoCsv = value!;
+                      _nombreArchivo = null;
+                      _bytesArchivo = null;
+                      _mensajeCsv = null;
+                    });
+                  },
+          ),
           const SizedBox(height: 8),
-          const Text(
-            'Selecciona un archivo CSV con el formato: '
-            'idHermandad;tipoPaso;hora;localizacion;difHora;esCarreraOficial',
-            style: TextStyle(fontSize: 14, color: Colors.grey),
+          Text(
+            descripciones[_tipoCsv] ?? '',
+            style: const TextStyle(fontSize: 14, color: Colors.grey),
           ),
           const SizedBox(height: 24),
 

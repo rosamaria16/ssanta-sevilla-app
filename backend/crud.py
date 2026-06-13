@@ -322,6 +322,75 @@ def delete_emisora(db: Session, emisora_id: int) -> bool:
     return False
 
 
+#Admin-Hermandades
+def clear_hermandades(db: Session) -> int:
+    db.query(models.ItemItinerario).delete()
+    db.query(models.InfoPaso).delete()
+    
+    count = db.query(models.Hermandad).count()
+    db.query(models.Hermandad).delete()
+    db.commit()
+    return count
+
+def load_hermandades_from_csv(db: Session, csv_content: str) -> int:
+    
+    lines = csv_content.strip().split("\n")
+    if len(lines) < 2:
+        raise ValueError("El CSV debe tener al menos una cabecera y una fila de datos")
+    
+    header = lines[0].strip().split(";")
+    expected = ["id", "nombre", "idDia"]
+    if header != expected:
+        raise ValueError(f"Cabecera incorrecta. Se esperaba: {';'.join(expected)}")
+    
+    registros = []
+    
+    for i, line in enumerate(lines[1:], start=2):
+        line = line.strip()
+        if not line:
+            continue
+        
+        campos = line.split(";")
+        if len(campos) != 3:
+            raise ValueError(f"Línea {i}: se esperaban 3 campos, se encontraron {len(campos)}")
+        
+        id_str = campos[0].strip()
+        nombre = campos[1].strip()
+        id_dia_str = campos[2].strip()
+        
+        if not id_str:
+            raise ValueError(f"Línea {i}: id no puede estar vacío")
+        try:
+            id_hermandad = int(id_str)
+            if id_hermandad <= 0:
+                raise ValueError(f"Línea {i}: id debe ser un número positivo")
+        except ValueError:
+            raise ValueError(f"Línea {i}: id debe ser un número entero válido")
+        
+        if not nombre:
+            raise ValueError(f"Línea {i}: nombre no puede estar vacío")
+        
+        if not id_dia_str:
+            raise ValueError(f"Línea {i}: idDia no puede estar vacío")
+        try:
+            id_dia = int(id_dia_str)
+            if id_dia <= 0:
+                raise ValueError(f"Línea {i}: idDia debe ser un número positivo")
+        except ValueError:
+            raise ValueError(f"Línea {i}: idDia debe ser un número entero válido")
+        
+        hermandad = models.Hermandad(
+            id=id_hermandad,
+            nombre=nombre,
+            idDia=id_dia,
+        )
+        registros.append(hermandad)
+    
+    db.add_all(registros)
+    db.commit()
+    return len(registros)
+
+
 #Admin-InfoPasos
 def clear_infopasos(db: Session) -> int:
     db.query(models.ItemItinerario).delete()

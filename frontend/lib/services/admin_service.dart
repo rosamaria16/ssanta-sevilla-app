@@ -98,4 +98,44 @@ class AdminService {
       throw Exception(e.toString().replaceFirst('Exception: ', ''));
     }
   }
+
+  static Future<Map<String, dynamic>> uploadHermandadesCsv(
+    int usuarioId,
+    List<int> fileBytes,
+    String fileName,
+  ) async {
+    try {
+      final uri = Uri.parse(
+        '$apiBaseUrl/admin/upload-hermandades?usuario_id=$usuarioId',
+      );
+      final request = http.MultipartRequest('POST', uri);
+      request.files.add(
+        http.MultipartFile.fromBytes('file', fileBytes, filename: fileName),
+      );
+
+      final streamedResponse = await request.send().timeout(
+        const Duration(seconds: 30),
+        onTimeout: () {
+          throw Exception('Tiempo de conexión agotado');
+        },
+      );
+
+      final response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 400) {
+        final data = json.decode(response.body);
+        throw Exception(data['detail'] ?? 'Error en el archivo CSV');
+      } else if (response.statusCode == 403) {
+        throw Exception('No tienes permisos de administrador');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
 }
