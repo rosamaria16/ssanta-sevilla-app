@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/usuario_service.dart';
 import '../services/auth_manager.dart';
 
 class LoggedUserScreen extends StatefulWidget {
@@ -65,7 +65,7 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
     });
 
     try {
-      await ApiService.updateProfile(
+      await UsuarioService.updateProfile(
         user['id'],
         nombre: nombre,
         email: email,
@@ -200,7 +200,7 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
 
                           try {
                             final user = AuthManager().currentUser;
-                            await ApiService.changePassword(
+                            await UsuarioService.changePassword(
                               user!['id'],
                               currentPass,
                               newPass,
@@ -381,7 +381,7 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      ApiService.logout();
+                      UsuarioService.logout();
                       Navigator.pop(context, 'logout');
                     },
                     icon: const Icon(Icons.logout, color: Colors.white),

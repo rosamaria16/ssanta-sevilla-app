@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:intl/intl.dart';
-import 'package:frontend/services/api_service.dart';
+import 'package:frontend/services/itinerario_service.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 

@@ -3,7 +3,9 @@ import 'package:printing/printing.dart';
 import 'package:frontend/utils/hora_utils.dart';
 import 'package:frontend/utils/franja_horaria_utils.dart';
 import 'package:frontend/utils/tipopaso_utils.dart';
-import '../services/api_service.dart';
+import '../services/info_paso_service.dart';
+import '../services/hermandad_service.dart';
+import '../services/itinerario_service.dart';
 import '../services/auth_manager.dart';
 import '../services/pdf_itinerario_service.dart';
 

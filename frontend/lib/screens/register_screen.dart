@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/usuario_service.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -72,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen>{
     });
 
     try {
-      await ApiService.register(
+      await UsuarioService.register(
         emailController.text,
         passwordController.text,
         nombreController.text,

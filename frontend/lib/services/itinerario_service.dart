@@ -1,0 +1,220 @@
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dia_service.dart';
+import 'hermandad_service.dart';
+import 'info_paso_service.dart';
+import '../utils/hora_utils.dart';
+
+const String apiBaseUrl = 'http://10.0.2.2:8000/api/v1';
+const Duration requestTimeout = Duration(seconds: 10);
+
+class ItinerarioApi {
+  static Future<Map<String, dynamic>> getOrCreateByUsuario(int userId) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/itinerarios/usuario/$userId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else if (response.statusCode == 404) {
+        final createResponse = await http.post(
+          Uri.parse('$apiBaseUrl/itinerarios/'),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({'idUsuario': userId}),
+        ).timeout(requestTimeout, onTimeout: () {
+          throw Exception('Tiempo de conexión agotado');
+        });
+
+        if (createResponse.statusCode == 201) {
+          final data = json.decode(createResponse.body);
+          data['items'] = [];
+          return data;
+        }
+        throw Exception('Error al crear itinerario');
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<Map<String, dynamic>> addItem(int itinerarioId, int idInfoPaso) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/items'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({'idInfoPaso': idInfoPaso}),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<void> removeItem(int itinerarioId, int itemId) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/items/$itemId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode != 204) {
+        throw Exception('Error al eliminar elemento');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<List<Map<String, dynamic>>> getDias(int itinerarioId) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List<dynamic>;
+        return data.cast<Map<String, dynamic>>();
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<Map<String, dynamic>> addDia(int itinerarioId, int idDia) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({'idDia': idDia}),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode == 201) {
+        return json.decode(response.body);
+      } else if (response.statusCode >= 500) {
+        throw Exception('Error en el servidor');
+      } else {
+        throw Exception('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+
+  static Future<void> removeDia(int itinerarioId, int diaItinerarioId) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('$apiBaseUrl/itinerarios/$itinerarioId/dias/$diaItinerarioId'),
+      ).timeout(requestTimeout, onTimeout: () {
+        throw Exception('Tiempo de conexión agotado');
+      });
+
+      if (response.statusCode != 204) {
+        throw Exception('Error al eliminar día del itinerario');
+      }
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+}
+
+
+class EntradaItinerarioExport {
+
+  final String dia;
+  final DateTime fecha;
+  final String hora;
+  final String hermandad;
+  final String tipoPaso;
+  final String localizacion;
+
+  EntradaItinerarioExport({
+    required this.dia,
+    required this.fecha,
+    required this.hora,
+    required this.hermandad,
+    required this.tipoPaso,
+    required this.localizacion,
+  });
+
+  static Future<List<EntradaItinerarioExport>> getEntradasItinerarioExport(int usuarioId, {int? idDia}) async {
+    try {
+      final itinerario = await ItinerarioApi.getOrCreateByUsuario(usuarioId);
+      final itinerarioId = itinerario['id'] as int;
+
+      final idsInfoPasoElegidos = (itinerario['items'] as List)
+        .map((item) => item['idInfoPaso'] as int)
+        .toSet();
+
+      final diasItinerario = await ItinerarioApi.getDias(itinerarioId);
+      final todosLosDias = await Dia.getDiasSemanaSanta();
+
+      final diasAExportar = idDia != null
+        ? diasItinerario.where((d) => d['idDia'] == idDia).toList()
+        : diasItinerario;
+
+
+      final List<EntradaItinerarioExport> entradas = [];
+
+      for (final diaItinerario in diasAExportar) {
+
+        final dia = todosLosDias.firstWhere((d) => d.id == diaItinerario['idDia'],);
+
+        final infoPasosDelDia = await InfoPaso.getByDia(dia.id);
+        final hermandadesDelDia = await Hermandad.getHermandadesDia(dia.id);
+
+        final nombreHermandadPorId = {
+          for (final h in hermandadesDelDia) 
+            h.id: h.nombre
+        };
+
+        final seleccionadosDelDia = infoPasosDelDia.where((i) => idsInfoPasoElegidos.contains(i.id));
+
+        for (final info in seleccionadosDelDia) {
+          entradas.add(EntradaItinerarioExport(
+            dia: dia.nombre,
+            fecha: dia.fecha,
+            hora: info.hora,
+            hermandad: nombreHermandadPorId[info.idHermandad] ?? 'Desconocida',
+            tipoPaso: info.tipoPaso,
+            localizacion: info.localizacion,
+          ));
+        }
+      }
+
+      entradas.sort((a, b) {
+        final comparacionFecha = a.fecha.compareTo(b.fecha);
+        if (comparacionFecha != 0) return comparacionFecha;
+        return horaAMinutos(a.hora).compareTo(horaAMinutos(b.hora));
+      });
+
+      return entradas;
+    } catch (e) {
+      throw Exception(e.toString().replaceFirst('Exception: ', ''));
+    }
+  }
+}

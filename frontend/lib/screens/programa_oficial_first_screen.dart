@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/dia_service.dart';
 import 'programa_oficial_second_screen.dart';
 
 class ProgramaFirstScreen extends StatefulWidget {

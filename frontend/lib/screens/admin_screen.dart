@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import '../services/api_service.dart';
+import '../services/usuario_service.dart';
+import '../services/admin_service.dart';
 import '../services/auth_manager.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -175,7 +176,7 @@ class _AdminScreenState extends State<AdminScreen>
   }
 
   void _cerrarSesion() {
-    ApiService.logout();
+    UsuarioService.logout();
     if (widget.onLogout != null) {
       widget.onLogout!();
     } else {

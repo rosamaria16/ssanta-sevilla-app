@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/emisora_service.dart';
 import '../services/radio_player_controller.dart';
 
 class RadioScreen extends StatefulWidget {

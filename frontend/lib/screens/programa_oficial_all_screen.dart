@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
+import '../services/info_paso_service.dart';
+import '../services/hermandad_service.dart';
 import '../utils/hora_utils.dart';
 import '../utils/franja_horaria_utils.dart';
 

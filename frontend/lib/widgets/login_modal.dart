@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/register_screen.dart';
-import '../services/api_service.dart';
+import '../services/usuario_service.dart';
 
 class LoginModal extends StatefulWidget {
   final VoidCallback? onLoginSuccess;
@@ -38,7 +38,7 @@ class _LoginModalState extends State<LoginModal> {
     });
 
     try {
-      await ApiService.login(
+      await UsuarioService.login(
         _emailController.text,
         _passwordController.text,
       );
