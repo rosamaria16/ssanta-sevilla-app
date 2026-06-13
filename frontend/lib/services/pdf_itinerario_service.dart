@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:intl/intl.dart';
 import 'package:frontend/services/itinerario_service.dart';
+import 'package:frontend/utils/tipopaso_utils.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -63,7 +64,6 @@ class PdfItinerarioService {
                   fontWeight: pw.FontWeight.bold,
                   fontSize: 10,
                 ),
-                cellStyle: const pw.TextStyle(fontSize: 9),
                 cellAlignments: {
                   0: pw.Alignment.center,
                   1: pw.Alignment.centerLeft,
@@ -74,12 +74,18 @@ class PdfItinerarioService {
                   color: PdfColors.grey200,
                 ),
                 headers: ['Hora', 'Hermandad', 'Paso', 'Localización'],
-                data: entradasDia.map((e) => [
-                  e.hora,
-                  e.hermandad,
-                  e.tipoPaso,
-                  e.localizacion,
-                ]).toList(),
+                data: entradasDia.map((e) {
+                  final style = e.esCarreraOficial
+                      ? pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold)
+                      : const pw.TextStyle(fontSize: 9);
+                  final horaSinSegundos = e.hora.length >= 5 ? e.hora.substring(0, 5) : e.hora;
+                  return [
+                    pw.Text(horaSinSegundos, style: style),
+                    pw.Text(e.hermandad, style: style),
+                    pw.Text(displayTipoPaso(e.tipoPaso), style: style),
+                    pw.Text(e.localizacion, style: style),
+                  ];
+                }).toList(),
               ),
             );
           }

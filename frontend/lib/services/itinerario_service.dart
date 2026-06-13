@@ -151,6 +151,7 @@ class EntradaItinerarioExport {
   final String hermandad;
   final String tipoPaso;
   final String localizacion;
+  final bool esCarreraOficial;
 
   EntradaItinerarioExport({
     required this.dia,
@@ -159,6 +160,7 @@ class EntradaItinerarioExport {
     required this.hermandad,
     required this.tipoPaso,
     required this.localizacion,
+    required this.esCarreraOficial,
   });
 
   static Future<List<EntradaItinerarioExport>> getEntradasItinerarioExport(int usuarioId, {int? idDia}) async {
@@ -202,6 +204,7 @@ class EntradaItinerarioExport {
             hermandad: nombreHermandadPorId[info.idHermandad] ?? 'Desconocida',
             tipoPaso: info.tipoPaso,
             localizacion: info.localizacion,
+            esCarreraOficial: info.esCarreraOficial,
           ));
         }
       }
