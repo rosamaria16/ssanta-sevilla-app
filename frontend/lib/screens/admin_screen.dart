@@ -237,7 +237,7 @@ class _AdminScreenState extends State<AdminScreen>
           const SizedBox(height: 8),
           const Text(
             'Selecciona un archivo CSV con el formato: '
-            'idHermandad;tipoPaso;hora;localizacion;difHora',
+            'idHermandad;tipoPaso;hora;localizacion;difHora;esCarreraOficial',
             style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
           const SizedBox(height: 24),

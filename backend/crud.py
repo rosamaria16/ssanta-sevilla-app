@@ -338,7 +338,7 @@ def load_infopasos_from_csv(db: Session, csv_content: str) -> int:
         raise ValueError("El CSV debe tener al menos una cabecera y una fila de datos")
     
     header = lines[0].strip().split(";")
-    expected = ["idHermandad", "tipoPaso", "hora", "localizacion", "difHora"]
+    expected = ["idHermandad", "tipoPaso", "hora", "localizacion", "difHora", "esCarreraOficial"]
     if header != expected:
         raise ValueError(f"Cabecera incorrecta. Se esperaba: {';'.join(expected)}")
     
@@ -351,14 +351,15 @@ def load_infopasos_from_csv(db: Session, csv_content: str) -> int:
             continue
         
         campos = line.split(";")
-        if len(campos) != 5:
-            raise ValueError(f"Línea {i}: se esperaban 5 campos, se encontraron {len(campos)}")
+        if len(campos) != 6:
+            raise ValueError(f"Línea {i}: se esperaban 6 campos, se encontraron {len(campos)}")
         
         id_hermandad_str = campos[0].strip()
         tipo_paso = campos[1].strip()
         hora_str = campos[2].strip()
         localizacion = campos[3].strip()
         dif_hora_str = campos[4].strip()
+        es_carrera_oficial = campos[5].strip()
         
         if not id_hermandad_str:
             raise ValueError(f"Línea {i}: idHermandad no puede estar vacío")
@@ -397,12 +398,20 @@ def load_infopasos_from_csv(db: Session, csv_content: str) -> int:
             except (ValueError, IndexError):
                 raise ValueError(f"Línea {i}: difHora debe tener formato HH:MM (ej: 17:00) o estar vacío")
         
+        if es_carrera_oficial:
+            if es_carrera_oficial not in ("0", "1"):
+                raise ValueError(f"Línea {i}: esCarreraOficial debe ser 0, 1 o estar vacío")
+            es_carrera_oficial = int(es_carrera_oficial)
+        else:
+            es_carrera_oficial = 0
+        
         infopaso = models.InfoPaso(
             idHermandad=id_hermandad,
             tipoPaso=tipo_paso,
             hora=hora,
             localizacion=localizacion,
             difHora=dif_hora,
+            esCarreraOficial=es_carrera_oficial,
         )
         registros.append(infopaso)
     

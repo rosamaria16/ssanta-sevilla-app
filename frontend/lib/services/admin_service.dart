@@ -29,36 +29,6 @@ class AdminService {
     }
   }
 
-  static Future<Map<String, dynamic>> actualizarFechaDia(
-    int usuarioId,
-    int diaId,
-    String fecha,
-  ) async {
-    try {
-      final response = await http.put(
-        Uri.parse('$apiBaseUrl/admin/dias/$diaId/fecha?usuario_id=$usuarioId'),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({'fecha': fecha}),
-      ).timeout(requestTimeout, onTimeout: () {
-        throw Exception('Tiempo de conexión agotado');
-      });
-
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else if (response.statusCode == 403) {
-        throw Exception('No tienes permisos de administrador');
-      } else if (response.statusCode == 404) {
-        throw Exception('Día no encontrado');
-      } else if (response.statusCode >= 500) {
-        throw Exception('Error en el servidor');
-      } else {
-        throw Exception('Error: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception(e.toString().replaceFirst('Exception: ', ''));
-    }
-  }
-
   static Future<Map<String, dynamic>> actualizarFechasDesdeInicio(
     int usuarioId,
     String fechaInicio,
