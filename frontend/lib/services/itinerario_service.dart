@@ -1,12 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'api_config.dart';
 import 'dia_service.dart';
 import 'hermandad_service.dart';
 import 'info_paso_service.dart';
 import '../utils/hora_utils.dart';
-
-const String apiBaseUrl = 'http://10.0.2.2:8000/api/v1';
-const Duration requestTimeout = Duration(seconds: 10);
 
 class ItinerarioApi {
   static Future<Map<String, dynamic>> getOrCreateByUsuario(int userId) async {
