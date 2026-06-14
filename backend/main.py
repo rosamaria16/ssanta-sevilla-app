@@ -1,10 +1,16 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from seed import seed_database
 import uvicorn
 from routers import dias, hermandades, infopasos, usuarios, itinerarios, noticias, emisoras, admin
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    seed_database()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -13,10 +19,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.on_event("startup")
-def on_startup():
-    seed_database()
 
 @app.get("/")
 async def root():
