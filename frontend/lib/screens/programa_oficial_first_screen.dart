@@ -10,7 +10,7 @@ class ProgramaFirstScreen extends StatefulWidget {
 }
 
 class _ProgramaFirstScreenState extends State<ProgramaFirstScreen> {
-  late List<String> listaDias = [];
+  List<Dia> listaDias = [];
 
   @override
   void initState() {
@@ -21,7 +21,7 @@ class _ProgramaFirstScreenState extends State<ProgramaFirstScreen> {
   Future<void> _cargarDias() async {
     final dias = await Dia.getDiasSemanaSanta();
     setState(() {
-      listaDias = dias.map((dia) => (dia.nombre)).toList();
+      listaDias = dias;
     });
   }
 
@@ -36,7 +36,7 @@ class _ProgramaFirstScreenState extends State<ProgramaFirstScreen> {
               itemCount: listaDias.length,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
-                final nombre = listaDias[index];
+                final dia = listaDias[index];
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ElevatedButton(
@@ -44,7 +44,7 @@ class _ProgramaFirstScreenState extends State<ProgramaFirstScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProgramaSecondScreen(idDia: index + 1, nombreDia: nombre),
+                          builder: (context) => ProgramaSecondScreen(idDia: dia.id, nombreDia: dia.nombre),
                         ),
                       );
                     },
@@ -57,7 +57,7 @@ class _ProgramaFirstScreenState extends State<ProgramaFirstScreen> {
                       ),
                     ),
                     child: Text(
-                      nombre,
+                      dia.nombre,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
