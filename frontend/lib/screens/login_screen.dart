@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                '¿Olvidaste tu contraseña? Contacta con placeholder@email.com',
+                '¿Olvidaste tu contraseña? Contacta con rosespmar@alum.us.es',
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.grey.shade600,
