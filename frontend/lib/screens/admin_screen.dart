@@ -79,7 +79,6 @@ class _AdminScreenState extends State<AdminScreen>
       } else {
         respuesta = await AdminService.uploadInfopasosCsv(
           _usuarioId,
-          '',
           _bytesArchivo!,
           _nombreArchivo!,
         );

@@ -60,7 +60,6 @@ class AdminService {
 
   static Future<Map<String, dynamic>> uploadInfopasosCsv(
     int usuarioId,
-    String filePath,
     List<int> fileBytes,
     String fileName,
   ) async {
