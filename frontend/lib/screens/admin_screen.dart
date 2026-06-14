@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import '../services/usuario_service.dart';
 import '../services/admin_service.dart';
-import '../services/auth_manager.dart';
 
 class AdminScreen extends StatefulWidget {
   final VoidCallback? onLogout;
