@@ -1,13 +1,13 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from seed import seed_database
+from seed import create_tables
 import uvicorn
 from routers import dias, hermandades, infopasos, usuarios, itinerarios, noticias, emisoras, admin
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    seed_database()
+    create_tables()
     yield
 
 app = FastAPI(lifespan=lifespan)
