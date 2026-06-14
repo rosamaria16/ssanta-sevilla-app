@@ -22,7 +22,8 @@ class UsuarioService {
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        AuthManager().setUser(data['usuario'] ?? data);
+        final token = data['access_token'] as String?;
+        AuthManager().setUser(data['usuario'] ?? data, token: token);
         return data;
       } else if (response.statusCode == 401) {
         throw Exception('Email o contraseña incorrectos');

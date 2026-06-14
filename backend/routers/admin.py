@@ -1,39 +1,30 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Query
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 from typing import List
 from datetime import timedelta
 import crud
 import schemas
+import models
 from database import get_db
+from auth import obtener_admin_actual
 
 router = APIRouter()
 
 
-def verificar_admin(db: Session, usuario_id: int):
-    usuario = crud.get_usuario(db, usuario_id)
-    if not usuario:
-        raise HTTPException(status_code=404, detail="Usuario no encontrado")
-    if usuario.admin != 1:
-        raise HTTPException(status_code=403, detail="No tienes permisos de administrador")
-    return usuario
-
-
 @router.get("/dias", response_model=List[schemas.DiaResponse])
 def listar_dias(
-    usuario_id: int = Query(...),
+    admin: models.Usuario = Depends(obtener_admin_actual),
     db: Session = Depends(get_db),
 ):
-    verificar_admin(db, usuario_id)
     return crud.get_dias(db)
 
 
 @router.put("/dias/fecha-inicio", response_model=schemas.DiasActualizarFechaInicioResponse)
 def actualizar_fechas_desde_inicio(
     datos: schemas.DiasActualizarFechaInicio,
-    usuario_id: int = Query(...),
+    admin: models.Usuario = Depends(obtener_admin_actual),
     db: Session = Depends(get_db),
 ):
-    verificar_admin(db, usuario_id)
 
     dias = crud.get_dias(db)
     if not dias:
@@ -61,10 +52,9 @@ def actualizar_fechas_desde_inicio(
 @router.post("/upload-infopasos", response_model=schemas.CargarInfoPasosResponse)
 async def upload_infopasos(
     file: UploadFile = File(...),
-    usuario_id: int = Query(...),
+    admin: models.Usuario = Depends(obtener_admin_actual),
     db: Session = Depends(get_db),
 ):
-    verificar_admin(db, usuario_id)
 
     if not file.filename.endswith(".csv"):
         raise HTTPException(status_code=400, detail="El archivo debe ser un CSV")
@@ -90,10 +80,9 @@ async def upload_infopasos(
 @router.post("/upload-hermandades", response_model=schemas.CargarHermandadesResponse)
 async def upload_hermandades(
     file: UploadFile = File(...),
-    usuario_id: int = Query(...),
+    admin: models.Usuario = Depends(obtener_admin_actual),
     db: Session = Depends(get_db),
 ):
-    verificar_admin(db, usuario_id)
 
     if not file.filename.endswith(".csv"):
         raise HTTPException(status_code=400, detail="El archivo debe ser un CSV")

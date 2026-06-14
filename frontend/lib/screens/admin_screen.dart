@@ -41,8 +41,6 @@ class _AdminScreenState extends State<AdminScreen>
     super.dispose();
   }
 
-  int get _usuarioId => AuthManager().currentUser!['id'];
-
 
   Future<void> _seleccionarArchivo() async {
     final resultado = await FilePicker.platform.pickFiles(
@@ -72,13 +70,11 @@ class _AdminScreenState extends State<AdminScreen>
       final Map<String, dynamic> respuesta;
       if (_tipoCsv == 'hermandades') {
         respuesta = await AdminService.uploadHermandadesCsv(
-          _usuarioId,
           _bytesArchivo!,
           _nombreArchivo!,
         );
       } else {
         respuesta = await AdminService.uploadInfopasosCsv(
-          _usuarioId,
           _bytesArchivo!,
           _nombreArchivo!,
         );
@@ -112,7 +108,7 @@ class _AdminScreenState extends State<AdminScreen>
     });
 
     try {
-      final dias = await AdminService.getDias(_usuarioId);
+      final dias = await AdminService.getDias();
       if (mounted) {
         setState(() {
           _dias = dias;
@@ -162,7 +158,6 @@ class _AdminScreenState extends State<AdminScreen>
     try {
       final fechaStr = nuevaFecha.toIso8601String();
       final respuesta = await AdminService.actualizarFechasDesdeInicio(
-        _usuarioId,
         fechaStr,
       );
 

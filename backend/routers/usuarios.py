@@ -4,6 +4,7 @@ from typing import List
 import crud
 import schemas
 from database import get_db
+from auth import crear_token
 
 router = APIRouter()
 
@@ -12,8 +13,9 @@ def login(login_data: schemas.LoginRequest, db: Session = Depends(get_db)):
     db_usuario = crud.authenticate_usuario(db, email=login_data.email, contrasena=login_data.contrasena)
     if not db_usuario:
         raise HTTPException(status_code=401, detail="Credenciales inválidas")
+    token = crear_token(db_usuario.id, db_usuario.admin == 1)
     return schemas.LoginResponse(
-        access_token="token_placeholder",
+        access_token=token,
         token_type="bearer",
         usuario=db_usuario
     )

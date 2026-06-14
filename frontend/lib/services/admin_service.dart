@@ -1,15 +1,21 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'auth_manager.dart';
 
 const String apiBaseUrl = 'http://10.0.2.2:8000/api/v1';
 const Duration requestTimeout = Duration(seconds: 10);
 
 class AdminService {
 
-  static Future<List<Map<String, dynamic>>> getDias(int usuarioId) async {
+  static Map<String, String> get _authHeaders => {
+    ...AuthManager().authHeaders,
+  };
+
+  static Future<List<Map<String, dynamic>>> getDias() async {
     try {
       final response = await http.get(
-        Uri.parse('$apiBaseUrl/admin/dias?usuario_id=$usuarioId'),
+        Uri.parse('$apiBaseUrl/admin/dias'),
+        headers: _authHeaders,
       ).timeout(requestTimeout, onTimeout: () {
         throw Exception('Tiempo de conexión agotado');
       });
@@ -30,13 +36,12 @@ class AdminService {
   }
 
   static Future<Map<String, dynamic>> actualizarFechasDesdeInicio(
-    int usuarioId,
     String fechaInicio,
   ) async {
     try {
       final response = await http.put(
-        Uri.parse('$apiBaseUrl/admin/dias/fecha-inicio?usuario_id=$usuarioId'),
-        headers: {'Content-Type': 'application/json'},
+        Uri.parse('$apiBaseUrl/admin/dias/fecha-inicio'),
+        headers: {'Content-Type': 'application/json', ..._authHeaders},
         body: json.encode({'fecha_inicio': fechaInicio}),
       ).timeout(requestTimeout, onTimeout: () {
         throw Exception('Tiempo de conexión agotado');
@@ -59,15 +64,15 @@ class AdminService {
   }
 
   static Future<Map<String, dynamic>> uploadInfopasosCsv(
-    int usuarioId,
     List<int> fileBytes,
     String fileName,
   ) async {
     try {
       final uri = Uri.parse(
-        '$apiBaseUrl/admin/upload-infopasos?usuario_id=$usuarioId',
+        '$apiBaseUrl/admin/upload-infopasos',
       );
       final request = http.MultipartRequest('POST', uri);
+      request.headers.addAll(_authHeaders);
       request.files.add(
         http.MultipartFile.fromBytes('file', fileBytes, filename: fileName),
       );
@@ -99,15 +104,15 @@ class AdminService {
   }
 
   static Future<Map<String, dynamic>> uploadHermandadesCsv(
-    int usuarioId,
     List<int> fileBytes,
     String fileName,
   ) async {
     try {
       final uri = Uri.parse(
-        '$apiBaseUrl/admin/upload-hermandades?usuario_id=$usuarioId',
+        '$apiBaseUrl/admin/upload-hermandades',
       );
       final request = http.MultipartRequest('POST', uri);
+      request.headers.addAll(_authHeaders);
       request.files.add(
         http.MultipartFile.fromBytes('file', fileBytes, filename: fileName),
       );
