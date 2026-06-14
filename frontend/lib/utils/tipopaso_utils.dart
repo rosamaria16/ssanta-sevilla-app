@@ -1,14 +1,17 @@
+const ordenTiposPaso = ['CRUZGUIA', 'PASO', 'PALIO', 'DUELO'];
+
+const nombresTiposPaso = {
+  'CRUZGUIA': 'Cruz de Guía',
+  'PASO': 'Paso',
+  'PALIO': 'Palio',
+  'DUELO': 'Duelo',
+};
+
 String displayTipoPaso(String tipo) {
-    switch (tipo) {
-      case 'CRUZGUIA':
-        return 'Cruz de Guía';
-      case 'PALIO':
-        return 'Palio';
-      case 'DUELO':
-        return 'Duelo';
-      case 'PASO':
-        return 'Paso';
-      default:
-        return tipo;
-    }
-  }
+  return nombresTiposPaso[tipo] ?? tipo;
+}
+
+int prioridadTipoPaso(String tipo) {
+  final indice = ordenTiposPaso.indexOf(tipo);
+  return indice == -1 ? 999 : indice;
+}

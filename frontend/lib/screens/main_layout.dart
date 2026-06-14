@@ -8,6 +8,7 @@ import 'logged_user_screen.dart';
 import 'admin_screen.dart';
 import '../services/auth_manager.dart';
 import '../services/radio_player_controller.dart';
+import '../utils/app_theme.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -61,17 +62,12 @@ class _MainLayoutState extends State<MainLayout> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
         centerTitle: true,
         leading: IconButton(
-          color: Colors.white,
           icon: const Icon(Icons.account_circle),
           onPressed: _handleUserIconClick,
         ),
-        title: Text(
-          screenTitles[currentIndex],
-          style: const TextStyle(color: Colors.white),
-        ),
+        title: Text(screenTitles[currentIndex]),
       ),
       body: Column(
         children: [
@@ -80,11 +76,7 @@ class _MainLayoutState extends State<MainLayout> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey[400],
         onTap: (index) {
           setState(() {
             currentIndex = index;
@@ -127,7 +119,7 @@ class _MainLayoutState extends State<MainLayout> {
           },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            color: const Color.fromRGBO(25, 52, 89, 1),
+            color: AppColors.primary,
             child: Row(
               children: [
                 ClipRRect(

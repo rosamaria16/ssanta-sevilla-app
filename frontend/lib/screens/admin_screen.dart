@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import '../services/usuario_service.dart';
 import '../services/admin_service.dart';
+import '../utils/app_theme.dart';
+import '../utils/app_message.dart';
 
 class AdminScreen extends StatefulWidget {
   final VoidCallback? onLogout;
@@ -21,11 +24,13 @@ class _AdminScreenState extends State<AdminScreen>
   String? _mensajeCsv;
   bool _mensajeCsvError = false;
   String _tipoCsv = 'infopasos';
+  Timer? _timerCsv;
 
   List<Map<String, dynamic>> _dias = [];
   bool _cargandoDias = false;
   String? _mensajeDias;
   bool _mensajeDiasError = false;
+  Timer? _timerDias;
 
   @override
   void initState() {
@@ -36,8 +41,32 @@ class _AdminScreenState extends State<AdminScreen>
 
   @override
   void dispose() {
+    _timerCsv?.cancel();
+    _timerDias?.cancel();
     _tabController.dispose();
     super.dispose();
+  }
+
+  void _showCsvMessage(String text, {bool isError = false}) {
+    _timerCsv?.cancel();
+    setState(() {
+      _mensajeCsv = text;
+      _mensajeCsvError = isError;
+    });
+    _timerCsv = Timer(const Duration(seconds: 10), () {
+      if (mounted) setState(() => _mensajeCsv = null);
+    });
+  }
+
+  void _showDiasMessage(String text, {bool isError = false}) {
+    _timerDias?.cancel();
+    setState(() {
+      _mensajeDias = text;
+      _mensajeDiasError = isError;
+    });
+    _timerDias = Timer(const Duration(seconds: 10), () {
+      if (mounted) setState(() => _mensajeDias = null);
+    });
   }
 
 
@@ -82,19 +111,15 @@ class _AdminScreenState extends State<AdminScreen>
       if (mounted) {
         setState(() {
           _subiendo = false;
-          _mensajeCsv = respuesta['mensaje'] ?? 'Carga completada';
-          _mensajeCsvError = false;
           _nombreArchivo = null;
           _bytesArchivo = null;
         });
+        _showCsvMessage(respuesta['mensaje'] ?? 'Carga completada');
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _subiendo = false;
-          _mensajeCsv = e.toString().replaceFirst('Exception: ', '');
-          _mensajeCsvError = true;
-        });
+        setState(() => _subiendo = false);
+        _showCsvMessage(e.toString().replaceFirst('Exception: ', ''), isError: true);
       }
     }
   }
@@ -116,11 +141,8 @@ class _AdminScreenState extends State<AdminScreen>
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _cargandoDias = false;
-          _mensajeDias = e.toString().replaceFirst('Exception: ', '');
-          _mensajeDiasError = true;
-        });
+        setState(() => _cargandoDias = false);
+        _showDiasMessage(e.toString().replaceFirst('Exception: ', ''), isError: true);
       }
     }
   }
@@ -161,19 +183,13 @@ class _AdminScreenState extends State<AdminScreen>
       );
 
       if (mounted) {
-        setState(() {
-          _mensajeDias = respuesta['mensaje'] ?? 'Fechas actualizadas';
-          _mensajeDiasError = false;
-        });
+        _showDiasMessage(respuesta['mensaje'] ?? 'Fechas actualizadas');
         _cargarDias();
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _cargandoDias = false;
-          _mensajeDias = e.toString().replaceFirst('Exception: ', '');
-          _mensajeDiasError = true;
-        });
+        setState(() => _cargandoDias = false);
+        _showDiasMessage(e.toString().replaceFirst('Exception: ', ''), isError: true);
       }
     }
   }
@@ -192,24 +208,16 @@ class _AdminScreenState extends State<AdminScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-        title: const Text(
-          'Administración',
-          style: TextStyle(color: Colors.white),
-        ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text('Administración'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
+            icon: const Icon(Icons.logout),
             onPressed: _cerrarSesion,
             tooltip: 'Cerrar sesión',
           ),
         ],
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.grey[400],
           tabs: const [
             Tab(icon: Icon(Icons.upload_file), text: 'Cargar CSVs'),
             Tab(icon: Icon(Icons.calendar_today), text: 'Días'),
@@ -274,7 +282,7 @@ class _AdminScreenState extends State<AdminScreen>
           const SizedBox(height: 8),
           Text(
             descripciones[_tipoCsv] ?? '',
-            style: const TextStyle(fontSize: 14, color: Colors.grey),
+            style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
           ),
           const SizedBox(height: 24),
 
@@ -288,9 +296,9 @@ class _AdminScreenState extends State<AdminScreen>
                 style: const TextStyle(fontSize: 16),
               ),
               style: OutlinedButton.styleFrom(
-                foregroundColor: const Color.fromRGBO(25, 52, 89, 1),
+                foregroundColor: AppColors.primary,
                 side: const BorderSide(
-                  color: Color.fromRGBO(25, 52, 89, 1),
+                  color: AppColors.primary,
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
@@ -320,7 +328,7 @@ class _AdminScreenState extends State<AdminScreen>
                 style: const TextStyle(fontSize: 16, color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
+                backgroundColor: AppColors.primary,
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
             ),
@@ -328,27 +336,10 @@ class _AdminScreenState extends State<AdminScreen>
 
           if (_mensajeCsv != null) ...[
             const SizedBox(height: 16),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: _mensajeCsvError
-                    ? Colors.red.shade50
-                    : Colors.green.shade50,
-                border: Border.all(
-                  color: _mensajeCsvError ? Colors.red : Colors.green,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                _mensajeCsv!,
-                style: TextStyle(
-                  color: _mensajeCsvError
-                      ? Colors.red
-                      : Colors.green.shade800,
-                ),
-                textAlign: TextAlign.center,
-              ),
+            AppMessage(
+              message: _mensajeCsv!,
+              isError: _mensajeCsvError,
+              onDismiss: () => setState(() => _mensajeCsv = null),
             ),
           ],
         ],
@@ -374,7 +365,7 @@ class _AdminScreenState extends State<AdminScreen>
           const SizedBox(height: 8),
           const Text(
             'Selecciona la fecha del Viernes de Dolores y el resto de días se calcularán automáticamente.',
-            style: TextStyle(fontSize: 14, color: Colors.grey),
+            style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
           ),
           const SizedBox(height: 16),
 
@@ -388,7 +379,7 @@ class _AdminScreenState extends State<AdminScreen>
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
+                backgroundColor: AppColors.primary,
                 padding: const EdgeInsets.symmetric(vertical: 14),
               ),
             ),
@@ -396,27 +387,10 @@ class _AdminScreenState extends State<AdminScreen>
 
           if (_mensajeDias != null) ...[
             const SizedBox(height: 12),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: _mensajeDiasError
-                    ? Colors.red.shade50
-                    : Colors.green.shade50,
-                border: Border.all(
-                  color: _mensajeDiasError ? Colors.red : Colors.green,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                _mensajeDias!,
-                style: TextStyle(
-                  color: _mensajeDiasError
-                      ? Colors.red
-                      : Colors.green.shade800,
-                ),
-                textAlign: TextAlign.center,
-              ),
+            AppMessage(
+              message: _mensajeDias!,
+              isError: _mensajeDiasError,
+              onDismiss: () => setState(() => _mensajeDias = null),
             ),
           ],
 
@@ -427,7 +401,7 @@ class _AdminScreenState extends State<AdminScreen>
                 ? const Center(
                     child: Text(
                       'No hay días configurados',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
                     ),
                   )
                 : ListView.separated(
@@ -449,23 +423,79 @@ class _AdminScreenState extends State<AdminScreen>
     final fechaStr = dia['fecha'] ?? '';
     final fecha = DateTime.tryParse(fechaStr);
     final fechaFormateada = fecha != null
-        ? '${fecha.day.toString().padLeft(2, '0')}/'
-            '${fecha.month.toString().padLeft(2, '0')}/'
-            '${fecha.year}'
+        ? '${fecha.day.toString().padLeft(2, '0')}/${fecha.month.toString().padLeft(2, '0')}/${fecha.year}'
         : 'Sin fecha';
+    final diaSemana = fecha != null
+        ? ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'][fecha.weekday - 1]
+        : '';
+    final diaNum = fecha?.day.toString() ?? '';
 
-    return Card(
-      elevation: 2,
-      child: ListTile(
-        leading: const Icon(
-          Icons.calendar_month,
-          color: Color.fromRGBO(25, 52, 89, 1),
-        ),
-        title: Text(
-          dia['nombre'] ?? 'Día',
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text('Fecha: $fechaFormateada'),
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppColors.border, width: 0.5),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 60,
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            decoration: const BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(14),
+                bottomLeft: Radius.circular(14),
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  diaNum,
+                  style: const TextStyle(
+                    color: AppColors.accent,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                Text(
+                  diaSemana,
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    dia['nombre'] ?? 'Día',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    fechaFormateada,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

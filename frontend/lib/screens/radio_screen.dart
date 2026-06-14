@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/emisora_service.dart';
 import '../services/radio_player_controller.dart';
+import '../utils/app_theme.dart';
 
 class RadioScreen extends StatefulWidget {
   final RadioPlayerController controller;
@@ -38,8 +39,10 @@ class _RadioScreenState extends State<RadioScreen> {
       await _controller.play(emisora);
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error al reproducir ${emisora.nombre}')),
+        AppSnackBar.show(
+          context,
+          message: 'Error al reproducir ${emisora.nombre}',
+          isError: true,
         );
       }
     }
@@ -58,7 +61,7 @@ class _RadioScreenState extends State<RadioScreen> {
           return Center(
             child: Text(
               'Error: ${snapshot.error}',
-              style: const TextStyle(color: Colors.red),
+              style: const TextStyle(color: AppColors.errorText),
             ),
           );
         }
@@ -70,33 +73,112 @@ class _RadioScreenState extends State<RadioScreen> {
           );
         }
 
-        return ListView.builder(
+        return GridView.builder(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 14,
+            mainAxisSpacing: 14,
+            childAspectRatio: 0.85,
+          ),
           itemCount: emisoras.length,
           itemBuilder: (context, index) {
             final emisora = emisoras[index];
             final isCurrentStation =
                 _controller.currentEmisora?.id == emisora.id;
+            final isPlaying = isCurrentStation && _controller.isPlaying;
 
-            return ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  emisora.urlImagen,
-                  width: 48,
-                  height: 48,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.radio, size: 48),
+            return GestureDetector(
+              onTap: () {
+                if (isPlaying) {
+                  _controller.pause();
+                } else {
+                  _playEmisora(emisora);
+                }
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.surface,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: isCurrentStation
+                        ? AppColors.accent
+                        : AppColors.border,
+                    width: isCurrentStation ? 2 : 0.5,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                            child: Image.network(
+                              emisora.urlImagen,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                color: AppColors.surfaceAlt,
+                                child: const Icon(
+                                  Icons.radio,
+                                  size: 56,
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Container(
+                              width: 52,
+                              height: 52,
+                              decoration: BoxDecoration(
+                                color: isPlaying
+                                    ? AppColors.accent.withValues(alpha: 0.92)
+                                    : AppColors.primary.withValues(alpha: 0.75),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                isPlaying
+                                    ? Icons.pause_rounded
+                                    : Icons.play_arrow_rounded,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 10,
+                      ),
+                      child: Text(
+                        emisora.nombre,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: isCurrentStation
+                              ? FontWeight.w700
+                              : FontWeight.w600,
+                          color: isCurrentStation
+                              ? AppColors.primary
+                              : AppColors.textPrimary,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              title: Text(emisora.nombre),
-              trailing: Icon(
-                isCurrentStation ? Icons.volume_up : Icons.play_arrow,
-                color: isCurrentStation
-                    ? const Color.fromRGBO(25, 52, 89, 1)
-                    : null,
-              ),
-              onTap: () => _playEmisora(emisora),
             );
           },
         );

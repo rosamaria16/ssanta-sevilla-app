@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../services/info_paso_service.dart';
 import '../utils/hora_utils.dart';
 import '../utils/franja_horaria_utils.dart';
+import '../utils/tipopaso_utils.dart';
+import '../utils/app_theme.dart';
 
 class ProgramaThirdScreen extends StatefulWidget {
   final int idHermandad;
@@ -20,14 +22,6 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
   List<InfoPaso> listaInfoPasos = [];
   bool _isLoading = true;
   String? _error;
-
-  static const _ordenTipos = ['CRUZGUIA', 'PASO', 'PALIO', 'DUELO'];
-  static const _nombresTipos = {
-    'CRUZGUIA': 'Cruz de Guía',
-    'PASO': 'Paso',
-    'PALIO': 'Palio',
-    'DUELO': 'Duelo',
-  };
 
   @override
   void initState() {
@@ -48,11 +42,6 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
         _isLoading = false;
       });
     }
-  }
-
-  int _prioridadTipoPaso(String tipo) {
-    final indice = _ordenTipos.indexOf(tipo);
-    return indice == -1 ? 999 : indice;
   }
 
   @override
@@ -80,7 +69,7 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
         .map((info) => info.tipoPaso)
         .toSet()
         .toList()
-      ..sort((a, b) => _prioridadTipoPaso(a).compareTo(_prioridadTipoPaso(b)));
+      ..sort((a, b) => prioridadTipoPaso(a).compareTo(prioridadTipoPaso(b)));
 
     //calcular franjas horarias con intervalos de 30 min
     final todosMinutos = listaInfoPasos.map((i) => horaAMinutos(i.hora)).toList();
@@ -138,12 +127,12 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
   Widget _buildCabecera(List<String> columnas, double altura) {
     return Container(
       height: altura,
-      color: const Color.fromRGBO(25, 52, 89, 1),
+      color: AppColors.primary,
       child: Row(
         children: [
           _buildCeldaCabecera('Hora', flex: 2),
           ...columnas.map((tipo) =>
-            _buildCeldaCabecera(_nombresTipos[tipo] ?? tipo, flex: 3),
+            _buildCeldaCabecera(nombresTiposPaso[tipo] ?? tipo, flex: 3),
           ),
         ],
       ),
@@ -176,10 +165,10 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
       child: Container(
         height: altura,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(25, 52, 89, 0.85),
+          color: AppColors.primaryLight,
           border: Border(
-            right: BorderSide(color: Colors.grey.shade400),
-            bottom: BorderSide(color: Colors.grey.shade400),
+            right: BorderSide(color: AppColors.border),
+            bottom: BorderSide(color: AppColors.border),
           ),
         ),
         alignment: Alignment.center,
@@ -197,14 +186,12 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
       child: Container(
         height: altura,
         decoration: BoxDecoration(
-          color: esCarreraOficial
-              ? const Color.fromRGBO(155, 89, 182, 0.15)
-              : esPar
-                  ? const Color.fromRGBO(240, 240, 245, 1)
-                  : Colors.white,
+          color: esPar
+              ? AppColors.surfaceAlt
+              : AppColors.surface,
           border: Border(
-            right: BorderSide(color: Colors.grey.shade300),
-            bottom: BorderSide(color: Colors.grey.shade300),
+            right: BorderSide(color: AppColors.border),
+            bottom: BorderSide(color: AppColors.border),
           ),
         ),
         alignment: Alignment.center,
@@ -213,9 +200,9 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
           texto,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: esCarreraOficial ? FontWeight.bold : FontWeight.normal,
-            color: esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
+            color: esCarreraOficial ? AppColors.accentDark : null,
           ),
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
@@ -226,16 +213,11 @@ class _ProgramaThirdScreenState extends State<ProgramaThirdScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
       centerTitle: true,
       title: FittedBox(
         fit: BoxFit.scaleDown,
-        child: Text(
-          widget.nombreHermandad,
-          style: const TextStyle(color: Colors.white),
-        ),
+        child: Text(widget.nombreHermandad),
       ),
-      iconTheme: const IconThemeData(color: Colors.white),
     );
   }
 }

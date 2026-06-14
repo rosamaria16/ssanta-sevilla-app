@@ -4,6 +4,8 @@ import '../services/dia_service.dart';
 import '../services/itinerario_service.dart';
 import '../services/auth_manager.dart';
 import '../services/pdf_itinerario_service.dart';
+import '../utils/app_theme.dart';
+import '../utils/hora_utils.dart';
 import 'mi_itinerario_second_screen.dart';
 
 class ItinerarioFirstScreen extends StatefulWidget {
@@ -66,9 +68,7 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
       final entradas = await EntradaItinerarioExport.getEntradasItinerarioExport(userId);
       if (entradas.isEmpty) {
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No hay entradas en tu itinerario')),
-          );
+          AppSnackBar.show(context, message: 'No hay entradas en tu itinerario');
         }
         return;
       }
@@ -76,8 +76,10 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
       await Printing.sharePdf(bytes: pdfBytes, filename: 'mi_itinerario_semana_santa.pdf');
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error al generar PDF: ${e.toString()}')),
+        AppSnackBar.show(
+          context,
+          message: 'Error al generar PDF: ${e.toString()}',
+          isError: true,
         );
       }
     }
@@ -105,7 +107,7 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
                     return CheckboxListTile(
                       title: Text(dia.nombre),
                       value: marcado,
-                      activeColor: const Color.fromARGB(255, 26, 19, 92),
+                      activeColor: AppColors.primary,
                       onChanged: (value) {
                         setDialogState(() {
                           if (value == true) {
@@ -164,89 +166,188 @@ class _ItinerarioFirstScreenState extends State<ItinerarioFirstScreen> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton.icon(
-              onPressed: _mostrarSelectorDias,
-              icon: const Icon(Icons.edit_calendar),
-              label: const Text("Editar días de mi itinerario"),
-              style: OutlinedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                side: const BorderSide(color: Color.fromARGB(255, 26, 19, 92)),
-                foregroundColor: const Color.fromARGB(255, 26, 19, 92),
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton.icon(
-              onPressed: diasSeleccionados.isEmpty ? null : _descargarPdfGeneral,
-              icon: const Icon(Icons.picture_as_pdf),
-              label: const Text("Descargar itinerario completo"),
-              style: OutlinedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                side: BorderSide(
-                  color: diasSeleccionados.isEmpty
-                      ? Colors.grey
-                      : const Color.fromARGB(255, 26, 19, 92),
+    return Column(
+      children: [
+        // Acciones superiores
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildActionCard(
+                  icon: Icons.edit_calendar,
+                  label: 'Editar días',
+                  onTap: _mostrarSelectorDias,
                 ),
-                foregroundColor: const Color.fromARGB(255, 26, 19, 92),
               ),
-            ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _buildActionCard(
+                  icon: Icons.picture_as_pdf,
+                  label: 'Descargar PDF',
+                  onTap: diasSeleccionados.isEmpty ? null : _descargarPdfGeneral,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 16),
-          Expanded(
-            child: diasSeleccionados.isEmpty
-                ? const Center(
-                    child: Text(
-                      'No has seleccionado ningún día.\nPulsa el botón superior para añadir días.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, color: Colors.grey),
-                    ),
-                  )
-                : ListView.builder(
-              itemCount: diasSeleccionados.length,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) {
-                final dia = diasSeleccionados[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ItinerarioSecondScreen(idDia: dia.id, nombreDia: dia.nombre),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                      backgroundColor: const Color.fromARGB(255, 26, 19, 92),
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+        ),
+        const SizedBox(height: 12),
+        // Lista de días
+        Expanded(
+          child: diasSeleccionados.isEmpty
+              ? Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.event_note, size: 56, color: AppColors.textSecondary),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'No has seleccionado ningún día',
+                        style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
                       ),
-                    ),
-                    child: Text(
-                      dia.nombre,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      const SizedBox(height: 4),
+                      const Text(
+                        'Pulsa "Editar días" para añadir',
+                        style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
                       ),
-                    ),
+                    ],
                   ),
-                );
-              },
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: diasSeleccionados.length,
+                  itemBuilder: (context, index) {
+                    final dia = diasSeleccionados[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Material(
+                        color: AppColors.surface,
+                        borderRadius: BorderRadius.circular(14),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(14),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItinerarioSecondScreen(
+                                  idDia: dia.id,
+                                  nombreDia: dia.nombre,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(color: AppColors.border, width: 0.5),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 62,
+                                  height: 72,
+                                  decoration: const BoxDecoration(
+                                    color: AppColors.accent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(14),
+                                      bottomLeft: Radius.circular(14),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '${dia.fecha.day}',
+                                        style: const TextStyle(
+                                          color: AppColors.primaryDark,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w800,
+                                          height: 1.1,
+                                        ),
+                                      ),
+                                      Text(
+                                        mesesDelAnyo[dia.fecha.month],
+                                        style: const TextStyle(
+                                          color: AppColors.primaryDark,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 20,
+                                    ),
+                                    child: Text(
+                                      dia.nombre,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.textPrimary,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 12),
+                                  child: Icon(
+                                    Icons.chevron_right,
+                                    color: AppColors.textSecondary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildActionCard({
+    required IconData icon,
+    required String label,
+    VoidCallback? onTap,
+  }) {
+    final enabled = onTap != null;
+    return Material(
+      color: enabled ? AppColors.surface : AppColors.surfaceAlt,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: enabled ? AppColors.border : AppColors.divider,
+              width: 0.5,
             ),
           ),
-        ],
+          child: Column(
+            children: [
+              Icon(icon, size: 24, color: enabled ? AppColors.primary : AppColors.textSecondary),
+              const SizedBox(height: 6),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: enabled ? AppColors.primary : AppColors.textSecondary,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

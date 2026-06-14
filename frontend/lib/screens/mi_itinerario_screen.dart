@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../services/auth_manager.dart';
 import '../services/usuario_service.dart';
+import '../utils/app_theme.dart';
+import '../utils/app_message.dart';
 import 'login_screen.dart';
 import 'mi_itinerario_first_screen.dart';
 import 'register_screen.dart';
@@ -51,12 +54,12 @@ class _MiItinerarioScreenState extends State<MiItinerarioScreen> {
               children: [
                 const TextSpan(
                   text: 'Por favor, ',
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                  style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
                 ),
                 TextSpan(
                   text: 'inicia sesión',
                   style: const TextStyle(
-                    color: Color.fromRGBO(25, 52, 89, 1),
+                    color: AppColors.primary,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.underline,
@@ -76,7 +79,7 @@ class _MiItinerarioScreenState extends State<MiItinerarioScreen> {
                 ),
                 const TextSpan(
                   text: ' para ver tu itinerario',
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                  style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
                 ),
               ],
             ),
@@ -103,19 +106,27 @@ class _LoginModalState extends State<LoginModal> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
   String? _errorMessage;
+  Timer? _errorTimer;
 
   @override
   void dispose() {
+    _errorTimer?.cancel();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
+  void _showError(String text) {
+    _errorTimer?.cancel();
+    setState(() => _errorMessage = text);
+    _errorTimer = Timer(const Duration(seconds: 10), () {
+      if (mounted) setState(() => _errorMessage = null);
+    });
+  }
+
   Future<void> _handleLogin() async {
     if (_emailController.text.trim().isEmpty || _passwordController.text.trim().isEmpty) {
-      setState(() {
-        _errorMessage = 'Por favor, introduce tus credenciales';
-      });
+      _showError('Por favor, introduce tus credenciales');
       return;
     }
 
@@ -135,10 +146,8 @@ class _LoginModalState extends State<LoginModal> {
         widget.onLoginSuccess?.call();
       }
     } catch (e) {
-      setState(() {
-        _errorMessage = e.toString().replaceFirst('Exception: ', '');
-        _isLoading = false;
-      });
+      setState(() => _isLoading = false);
+      _showError(e.toString().replaceFirst('Exception: ', ''));
     }
   }
 
@@ -153,7 +162,7 @@ class _LoginModalState extends State<LoginModal> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: SingleChildScrollView(
@@ -165,10 +174,14 @@ class _LoginModalState extends State<LoginModal> {
                 children: [
                   const Text(
                     'Iniciar Sesión',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textPrimary,
+                    ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.close),
+                    icon: const Icon(Icons.close, color: AppColors.textSecondary),
                     onPressed: () => Navigator.pop(context),
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
@@ -178,30 +191,28 @@ class _LoginModalState extends State<LoginModal> {
               const SizedBox(height: 20),
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                keyboardType: TextInputType.emailAddress,
+                style: const TextStyle(color: AppColors.textPrimary),
+                decoration: AppInputDecoration.build(
+                  label: 'Email',
+                  icon: Icons.email_outlined,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 14),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Contraseña',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                style: const TextStyle(color: AppColors.textPrimary),
+                decoration: AppInputDecoration.build(
+                  label: 'Contraseña',
+                  icon: Icons.lock_outline,
                 ),
               ),
               if (_errorMessage != null) ...[
-                const SizedBox(height: 12),
-                Text(
-                  _errorMessage!,
-                  style: const TextStyle(color: Colors.red),
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 14),
+                AppMessage(
+                  message: _errorMessage!,
+                  isError: true,
                 ),
               ],
               const SizedBox(height: 20),
@@ -210,8 +221,14 @@ class _LoginModalState extends State<LoginModal> {
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : _handleLogin,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    disabledBackgroundColor: AppColors.primaryLight,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    elevation: 0,
                   ),
                   child: _isLoading
                       ? const SizedBox(
@@ -225,7 +242,7 @@ class _LoginModalState extends State<LoginModal> {
                         )
                       : const Text(
                           'Iniciar Sesión',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                         ),
                 ),
               ),
@@ -233,15 +250,21 @@ class _LoginModalState extends State<LoginModal> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('¿No tienes cuenta? '),
+                  const Text(
+                    '¿No tienes cuenta? ',
+                    style: TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 14,
+                    ),
+                  ),
                   GestureDetector(
                     onTap: _isLoading ? null : _goToRegister,
                     child: const Text(
                       'Regístrate',
                       style: TextStyle(
-                        color: Color.fromRGBO(25, 52, 89, 1),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
                       ),
                     ),
                   ),

@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../services/usuario_service.dart';
+import '../utils/app_theme.dart';
+import '../utils/app_message.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,20 +16,29 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading = false;
+  bool _obscurePassword = true;
   String? _errorMessage;
+  Timer? _errorTimer;
 
   @override
   void dispose() {
+    _errorTimer?.cancel();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
+  void _showError(String text) {
+    _errorTimer?.cancel();
+    setState(() => _errorMessage = text);
+    _errorTimer = Timer(const Duration(seconds: 10), () {
+      if (mounted) setState(() => _errorMessage = null);
+    });
+  }
+
   Future<void> _handleLogin() async {
     if (_emailController.text.trim().isEmpty || _passwordController.text.trim().isEmpty) {
-      setState(() {
-        _errorMessage = 'Por favor, introduce tus credenciales';
-      });
+      _showError('Por favor, introduce tus credenciales');
       return;
     }
 
@@ -46,10 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _errorMessage = e.toString().replaceFirst('Exception: ', '');
-          _isLoading = false;
-        });
+        setState(() => _isLoading = false);
+        _showError(e.toString().replaceFirst('Exception: ', ''));
       }
     }
   }
@@ -67,121 +77,193 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-        title: const Text('Iniciar Sesión', style: TextStyle(color: Colors.white)),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 40),
-              const Icon(Icons.account_circle, size: 80, color: Colors.grey),
-              const SizedBox(height: 40),
-              const Text(
-                'Accede a tu cuenta',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+      backgroundColor: AppColors.background,
+      body: Column(
+        children: [
+          // Header
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top + 16,
+              bottom: 32,
+            ),
+            decoration: const BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(32),
+                bottomRight: Radius.circular(32),
               ),
-              const SizedBox(height: 40),
-              TextField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  prefixIcon: const Icon(Icons.email),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const Spacer(),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Contraseña',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  prefixIcon: const Icon(Icons.lock),
-                ),
-              ),
-              if (_errorMessage != null) ...[
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 Container(
-                  padding: const EdgeInsets.all(12),
+                  width: 72,
+                  height: 72,
                   decoration: BoxDecoration(
-                    color: Colors.red.shade50,
-                    border: Border.all(color: Colors.red),
-                    borderRadius: BorderRadius.circular(8),
+                    color: AppColors.primaryLight,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.accent, width: 2),
                   ),
-                  child: Text(
-                    _errorMessage!,
-                    style: const TextStyle(color: Colors.red),
-                    textAlign: TextAlign.center,
+                  child: const Icon(
+                    Icons.person_rounded,
+                    size: 36,
+                    color: AppColors.accent,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Iniciar Sesión',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                const Text(
+                  'Accede a tu cuenta',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.textOnPrimaryMuted,
                   ),
                 ),
               ],
-              const SizedBox(height: 32),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _handleLogin,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                  ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
-                          ),
-                        )
-                      : const Text(
-                          'Iniciar Sesión',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                '¿Olvidaste tu contraseña? Contacta con rosespmar@alum.us.es',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.grey.shade600,
-                  fontStyle: FontStyle.italic,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          ),
+
+          // Form
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
+              child: Column(
                 children: [
-                  const Text('¿No tienes cuenta? '),
-                  GestureDetector(
-                    onTap: _isLoading ? null : _goToRegister,
-                    child: Text(
-                      'Regístrate',
-                      style: TextStyle(
-                        color: const Color.fromRGBO(25, 52, 89, 1),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
+                  TextField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    style: const TextStyle(color: AppColors.textPrimary),
+                    decoration: AppInputDecoration.build(
+                      label: 'Email',
+                      icon: Icons.email_outlined,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  TextField(
+                    controller: _passwordController,
+                    obscureText: _obscurePassword,
+                    style: const TextStyle(color: AppColors.textPrimary),
+                    decoration: AppInputDecoration.build(
+                      label: 'Contraseña',
+                      icon: Icons.lock_outline,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined,
+                          color: AppColors.textSecondary,
+                          size: 20,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
                       ),
                     ),
                   ),
+
+                  if (_errorMessage != null) ...[
+                    const SizedBox(height: 16),
+                    AppMessage(
+                      message: _errorMessage!,
+                      isError: true,
+                      onDismiss: () => setState(() => _errorMessage = null),
+                    ),
+                  ],
+
+                  const SizedBox(height: 28),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _isLoading ? null : _handleLogin,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: Colors.white,
+                        disabledBackgroundColor: AppColors.primaryLight,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        elevation: 0,
+                      ),
+                      child: _isLoading
+                          ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              ),
+                            )
+                          : const Text(
+                              'Iniciar Sesión',
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    '¿Olvidaste tu contraseña? Contacta con rosespmar@alum.us.es',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppColors.textSecondary,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 28),
+                  Container(
+                    height: 1,
+                    color: AppColors.divider,
+                  ),
+                  const SizedBox(height: 28),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        '¿No tienes cuenta? ',
+                        style: TextStyle(
+                          color: AppColors.textSecondary,
+                          fontSize: 14,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: _isLoading ? null : _goToRegister,
+                        child: const Text(
+                          'Regístrate',
+                          style: TextStyle(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

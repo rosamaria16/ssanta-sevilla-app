@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../services/usuario_service.dart';
 import '../services/auth_manager.dart';
+import '../utils/app_theme.dart';
+import '../utils/app_message.dart';
 
 class LoggedUserScreen extends StatefulWidget {
   const LoggedUserScreen({super.key});
@@ -16,6 +19,7 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
   bool _isSaving = false;
   String? _message;
   bool _isError = false;
+  Timer? _messageTimer;
 
   @override
   void initState() {
@@ -27,9 +31,28 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
 
   @override
   void dispose() {
+    _messageTimer?.cancel();
     _nombreController.dispose();
     _emailController.dispose();
     super.dispose();
+  }
+
+  void _showMessage(String text, {bool isError = false}) {
+    _messageTimer?.cancel();
+    setState(() {
+      _message = text;
+      _isError = isError;
+    });
+    _messageTimer = Timer(const Duration(seconds: 10), () {
+      if (mounted) {
+        setState(() => _message = null);
+      }
+    });
+  }
+
+  void _dismissMessage() {
+    _messageTimer?.cancel();
+    setState(() => _message = null);
   }
 
   void _toggleEdit() {
@@ -51,11 +74,16 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
     final nombre = _nombreController.text.trim();
     final email = _emailController.text.trim();
 
-    if (nombre.isEmpty || email.isEmpty) {
-      setState(() {
-        _message = 'El nombre y el email no pueden estar vacíos';
-        _isError = true;
-      });
+    if (nombre.isEmpty) {
+      _showMessage('El nombre no puede estar vacío', isError: true);
+      return;
+    }
+    if (email.isEmpty) {
+      _showMessage('El email no puede estar vacío', isError: true);
+      return;
+    }
+    if (!email.contains('@')) {
+      _showMessage('Email inválido', isError: true);
       return;
     }
 
@@ -74,17 +102,13 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
         setState(() {
           _isEditing = false;
           _isSaving = false;
-          _message = 'Perfil actualizado correctamente';
-          _isError = false;
         });
+        _showMessage('Perfil actualizado correctamente');
       }
     } catch (e) {
       if (mounted) {
-        setState(() {
-          _isSaving = false;
-          _message = e.toString().replaceFirst('Exception: ', '');
-          _isError = true;
-        });
+        setState(() => _isSaving = false);
+        _showMessage(e.toString().replaceFirst('Exception: ', ''), isError: true);
       }
     }
   }
@@ -95,152 +119,216 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
     final confirmPasswordController = TextEditingController();
     String? dialogError;
     bool dialogLoading = false;
+    bool obscureCurrent = true;
+    bool obscureNew = true;
+    bool obscureConfirm = true;
 
-    showDialog(
+    showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setDialogState) {
-            return AlertDialog(
-              title: const Text('Cambiar contraseña'),
-              content: SingleChildScrollView(
+            return Container(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              decoration: const BoxDecoration(
+                color: AppColors.background,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    // Handle bar
+                    Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: AppColors.border,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Row(
+                      children: [
+                        Icon(Icons.lock_outline, color: AppColors.primary, size: 22),
+                        SizedBox(width: 10),
+                        Text(
+                          'Cambiar contraseña',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
                     TextField(
                       controller: currentPasswordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Contraseña actual',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      obscureText: obscureCurrent,
+                      style: const TextStyle(color: AppColors.textPrimary),
+                      decoration: AppInputDecoration.build(
+                        label: 'Contraseña actual',
+                        icon: Icons.lock_outline,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            obscureCurrent ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                            color: AppColors.textSecondary,
+                            size: 20,
+                          ),
+                          onPressed: () => setDialogState(() => obscureCurrent = !obscureCurrent),
                         ),
-                        prefixIcon: const Icon(Icons.lock_outline),
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 14),
                     TextField(
                       controller: newPasswordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Nueva contraseña',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      obscureText: obscureNew,
+                      style: const TextStyle(color: AppColors.textPrimary),
+                      decoration: AppInputDecoration.build(
+                        label: 'Nueva contraseña',
+                        icon: Icons.lock_rounded,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            obscureNew ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                            color: AppColors.textSecondary,
+                            size: 20,
+                          ),
+                          onPressed: () => setDialogState(() => obscureNew = !obscureNew),
                         ),
-                        prefixIcon: const Icon(Icons.lock),
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 14),
                     TextField(
                       controller: confirmPasswordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirmar nueva contraseña',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      obscureText: obscureConfirm,
+                      style: const TextStyle(color: AppColors.textPrimary),
+                      decoration: AppInputDecoration.build(
+                        label: 'Confirmar nueva contraseña',
+                        icon: Icons.lock_rounded,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            obscureConfirm ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                            color: AppColors.textSecondary,
+                            size: 20,
+                          ),
+                          onPressed: () => setDialogState(() => obscureConfirm = !obscureConfirm),
                         ),
-                        prefixIcon: const Icon(Icons.lock),
                       ),
                     ),
                     if (dialogError != null) ...[
-                      const SizedBox(height: 12),
-                      Text(
-                        dialogError!,
-                        style: const TextStyle(color: Colors.red, fontSize: 13),
+                      const SizedBox(height: 14),
+                      AppMessage(
+                        message: dialogError!,
+                        isError: true,
                       ),
                     ],
+                    const SizedBox(height: 24),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: dialogLoading ? null : () => Navigator.pop(context),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: AppColors.textSecondary,
+                              side: const BorderSide(color: AppColors.border),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                            ),
+                            child: const Text('Cancelar', style: TextStyle(fontWeight: FontWeight.w600)),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: dialogLoading
+                                ? null
+                                : () async {
+                                    final currentPass = currentPasswordController.text;
+                                    final newPass = newPasswordController.text;
+                                    final confirmPass = confirmPasswordController.text;
+
+                                    if (currentPass.isEmpty || newPass.isEmpty || confirmPass.isEmpty) {
+                                      setDialogState(() {
+                                        dialogError = 'Rellena todos los campos';
+                                      });
+                                      return;
+                                    }
+
+                                    if (newPass != confirmPass) {
+                                      setDialogState(() {
+                                        dialogError = 'Las contraseñas nuevas no coinciden';
+                                      });
+                                      return;
+                                    }
+
+                                    if (newPass.length < 6) {
+                                      setDialogState(() {
+                                        dialogError = 'La contraseña debe tener al menos 6 caracteres';
+                                      });
+                                      return;
+                                    }
+
+                                    setDialogState(() {
+                                      dialogLoading = true;
+                                      dialogError = null;
+                                    });
+
+                                    try {
+                                      final user = AuthManager().currentUser;
+                                      await UsuarioService.changePassword(
+                                        user!['id'],
+                                        currentPass,
+                                        newPass,
+                                      );
+                                      if (context.mounted) {
+                                        Navigator.pop(context);
+                                        _showMessage('Contraseña cambiada correctamente');
+                                      }
+                                    } catch (e) {
+                                      setDialogState(() {
+                                        dialogLoading = false;
+                                        dialogError = e.toString().replaceFirst('Exception: ', '');
+                                      });
+                                    }
+                                  },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primary,
+                              foregroundColor: Colors.white,
+                              disabledBackgroundColor: AppColors.primaryLight,
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: dialogLoading
+                                ? const SizedBox(
+                                    height: 18,
+                                    width: 18,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                    ),
+                                  )
+                                : const Text('Cambiar', style: TextStyle(fontWeight: FontWeight.w600)),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              actions: [
-                TextButton(
-                  onPressed: dialogLoading
-                      ? null
-                      : () {
-                          Navigator.pop(context);
-                        },
-                  child: const Text('Cancelar'),
-                ),
-                ElevatedButton(
-                  onPressed: dialogLoading
-                      ? null
-                      : () async {
-                          final currentPass = currentPasswordController.text;
-                          final newPass = newPasswordController.text;
-                          final confirmPass = confirmPasswordController.text;
-
-                          if (currentPass.isEmpty ||
-                              newPass.isEmpty ||
-                              confirmPass.isEmpty) {
-                            setDialogState(() {
-                              dialogError = 'Rellena todos los campos';
-                            });
-                            return;
-                          }
-
-                          if (newPass != confirmPass) {
-                            setDialogState(() {
-                              dialogError = 'Las contraseñas nuevas no coinciden';
-                            });
-                            return;
-                          }
-
-                          if (newPass.length < 6) {
-                            setDialogState(() {
-                              dialogError =
-                                  'La contraseña debe tener al menos 6 caracteres';
-                            });
-                            return;
-                          }
-
-                          setDialogState(() {
-                            dialogLoading = true;
-                            dialogError = null;
-                          });
-
-                          try {
-                            final user = AuthManager().currentUser;
-                            await UsuarioService.changePassword(
-                              user!['id'],
-                              currentPass,
-                              newPass,
-                            );
-                            if (context.mounted) {
-                              Navigator.pop(context);
-                              ScaffoldMessenger.of(this.context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                      'Contraseña cambiada correctamente'),
-                                  backgroundColor: Colors.green,
-                                ),
-                              );
-                            }
-                          } catch (e) {
-                            setDialogState(() {
-                              dialogLoading = false;
-                              dialogError = e
-                                  .toString()
-                                  .replaceFirst('Exception: ', '');
-                            });
-                          }
-                        },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-                  ),
-                  child: dialogLoading
-                      ? const SizedBox(
-                          height: 18,
-                          width: 18,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
-                          ),
-                        )
-                      : const Text('Cambiar',
-                          style: TextStyle(color: Colors.white)),
-                ),
-              ],
             );
           },
         );
@@ -259,185 +347,309 @@ class _LoggedUserScreenState extends State<LoggedUserScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-        title: const Text('Mi Perfil', style: TextStyle(color: Colors.white)),
-        iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          IconButton(
-            icon: Icon(_isEditing ? Icons.close : Icons.edit,
-                color: Colors.white),
-            onPressed: _isSaving ? null : _toggleEdit,
-            tooltip: _isEditing ? 'Cancelar' : 'Editar perfil',
-          ),
-        ],
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: SingleChildScrollView(
+      backgroundColor: AppColors.background,
+      body: Column(
+        children: [
+          // Header con avatar
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top + 16,
+              bottom: 32,
+            ),
+            decoration: const BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(32),
+                bottomRight: Radius.circular(32),
+              ),
+            ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.account_circle,
-                  size: 100,
-                  color: Colors.grey,
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    const Spacer(),
+                  ],
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 8),
                 Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(20),
+                  width: 80,
+                  height: 80,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade300),
-                    borderRadius: BorderRadius.circular(12),
+                    color: AppColors.primaryLight,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.accent, width: 2.5),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _isEditing
-                          ? _buildEditField('Nombre', _nombreController,
-                              icon: Icons.person)
-                          : _buildInfoRow(
-                              'Nombre', user['nombre'] ?? 'Usuario'),
-                      const SizedBox(height: 16),
-                      _isEditing
-                          ? _buildEditField('Email', _emailController,
-                              icon: Icons.email,
-                              keyboardType: TextInputType.emailAddress)
-                          : _buildInfoRow(
-                              'Email', user['email'] ?? 'Email no disponible'),
-                    ],
+                  child: const Icon(
+                    Icons.person_rounded,
+                    size: 40,
+                    color: AppColors.accent,
                   ),
                 ),
-                if (_message != null) ...[
-                  const SizedBox(height: 12),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: _isError ? Colors.red.shade50 : Colors.green.shade50,
-                      border: Border.all(
-                          color: _isError ? Colors.red : Colors.green),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      _message!,
-                      style: TextStyle(
-                          color: _isError ? Colors.red : Colors.green.shade800),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-                if (_isEditing) ...[
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: _isSaving ? null : _saveProfile,
-                      icon: _isSaving
-                          ? const SizedBox(
-                              height: 18,
-                              width: 18,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                    Colors.white),
-                              ),
-                            )
-                          : const Icon(Icons.save, color: Colors.white),
-                      label: Text(
-                        _isSaving ? 'Guardando...' : 'Guardar cambios',
-                        style: const TextStyle(
-                            fontSize: 16, color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                      ),
-                    ),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton.icon(
-                    onPressed: _showChangePasswordDialog,
-                    icon: const Icon(Icons.lock_outline),
-                    label: const Text(
-                      'Cambiar contraseña',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: const Color.fromRGBO(25, 52, 89, 1),
-                      side: const BorderSide(
-                          color: Color.fromRGBO(25, 52, 89, 1)),
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                    ),
+                const SizedBox(height: 14),
+                Text(
+                  user['nombre'] ?? 'Usuario',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      UsuarioService.logout();
-                      Navigator.pop(context, 'logout');
-                    },
-                    icon: const Icon(Icons.logout, color: Colors.white),
-                    label: const Text(
-                      'Cerrar Sesión',
-                      style: TextStyle(fontSize: 16, color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                    ),
+                const SizedBox(height: 4),
+                Text(
+                  user['email'] ?? '',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: AppColors.textOnPrimaryMuted,
                   ),
                 ),
               ],
             ),
           ),
-        ),
+
+          // Content
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+              child: Column(
+                children: [
+                  // Message
+                  if (_message != null) ...[
+                    AppMessage(
+                      message: _message!,
+                      isError: _isError,
+                      onDismiss: _dismissMessage,
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+
+                  // Profile info / edit card
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: AppColors.surface,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: AppColors.border, width: 0.5),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.badge_outlined, color: AppColors.primaryLight, size: 18),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                _isEditing ? 'Editar perfil' : 'Información personal',
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: _isSaving ? null : _toggleEdit,
+                              child: Text(
+                                _isEditing ? 'Cancelar' : 'Modificar',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: _isEditing ? AppColors.textSecondary : AppColors.accentDark,
+                                  decoration: _isEditing ? null : TextDecoration.underline,
+                                  decorationColor: AppColors.accentDark,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        if (_isEditing) ...[
+                          TextField(
+                            controller: _nombreController,
+                            style: const TextStyle(color: AppColors.textPrimary),
+                            decoration: AppInputDecoration.build(
+                              label: 'Nombre',
+                              icon: Icons.person_outline,
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          TextField(
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
+                            style: const TextStyle(color: AppColors.textPrimary),
+                            decoration: AppInputDecoration.build(
+                              label: 'Email',
+                              icon: Icons.email_outlined,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: _isSaving ? null : _saveProfile,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.primary,
+                                foregroundColor: Colors.white,
+                                disabledBackgroundColor: AppColors.primaryLight,
+                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14),
+                                ),
+                                elevation: 0,
+                              ),
+                              child: _isSaving
+                                  ? const SizedBox(
+                                      height: 18,
+                                      width: 18,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                      ),
+                                    )
+                                  : const Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.check, size: 18),
+                                        SizedBox(width: 8),
+                                        Text(
+                                          'Guardar cambios',
+                                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    ),
+                            ),
+                          ),
+                        ] else ...[
+                          _buildInfoRow(
+                            icon: Icons.person_outline,
+                            label: 'Nombre',
+                            value: user['nombre'] ?? 'Usuario',
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            child: Container(height: 1, color: AppColors.divider),
+                          ),
+                          _buildInfoRow(
+                            icon: Icons.email_outlined,
+                            label: 'Email',
+                            value: user['email'] ?? 'Email no disponible',
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Actions
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: AppColors.surface,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: AppColors.border, width: 0.5),
+                    ),
+                    child: Column(
+                      children: [
+                        _buildActionTile(
+                          icon: Icons.lock_outline,
+                          label: 'Cambiar contraseña',
+                          onTap: _showChangePasswordDialog,
+                        ),
+                        Container(height: 1, color: AppColors.divider),
+                        _buildActionTile(
+                          icon: Icons.logout_rounded,
+                          label: 'Cerrar Sesión',
+                          isDestructive: true,
+                          onTap: () {
+                            UsuarioService.logout();
+                            Navigator.pop(context, 'logout');
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildInfoRow(String label, String value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildInfoRow({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
+    return Row(
       children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 12,
-            color: Colors.grey,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+        Icon(icon, color: AppColors.primaryLight, size: 20),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: AppColors.textSecondary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.textPrimary,
+                ),
+              ),
+            ],
           ),
         ),
       ],
     );
   }
 
-  Widget _buildEditField(String label, TextEditingController controller,
-      {IconData? icon, TextInputType? keyboardType}) {
-    return TextField(
-      controller: controller,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+  Widget _buildActionTile({
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+    bool isDestructive = false,
+  }) {
+    final color = isDestructive ? AppColors.destructive : AppColors.textPrimary;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(14),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        child: Row(
+          children: [
+            Icon(icon, color: isDestructive ? AppColors.destructive : AppColors.primaryLight, size: 20),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: color,
+                ),
+              ),
+            ),
+            Icon(Icons.chevron_right, color: AppColors.textSecondary, size: 20),
+          ],
         ),
-        prefixIcon: icon != null ? Icon(icon) : null,
       ),
     );
   }

@@ -3,6 +3,8 @@ import '../services/info_paso_service.dart';
 import '../services/hermandad_service.dart';
 import '../utils/hora_utils.dart';
 import '../utils/franja_horaria_utils.dart';
+import '../utils/tipopaso_utils.dart';
+import '../utils/app_theme.dart';
 
 class ProgramaAllScreen extends StatefulWidget {
   final int idDia;
@@ -22,12 +24,10 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
   List<Hermandad> listaHermandades = [];
   bool _isLoading = true;
   String? _error;
-
-  final ScrollController _controladorScrollFijo = ScrollController();
   final ScrollController _controladorScrollDatos = ScrollController();
   bool _sincronizandoScroll = false;
 
-  static const _ordenTipos = ['CRUZGUIA', 'PASO', 'PALIO', 'DUELO'];
+  final ScrollController _controladorScrollFijo = ScrollController();
 
   @override
   void initState() {
@@ -87,8 +87,8 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
       if (actual == null) {
         tipoPrincipal[info.idHermandad] = info.tipoPaso;
       } else {
-        final idxActual = _ordenTipos.indexOf(actual);
-        final idxNuevo = _ordenTipos.indexOf(info.tipoPaso);
+        final idxActual = ordenTiposPaso.indexOf(actual);
+        final idxNuevo = ordenTiposPaso.indexOf(info.tipoPaso);
         if (idxNuevo != -1 && (idxActual == -1 || idxNuevo < idxActual)) {
           tipoPrincipal[info.idHermandad] = info.tipoPaso;
         }
@@ -147,14 +147,17 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
     final franjasHorarias = franjaHoraria.horas;
 
     final mapaDatos = <String, Map<int, String>>{};
+    final mapaCarreraOficial = <String, Map<int, bool>>{};
     for (final info in filtrados) {
       final hora = normalizaHora(info.hora);
       mapaDatos.putIfAbsent(hora, () => {});
+      mapaCarreraOficial.putIfAbsent(hora, () => {});
       String textoCelda = info.localizacion;
       if (info.difHora != null && info.difHora!.isNotEmpty) {
         textoCelda += ' (${normalizaHora(info.difHora!)})';
       }
       mapaDatos[hora]![info.idHermandad] = textoCelda;
+      mapaCarreraOficial[hora]![info.idHermandad] = info.esCarreraOficial;
     }
 
     const double alturaFila = 56.0;
@@ -217,11 +220,13 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
                           final hora = franjasHorarias[index];
                           return Row(
                             children: idsHermandadesOrdenadas.map((hId) {
+                              final esCarrera = mapaCarreraOficial[hora]?[hId] ?? false;
                               return _buildCeldaDato(
                                 mapaDatos[hora]?[hId] ?? '',
                                 anchoColumnaDato,
                                 alturaFila,
                                 index.isEven,
+                                esCarreraOficial: esCarrera,
                               );
                             }).toList(),
                           );
@@ -242,7 +247,7 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
     return Container(
       height: altura,
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(25, 52, 89, 1),
+        color: AppColors.primary,
         border: Border(
           right: BorderSide(color: Colors.white24),
           bottom: BorderSide(color: Colors.white24),
@@ -260,7 +265,7 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
     return Container(
       width: ancho,
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(25, 52, 89, 1),
+        color: AppColors.primary,
         border: Border(
           right: BorderSide(color: Colors.white24),
           bottom: BorderSide(color: Colors.white24),
@@ -273,7 +278,7 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
         style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 11,
+          fontSize: 12,
         ),
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
@@ -285,10 +290,10 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
   Widget _buildCeldaHora(String hora) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(25, 52, 89, 0.85),
+        color: AppColors.primaryLight,
         border: Border(
-          right: BorderSide(color: Colors.grey.shade400),
-          bottom: BorderSide(color: Colors.grey.shade400),
+          right: BorderSide(color: AppColors.border),
+          bottom: BorderSide(color: AppColors.border),
         ),
       ),
       alignment: Alignment.center,
@@ -299,17 +304,17 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
     );
   }
 
-  Widget _buildCeldaDato(String texto, double ancho, double altura, bool esPar) {
+  Widget _buildCeldaDato(String texto, double ancho, double altura, bool esPar, {bool esCarreraOficial = false}) {
     return Container(
       width: ancho,
       height: altura,
       decoration: BoxDecoration(
         color: esPar
-            ? const Color.fromRGBO(240, 240, 245, 1)
-            : Colors.white,
+            ? AppColors.surfaceAlt
+            : AppColors.surface,
         border: Border(
-          right: BorderSide(color: Colors.grey.shade300),
-          bottom: BorderSide(color: Colors.grey.shade300),
+          right: BorderSide(color: AppColors.border),
+          bottom: BorderSide(color: AppColors.border),
         ),
       ),
       alignment: Alignment.center,
@@ -317,7 +322,11 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
       child: Text(
         texto,
         textAlign: TextAlign.center,
-        style: const TextStyle(fontSize: 11),
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: esCarreraOficial ? FontWeight.bold : FontWeight.normal,
+          color: esCarreraOficial ? AppColors.accentDark : null,
+        ),
         overflow: TextOverflow.ellipsis,
         maxLines: 3,
       ),
@@ -326,16 +335,11 @@ class _ProgramaAllScreenState extends State<ProgramaAllScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
       centerTitle: true,
       title: FittedBox(
         fit: BoxFit.scaleDown,
-        child: Text(
-          'Todas - ${widget.nombreDia}',
-          style: const TextStyle(color: Colors.white),
-        ),
+        child: Text('Todas - ${widget.nombreDia}'),
       ),
-      iconTheme: const IconThemeData(color: Colors.white),
     );
   }
 }

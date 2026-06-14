@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../services/hermandad_service.dart';
+import '../utils/app_theme.dart';
 import 'programa_oficial_third_screen.dart';
 import 'programa_oficial_all_screen.dart';
+
 class ProgramaSecondScreen extends StatefulWidget {
-  
   final int idDia;
   final String nombreDia;
   const ProgramaSecondScreen({super.key, required this.idDia, required this.nombreDia});
 
   @override
   State<ProgramaSecondScreen> createState() => _ProgramaSecondScreenState();
-
 }
 
 class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
@@ -33,27 +33,25 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
         centerTitle: true,
         title: FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
-            'Hermandades - ${widget.nombreDia}',
-            style: const TextStyle(color: Colors.white),
-          ),
+          child: Text(widget.nombreDia),
         ),
-        iconTheme: const IconThemeData(color: Colors.white)
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: () {
+      body: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        itemCount: listaHermandades.length + 1,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Material(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(14),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(14),
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -64,68 +62,93 @@ class _ProgramaSecondScreenState extends State<ProgramaSecondScreen> {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.grid_view, color: Colors.white),
-                  label: const Text(
-                    'Ver todas',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                    backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const Divider(),
-
-            Expanded(
-              child: ListView.builder(
-          itemCount: listaHermandades.length,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (context, index) {
-            final hermandad = listaHermandades[index];
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: ElevatedButton(
-                onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProgramaThirdScreen(idHermandad: hermandad.id, nombreHermandad: hermandad.nombre),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.grid_view_rounded, color: AppColors.accent, size: 20),
+                        SizedBox(width: 10),
+                        Text(
+                          'Ver todas las hermandades',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
                         ),
-                      );
-                    },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                  backgroundColor: const Color.fromARGB(255, 26, 19, 92),
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  hermandad.nombre,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                      ],
+                    ),
                   ),
                 ),
               ),
             );
-          },
-        ),
+          }
+
+          final hermandad = listaHermandades[index - 1];
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Material(
+              color: AppColors.surface,
+              borderRadius: BorderRadius.circular(14),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(14),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProgramaThirdScreen(
+                        idHermandad: hermandad.id,
+                        nombreHermandad: hermandad.nombre,
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: AppColors.border, width: 0.5),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 6,
+                        height: 60,
+                        decoration: const BoxDecoration(
+                          color: AppColors.accent,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(14),
+                            bottomLeft: Radius.circular(14),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 18,
+                          ),
+                          child: Text(
+                            hermandad.nombre,
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textPrimary,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 12),
+                        child: Icon(Icons.chevron_right, color: AppColors.textSecondary),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

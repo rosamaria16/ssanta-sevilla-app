@@ -1,3 +1,8 @@
+const mesesDelAnyo = [
+  '', 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+  'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+];
+
 //Normaliza una hora al formato HH:MM (recorta segundos si los tiene)
 String normalizaHora(String hora) {
   return hora.length >= 5 ? hora.substring(0, 5) : hora;

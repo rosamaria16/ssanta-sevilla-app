@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:printing/printing.dart';
-import 'package:frontend/utils/hora_utils.dart';
-import 'package:frontend/utils/franja_horaria_utils.dart';
-import 'package:frontend/utils/tipopaso_utils.dart';
+import '../utils/hora_utils.dart';
+import '../utils/franja_horaria_utils.dart';
+import '../utils/tipopaso_utils.dart';
 import '../services/info_paso_service.dart';
 import '../services/hermandad_service.dart';
 import '../services/itinerario_service.dart';
 import '../services/auth_manager.dart';
 import '../services/pdf_itinerario_service.dart';
+import '../utils/app_theme.dart';
 
 class ItinerarioSecondScreen extends StatefulWidget {
   final int idDia;
@@ -111,7 +112,7 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                   width: 40,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: AppColors.border,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -129,10 +130,10 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                     children: [
                       if (seleccionActual != null)
                         ListTile(
-                          leading: const Icon(Icons.delete_outline, color: Colors.red),
+                          leading: const Icon(Icons.delete_outline, color: AppColors.destructive),
                           title: Text(
                             'Eliminar: ${_buildDisplayTextWithTipo(seleccionActual)}',
-                            style: const TextStyle(color: Colors.red, fontSize: 14),
+                            style: const TextStyle(color: AppColors.destructive, fontSize: 14),
                           ),
                           onTap: () => Navigator.pop(context, 'remove'),
                         ),
@@ -141,14 +142,14 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                         final isSelected = seleccionActual?.id == info.id;
                         return ListTile(
                           leading: isSelected
-                              ? const Icon(Icons.check_circle, color: Colors.green)
+                              ? const Icon(Icons.check_circle, color: AppColors.accent)
                               : const Icon(Icons.add_circle_outline),
                           title: Text(
                             _buildDisplayText(info),
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: (isSelected || info.esCarreraOficial) ? FontWeight.bold : FontWeight.normal,
-                              color: info.esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
+                              color: info.esCarreraOficial ? AppColors.accentDark : null,
                             ),
                           ),
                           subtitle: Text(
@@ -156,10 +157,10 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                                 ? '${displayTipoPaso(info.tipoPaso)} · Carrera Oficial'
                                 : displayTipoPaso(info.tipoPaso),
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 13,
                               color: info.esCarreraOficial
-                                  ? const Color.fromRGBO(142, 68, 173, 1)
-                                  : Colors.grey[600],
+                                  ? AppColors.accentDark
+                                  : AppColors.textSecondary,
                               fontWeight: info.esCarreraOficial ? FontWeight.w600 : FontWeight.normal,
                             ),
                           ),
@@ -198,8 +199,10 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: ${e.toString()}')),
+        AppSnackBar.show(
+          context,
+          message: 'Error: ${e.toString()}',
+          isError: true,
         );
       }
     }
@@ -273,7 +276,7 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
         children: [
           Container(
             height: headerHeight,
-            color: const Color.fromRGBO(25, 52, 89, 1),
+            color: AppColors.primary,
             child: Row(
               children: [
                 Expanded(
@@ -341,10 +344,10 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                       child: Container(
                         height: rowHeight,
                         decoration: BoxDecoration(
-                          color: const Color.fromRGBO(25, 52, 89, 0.85),
+                          color: AppColors.primaryLight,
                           border: Border(
-                            right: BorderSide(color: Colors.grey.shade400),
-                            bottom: BorderSide(color: Colors.grey.shade400),
+                            right: BorderSide(color: AppColors.border),
+                            bottom: BorderSide(color: AppColors.border),
                           ),
                         ),
                         alignment: Alignment.center,
@@ -364,15 +367,11 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                         child: Container(
                           height: rowHeight,
                           decoration: BoxDecoration(
-                            color: seleccionado != null
-                                ? (seleccionado.esCarreraOficial
-                                    ? const Color.fromRGBO(155, 89, 182, 0.15)
-                                    : const Color.fromRGBO(200, 230, 201, 1))
-                                : index.isEven
-                                    ? const Color.fromRGBO(240, 240, 245, 1)
-                                    : Colors.white,
+                            color: index.isEven
+                                ? AppColors.surfaceAlt
+                                : AppColors.surface,
                             border: Border(
-                              bottom: BorderSide(color: Colors.grey.shade300),
+                              bottom: BorderSide(color: AppColors.border),
                             ),
                           ),
                           alignment: Alignment.center,
@@ -382,16 +381,16 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
                                   _buildDisplayTextWithTipo(seleccionado),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 13,
                                     fontWeight: seleccionado.esCarreraOficial ? FontWeight.bold : FontWeight.normal,
-                                    color: seleccionado.esCarreraOficial ? const Color.fromRGBO(106, 27, 154, 1) : null,
+                                    color: seleccionado.esCarreraOficial ? AppColors.accentDark : null,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                 )
                               : Icon(
                                   Icons.add_circle_outline,
-                                  color: Colors.grey[500],
+                                  color: AppColors.textSecondary,
                                   size: 28,
                                 ),
                         ),
@@ -418,9 +417,7 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
       );
       if (entradas.isEmpty) {
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No hay entradas para este día')),
-          );
+          AppSnackBar.show(context, message: 'No hay entradas para este día');
         }
         return;
       }
@@ -429,8 +426,10 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
       await Printing.sharePdf(bytes: pdfBytes, filename: nombreArchivo);
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error al generar PDF: ${e.toString()}')),
+        AppSnackBar.show(
+          context,
+          message: 'Error al generar PDF: ${e.toString()}',
+          isError: true,
         );
       }
     }
@@ -438,16 +437,12 @@ class _ItinerarioSecondScreenState extends State<ItinerarioSecondScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color.fromRGBO(25, 52, 89, 1),
+      backgroundColor: AppColors.primary,
       centerTitle: true,
       title: FittedBox(
         fit: BoxFit.scaleDown,
-        child: Text(
-          'Mi Itinerario - ${widget.nombreDia}',
-          style: const TextStyle(color: Colors.white),
-        ),
+        child: Text('Mi Itinerario - ${widget.nombreDia}'),
       ),
-      iconTheme: const IconThemeData(color: Colors.white),
       actions: [
         IconButton(
           icon: const Icon(Icons.picture_as_pdf),

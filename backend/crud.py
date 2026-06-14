@@ -324,6 +324,7 @@ def delete_emisora(db: Session, emisora_id: int) -> bool:
 
 #Admin-Hermandades
 def clear_hermandades(db: Session) -> int:
+    db.query(models.DiaItinerario).delete()
     db.query(models.ItemItinerario).delete()
     db.query(models.InfoPaso).delete()
     
@@ -393,6 +394,7 @@ def load_hermandades_from_csv(db: Session, csv_content: str) -> int:
 
 #Admin-InfoPasos
 def clear_infopasos(db: Session) -> int:
+    db.query(models.DiaItinerario).delete()
     db.query(models.ItemItinerario).delete()
     
     count = db.query(models.InfoPaso).count()
