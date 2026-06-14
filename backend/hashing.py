@@ -3,8 +3,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pwdlib import PasswordHash
 
-import models
-
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 PASSWORD_HASH = PasswordHash.recommended()
@@ -17,12 +15,3 @@ def verify_password(plain_password, hashed_password):
 
 def get_password_hash(password):
     return PASSWORD_HASH.hash(f"{password}{PASSWORD_PEPPER}")
-
-def authenticate_user(db, userId: int, password: str):
-    user = db.query(models.Usuario).filter(models.Usuario.id == userId).first()
-    if not user:
-        PASSWORD_HASH.verify(f"{password}{PASSWORD_PEPPER}", dummy_hash)
-        return False
-    if not verify_password(password, user.contrasena):
-        return False
-    return user
