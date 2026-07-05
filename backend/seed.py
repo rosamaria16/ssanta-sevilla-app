@@ -139,7 +139,9 @@ def load_noticias(db):
             noticia = Noticia(
                 id=int(row['id']),
                 titular=row['titular'],
-                url=row['url'],
+                contenido=row['contenido'],
+                url_imagen=row['url_imagen'],
+                origen=row['origen'],
                 fecha=datetime.strptime(row['fecha'], "%Y-%m-%d %H:%M:%S")
             )
             db.add(noticia)

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Time, Enum, UniqueConstraint
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime, Time, Enum, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime, time
 import enum
@@ -67,7 +67,9 @@ class Noticia(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     titular = Column(String(255), nullable=False)
-    url = Column(String(500), nullable=False)
+    contenido = Column(Text, nullable=False)
+    url_imagen = Column(String(500), nullable=False)
+    origen = Column(String(50), nullable=False)
     fecha = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 

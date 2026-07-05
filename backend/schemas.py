@@ -165,14 +165,19 @@ class ItinerarioDetalleResponse(ItinerarioBase):
 #Noticia
 class NoticiaBase(BaseModel):
     titular: str
-    url: str
+    contenido: str
+    url_imagen: str
+    origen: str
 
 class NoticiaCreate(NoticiaBase):
     pass
 
 class NoticiaUpdate(BaseModel):
     titular: Optional[str] = None
-    url: Optional[str] = None
+    contenido: Optional[str] = None
+    url_imagen: Optional[str] = None
+    origen: Optional[str] = None
+    fecha: Optional[datetime] = None
 
 class NoticiaResponse(NoticiaBase):
     id: int
