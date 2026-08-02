@@ -35,6 +35,10 @@ class AppColors {
   static const Color errorBorder = Color(0xFFDEB8AB);
 }
 
+class AppFonts {
+  static const String serif = 'serif';
+}
+
 class AppTheme {
   static ThemeData get theme => ThemeData(
     useMaterial3: true,
