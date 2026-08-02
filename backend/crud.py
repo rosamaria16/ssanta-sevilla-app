@@ -260,8 +260,14 @@ def delete_dia_itinerario(db: Session, dia_itinerario_id: int) -> bool:
 def get_noticia(db: Session, noticia_id: int) -> Optional[models.Noticia]:
     return db.query(models.Noticia).filter(models.Noticia.id == noticia_id).first()
 
-def get_noticias(db: Session, skip: int = 0, limit: int = 100) -> List[models.Noticia]:
-    return db.query(models.Noticia).offset(skip).limit(limit).all()
+def get_noticias(db: Session, skip: int = 0, limit: int = 30) -> List[models.Noticia]:
+    return (
+        db.query(models.Noticia)
+        .order_by(models.Noticia.fecha.desc())
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
 
 def create_noticia(db: Session, noticia: schemas.NoticiaCreate) -> models.Noticia:
     db_noticia = models.Noticia(**noticia.model_dump())
